@@ -2,6 +2,17 @@
 
 An unofficial, single-player mobile idle RPG inspired by the classic mechanics and atmosphere of *Rising Force Online (RFO)*, focusing initially on the **Bellato Federation** race.
 
+## 🤖 Agentic AI Vision
+
+This project embraces **agentic AI development** to enhance gameplay, automate testing, and enable intelligent game systems. Our vision includes:
+
+- **Intelligent NPCs**: AI agents that make autonomous decisions for realistic NPC behaviors
+- **Automated Testing**: Agents that continuously test and validate game mechanics
+- **Dynamic Game Balance**: AI-driven economy and difficulty balancing
+- **Procedural Content**: Agents that assist in generating quests, items, and encounters
+
+We follow [GitHub's best practices](https://docs.github.com/en/actions) and [OpenAI's agentic AI patterns](https://openai.com/index/practices-for-governing-agentic-ai-systems/) to ensure safe, transparent, and effective AI integration.
+
 ## 🚀 Project Overview
 
 The core gameplay centers around **passive progression** and **strategic pre-battle preparation**. The player controls a single Bellato character in a persistent world, setting them to automatically battle monsters in dangerous regions. The primary player input is managing inventory, upgrading gear, choosing the next hunting ground, and advancing their character's class and skills.
@@ -58,22 +69,76 @@ The town is the player's hub for active input:
 This section is for contributors and developers looking to set up and modify the project.
 
 ### Tech Stack
-* **Game Engine:** [Specify the Engine, e.g., Unity, Godot, Flutter, etc.]
-* **Programming Language:** [Specify the Language, e.g., C#, C++, Dart, Kotlin, etc.]
-* **Data/Database:** [How is item/monster data stored? e.g., JSON files, SQLite]
-* **Build Targets:** Mobile (iOS/Android)
+* **Framework:** React 19 with TypeScript
+* **Build Tool:** Vite
+* **Styling:** TailwindCSS
+* **Data/Database:** JSON files (items, monsters, zones)
+* **Build Targets:** Web (Mobile-first design)
+
+### Project Structure
+
+```
+rising-force-offline/
+├── README.md                 # This file
+├── CONTRIBUTING.md           # Contribution guidelines
+├── project-bellato-idle/     # Main game application
+│   ├── src/
+│   │   ├── components/       # React components
+│   │   ├── pages/            # Game screens
+│   │   ├── data/             # Game data (items, monsters, zones)
+│   │   ├── state/            # State management
+│   │   ├── hooks/            # Custom React hooks
+│   │   └── utils/            # Utility functions
+│   └── package.json
+├── agents/                   # Agentic AI implementations
+├── tasks/                    # Task definitions for agents
+├── environments/             # Environment configurations
+└── .github/
+    ├── workflows/            # CI/CD workflows
+    └── ISSUE_TEMPLATE/       # Issue templates
+```
 
 ### Installation & Setup
 
 ```bash
 # 1. Clone the repository
-git clone [YOUR_REPO_URL]
-cd project-bellato-idle
+git clone https://github.com/mardin101/rising-force-offline.git
+cd rising-force-offline/project-bellato-idle
 
-# 2. [Engine Specific Step, e.g., Open in Editor]
-# Open the project folder in [Your Engine]
-# (Requires [Your Engine] version X.Y.Z or higher)
+# 2. Install dependencies
+npm install
 
-# 3. [Build Command, if applicable]
-# For testing:
-# [Run Test Script Command]
+# 3. Run development server
+npm run dev
+
+# 4. Build for production
+npm run build
+
+# 5. Run linting
+npm run lint
+```
+
+---
+
+## 📚 Documentation
+
+- [Contributing Guidelines](./CONTRIBUTING.md) - How to contribute to the project
+- [Agents Documentation](./agents/README.md) - Agentic AI implementations
+- [Tasks Documentation](./tasks/README.md) - Task definitions for agents
+- [Environments Documentation](./environments/README.md) - Environment configurations
+
+## 🔗 References
+
+### Agentic AI Best Practices
+- [OpenAI Practices for Governing Agentic AI Systems](https://openai.com/index/practices-for-governing-agentic-ai-systems/)
+- [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/using-github-copilot/using-the-github-copilot-coding-agent-in-your-ide)
+- [GitHub Actions Best Practices](https://docs.github.com/en/actions/using-workflows/best-practices-for-workflow-configuration)
+
+### Game Development
+- [Rising Force Online Wiki](https://rf-online.fandom.com/wiki/RF_Online_Wiki)
+
+---
+
+## 📄 License
+
+This project is for educational and nostalgic purposes. All trademarks are property of their respective owners.
