@@ -13,6 +13,8 @@ Agents are autonomous entities that can perceive their environment, make decisio
 
 ## Structure
 
+The recommended directory structure for agents (create as needed):
+
 ```
 agents/
 ├── README.md           # This file

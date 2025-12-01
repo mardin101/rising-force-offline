@@ -8,6 +8,8 @@ Tasks define the objectives, constraints, and success criteria for agents. They 
 
 ## Structure
 
+The recommended directory structure for tasks (create as needed):
+
 ```
 tasks/
 ├── README.md           # This file
@@ -28,7 +30,7 @@ A well-defined task includes:
 
 ## Creating a New Task
 
-1. Use the task template in `templates/`
+1. Create a `templates/` directory if it doesn't exist, and use task templates for common patterns
 2. Define clear, measurable objectives
 3. Specify all inputs and expected outputs
 4. Document any constraints or edge cases

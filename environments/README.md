@@ -8,6 +8,8 @@ Environments provide the context in which agents operate. They define the state 
 
 ## Structure
 
+The recommended directory structure for environments (create as needed):
+
 ```
 environments/
 ├── README.md           # This file
