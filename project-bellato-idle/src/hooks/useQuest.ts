@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
-import { QUEST_TYPE } from '../state/gameStateSlice';
+import { QUEST_TYPE, CHARACTER_CLASSES } from '../state/gameStateSlice';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -60,7 +60,7 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
       attack: 10,
       defense: 5,
       gold: 0,
-      class: "Warrior",
+      class: CHARACTER_CLASSES.WARRIOR,
     }
   );
   const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(

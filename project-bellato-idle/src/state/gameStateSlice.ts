@@ -1,5 +1,5 @@
-// Placeholder for game state management (e.g., Redux, Zustand)
-// This file will contain the core game state structure
+// Game state management
+// This file contains the core game state structure and types
 
 // Quest type constants
 export const QUEST_TYPE = {
@@ -8,6 +8,24 @@ export const QUEST_TYPE = {
 } as const;
 
 export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
+
+// Character class constants
+export const CHARACTER_CLASSES = {
+  WARRIOR: 'Warrior',
+  RANGER: 'Ranger',
+  SPIRITUALIST: 'Spiritualist',
+  SPECIALIST: 'Specialist',
+} as const;
+
+export type CharacterClass = typeof CHARACTER_CLASSES[keyof typeof CHARACTER_CLASSES];
+
+// Base stats for each class
+export const CLASS_BASE_STATS: Record<CharacterClass, { hp: number; attack: number; defense: number }> = {
+  [CHARACTER_CLASSES.WARRIOR]: { hp: 120, attack: 12, defense: 8 },
+  [CHARACTER_CLASSES.RANGER]: { hp: 90, attack: 15, defense: 5 },
+  [CHARACTER_CLASSES.SPIRITUALIST]: { hp: 80, attack: 10, defense: 4 },
+  [CHARACTER_CLASSES.SPECIALIST]: { hp: 100, attack: 8, defense: 6 },
+};
 
 export interface Character {
   name: string;
@@ -18,7 +36,7 @@ export interface Character {
   attack: number;
   defense: number;
   gold: number;
-  class: string;
+  class: CharacterClass;
 }
 
 export interface QuestRewards {
@@ -46,48 +64,43 @@ export interface ActiveQuest {
 }
 
 export interface GameState {
-  character: Character;
+  character: Character | null;
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
   materials: Record<string, number>;
   activeQuest: ActiveQuest | null;
   completedQuestIds: string[];
+  hasStartedGame: boolean;
 }
 
-// Initial state placeholder
+// Initial state for a new game (before character creation)
 export const initialGameState: GameState = {
-  character: {
-    name: "Hero",
-    level: 1,
-    experience: 0,
-    hp: 100,
-    maxHp: 100,
-    attack: 10,
-    defense: 5,
-    gold: 0,
-    class: "Warrior",
-  },
+  character: null,
   currentZone: null,
   isInBattle: false,
   inventory: [],
   materials: {},
   activeQuest: null,
   completedQuestIds: [],
+  hasStartedGame: false,
 };
 
-// Placeholder actions - to be implemented with state management library
-export const gameActions = {
-  startBattle: (zoneId: string) => {
-    console.log(`Starting battle in zone: ${zoneId}`);
-  },
-  endBattle: () => {
-    console.log("Ending battle");
-  },
-  addItem: (itemId: string) => {
-    console.log(`Adding item: ${itemId}`);
-  },
-  gainExperience: (amount: number) => {
-    console.log(`Gaining ${amount} experience`);
-  },
-};
+// Create a new character with class-specific base stats
+export function createCharacter(name: string, characterClass: CharacterClass): Character {
+  const baseStats = CLASS_BASE_STATS[characterClass];
+  return {
+    name,
+    level: 1,
+    experience: 0,
+    hp: baseStats.hp,
+    maxHp: baseStats.hp,
+    attack: baseStats.attack,
+    defense: baseStats.defense,
+    gold: 100, // Starting gold
+    class: characterClass,
+  };
+}
+
+// Storage key for persisting game state
+export const GAME_STATE_STORAGE_KEY = 'bellato-idle-game-state';
