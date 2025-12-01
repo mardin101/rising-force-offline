@@ -44,6 +44,70 @@ export interface Character {
   class: CharacterClass;
 }
 
+// Inventory constants
+export const INVENTORY_ROWS = 5;
+export const INVENTORY_COLS = 8;
+
+// Inventory item in a grid slot
+export interface InventoryItem {
+  id: string;
+  name: string;
+  type: string;
+  description?: string;
+}
+
+// Grid-based inventory slot (null means empty)
+export type InventorySlot = InventoryItem | null;
+
+// Full inventory grid type (5 rows x 8 columns)
+export type InventoryGrid = InventorySlot[][];
+
+// Create an empty inventory grid
+export function createEmptyInventoryGrid(): InventoryGrid {
+  return Array.from({ length: INVENTORY_ROWS }, () => 
+    Array.from({ length: INVENTORY_COLS }, () => null)
+  );
+}
+
+// Create an inventory grid with starter items
+export function createStarterInventoryGrid(): InventoryGrid {
+  const grid = createEmptyInventoryGrid();
+  
+  // Add some starter items for demonstration
+  grid[0][0] = {
+    id: 'sword_basic',
+    name: 'Basic Sword',
+    type: 'weapon',
+    description: 'A basic iron sword for beginners.',
+  };
+  grid[0][1] = {
+    id: 'potion_health',
+    name: 'Health Potion',
+    type: 'consumable',
+    description: 'Restores 50 HP when consumed.',
+  };
+  grid[0][2] = {
+    id: 'potion_health_2',
+    name: 'Health Potion',
+    type: 'consumable',
+    description: 'Restores 50 HP when consumed.',
+  };
+  grid[1][0] = {
+    id: 'leather_armor',
+    name: 'Leather Armor',
+    type: 'armor',
+    description: 'Basic leather armor.',
+  };
+  grid[2][3] = {
+    id: 'iron_ore',
+    name: 'Iron Ore',
+    type: 'material',
+    description: 'Raw iron ore for crafting.',
+  };
+  
+  return grid;
+}
+
 export interface QuestRewards {
   gold: number;
   exp: number;
@@ -73,6 +137,7 @@ export interface GameState {
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
+  inventoryGrid: InventoryGrid;
   materials: Record<string, number>;
   activeQuest: ActiveQuest | null;
   completedQuestIds: string[];
@@ -85,6 +150,7 @@ export const initialGameState: GameState = {
   currentZone: null,
   isInBattle: false,
   inventory: [],
+  inventoryGrid: createStarterInventoryGrid(),
   materials: {},
   activeQuest: null,
   completedQuestIds: [],
@@ -144,6 +210,11 @@ export function isValidGameState(value: unknown): value is GameState {
   if (!Array.isArray(state.completedQuestIds)) return false;
   if (typeof state.materials !== 'object' || state.materials === null) return false;
   
+  // Validate inventoryGrid if it exists
+  if (state.inventoryGrid !== undefined) {
+    if (!Array.isArray(state.inventoryGrid)) return false;
+  }
+  
   // Character can be null or a valid Character object
   if (state.character !== null) {
     const char = state.character as Record<string, unknown>;
@@ -153,4 +224,15 @@ export function isValidGameState(value: unknown): value is GameState {
   }
   
   return true;
+}
+
+// Migrate old game state to include inventoryGrid if missing
+export function migrateGameState(state: GameState): GameState {
+  if (!state.inventoryGrid) {
+    return {
+      ...state,
+      inventoryGrid: createStarterInventoryGrid(),
+    };
+  }
+  return state;
 }

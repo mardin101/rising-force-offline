@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { GameMenu } from '../components/ui';
+import { GameMenu, InventoryModal } from '../components/ui';
 import { useGameState } from '../state/GameStateContext';
 
 export default function CharacterSheet() {
-  const { gameState } = useGameState();
+  const { gameState, swapInventoryItems } = useGameState();
   const character = gameState.character;
   const [isStatsMenuOpen, setIsStatsMenuOpen] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false);
 
   const handleCloseStats = () => {
     setIsStatsMenuOpen(false);
@@ -18,6 +19,14 @@ export default function CharacterSheet() {
 
   const handleInfo = () => {
     setShowInfo(!showInfo);
+  };
+
+  const handleOpenInventory = () => {
+    setIsInventoryOpen(true);
+  };
+
+  const handleCloseInventory = () => {
+    setIsInventoryOpen(false);
   };
 
   // Handle case when no character has been created yet
@@ -39,15 +48,28 @@ export default function CharacterSheet() {
         View and manage your character's stats, equipment, skills, and proficiency levels.
       </p>
 
-      {/* Toggle button to show stats menu if closed */}
-      {!isStatsMenuOpen && (
+      {/* Action buttons row */}
+      <div className="flex flex-wrap gap-3 mb-4">
+        {/* Toggle button to show stats menu if closed */}
+        {!isStatsMenuOpen && (
+          <button
+            onClick={handleOpenStats}
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          >
+            Open Stats Menu
+          </button>
+        )}
+        
+        {/* Bag/Inventory button */}
         <button
-          onClick={handleOpenStats}
-          className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          onClick={handleOpenInventory}
+          className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition-colors"
+          aria-label="Open inventory"
         >
-          Open Stats Menu
+          <span className="text-xl">🎒</span>
+          <span>Inventory</span>
         </button>
-      )}
+      </div>
 
       {/* Stats Menu using GameMenu component */}
       <div className="flex flex-wrap gap-4">
@@ -120,6 +142,14 @@ export default function CharacterSheet() {
           </div>
         </GameMenu>
       </div>
+
+      {/* Inventory Modal */}
+      <InventoryModal
+        isOpen={isInventoryOpen}
+        onClose={handleCloseInventory}
+        grid={gameState.inventoryGrid}
+        onSwapItems={swapInventoryItems}
+      />
     </div>
   );
 }
