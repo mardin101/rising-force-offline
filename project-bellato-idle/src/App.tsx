@@ -130,43 +130,47 @@ function GameContent() {
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={() => handleNavClick('town')}
+                    aria-label="Town"
                     className={`px-4 py-3 rounded transition-colors text-left ${
                       currentPage === 'town'
                         ? 'bg-amber-600 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
                   >
-                    🏠 Town
+                    <span aria-hidden="true">🏠 </span>Town
                   </button>
                   <button
                     onClick={() => handleNavClick('battle')}
+                    aria-label="Battle"
                     className={`px-4 py-3 rounded transition-colors text-left ${
                       currentPage === 'battle'
                         ? 'bg-red-600 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
                   >
-                    ⚔️ Battle
+                    <span aria-hidden="true">⚔️ </span>Battle
                   </button>
                   <button
                     onClick={() => handleNavClick('character')}
+                    aria-label="Character"
                     className={`px-4 py-3 rounded transition-colors text-left ${
                       currentPage === 'character'
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
                   >
-                    👤 Character
+                    <span aria-hidden="true">👤 </span>Character
                   </button>
                   <button
                     onClick={() => {
                       resetGame()
                       setIsMenuOpen(false)
                     }}
+                    aria-label="Reset Game"
                     className="px-4 py-3 rounded bg-gray-700 text-gray-400 hover:bg-red-600 hover:text-white transition-colors text-left"
                     title="Reset game and create new character"
                   >
-                    🔄 Reset Game
+                    <span aria-hidden="true">🔄 </span>Reset Game
                   </button>
                 </div>
               </div>
