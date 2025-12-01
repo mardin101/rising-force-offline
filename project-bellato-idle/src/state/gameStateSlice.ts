@@ -1,6 +1,14 @@
 // Placeholder for game state management (e.g., Redux, Zustand)
 // This file will contain the core game state structure
 
+// Quest type constants
+export const QUEST_TYPE = {
+  SLAY: 'slay',
+  COLLECT: 'collect',
+} as const;
+
+export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
+
 export interface Character {
   name: string;
   level: number;
@@ -13,11 +21,38 @@ export interface Character {
   class: string;
 }
 
+export interface QuestRewards {
+  gold: number;
+  exp: number;
+  item?: string;
+}
+
+export interface Quest {
+  id: string;
+  level: number;
+  title: string;
+  type: QuestType;
+  description: string;
+  targetMonster: string;
+  targetMaterial?: string;
+  targetAmount: number;
+  rewards: QuestRewards;
+}
+
+export interface ActiveQuest {
+  quest: Quest;
+  progress: number;
+  isComplete: boolean;
+}
+
 export interface GameState {
   character: Character;
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
+  materials: Record<string, number>;
+  activeQuest: ActiveQuest | null;
+  completedQuestIds: string[];
 }
 
 // Initial state placeholder
@@ -36,6 +71,9 @@ export const initialGameState: GameState = {
   currentZone: null,
   isInBattle: false,
   inventory: [],
+  materials: {},
+  activeQuest: null,
+  completedQuestIds: [],
 };
 
 // Placeholder actions - to be implemented with state management library
