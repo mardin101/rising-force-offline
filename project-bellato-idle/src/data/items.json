@@ -1,0 +1,16 @@
+[
+  {
+    "id": "sword_basic",
+    "name": "Basic Sword",
+    "type": "weapon",
+    "attack": 10,
+    "description": "A basic iron sword for beginners."
+  },
+  {
+    "id": "potion_health",
+    "name": "Health Potion",
+    "type": "consumable",
+    "healAmount": 50,
+    "description": "Restores 50 HP when consumed."
+  }
+]

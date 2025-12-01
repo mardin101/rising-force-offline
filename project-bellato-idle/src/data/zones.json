@@ -1,0 +1,16 @@
+[
+  {
+    "id": "outskirts_sette",
+    "name": "Outskirts of Sette",
+    "levelRequirement": 1,
+    "monsters": ["goblin", "wolf"],
+    "description": "The peaceful outskirts of Sette, home to low-level creatures."
+  },
+  {
+    "id": "solus_plains",
+    "name": "Solus Plains",
+    "levelRequirement": 10,
+    "monsters": ["wolf"],
+    "description": "Open plains with more dangerous wildlife."
+  }
+]
