@@ -1,16 +1,37 @@
 [
   {
-    "id": "outskirts_sette",
-    "name": "Outskirts of Sette",
+    "id": "bellato_hq_settlement",
+    "name": "Bellato HQ Settlement",
     "levelRequirement": 1,
-    "monsters": ["goblin", "wolf"],
-    "description": "The peaceful outskirts of Sette, home to low-level creatures."
+    "monsters": ["slime", "goblin", "bat"],
+    "description": "The Bellato HQ settlement, a safe zone with minor pests nearby."
   },
   {
-    "id": "solus_plains",
-    "name": "Solus Plains",
+    "id": "solus_settlement",
+    "name": "Solus Settlement",
+    "levelRequirement": 5,
+    "monsters": ["wolf", "boar", "spider"],
+    "description": "A frontier settlement in Solus territory with wild creatures."
+  },
+  {
+    "id": "anacade_settlement",
+    "name": "Anacade Settlement",
     "levelRequirement": 10,
-    "monsters": ["wolf"],
-    "description": "Open plains with more dangerous wildlife."
+    "monsters": ["skeleton", "orc", "bandit"],
+    "description": "A remote settlement plagued by undead and hostile forces."
+  },
+  {
+    "id": "sette_desert",
+    "name": "Sette Desert",
+    "levelRequirement": 15,
+    "monsters": ["lizardman", "harpy", "elemental"],
+    "description": "A harsh desert filled with scaled beasts and elemental beings."
+  },
+  {
+    "id": "crag_mining_area",
+    "name": "Crag Mining Area",
+    "levelRequirement": 20,
+    "monsters": ["golem", "troll", "demon"],
+    "description": "An abandoned mining area now infested with powerful monsters."
   }
 ]
