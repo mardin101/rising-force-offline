@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { 
   type InventoryGrid as InventoryGridType, 
   type InventorySlot,
+  type ItemType,
   INVENTORY_ROWS, 
   INVENTORY_COLS,
   ITEM_TYPE,
@@ -157,7 +158,7 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
 }
 
 // Helper function to get item icon based on type using constants
-function getItemIcon(type: string): string {
+function getItemIcon(type: ItemType): string {
   switch (type) {
     case ITEM_TYPE.WEAPON:
       return '⚔️';
