@@ -1,6 +1,8 @@
 // Game state management
 // This file contains the core game state structure and types
 
+import itemsData from '../data/items.json';
+
 // Quest type constants
 export const QUEST_TYPE = {
   SLAY: 'slay',
@@ -8,6 +10,17 @@ export const QUEST_TYPE = {
 } as const;
 
 export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
+
+// Item type constants
+export const ITEM_TYPE = {
+  WEAPON: 'weapon',
+  ARMOR: 'armor',
+  CONSUMABLE: 'consumable',
+  MATERIAL: 'material',
+  ACCESSORY: 'accessory',
+} as const;
+
+export type ItemType = typeof ITEM_TYPE[keyof typeof ITEM_TYPE];
 
 // Character class constants
 export const CHARACTER_CLASSES = {
@@ -48,12 +61,30 @@ export interface Character {
 export const INVENTORY_ROWS = 5;
 export const INVENTORY_COLS = 8;
 
-// Inventory item in a grid slot
-export interface InventoryItem {
+// Item data interface (from items.json)
+export interface ItemData {
   id: string;
   name: string;
-  type: string;
-  description?: string;
+  type: ItemType;
+  description: string;
+  attack?: number;
+  defense?: number;
+  healAmount?: number;
+}
+
+// Get all items from the data file
+export function getItemsData(): ItemData[] {
+  return itemsData as ItemData[];
+}
+
+// Get an item by ID from the data file
+export function getItemById(id: string): ItemData | undefined {
+  return getItemsData().find(item => item.id === id);
+}
+
+// Inventory item in a grid slot (stores only the item ID reference)
+export interface InventoryItem {
+  itemId: string;
 }
 
 // Grid-based inventory slot (null means empty)
@@ -73,37 +104,12 @@ export function createEmptyInventoryGrid(): InventoryGrid {
 export function createStarterInventoryGrid(): InventoryGrid {
   const grid = createEmptyInventoryGrid();
   
-  // Add some starter items for demonstration
-  grid[0][0] = {
-    id: 'sword_basic',
-    name: 'Basic Sword',
-    type: 'weapon',
-    description: 'A basic iron sword for beginners.',
-  };
-  grid[0][1] = {
-    id: 'potion_health',
-    name: 'Health Potion',
-    type: 'consumable',
-    description: 'Restores 50 HP when consumed.',
-  };
-  grid[0][2] = {
-    id: 'potion_health_2',
-    name: 'Health Potion',
-    type: 'consumable',
-    description: 'Restores 50 HP when consumed.',
-  };
-  grid[1][0] = {
-    id: 'leather_armor',
-    name: 'Leather Armor',
-    type: 'armor',
-    description: 'Basic leather armor.',
-  };
-  grid[2][3] = {
-    id: 'iron_ore',
-    name: 'Iron Ore',
-    type: 'material',
-    description: 'Raw iron ore for crafting.',
-  };
+  // Add some starter items for demonstration using item IDs
+  grid[0][0] = { itemId: 'sword_basic' };
+  grid[0][1] = { itemId: 'potion_health' };
+  grid[0][2] = { itemId: 'potion_health' };
+  grid[1][0] = { itemId: 'leather_armor' };
+  grid[2][3] = { itemId: 'iron_ore' };
   
   return grid;
 }

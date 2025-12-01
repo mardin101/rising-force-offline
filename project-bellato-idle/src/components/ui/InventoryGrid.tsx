@@ -3,7 +3,9 @@ import {
   type InventoryGrid as InventoryGridType, 
   type InventorySlot,
   INVENTORY_ROWS, 
-  INVENTORY_COLS 
+  INVENTORY_COLS,
+  ITEM_TYPE,
+  getItemById,
 } from '../../state/gameStateSlice';
 import './InventoryGrid.css';
 
@@ -101,30 +103,33 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
   }, [touchedSlot, onSwapItems, grid]);
 
   // Render a single inventory slot
-  const renderSlot = (item: InventorySlot, row: number, col: number) => {
+  const renderSlot = (slot: InventorySlot, row: number, col: number) => {
     const isDragSource = dragState.isDragging && dragState.fromRow === row && dragState.fromCol === col;
     const isSelected = touchedSlot?.row === row && touchedSlot?.col === col;
+    
+    // Look up item data from the data file
+    const itemData = slot ? getItemById(slot.itemId) : null;
     
     return (
       <div
         key={`${row}-${col}`}
-        className={`inventory-slot ${item ? 'has-item' : 'empty'} ${isDragSource ? 'dragging' : ''} ${isSelected ? 'selected' : ''}`}
-        draggable={!!item}
+        className={`inventory-slot ${slot ? 'has-item' : 'empty'} ${isDragSource ? 'dragging' : ''} ${isSelected ? 'selected' : ''}`}
+        draggable={!!slot}
         onDragStart={(e) => handleDragStart(row, col, e)}
         onDragOver={handleDragOver}
         onDrop={(e) => handleDrop(row, col, e)}
         onDragEnd={handleDragEnd}
         onClick={() => handleTouchStart(row, col)}
         role="button"
-        aria-label={item ? `${item.name} - Click to select for swap` : 'Empty slot'}
+        aria-label={itemData ? `${itemData.name} - Click to select for swap` : 'Empty slot'}
         tabIndex={0}
       >
-        {item && (
+        {itemData && (
           <div className="inventory-item">
             <div className="item-icon">
-              {getItemIcon(item.type)}
+              {getItemIcon(itemData.type)}
             </div>
-            <div className="item-name">{item.name}</div>
+            <div className="item-name">{itemData.name}</div>
           </div>
         )}
       </div>
@@ -151,18 +156,18 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
   );
 }
 
-// Helper function to get item icon based on type
+// Helper function to get item icon based on type using constants
 function getItemIcon(type: string): string {
   switch (type) {
-    case 'weapon':
+    case ITEM_TYPE.WEAPON:
       return '⚔️';
-    case 'armor':
+    case ITEM_TYPE.ARMOR:
       return '🛡️';
-    case 'consumable':
+    case ITEM_TYPE.CONSUMABLE:
       return '🧪';
-    case 'material':
+    case ITEM_TYPE.MATERIAL:
       return '💎';
-    case 'accessory':
+    case ITEM_TYPE.ACCESSORY:
       return '💍';
     default:
       return '📦';
