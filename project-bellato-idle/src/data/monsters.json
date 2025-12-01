@@ -6,7 +6,9 @@
     "attack": 5,
     "defense": 2,
     "expReward": 10,
-    "goldDrop": [5, 15]
+    "goldDrop": [5, 15],
+    "levelRange": [1, 3],
+    "materialDrop": { "id": "goblin_ear", "name": "Goblin Ear", "dropRate": 0.3 }
   },
   {
     "id": "wolf",
@@ -15,6 +17,206 @@
     "attack": 8,
     "defense": 3,
     "expReward": 15,
-    "goldDrop": [10, 25]
+    "goldDrop": [10, 25],
+    "levelRange": [2, 5],
+    "materialDrop": { "id": "wolf_fang", "name": "Wolf Fang", "dropRate": 0.25 }
+  },
+  {
+    "id": "slime",
+    "name": "Slime",
+    "hp": 30,
+    "attack": 3,
+    "defense": 1,
+    "expReward": 8,
+    "goldDrop": [3, 10],
+    "levelRange": [1, 2],
+    "materialDrop": { "id": "slime_gel", "name": "Slime Gel", "dropRate": 0.4 }
+  },
+  {
+    "id": "boar",
+    "name": "Wild Boar",
+    "hp": 90,
+    "attack": 10,
+    "defense": 5,
+    "expReward": 20,
+    "goldDrop": [12, 30],
+    "levelRange": [3, 6],
+    "materialDrop": { "id": "boar_tusk", "name": "Boar Tusk", "dropRate": 0.2 }
+  },
+  {
+    "id": "skeleton",
+    "name": "Skeleton Warrior",
+    "hp": 100,
+    "attack": 12,
+    "defense": 6,
+    "expReward": 25,
+    "goldDrop": [15, 35],
+    "levelRange": [4, 7],
+    "materialDrop": { "id": "bone_fragment", "name": "Bone Fragment", "dropRate": 0.35 }
+  },
+  {
+    "id": "spider",
+    "name": "Giant Spider",
+    "hp": 65,
+    "attack": 9,
+    "defense": 4,
+    "expReward": 18,
+    "goldDrop": [10, 28],
+    "levelRange": [3, 5],
+    "materialDrop": { "id": "spider_silk", "name": "Spider Silk", "dropRate": 0.3 }
+  },
+  {
+    "id": "orc",
+    "name": "Orc Grunt",
+    "hp": 120,
+    "attack": 14,
+    "defense": 8,
+    "expReward": 30,
+    "goldDrop": [18, 40],
+    "levelRange": [5, 8],
+    "materialDrop": { "id": "orc_hide", "name": "Orc Hide", "dropRate": 0.25 }
+  },
+  {
+    "id": "bat",
+    "name": "Cave Bat",
+    "hp": 40,
+    "attack": 6,
+    "defense": 2,
+    "expReward": 12,
+    "goldDrop": [6, 18],
+    "levelRange": [2, 4],
+    "materialDrop": { "id": "bat_wing", "name": "Bat Wing", "dropRate": 0.35 }
+  },
+  {
+    "id": "lizardman",
+    "name": "Lizardman Scout",
+    "hp": 110,
+    "attack": 13,
+    "defense": 7,
+    "expReward": 28,
+    "goldDrop": [16, 38],
+    "levelRange": [6, 9],
+    "materialDrop": { "id": "lizard_scale", "name": "Lizard Scale", "dropRate": 0.2 }
+  },
+  {
+    "id": "harpy",
+    "name": "Harpy",
+    "hp": 85,
+    "attack": 11,
+    "defense": 5,
+    "expReward": 24,
+    "goldDrop": [14, 34],
+    "levelRange": [5, 8],
+    "materialDrop": { "id": "harpy_feather", "name": "Harpy Feather", "dropRate": 0.28 }
+  },
+  {
+    "id": "golem",
+    "name": "Stone Golem",
+    "hp": 180,
+    "attack": 18,
+    "defense": 15,
+    "expReward": 45,
+    "goldDrop": [25, 55],
+    "levelRange": [8, 12],
+    "materialDrop": { "id": "golem_core", "name": "Golem Core", "dropRate": 0.15 }
+  },
+  {
+    "id": "bandit",
+    "name": "Bandit",
+    "hp": 95,
+    "attack": 12,
+    "defense": 6,
+    "expReward": 26,
+    "goldDrop": [20, 45],
+    "levelRange": [6, 10],
+    "materialDrop": { "id": "bandit_mask", "name": "Bandit Mask", "dropRate": 0.22 }
+  },
+  {
+    "id": "treant",
+    "name": "Treant",
+    "hp": 150,
+    "attack": 16,
+    "defense": 12,
+    "expReward": 40,
+    "goldDrop": [22, 50],
+    "levelRange": [9, 13],
+    "materialDrop": { "id": "ancient_bark", "name": "Ancient Bark", "dropRate": 0.18 }
+  },
+  {
+    "id": "ghost",
+    "name": "Wandering Ghost",
+    "hp": 70,
+    "attack": 14,
+    "defense": 3,
+    "expReward": 32,
+    "goldDrop": [18, 42],
+    "levelRange": [7, 11],
+    "materialDrop": { "id": "ectoplasm", "name": "Ectoplasm", "dropRate": 0.25 }
+  },
+  {
+    "id": "ogre",
+    "name": "Ogre",
+    "hp": 200,
+    "attack": 22,
+    "defense": 10,
+    "expReward": 55,
+    "goldDrop": [30, 65],
+    "levelRange": [10, 14],
+    "materialDrop": { "id": "ogre_club", "name": "Ogre Club", "dropRate": 0.12 }
+  },
+  {
+    "id": "wyvern",
+    "name": "Wyvern Hatchling",
+    "hp": 160,
+    "attack": 20,
+    "defense": 11,
+    "expReward": 50,
+    "goldDrop": [28, 60],
+    "levelRange": [11, 15],
+    "materialDrop": { "id": "wyvern_scale", "name": "Wyvern Scale", "dropRate": 0.15 }
+  },
+  {
+    "id": "troll",
+    "name": "Swamp Troll",
+    "hp": 220,
+    "attack": 24,
+    "defense": 12,
+    "expReward": 60,
+    "goldDrop": [32, 70],
+    "levelRange": [12, 16],
+    "materialDrop": { "id": "troll_blood", "name": "Troll Blood", "dropRate": 0.2 }
+  },
+  {
+    "id": "elemental",
+    "name": "Fire Elemental",
+    "hp": 130,
+    "attack": 26,
+    "defense": 8,
+    "expReward": 58,
+    "goldDrop": [30, 68],
+    "levelRange": [13, 17],
+    "materialDrop": { "id": "fire_essence", "name": "Fire Essence", "dropRate": 0.18 }
+  },
+  {
+    "id": "gargoyle",
+    "name": "Gargoyle",
+    "hp": 175,
+    "attack": 21,
+    "defense": 14,
+    "expReward": 52,
+    "goldDrop": [28, 62],
+    "levelRange": [14, 18],
+    "materialDrop": { "id": "stone_heart", "name": "Stone Heart", "dropRate": 0.12 }
+  },
+  {
+    "id": "demon",
+    "name": "Lesser Demon",
+    "hp": 250,
+    "attack": 28,
+    "defense": 16,
+    "expReward": 70,
+    "goldDrop": [40, 85],
+    "levelRange": [15, 20],
+    "materialDrop": { "id": "demon_horn", "name": "Demon Horn", "dropRate": 0.1 }
   }
 ]

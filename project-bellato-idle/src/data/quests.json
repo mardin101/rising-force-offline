@@ -1,0 +1,211 @@
+[
+  {
+    "id": "quest_1",
+    "level": 1,
+    "title": "Slime Hunting",
+    "type": "slay",
+    "description": "Eliminate the slimes that are terrorizing the village outskirts.",
+    "targetMonster": "slime",
+    "targetAmount": 5,
+    "rewards": { "gold": 50, "exp": 30 }
+  },
+  {
+    "id": "quest_2",
+    "level": 2,
+    "title": "Goblin Menace",
+    "type": "slay",
+    "description": "The goblins are becoming too aggressive. Cull their numbers.",
+    "targetMonster": "goblin",
+    "targetAmount": 8,
+    "rewards": { "gold": 80, "exp": 50 }
+  },
+  {
+    "id": "quest_3",
+    "level": 3,
+    "title": "Wolf Pelts",
+    "type": "collect",
+    "description": "Collect wolf fangs for the blacksmith's new weapon design.",
+    "targetMonster": "wolf",
+    "targetMaterial": "wolf_fang",
+    "targetAmount": 4,
+    "rewards": { "gold": 100, "exp": 65 }
+  },
+  {
+    "id": "quest_4",
+    "level": 4,
+    "title": "Spider Silk Gathering",
+    "type": "collect",
+    "description": "The tailor needs spider silk for magical garments.",
+    "targetMonster": "spider",
+    "targetMaterial": "spider_silk",
+    "targetAmount": 6,
+    "rewards": { "gold": 120, "exp": 80 }
+  },
+  {
+    "id": "quest_5",
+    "level": 5,
+    "title": "Boar Hunt",
+    "type": "slay",
+    "description": "Wild boars are destroying the farmlands. Hunt them down.",
+    "targetMonster": "boar",
+    "targetAmount": 10,
+    "rewards": { "gold": 150, "exp": 100 }
+  },
+  {
+    "id": "quest_6",
+    "level": 6,
+    "title": "Skeleton Army",
+    "type": "slay",
+    "description": "An undead threat rises from the old cemetery. Destroy the skeletons.",
+    "targetMonster": "skeleton",
+    "targetAmount": 12,
+    "rewards": { "gold": 180, "exp": 120 }
+  },
+  {
+    "id": "quest_7",
+    "level": 7,
+    "title": "Bat Cave Cleansing",
+    "type": "collect",
+    "description": "Collect bat wings for the alchemist's potions.",
+    "targetMonster": "bat",
+    "targetMaterial": "bat_wing",
+    "targetAmount": 8,
+    "rewards": { "gold": 200, "exp": 140, "item": "potion_health" }
+  },
+  {
+    "id": "quest_8",
+    "level": 8,
+    "title": "Orc Invasion",
+    "type": "slay",
+    "description": "The orc war party threatens our borders. Defeat them!",
+    "targetMonster": "orc",
+    "targetAmount": 10,
+    "rewards": { "gold": 250, "exp": 165 }
+  },
+  {
+    "id": "quest_9",
+    "level": 9,
+    "title": "Harpy Feathers",
+    "type": "collect",
+    "description": "The enchanter requires harpy feathers for a powerful spell.",
+    "targetMonster": "harpy",
+    "targetMaterial": "harpy_feather",
+    "targetAmount": 5,
+    "rewards": { "gold": 280, "exp": 185 }
+  },
+  {
+    "id": "quest_10",
+    "level": 10,
+    "title": "Lizardman Scouts",
+    "type": "slay",
+    "description": "Lizardman scouts have been spotted near the village. Eliminate them.",
+    "targetMonster": "lizardman",
+    "targetAmount": 8,
+    "rewards": { "gold": 320, "exp": 210, "item": "sword_basic" }
+  },
+  {
+    "id": "quest_11",
+    "level": 11,
+    "title": "Ghost Exorcism",
+    "type": "collect",
+    "description": "The priest needs ectoplasm to perform a cleansing ritual.",
+    "targetMonster": "ghost",
+    "targetMaterial": "ectoplasm",
+    "targetAmount": 6,
+    "rewards": { "gold": 360, "exp": 240 }
+  },
+  {
+    "id": "quest_12",
+    "level": 12,
+    "title": "Golem Threat",
+    "type": "slay",
+    "description": "Ancient golems have awakened. They must be stopped.",
+    "targetMonster": "golem",
+    "targetAmount": 6,
+    "rewards": { "gold": 400, "exp": 270 }
+  },
+  {
+    "id": "quest_13",
+    "level": 13,
+    "title": "Bandit Suppression",
+    "type": "slay",
+    "description": "A bandit gang is terrorizing travelers. Bring them to justice.",
+    "targetMonster": "bandit",
+    "targetAmount": 15,
+    "rewards": { "gold": 450, "exp": 300 }
+  },
+  {
+    "id": "quest_14",
+    "level": 14,
+    "title": "Ancient Bark Collection",
+    "type": "collect",
+    "description": "The druid requires ancient bark for a powerful ward.",
+    "targetMonster": "treant",
+    "targetMaterial": "ancient_bark",
+    "targetAmount": 4,
+    "rewards": { "gold": 500, "exp": 340 }
+  },
+  {
+    "id": "quest_15",
+    "level": 15,
+    "title": "Ogre Extermination",
+    "type": "slay",
+    "description": "The ogre tribe has become too dangerous. End their reign.",
+    "targetMonster": "ogre",
+    "targetAmount": 8,
+    "rewards": { "gold": 550, "exp": 380 }
+  },
+  {
+    "id": "quest_16",
+    "level": 16,
+    "title": "Wyvern Scales",
+    "type": "collect",
+    "description": "Collect wyvern scales for legendary armor crafting.",
+    "targetMonster": "wyvern",
+    "targetMaterial": "wyvern_scale",
+    "targetAmount": 5,
+    "rewards": { "gold": 600, "exp": 420 }
+  },
+  {
+    "id": "quest_17",
+    "level": 17,
+    "title": "Troll Bloodletting",
+    "type": "collect",
+    "description": "Troll blood is needed for a regeneration potion recipe.",
+    "targetMonster": "troll",
+    "targetMaterial": "troll_blood",
+    "targetAmount": 4,
+    "rewards": { "gold": 680, "exp": 470 }
+  },
+  {
+    "id": "quest_18",
+    "level": 18,
+    "title": "Elemental Purge",
+    "type": "slay",
+    "description": "Fire elementals are scorching the forests. Extinguish them.",
+    "targetMonster": "elemental",
+    "targetAmount": 10,
+    "rewards": { "gold": 750, "exp": 520 }
+  },
+  {
+    "id": "quest_19",
+    "level": 19,
+    "title": "Gargoyle Hearts",
+    "type": "collect",
+    "description": "Retrieve stone hearts from gargoyles for the arcane ritual.",
+    "targetMonster": "gargoyle",
+    "targetMaterial": "stone_heart",
+    "targetAmount": 3,
+    "rewards": { "gold": 820, "exp": 580 }
+  },
+  {
+    "id": "quest_20",
+    "level": 20,
+    "title": "Demon Slayer",
+    "type": "slay",
+    "description": "Demons have emerged from the underworld. Prove your worth by defeating them.",
+    "targetMonster": "demon",
+    "targetAmount": 5,
+    "rewards": { "gold": 1000, "exp": 700, "item": "sword_legendary" }
+  }
+]

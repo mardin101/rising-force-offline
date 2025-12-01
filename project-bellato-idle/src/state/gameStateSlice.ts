@@ -13,11 +13,38 @@ export interface Character {
   class: string;
 }
 
+export interface QuestRewards {
+  gold: number;
+  exp: number;
+  item?: string;
+}
+
+export interface Quest {
+  id: string;
+  level: number;
+  title: string;
+  type: 'slay' | 'collect';
+  description: string;
+  targetMonster: string;
+  targetMaterial?: string;
+  targetAmount: number;
+  rewards: QuestRewards;
+}
+
+export interface ActiveQuest {
+  quest: Quest;
+  progress: number;
+  isComplete: boolean;
+}
+
 export interface GameState {
   character: Character;
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
+  materials: Record<string, number>;
+  activeQuest: ActiveQuest | null;
+  completedQuestIds: string[];
 }
 
 // Initial state placeholder
@@ -36,6 +63,9 @@ export const initialGameState: GameState = {
   currentZone: null,
   isInBattle: false,
   inventory: [],
+  materials: {},
+  activeQuest: null,
+  completedQuestIds: [],
 };
 
 // Placeholder actions - to be implemented with state management library

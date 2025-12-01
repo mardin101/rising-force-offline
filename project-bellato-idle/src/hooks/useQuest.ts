@@ -1,0 +1,180 @@
+import { useState, useCallback } from 'react';
+import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
+import questsData from '../data/quests.json';
+import monstersData from '../data/monsters.json';
+
+// Type for monster data with material drops
+interface MonsterData {
+  id: string;
+  name: string;
+  hp: number;
+  attack: number;
+  defense: number;
+  expReward: number;
+  goldDrop: [number, number];
+  levelRange: [number, number];
+  materialDrop: {
+    id: string;
+    name: string;
+    dropRate: number;
+  };
+}
+
+const quests = questsData as Quest[];
+const monsters = monstersData as MonsterData[];
+
+export interface UseQuestReturn {
+  activeQuest: ActiveQuest | null;
+  completedQuestIds: string[];
+  availableQuest: Quest | null;
+  character: Character;
+  materials: Record<string, number>;
+  acceptQuest: (quest: Quest) => void;
+  updateQuestProgress: (monsterId: string, materialId?: string) => void;
+  completeQuest: () => { rewards: Quest['rewards'] } | null;
+  getMonsterName: (monsterId: string) => string;
+  getMaterialName: (materialId: string) => string;
+}
+
+export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
+  const [activeQuest, setActiveQuest] = useState<ActiveQuest | null>(
+    initialState?.activeQuest ?? null
+  );
+  const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
+    initialState?.completedQuestIds ?? []
+  );
+  const [character, setCharacter] = useState<Character>(
+    initialState?.character ?? {
+      name: "Hero",
+      level: 1,
+      experience: 0,
+      hp: 100,
+      maxHp: 100,
+      attack: 10,
+      defense: 5,
+      gold: 0,
+      class: "Warrior",
+    }
+  );
+  const [materials, setMaterials] = useState<Record<string, number>>(
+    initialState?.materials ?? {}
+  );
+
+  // Get the quest available for the player's current level
+  const availableQuest: Quest | null = quests.find(
+    (quest) =>
+      quest.level <= character.level && !completedQuestIds.includes(quest.id)
+  ) ?? null;
+
+  const getMonsterName = useCallback((monsterId: string): string => {
+    const monster = monsters.find((m) => m.id === monsterId);
+    return monster?.name ?? monsterId;
+  }, []);
+
+  const getMaterialName = useCallback((materialId: string): string => {
+    const monster = monsters.find((m) => m.materialDrop?.id === materialId);
+    return monster?.materialDrop?.name ?? materialId;
+  }, []);
+
+  const acceptQuest = useCallback((quest: Quest) => {
+    if (activeQuest !== null) {
+      console.warn('Cannot accept a new quest while one is active');
+      return;
+    }
+    if (completedQuestIds.includes(quest.id)) {
+      console.warn('Quest already completed');
+      return;
+    }
+    setActiveQuest({
+      quest,
+      progress: 0,
+      isComplete: false,
+    });
+  }, [activeQuest, completedQuestIds]);
+
+  const updateQuestProgress = useCallback(
+    (monsterId: string, materialId?: string) => {
+      if (!activeQuest || activeQuest.isComplete) return;
+
+      const { quest } = activeQuest;
+      let shouldIncrement = false;
+
+      if (quest.type === 'slay' && quest.targetMonster === monsterId) {
+        shouldIncrement = true;
+      } else if (
+        quest.type === 'collect' &&
+        quest.targetMaterial === materialId
+      ) {
+        shouldIncrement = true;
+      }
+
+      if (shouldIncrement) {
+        setActiveQuest((prev) => {
+          if (!prev) return null;
+          const newProgress = prev.progress + 1;
+          const isComplete = newProgress >= prev.quest.targetAmount;
+          return {
+            ...prev,
+            progress: newProgress,
+            isComplete,
+          };
+        });
+      }
+    },
+    [activeQuest]
+  );
+
+  const completeQuest = useCallback((): { rewards: Quest['rewards'] } | null => {
+    if (!activeQuest || !activeQuest.isComplete) {
+      return null;
+    }
+
+    const { quest } = activeQuest;
+
+    // Apply rewards
+    setCharacter((prev) => ({
+      ...prev,
+      gold: prev.gold + quest.rewards.gold,
+      experience: prev.experience + quest.rewards.exp,
+    }));
+
+    // Mark quest as completed
+    setCompletedQuestIds((prev) => [...prev, quest.id]);
+
+    // Clear active quest
+    setActiveQuest(null);
+
+    return { rewards: quest.rewards };
+  }, [activeQuest]);
+
+  // Simulate killing a monster (for demo purposes)
+  const simulateMonsterKill = useCallback((monsterId: string) => {
+    const monster = monsters.find((m) => m.id === monsterId);
+    if (!monster) return;
+
+    // Check if material drops
+    if (monster.materialDrop && Math.random() < monster.materialDrop.dropRate) {
+      const materialId = monster.materialDrop.id;
+      setMaterials((prev) => ({
+        ...prev,
+        [materialId]: (prev[materialId] ?? 0) + 1,
+      }));
+      updateQuestProgress(monsterId, materialId);
+    } else {
+      updateQuestProgress(monsterId);
+    }
+  }, [updateQuestProgress]);
+
+  return {
+    activeQuest,
+    completedQuestIds,
+    availableQuest,
+    character,
+    materials,
+    acceptQuest,
+    updateQuestProgress: simulateMonsterKill, // Use the simulate function for demo
+    completeQuest,
+    getMonsterName,
+    getMaterialName,
+  };
+}
