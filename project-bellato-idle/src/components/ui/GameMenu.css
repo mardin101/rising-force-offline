@@ -1,43 +1,76 @@
 /* GameMenu Component Styles
  * Styled to match Rising Force Online menu aesthetic
  * - Dark metallic theme with gradient borders
+ * - Sci-fi transparent design with glowing effects
  * - Consistent with RF Online UI design
  */
 
 /* CSS Variables for theming */
 :root {
-  /* Primary menu colors */
-  --game-menu-bg: linear-gradient(180deg, #1a1a2e 0%, #0d0d1a 100%);
-  --game-menu-header-bg: linear-gradient(180deg, #2a2a4e 0%, #1a1a2e 100%);
-  --game-menu-body-bg: rgba(0, 0, 0, 0.85);
+  /* Primary menu colors - transparent with sci-fi feel */
+  --game-menu-bg: linear-gradient(180deg, rgba(10, 15, 30, 0.85) 0%, rgba(5, 10, 20, 0.9) 100%);
+  --game-menu-header-bg: linear-gradient(180deg, rgba(20, 35, 70, 0.8) 0%, rgba(10, 20, 45, 0.85) 100%);
+  --game-menu-body-bg: rgba(5, 10, 25, 0.75);
   
-  /* Border colors */
-  --game-menu-border-outer: #4a4a6a;
-  --game-menu-border-inner: #2a2a4a;
-  --game-menu-border-highlight: #6a6a8a;
+  /* Border colors - neon/glowing sci-fi style */
+  --game-menu-border-outer: rgba(80, 140, 200, 0.6);
+  --game-menu-border-inner: rgba(40, 80, 140, 0.5);
+  --game-menu-border-highlight: rgba(100, 180, 255, 0.4);
+  --game-menu-glow-color: rgba(60, 140, 220, 0.3);
   
-  /* Text colors */
-  --game-menu-title-color: #c0c0d0;
-  --game-menu-text-color: #a0a0b0;
+  /* Text colors - cool sci-fi tones */
+  --game-menu-title-color: #a0d0ff;
+  --game-menu-text-color: #90b8d8;
   
   /* Button colors */
-  --game-menu-btn-bg: linear-gradient(180deg, #3a3a5e 0%, #2a2a4e 100%);
-  --game-menu-btn-border: #5a5a7a;
-  --game-menu-btn-hover-bg: linear-gradient(180deg, #4a4a6e 0%, #3a3a5e 100%);
-  --game-menu-btn-close-hover: #cc4444;
-  --game-menu-btn-info-hover: #4488cc;
+  --game-menu-btn-bg: linear-gradient(180deg, rgba(40, 70, 120, 0.7) 0%, rgba(25, 45, 80, 0.8) 100%);
+  --game-menu-btn-border: rgba(80, 140, 200, 0.5);
+  --game-menu-btn-hover-bg: linear-gradient(180deg, rgba(50, 90, 150, 0.8) 0%, rgba(35, 60, 100, 0.85) 100%);
+  --game-menu-btn-close-hover: #ff5566;
+  --game-menu-btn-info-hover: #44aaff;
 }
 
 /* Main menu container */
 .game-menu {
   background: var(--game-menu-bg);
-  border: 2px solid var(--game-menu-border-outer);
-  border-radius: 4px;
+  border: 1px solid var(--game-menu-border-outer);
+  border-radius: 6px;
   box-shadow:
     inset 0 1px 0 var(--game-menu-border-highlight),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    0 0 20px var(--game-menu-glow-color),
+    0 0 40px rgba(30, 80, 150, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+}
+
+/* Sci-fi corner accents */
+.game-menu::before,
+.game-menu::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.game-menu::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(100, 180, 255, 0.6);
+  border-left: 2px solid rgba(100, 180, 255, 0.6);
+  border-top-left-radius: 6px;
+}
+
+.game-menu::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(100, 180, 255, 0.6);
+  border-right: 2px solid rgba(100, 180, 255, 0.6);
+  border-bottom-right-radius: 6px;
 }
 
 /* Header section with title and buttons */
@@ -47,8 +80,20 @@
   justify-content: space-between;
   background: var(--game-menu-header-bg);
   border-bottom: 1px solid var(--game-menu-border-inner);
-  padding: 4px 6px;
-  min-height: 28px;
+  padding: 6px 8px;
+  min-height: 32px;
+  position: relative;
+}
+
+/* Glowing bottom line effect for header */
+.game-menu-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.5), transparent);
 }
 
 /* Title text */
@@ -58,8 +103,9 @@
   color: var(--game-menu-title-color);
   font-size: 13px;
   font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(100, 180, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Button base styles */
@@ -67,19 +113,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background: var(--game-menu-btn-bg);
   border: 1px solid var(--game-menu-btn-border);
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   padding: 0;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.game-menu-btn:hover {
+  box-shadow: 0 0 8px var(--game-menu-glow-color);
 }
 
 .game-menu-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(100, 100, 140, 0.5);
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.4);
 }
 
 .game-menu-btn-icon {
@@ -87,36 +138,40 @@
   font-size: 14px;
   font-weight: bold;
   line-height: 1;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 6px rgba(100, 180, 255, 0.4);
 }
 
 /* Info button hover state */
 .game-menu-btn-info:hover {
   background: var(--game-menu-btn-hover-bg);
   border-color: var(--game-menu-btn-info-hover);
+  box-shadow: 0 0 12px rgba(68, 170, 255, 0.5);
 }
 
 .game-menu-btn-info:hover .game-menu-btn-icon {
   color: var(--game-menu-btn-info-hover);
+  text-shadow: 0 0 8px rgba(68, 170, 255, 0.8);
 }
 
 /* Close button hover state */
 .game-menu-btn-close:hover {
   background: var(--game-menu-btn-hover-bg);
   border-color: var(--game-menu-btn-close-hover);
+  box-shadow: 0 0 12px rgba(255, 85, 102, 0.5);
 }
 
 .game-menu-btn-close:hover .game-menu-btn-icon {
   color: var(--game-menu-btn-close-hover);
+  text-shadow: 0 0 8px rgba(255, 85, 102, 0.8);
 }
 
 /* Menu body/content area */
 .game-menu-body {
   background: var(--game-menu-body-bg);
-  padding: 12px;
+  padding: 14px;
   color: var(--game-menu-text-color);
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   min-height: 100px;
   border-top: 1px solid var(--game-menu-border-highlight);
 }
@@ -126,8 +181,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(100, 100, 140, 0.2);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(80, 140, 200, 0.15);
 }
 
 .game-menu-row:last-child {
@@ -135,32 +190,35 @@
 }
 
 .game-menu-label {
-  color: #8888aa;
+  color: #6a9cc8;
   font-size: 11px;
+  letter-spacing: 0.3px;
 }
 
 .game-menu-value {
-  color: #ccccdd;
+  color: #b0d8ff;
   font-weight: 500;
 }
 
 .game-menu-value-highlight {
-  color: #88ccff;
+  color: #66ddff;
+  text-shadow: 0 0 6px rgba(100, 220, 255, 0.4);
 }
 
 .game-menu-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--game-menu-border-inner), transparent);
-  margin: 8px 0;
+  background: linear-gradient(90deg, transparent, rgba(80, 160, 255, 0.3), transparent);
+  margin: 10px 0;
 }
 
 .game-menu-section-title {
-  color: #aaaacc;
-  font-size: 11px;
+  color: #80c0ff;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--game-menu-border-inner);
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(80, 160, 255, 0.25);
+  text-shadow: 0 0 8px rgba(100, 180, 255, 0.3);
 }
