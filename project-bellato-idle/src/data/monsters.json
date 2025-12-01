@@ -1,0 +1,20 @@
+[
+  {
+    "id": "goblin",
+    "name": "Goblin",
+    "hp": 50,
+    "attack": 5,
+    "defense": 2,
+    "expReward": 10,
+    "goldDrop": [5, 15]
+  },
+  {
+    "id": "wolf",
+    "name": "Wild Wolf",
+    "hp": 75,
+    "attack": 8,
+    "defense": 3,
+    "expReward": 15,
+    "goldDrop": [10, 25]
+  }
+]
