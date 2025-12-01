@@ -6,6 +6,7 @@ import {
   initialGameState,
   createCharacter,
   GAME_STATE_STORAGE_KEY,
+  isValidGameState,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -26,7 +27,11 @@ function loadGameState(): GameState {
   try {
     const saved = localStorage.getItem(GAME_STATE_STORAGE_KEY);
     if (saved) {
-      return JSON.parse(saved) as GameState;
+      const parsed: unknown = JSON.parse(saved);
+      if (isValidGameState(parsed)) {
+        return parsed;
+      }
+      console.warn('Invalid game state in localStorage, using initial state');
     }
   } catch (error) {
     console.error('Failed to load game state:', error);

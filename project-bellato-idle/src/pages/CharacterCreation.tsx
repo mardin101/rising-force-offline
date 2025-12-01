@@ -3,6 +3,8 @@ import { useGameState } from '../state/GameStateContext';
 import {
   CHARACTER_CLASSES,
   CLASS_BASE_STATS,
+  CHARACTER_NAME_MAX_LENGTH,
+  validateCharacterName,
   type CharacterClass,
 } from '../state/gameStateSlice';
 
@@ -23,18 +25,9 @@ export default function CharacterCreation() {
     e.preventDefault();
     const trimmedName = name.trim();
     
-    if (!trimmedName) {
-      setError('Please enter a character name');
-      return;
-    }
-    
-    if (trimmedName.length < 2) {
-      setError('Character name must be at least 2 characters');
-      return;
-    }
-    
-    if (trimmedName.length > 20) {
-      setError('Character name must be 20 characters or less');
+    const validation = validateCharacterName(trimmedName);
+    if (!validation.valid) {
+      setError(validation.error ?? 'Invalid character name');
       return;
     }
 
@@ -72,7 +65,7 @@ export default function CharacterCreation() {
               }}
               placeholder="Enter your character name"
               className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-              maxLength={20}
+              maxLength={CHARACTER_NAME_MAX_LENGTH}
             />
             {error && (
               <p className="mt-2 text-sm text-red-400">{error}</p>
