@@ -56,7 +56,24 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
   const handleDrop = useCallback((toRow: number, toCol: number, e: React.DragEvent) => {
     e.preventDefault();
     const data = e.dataTransfer.getData('text/plain');
-    const [fromRow, fromCol] = data.split(',').map(Number);
+    const parts = data.split(',');
+    
+    // Validate that we have exactly 2 parts that are valid numbers
+    if (parts.length !== 2) {
+      setDragState({ isDragging: false, fromRow: -1, fromCol: -1 });
+      return;
+    }
+    
+    const fromRow = parseInt(parts[0], 10);
+    const fromCol = parseInt(parts[1], 10);
+    
+    // Validate parsed values are valid numbers within grid bounds
+    if (isNaN(fromRow) || isNaN(fromCol) || 
+        fromRow < 0 || fromRow >= INVENTORY_ROWS || 
+        fromCol < 0 || fromCol >= INVENTORY_COLS) {
+      setDragState({ isDragging: false, fromRow: -1, fromCol: -1 });
+      return;
+    }
     
     if (fromRow !== toRow || fromCol !== toCol) {
       onSwapItems(fromRow, fromCol, toRow, toCol);
@@ -82,11 +99,6 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
       setTouchedSlot({ row, col });
     }
   }, [touchedSlot, onSwapItems, grid]);
-
-  // Clear touched slot when clicking outside
-  const handleGridClick = useCallback(() => {
-    // Handled by slot clicks
-  }, []);
 
   // Render a single inventory slot
   const renderSlot = (item: InventorySlot, row: number, col: number) => {
@@ -120,12 +132,12 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
   };
 
   return (
-    <div className="inventory-grid-container" onClick={handleGridClick}>
+    <div className="inventory-grid-container">
       <div className="inventory-grid">
         {Array.from({ length: INVENTORY_ROWS }).map((_, row) => (
           <div key={row} className="inventory-row">
             {Array.from({ length: INVENTORY_COLS }).map((_, col) => 
-              renderSlot(grid[row]?.[col] ?? null, row, col)
+              renderSlot(grid[row][col], row, col)
             )}
           </div>
         ))}

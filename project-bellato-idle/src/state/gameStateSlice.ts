@@ -213,6 +213,12 @@ export function isValidGameState(value: unknown): value is GameState {
   // Validate inventoryGrid if it exists
   if (state.inventoryGrid !== undefined) {
     if (!Array.isArray(state.inventoryGrid)) return false;
+    // Validate grid structure (should be 5 rows x 8 columns)
+    if (state.inventoryGrid.length !== INVENTORY_ROWS) return false;
+    for (const row of state.inventoryGrid) {
+      if (!Array.isArray(row)) return false;
+      if (row.length !== INVENTORY_COLS) return false;
+    }
   }
   
   // Character can be null or a valid Character object
