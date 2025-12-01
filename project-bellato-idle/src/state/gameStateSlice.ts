@@ -1,6 +1,14 @@
 // Placeholder for game state management (e.g., Redux, Zustand)
 // This file will contain the core game state structure
 
+// Quest type constants
+export const QUEST_TYPE = {
+  SLAY: 'slay',
+  COLLECT: 'collect',
+} as const;
+
+export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
+
 export interface Character {
   name: string;
   level: number;
@@ -23,7 +31,7 @@ export interface Quest {
   id: string;
   level: number;
   title: string;
-  type: 'slay' | 'collect';
+  type: QuestType;
   description: string;
   targetMonster: string;
   targetMaterial?: string;

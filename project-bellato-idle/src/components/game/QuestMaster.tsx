@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GameMenu } from '../ui';
 import { useQuestContext } from '../../state/QuestContext';
+import { QUEST_TYPE } from '../../state/gameStateSlice';
 
 export default function QuestMaster() {
   const [isOpen, setIsOpen] = useState(true);
@@ -51,7 +52,7 @@ export default function QuestMaster() {
   const getQuestDescription = (quest: typeof availableQuest) => {
     if (!quest) return '';
     const monsterName = getMonsterName(quest.targetMonster);
-    if (quest.type === 'slay') {
+    if (quest.type === QUEST_TYPE.SLAY) {
       return `Slay ${quest.targetAmount} ${monsterName}`;
     } else if (quest.targetMaterial) {
       const materialName = getMaterialName(quest.targetMaterial);

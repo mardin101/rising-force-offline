@@ -1,0 +1,22 @@
+[
+  { "id": "goblin_ear", "name": "Goblin Ear", "description": "A pointed ear from a goblin." },
+  { "id": "wolf_fang", "name": "Wolf Fang", "description": "A sharp fang from a wild wolf." },
+  { "id": "slime_gel", "name": "Slime Gel", "description": "Gelatinous substance from a slime." },
+  { "id": "boar_tusk", "name": "Boar Tusk", "description": "A sturdy tusk from a wild boar." },
+  { "id": "bone_fragment", "name": "Bone Fragment", "description": "A piece of bone from a skeleton warrior." },
+  { "id": "spider_silk", "name": "Spider Silk", "description": "Strong silk thread from a giant spider." },
+  { "id": "orc_hide", "name": "Orc Hide", "description": "Tough hide from an orc grunt." },
+  { "id": "bat_wing", "name": "Bat Wing", "description": "A leathery wing from a cave bat." },
+  { "id": "lizard_scale", "name": "Lizard Scale", "description": "A shimmering scale from a lizardman." },
+  { "id": "harpy_feather", "name": "Harpy Feather", "description": "A beautiful feather from a harpy." },
+  { "id": "golem_core", "name": "Golem Core", "description": "The magical core of a stone golem." },
+  { "id": "bandit_mask", "name": "Bandit Mask", "description": "A mask worn by bandits." },
+  { "id": "ancient_bark", "name": "Ancient Bark", "description": "Bark from an ancient treant." },
+  { "id": "ectoplasm", "name": "Ectoplasm", "description": "Ethereal substance from a ghost." },
+  { "id": "ogre_club", "name": "Ogre Club", "description": "A massive club wielded by an ogre." },
+  { "id": "wyvern_scale", "name": "Wyvern Scale", "description": "A tough scale from a wyvern." },
+  { "id": "troll_blood", "name": "Troll Blood", "description": "Blood with regenerative properties from a troll." },
+  { "id": "fire_essence", "name": "Fire Essence", "description": "Pure elemental fire essence." },
+  { "id": "stone_heart", "name": "Stone Heart", "description": "The petrified heart of a gargoyle." },
+  { "id": "demon_horn", "name": "Demon Horn", "description": "A cursed horn from a demon." }
+]

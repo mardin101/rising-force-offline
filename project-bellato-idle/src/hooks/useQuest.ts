@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react';
 import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
+import { QUEST_TYPE } from '../state/gameStateSlice';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
+import materialsData from '../data/materials.json';
 
 // Type for monster data with material drops
 interface MonsterData {
@@ -13,15 +15,20 @@ interface MonsterData {
   expReward: number;
   goldDrop: [number, number];
   levelRange: [number, number];
-  materialDrop: {
-    id: string;
-    name: string;
-    dropRate: number;
-  };
+  materialDropId: string;
+  materialDropRate: number;
+}
+
+// Type for material data
+interface MaterialData {
+  id: string;
+  name: string;
+  description: string;
 }
 
 const quests = questsData as Quest[];
 const monsters = monstersData as MonsterData[];
+const materials = materialsData as MaterialData[];
 
 export interface UseQuestReturn {
   activeQuest: ActiveQuest | null;
@@ -56,7 +63,7 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
       class: "Warrior",
     }
   );
-  const [materials, setMaterials] = useState<Record<string, number>>(
+  const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
     initialState?.materials ?? {}
   );
 
@@ -71,8 +78,8 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
   }, []);
 
   const getMaterialName = useCallback((materialId: string): string => {
-    const monster = monsters.find((m) => m.materialDrop?.id === materialId);
-    return monster?.materialDrop?.name ?? materialId;
+    const material = materials.find((m) => m.id === materialId);
+    return material?.name ?? materialId;
   }, []);
 
   const acceptQuest = useCallback((quest: Quest) => {
@@ -98,10 +105,10 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
       const { quest } = activeQuest;
       let shouldIncrement = false;
 
-      if (quest.type === 'slay' && quest.targetMonster === monsterId) {
+      if (quest.type === QUEST_TYPE.SLAY && quest.targetMonster === monsterId) {
         shouldIncrement = true;
       } else if (
-        quest.type === 'collect' &&
+        quest.type === QUEST_TYPE.COLLECT &&
         quest.targetMaterial === materialId
       ) {
         shouldIncrement = true;
@@ -152,9 +159,9 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     if (!monster) return;
 
     // Check if material drops
-    if (monster.materialDrop && Math.random() < monster.materialDrop.dropRate) {
-      const materialId = monster.materialDrop.id;
-      setMaterials((prev) => ({
+    if (monster.materialDropId && Math.random() < monster.materialDropRate) {
+      const materialId = monster.materialDropId;
+      setPlayerMaterials((prev) => ({
         ...prev,
         [materialId]: (prev[materialId] ?? 0) + 1,
       }));
@@ -169,7 +176,7 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     completedQuestIds,
     availableQuest,
     character,
-    materials,
+    materials: playerMaterials,
     acceptQuest,
     simulateMonsterKill,
     completeQuest,

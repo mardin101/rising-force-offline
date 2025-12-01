@@ -1,4 +1,5 @@
 import { useQuestContext } from '../../state/QuestContext';
+import { QUEST_TYPE } from '../../state/gameStateSlice';
 
 export default function QuestProgress() {
   const {
@@ -22,7 +23,7 @@ export default function QuestProgress() {
 
   const getObjectiveText = () => {
     const monsterName = getMonsterName(quest.targetMonster);
-    if (quest.type === 'slay') {
+    if (quest.type === QUEST_TYPE.SLAY) {
       return `Slay ${quest.targetAmount} ${monsterName}`;
     } else if (quest.targetMaterial) {
       const materialName = getMaterialName(quest.targetMaterial);
