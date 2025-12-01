@@ -5,7 +5,7 @@ export default function QuestProgress() {
     activeQuest,
     getMonsterName,
     getMaterialName,
-    updateQuestProgress,
+    simulateMonsterKill,
   } = useQuestContext();
 
   if (!activeQuest) {
@@ -24,15 +24,16 @@ export default function QuestProgress() {
     const monsterName = getMonsterName(quest.targetMonster);
     if (quest.type === 'slay') {
       return `Slay ${quest.targetAmount} ${monsterName}`;
-    } else {
-      const materialName = getMaterialName(quest.targetMaterial!);
+    } else if (quest.targetMaterial) {
+      const materialName = getMaterialName(quest.targetMaterial);
       return `Collect ${quest.targetAmount} ${materialName}`;
     }
+    return `Complete objective: ${quest.targetAmount}`;
   };
 
   // Demo button to simulate killing monsters
   const handleSimulateKill = () => {
-    updateQuestProgress(quest.targetMonster);
+    simulateMonsterKill(quest.targetMonster);
   };
 
   return (

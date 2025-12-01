@@ -30,7 +30,7 @@ export interface UseQuestReturn {
   character: Character;
   materials: Record<string, number>;
   acceptQuest: (quest: Quest) => void;
-  updateQuestProgress: (monsterId: string, materialId?: string) => void;
+  simulateMonsterKill: (monsterId: string) => void;
   completeQuest: () => { rewards: Quest['rewards'] } | null;
   getMonsterName: (monsterId: string) => string;
   getMaterialName: (materialId: string) => string;
@@ -60,11 +60,10 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     initialState?.materials ?? {}
   );
 
-  // Get the quest available for the player's current level
-  const availableQuest: Quest | null = quests.find(
-    (quest) =>
-      quest.level <= character.level && !completedQuestIds.includes(quest.id)
-  ) ?? null;
+  // Get the next available quest for the player's current level (lowest level first for progression)
+  const availableQuest: Quest | null = quests
+    .filter((quest) => quest.level <= character.level && !completedQuestIds.includes(quest.id))
+    .sort((a, b) => a.level - b.level)[0] ?? null;
 
   const getMonsterName = useCallback((monsterId: string): string => {
     const monster = monsters.find((m) => m.id === monsterId);
@@ -172,7 +171,7 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     character,
     materials,
     acceptQuest,
-    updateQuestProgress: simulateMonsterKill, // Use the simulate function for demo
+    simulateMonsterKill,
     completeQuest,
     getMonsterName,
     getMaterialName,

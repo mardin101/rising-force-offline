@@ -53,10 +53,11 @@ export default function QuestMaster() {
     const monsterName = getMonsterName(quest.targetMonster);
     if (quest.type === 'slay') {
       return `Slay ${quest.targetAmount} ${monsterName}`;
-    } else {
-      const materialName = getMaterialName(quest.targetMaterial!);
+    } else if (quest.targetMaterial) {
+      const materialName = getMaterialName(quest.targetMaterial);
       return `Collect ${quest.targetAmount} ${materialName} from ${monsterName}`;
     }
+    return `Complete objective: ${quest.targetAmount}`;
   };
 
   return (
