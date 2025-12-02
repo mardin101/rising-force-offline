@@ -7,6 +7,7 @@ import {
   type ActiveQuest,
   type EquipmentSlotType,
   type EquippedItems,
+  type MacroState,
   initialGameState,
   createCharacter,
   migrateGameState,
@@ -29,6 +30,8 @@ export interface GameStateContextValue {
   equipItem: (slot: EquipmentSlotType, fromRow: number, fromCol: number) => void;
   unequipItem: (slot: EquipmentSlotType) => void;
   useItem: (row: number, col: number) => { success: boolean; message: string };
+  updateMacroState: (updater: Partial<MacroState>) => void;
+  consumeMacroPotion: (currentBattleHp: number) => { success: boolean; healAmount: number; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -299,6 +302,98 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     return result;
   }, []);
 
+  // Update macro state
+  const updateMacroState = useCallback((updater: Partial<MacroState>) => {
+    setGameState((prev) => ({
+      ...prev,
+      macroState: {
+        ...prev.macroState,
+        ...updater,
+      },
+    }));
+  }, []);
+
+  // Consume a potion from the macro slot (used during battle when HP drops below threshold)
+  // currentBattleHp: The current HP in battle (may differ from global state during combat)
+  const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
+    let result = { success: false, healAmount: 0, message: '' };
+    
+    setGameState((prev) => {
+      // Check if macro is enabled and has a valid potion slot
+      if (!prev.macroState.enabled || !prev.macroState.potionSlot) {
+        result = { success: false, healAmount: 0, message: 'Macro not configured' };
+        return prev;
+      }
+
+      const { row, col } = prev.macroState.potionSlot;
+      const inventoryItem = prev.inventoryGrid[row]?.[col];
+      
+      if (!inventoryItem) {
+        result = { success: false, healAmount: 0, message: 'No potion in macro slot' };
+        // Clear the potion slot since item is gone
+        return {
+          ...prev,
+          macroState: {
+            ...prev.macroState,
+            potionSlot: null,
+          },
+        };
+      }
+
+      const itemData = getItemById(inventoryItem.itemId);
+      if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+        result = { success: false, healAmount: 0, message: 'Invalid potion in macro slot' };
+        return prev;
+      }
+
+      // Check if character exists
+      if (!prev.character) {
+        result = { success: false, healAmount: 0, message: 'No character found' };
+        return prev;
+      }
+
+      const maxHp = prev.character.statusInfo.maxHp;
+      
+      // Check if already at full health (using battle HP)
+      if (currentBattleHp >= maxHp) {
+        result = { success: false, healAmount: 0, message: 'Already at full health' };
+        return prev;
+      }
+
+      // Calculate heal amount based on current battle HP (capped at maxHp)
+      const newHp = Math.min(currentBattleHp + itemData.healAmount, maxHp);
+      const healedAmount = newHp - currentBattleHp;
+
+      // Update inventory: reduce quantity or remove item
+      const newGrid = prev.inventoryGrid.map(r => [...r]);
+      const currentQuantity = inventoryItem.quantity ?? 1;
+      
+      let newPotionSlot: { row: number; col: number } | null = prev.macroState.potionSlot;
+      if (currentQuantity > 1) {
+        // Reduce quantity by 1
+        newGrid[row][col] = { ...inventoryItem, quantity: currentQuantity - 1 };
+      } else {
+        // Remove item from inventory and clear potion slot
+        newGrid[row][col] = null;
+        newPotionSlot = null;
+      }
+
+      result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} HP` };
+
+      // Only update inventory and macro state - battle system handles HP
+      return {
+        ...prev,
+        inventoryGrid: newGrid,
+        macroState: {
+          ...prev.macroState,
+          potionSlot: newPotionSlot,
+        },
+      };
+    });
+
+    return result;
+  }, []);
+
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
       ...prev,
@@ -336,6 +431,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     equipItem,
     unequipItem,
     useItem,
+    updateMacroState,
+    consumeMacroPotion,
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,
