@@ -3,6 +3,7 @@ import zones from '../data/zones.json';
 import monsters from '../data/monsters.json';
 import { useGameState } from '../state/GameStateContext';
 import { calculateExpAndLevel } from '../state/gameStateSlice';
+import { QuestProgress } from '../components/game';
 
 interface Zone {
   id: string;
@@ -361,6 +362,11 @@ export default function Battle() {
         Select a zone and click on a monster to begin combat.
         Auto-battle will continue until one side is defeated.
       </p>
+
+      {/* Quest Progress Section */}
+      <div className="mb-6">
+        <QuestProgress />
+      </div>
 
       {/* Selected Zone Info */}
       {selectedZone ? (
