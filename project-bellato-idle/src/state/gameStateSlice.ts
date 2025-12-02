@@ -153,7 +153,7 @@ export function calculateDeathPenalty(
   // Calculate the actual penalty (capped at current exp to prevent negative)
   const actualPenalty = Math.min(currentExp, penalty);
   // Apply penalty (cannot go below 0)
-  const newExp = Math.max(0, currentExp - penalty);
+  const newExp = currentExp - actualPenalty;
 
   return { newExp, actualPenalty };
 }
