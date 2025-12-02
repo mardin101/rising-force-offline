@@ -183,21 +183,44 @@ export default function Battle() {
       }
 
       // Apply rewards
-      const { expGain, goldGain } = battleState.pendingReward;
+      const { expGain, goldGain, monsterId } = battleState.pendingReward;
       const { newLevel, newExp } = calculateExpAndLevel(
         gameState.character.level,
         gameState.character.statusInfo.expPoints,
         expGain
       );
 
-      updateCharacter((currentChar) => ({
-        level: newLevel,
-        gold: currentChar.gold + goldGain,
-        statusInfo: {
-          ...currentChar.statusInfo,
-          expPoints: newExp,
-        },
-      }));
+      // Material drop logic
+      let materialDrop = null;
+      if (monsterId) {
+        const monsterData = monsters.find((m) => m.id === monsterId);
+        if (
+          monsterData &&
+          monsterData.materialDropId &&
+          typeof monsterData.materialDropRate === 'number'
+        ) {
+          if (Math.random() < monsterData.materialDropRate) {
+            materialDrop = monsterData.materialDropId;
+          }
+        }
+      }
+
+      updateCharacter((currentChar) => {
+        // Add material to inventory if dropped
+        let newInventory = currentChar.inventory ? { ...currentChar.inventory } : {};
+        if (materialDrop) {
+          newInventory[materialDrop] = (newInventory[materialDrop] || 0) + 1;
+        }
+        return {
+          level: newLevel,
+          gold: currentChar.gold + goldGain,
+          statusInfo: {
+            ...currentChar.statusInfo,
+            expPoints: newExp,
+          },
+          inventory: newInventory,
+        };
+      });
     }
   }, [battleState.isVictory, battleState.pendingReward, gameState.character, updateCharacter]);
 
@@ -235,7 +258,7 @@ export default function Battle() {
 
     // Calculate tick interval based on attack speed
     // Higher attack speed = faster attacks
-    const attackSpeedModifier = gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED;
+    const attackSpeedModifier = Math.max(1, gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED);
     const tickInterval = Math.max(MIN_TICK_INTERVAL_MS, BASE_TICK_INTERVAL_MS / attackSpeedModifier);
 
     // Start battle loop
@@ -309,7 +332,7 @@ export default function Battle() {
               <button
                 key={monster.id}
                 onClick={() => handleMonsterSelect(monster)}
-                className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 hover:bg-gray-700/50 transition-colors text-left cursor-pointer"
+                className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 hover:bg-gray-700/50 transition-colors text-left"
               >
                 <h4 className="text-lg font-bold text-red-400 mb-2">{monster.name}</h4>
                 <div className="space-y-1 text-sm">
@@ -404,9 +427,18 @@ export default function Battle() {
                 <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
                 {battleState.battleLog.length > 0 ? (
                   <div className="space-y-1">
-                    {battleState.battleLog.map((log, index) => (
-                      <p key={index} className="text-xs text-gray-300">{log}</p>
-                    ))}
+                    {battleState.battleLog.map((log, index) => {
+                      // If log is an object with id/message, use log.id as key; else fallback to log+index
+                      const key = typeof log === 'object' && log !== null && 'id' in log
+                        ? log.id
+                        : `${log}-${index}`;
+                      const message = typeof log === 'object' && log !== null && 'message' in log
+                        ? log.message
+                        : log;
+                      return (
+                        <p key={key} className="text-xs text-gray-300">{message}</p>
+                      );
+                    })}
                   </div>
                 ) : (
                   <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
