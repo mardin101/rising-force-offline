@@ -15,6 +15,8 @@ import {
   getItemById,
   INVENTORY_ROWS,
   INVENTORY_COLS,
+  CLASS_BASE_STATS,
+  calculateEquippedDefense,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -148,8 +150,23 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         [slot]: inventoryItem,
       };
 
+      // Update character stats if character exists
+      let updatedCharacter = prev.character;
+      if (prev.character) {
+        const baseDefPwr = CLASS_BASE_STATS[prev.character.generalInfo.class].avgDefPwr;
+        const equippedDefense = calculateEquippedDefense(newEquippedItems);
+        updatedCharacter = {
+          ...prev.character,
+          statusInfo: {
+            ...prev.character.statusInfo,
+            avgDefPwr: baseDefPwr + equippedDefense,
+          },
+        };
+      }
+
       return {
         ...prev,
+        character: updatedCharacter,
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };
@@ -188,8 +205,23 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         [slot]: null,
       };
 
+      // Update character stats if character exists
+      let updatedCharacter = prev.character;
+      if (prev.character) {
+        const baseDefPwr = CLASS_BASE_STATS[prev.character.generalInfo.class].avgDefPwr;
+        const equippedDefense = calculateEquippedDefense(newEquippedItems);
+        updatedCharacter = {
+          ...prev.character,
+          statusInfo: {
+            ...prev.character.statusInfo,
+            avgDefPwr: baseDefPwr + equippedDefense,
+          },
+        };
+      }
+
       return {
         ...prev,
+        character: updatedCharacter,
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };
