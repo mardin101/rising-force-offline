@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { 
   type InventoryGrid as InventoryGridType, 
   type InventorySlot,
@@ -8,19 +8,32 @@ import {
   ITEM_TYPE,
   getItemById,
 } from '../../state/gameStateSlice';
+import ItemContextMenu, { type ContextMenuAction } from './ItemContextMenu';
 import './InventoryGrid.css';
+
+// Constants
+const FEEDBACK_DISPLAY_DURATION = 2000; // ms
 
 export interface InventoryGridProps {
   grid: InventoryGridType;
   onSwapItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
   selectedSlot?: { row: number; col: number } | null;
   onSelectedSlotChange?: (slot: { row: number; col: number } | null) => void;
+  onUseItem?: (row: number, col: number) => { success: boolean; message: string };
 }
 
 interface DragState {
   isDragging: boolean;
   fromRow: number;
   fromCol: number;
+}
+
+interface ContextMenuState {
+  isOpen: boolean;
+  x: number;
+  y: number;
+  row: number;
+  col: number;
 }
 
 /**
@@ -32,12 +45,14 @@ interface DragState {
  * - Visual feedback during drag operations
  * - Mobile-optimized touch interactions
  * - Controlled or uncontrolled selection state
+ * - Right-click context menu for item actions (Use, etc.)
  */
 export default function InventoryGrid({ 
   grid, 
   onSwapItems,
   selectedSlot: controlledSelectedSlot,
   onSelectedSlotChange,
+  onUseItem,
 }: InventoryGridProps) {
   const [dragState, setDragState] = useState<DragState>({ 
     isDragging: false, 
@@ -45,6 +60,22 @@ export default function InventoryGrid({
     fromCol: -1 
   });
   const [internalSelectedSlot, setInternalSelectedSlot] = useState<{ row: number; col: number } | null>(null);
+  const [contextMenu, setContextMenu] = useState<ContextMenuState>({
+    isOpen: false,
+    x: 0,
+    y: 0,
+    row: -1,
+    col: -1,
+  });
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+
+  // Auto-dismiss feedback message after duration
+  useEffect(() => {
+    if (feedbackMessage) {
+      const timeoutId = setTimeout(() => setFeedbackMessage(null), FEEDBACK_DISPLAY_DURATION);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [feedbackMessage]);
   
   // Use controlled or uncontrolled selection
   const isControlled = controlledSelectedSlot !== undefined;
@@ -62,6 +93,52 @@ export default function InventoryGrid({
       setInternalSelectedSlot(slot);
     }
   }, [isControlled, onSelectedSlotChange]);
+
+  // Handle right-click context menu
+  const handleContextMenu = useCallback((row: number, col: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    const slot = grid[row][col];
+    if (!slot) return;
+
+    setContextMenu({
+      isOpen: true,
+      x: e.clientX,
+      y: e.clientY,
+      row,
+      col,
+    });
+  }, [grid]);
+
+  // Close context menu
+  const closeContextMenu = useCallback(() => {
+    setContextMenu(prev => ({ ...prev, isOpen: false }));
+  }, []);
+
+  // Get context menu actions for the current slot
+  const getContextMenuActions = useCallback((): ContextMenuAction[] => {
+    const actions: ContextMenuAction[] = [];
+    const slot = grid[contextMenu.row]?.[contextMenu.col];
+    
+    if (!slot) return actions;
+    
+    const itemData = getItemById(slot.itemId);
+    if (!itemData) return actions;
+
+    // Add "Use" action for consumable items
+    if (itemData.type === ITEM_TYPE.CONSUMABLE && onUseItem) {
+      actions.push({
+        label: '🧪 Use',
+        onClick: () => {
+          const result = onUseItem(contextMenu.row, contextMenu.col);
+          if (result.message) {
+            setFeedbackMessage(result.message);
+          }
+        },
+      });
+    }
+
+    return actions;
+  }, [contextMenu.row, contextMenu.col, grid, onUseItem]);
 
   // Handle drag start (mouse)
   const handleDragStart = useCallback((row: number, col: number, e: React.DragEvent) => {
@@ -135,6 +212,7 @@ export default function InventoryGrid({
     
     // Look up item data from the data file
     const itemData = slot ? getItemById(slot.itemId) : null;
+    const quantity = slot?.quantity;
     
     return (
       <div
@@ -146,8 +224,9 @@ export default function InventoryGrid({
         onDrop={(e) => handleDrop(row, col, e)}
         onDragEnd={handleDragEnd}
         onClick={() => handleSlotClick(row, col)}
+        onContextMenu={(e) => handleContextMenu(row, col, e)}
         role="button"
-        aria-label={itemData ? `${itemData.name} - Click to select for swap` : 'Empty slot'}
+        aria-label={itemData ? `${itemData.name}${quantity && quantity > 1 ? ` (${quantity})` : ''} - Click to select, right-click for options` : 'Empty slot'}
         tabIndex={0}
       >
         {itemData && (
@@ -156,6 +235,9 @@ export default function InventoryGrid({
               {getItemIcon(itemData.type)}
             </div>
             <div className="item-name">{itemData.name}</div>
+            {quantity && quantity > 1 && (
+              <div className="item-quantity">{quantity}</div>
+            )}
           </div>
         )}
       </div>
@@ -177,6 +259,19 @@ export default function InventoryGrid({
         <div className="inventory-hint">
           Tap another slot to swap, or tap the same slot to deselect
         </div>
+      )}
+      {feedbackMessage && (
+        <div className="inventory-feedback">
+          {feedbackMessage}
+        </div>
+      )}
+      {contextMenu.isOpen && (
+        <ItemContextMenu
+          x={contextMenu.x}
+          y={contextMenu.y}
+          actions={getContextMenuActions()}
+          onClose={closeContextMenu}
+        />
       )}
     </div>
   );

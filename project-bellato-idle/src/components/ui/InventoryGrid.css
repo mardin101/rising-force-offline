@@ -131,6 +131,44 @@
   margin-top: 4px;
 }
 
+.inventory-feedback {
+  text-align: center;
+  font-size: 12px;
+  color: #50ff50;
+  padding: 8px 12px;
+  background: rgba(30, 80, 30, 0.4);
+  border: 1px solid rgba(80, 200, 80, 0.4);
+  border-radius: 4px;
+  margin-top: 4px;
+  animation: feedbackFadeIn 0.2s ease-out;
+}
+
+@keyframes feedbackFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item-quantity {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 9px;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(60, 120, 180, 0.9);
+  padding: 1px 4px;
+  border-radius: 3px;
+  min-width: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 400px) {
   .inventory-slot {

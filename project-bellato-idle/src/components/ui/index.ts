@@ -10,3 +10,6 @@ export type { InventoryModalProps } from './InventoryModal';
 
 export { default as EquipmentSlots } from './EquipmentSlots';
 export type { EquipmentSlotsProps } from './EquipmentSlots';
+
+export { default as ItemContextMenu } from './ItemContextMenu';
+export type { ItemContextMenuProps, ContextMenuAction } from './ItemContextMenu';
