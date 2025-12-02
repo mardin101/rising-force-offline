@@ -34,13 +34,18 @@ interface BattleState {
   pendingReward: { expGain: number; goldGain: number } | null;
 }
 
+// Combat constants
+const DAMAGE_VARIANCE = 0.2; // ±20% damage variance
+const BASE_ATTACK_SPEED = 10; // Default attack speed value
+const MIN_TICK_INTERVAL_MS = 200; // Minimum time between attacks in ms
+const BASE_TICK_INTERVAL_MS = 1000; // Base interval between attacks in ms
+
 // Calculate damage dealt (attacker attack vs defender defense)
 function calculateDamage(attack: number, defense: number): number {
   // Base damage = attack - defense, minimum 1 damage
   const baseDamage = Math.max(1, attack - defense);
-  // Add some variance (±20%)
-  const variance = 0.2;
-  const multiplier = 1 + (Math.random() * 2 - 1) * variance;
+  // Add some variance
+  const multiplier = 1 + (Math.random() * 2 - 1) * DAMAGE_VARIANCE;
   return Math.max(1, Math.floor(baseDamage * multiplier));
 }
 
@@ -228,11 +233,10 @@ export default function Battle() {
       clearInterval(battleIntervalRef.current);
     }
 
-    // Calculate tick interval based on attack speed (base 1000ms, scaled by attack speed)
+    // Calculate tick interval based on attack speed
     // Higher attack speed = faster attacks
-    const baseInterval = 1000;
-    const attackSpeedModifier = gameState.character.statusInfo.attackSpeed / 10; // Base attack speed is ~10
-    const tickInterval = Math.max(200, baseInterval / attackSpeedModifier);
+    const attackSpeedModifier = gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED;
+    const tickInterval = Math.max(MIN_TICK_INTERVAL_MS, BASE_TICK_INTERVAL_MS / attackSpeedModifier);
 
     // Start battle loop
     battleIntervalRef.current = window.setInterval(() => {
