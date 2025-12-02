@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GameMenu, InventoryModal } from '../components/ui';
+import { GameMenu, InventoryModal, MacroModal } from '../components/ui';
 import { useGameState } from '../state/GameStateContext';
 import { getMaxPtForLevel } from '../state/gameStateSlice';
 
@@ -7,11 +7,12 @@ import { getMaxPtForLevel } from '../state/gameStateSlice';
 type StatsTab = 'general' | 'status' | 'ability' | 'element';
 
 export default function CharacterSheet() {
-  const { gameState, swapInventoryItems, equipItem, unequipItem, useItem } = useGameState();
+  const { gameState, swapInventoryItems, equipItem, unequipItem, useItem, updateMacroState } = useGameState();
   const character = gameState.character;
   const [isStatsMenuOpen, setIsStatsMenuOpen] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
   const [isInventoryOpen, setIsInventoryOpen] = useState(false);
+  const [isMacroOpen, setIsMacroOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<StatsTab>('general');
 
   const handleCloseStats = () => {
@@ -32,6 +33,14 @@ export default function CharacterSheet() {
 
   const handleCloseInventory = () => {
     setIsInventoryOpen(false);
+  };
+
+  const handleOpenMacro = () => {
+    setIsMacroOpen(true);
+  };
+
+  const handleCloseMacro = () => {
+    setIsMacroOpen(false);
   };
 
   // Handle case when no character has been created yet
@@ -284,6 +293,23 @@ export default function CharacterSheet() {
           <span className="text-xl">🎒</span>
           <span>Inventory</span>
         </button>
+
+        {/* Macro button */}
+        <button
+          onClick={handleOpenMacro}
+          className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-colors ${
+            gameState.macroState.enabled 
+              ? 'bg-green-600 hover:bg-green-700' 
+              : 'bg-purple-600 hover:bg-purple-700'
+          }`}
+          aria-label="Open macro settings"
+        >
+          <span className="text-xl">⚗️</span>
+          <span>Macro</span>
+          {gameState.macroState.enabled && (
+            <span className="text-xs bg-green-800 px-1.5 py-0.5 rounded">ON</span>
+          )}
+        </button>
       </div>
 
       {/* Stats Menu using GameMenu component */}
@@ -338,6 +364,17 @@ export default function CharacterSheet() {
         onEquipItem={equipItem}
         onUnequipItem={unequipItem}
         onUseItem={useItem}
+      />
+
+      {/* Macro Modal */}
+      <MacroModal
+        isOpen={isMacroOpen}
+        onClose={handleCloseMacro}
+        macroState={gameState.macroState}
+        inventoryGrid={gameState.inventoryGrid}
+        maxHp={statusInfo.maxHp}
+        currentHp={statusInfo.hp}
+        onUpdateMacro={updateMacroState}
       />
     </div>
   );

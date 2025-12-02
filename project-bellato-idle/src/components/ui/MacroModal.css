@@ -1,0 +1,497 @@
+/* MacroModal Component Styles
+ * Modal for configuring potion auto-use macro
+ * - Sci-fi aesthetic matching other modals
+ * - Mobile-friendly dimensions
+ */
+
+.macro-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: macroFadeIn 0.2s ease-out;
+}
+
+@keyframes macroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.macro-modal {
+  background: linear-gradient(180deg, rgba(15, 25, 50, 0.92) 0%, rgba(10, 18, 35, 0.95) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(100, 180, 255, 0.3),
+    0 0 30px rgba(60, 140, 220, 0.3),
+    0 0 60px rgba(30, 80, 150, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+  max-width: 380px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: macroSlideUp 0.25s ease-out;
+  position: relative;
+}
+
+/* Sci-fi corner accents */
+.macro-modal::before,
+.macro-modal::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.macro-modal::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(100, 180, 255, 0.6);
+  border-left: 2px solid rgba(100, 180, 255, 0.6);
+  border-top-left-radius: 8px;
+}
+
+.macro-modal::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(100, 180, 255, 0.6);
+  border-right: 2px solid rgba(100, 180, 255, 0.6);
+  border-bottom-right-radius: 8px;
+}
+
+@keyframes macroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.macro-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(25, 45, 80, 0.85) 0%, rgba(15, 30, 55, 0.9) 100%);
+  border-bottom: 1px solid rgba(80, 140, 200, 0.4);
+  padding: 12px 16px;
+  position: relative;
+}
+
+/* Glowing bottom line effect for header */
+.macro-modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.5), transparent);
+}
+
+.macro-modal-title {
+  color: #a0d0ff;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 180, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.macro-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(180deg, rgba(40, 70, 120, 0.7) 0%, rgba(25, 45, 80, 0.8) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #a0d0ff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.macro-modal-close:hover {
+  background: linear-gradient(180deg, rgba(50, 90, 150, 0.8) 0%, rgba(35, 60, 100, 0.85) 100%);
+  border-color: #ff5566;
+  color: #ff5566;
+  box-shadow: 0 0 12px rgba(255, 85, 102, 0.5);
+}
+
+.macro-modal-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.4);
+}
+
+.macro-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: calc(90vh - 60px);
+}
+
+/* Macro Enable Toggle */
+.macro-enable-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+}
+
+.macro-enable-label {
+  color: #a0d0ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.macro-toggle {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background: rgba(30, 50, 80, 0.6);
+  border: 1px solid rgba(80, 140, 200, 0.4);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.macro-toggle.enabled {
+  background: rgba(40, 180, 100, 0.6);
+  border-color: rgba(40, 200, 120, 0.6);
+}
+
+.macro-toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #c0e0ff 0%, #90b8e0 100%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.macro-toggle.enabled .macro-toggle-slider {
+  left: 26px;
+  background: linear-gradient(180deg, #80ffc0 0%, #40c080 100%);
+}
+
+/* Potion Slot Section */
+.macro-section {
+  margin-bottom: 16px;
+}
+
+.macro-section-title {
+  color: #7090c0;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.macro-potion-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(180deg, rgba(25, 45, 80, 0.6) 0%, rgba(15, 30, 55, 0.7) 100%);
+  border: 2px dashed rgba(80, 140, 200, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0 auto 8px;
+}
+
+.macro-potion-slot:hover {
+  border-color: rgba(100, 180, 255, 0.8);
+  background: linear-gradient(180deg, rgba(30, 55, 100, 0.7) 0%, rgba(20, 40, 75, 0.8) 100%);
+}
+
+.macro-potion-slot.has-item {
+  border-style: solid;
+  border-color: rgba(60, 200, 120, 0.6);
+}
+
+.macro-potion-slot.drag-over {
+  border-color: rgba(100, 200, 150, 0.9);
+  background: linear-gradient(180deg, rgba(30, 70, 60, 0.7) 0%, rgba(20, 50, 45, 0.8) 100%);
+  box-shadow: 0 0 12px rgba(100, 200, 150, 0.4);
+}
+
+.macro-potion-slot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.macro-potion-icon {
+  font-size: 24px;
+}
+
+.macro-potion-quantity {
+  font-size: 10px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.macro-potion-empty {
+  color: rgba(100, 160, 220, 0.5);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* HP Threshold Slider */
+.macro-slider-container {
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+}
+
+.macro-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.macro-slider-label {
+  color: #a0d0ff;
+  font-size: 13px;
+}
+
+.macro-slider-value {
+  color: #ff8866;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.macro-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(255, 80, 80, 0.3) 0%, rgba(255, 180, 80, 0.3) 50%, rgba(80, 255, 120, 0.3) 100%);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgba(80, 140, 200, 0.3);
+}
+
+.macro-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #ff9080 0%, #ff6050 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.macro-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(255, 100, 80, 0.5);
+}
+
+.macro-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #ff9080 0%, #ff6050 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.macro-slider-hint {
+  margin-top: 8px;
+  font-size: 11px;
+  color: rgba(160, 200, 240, 0.6);
+  text-align: center;
+}
+
+/* Available Potions Section */
+.macro-potions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.macro-potion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  background: linear-gradient(180deg, rgba(30, 55, 100, 0.5) 0%, rgba(20, 40, 75, 0.6) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.3);
+  border-radius: 6px;
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.macro-potion-item:hover {
+  border-color: rgba(100, 180, 255, 0.6);
+  background: linear-gradient(180deg, rgba(35, 65, 120, 0.6) 0%, rgba(25, 50, 90, 0.7) 100%);
+  transform: translateY(-2px);
+}
+
+.macro-potion-item:active {
+  cursor: grabbing;
+}
+
+.macro-potion-item.dragging {
+  opacity: 0.5;
+}
+
+.macro-potion-item-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.macro-potion-item-name {
+  font-size: 9px;
+  color: #a0d0ff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.macro-potion-item-quantity {
+  font-size: 10px;
+  color: #ffd700;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.macro-no-potions {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 16px;
+  color: rgba(160, 200, 240, 0.5);
+  font-size: 12px;
+}
+
+/* Divider */
+.macro-divider {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  gap: 12px;
+}
+
+.macro-divider::before,
+.macro-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(80, 140, 200, 0.4), rgba(80, 140, 200, 0.4), transparent);
+}
+
+.macro-divider-text {
+  color: #7090c0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* Status display */
+.macro-status {
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+  margin-top: 12px;
+}
+
+.macro-status-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.macro-status-row:last-child {
+  margin-bottom: 0;
+}
+
+.macro-status-label {
+  color: rgba(160, 200, 240, 0.7);
+}
+
+.macro-status-value {
+  color: #a0d0ff;
+  font-weight: 500;
+}
+
+.macro-status-value.active {
+  color: #80ffc0;
+}
+
+.macro-status-value.inactive {
+  color: #ff8866;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .macro-modal-backdrop {
+    padding: 12px;
+  }
+  
+  .macro-modal {
+    max-width: 100%;
+  }
+  
+  .macro-modal-header {
+    padding: 10px 14px;
+  }
+  
+  .macro-modal-title {
+    font-size: 14px;
+  }
+  
+  .macro-modal-body {
+    padding: 12px;
+  }
+  
+  .macro-potions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

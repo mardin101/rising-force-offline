@@ -3,7 +3,7 @@ import zones from '../data/zones.json';
 import monsters from '../data/monsters.json';
 import { useGameState } from '../state/GameStateContext';
 import { useQuestContext } from '../state/QuestContext';
-import { calculateExpAndLevel, calculateDeathPenalty, DEATH_EXP_PENALTY } from '../state/gameStateSlice';
+import { calculateExpAndLevel, calculateDeathPenalty, DEATH_EXP_PENALTY, getItemById, ITEM_TYPE } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
 
 interface Zone {
@@ -64,7 +64,7 @@ function calculateDamage(attack: number, defense: number): number {
 }
 
 export default function Battle() {
-  const { gameState, updateCharacter, updateMaterials, updateCurrentZone } = useGameState();
+  const { gameState, updateCharacter, updateMaterials, updateCurrentZone, consumeMacroPotion } = useGameState();
   const { recordMonsterKill } = useQuestContext();
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   // Initialize selectedZone from global state if available
@@ -90,6 +90,46 @@ export default function Battle() {
   const victoryProcessedRef = useRef<boolean>(false);
   const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
+
+  // Helper function to check if macro should trigger and consume potion
+  const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
+    const { macroState, inventoryGrid, character } = gameState;
+    
+    // Check if macro is enabled and has a valid potion slot
+    if (!macroState.enabled || !macroState.potionSlot || !character) {
+      return { newHp: currentHp, message: null };
+    }
+
+    // Check if HP is below threshold
+    if (currentHp >= macroState.hpThreshold) {
+      return { newHp: currentHp, message: null };
+    }
+
+    // Check if there's a valid potion in the slot
+    const { row, col } = macroState.potionSlot;
+    const item = inventoryGrid[row]?.[col];
+    if (!item) {
+      return { newHp: currentHp, message: null };
+    }
+
+    const itemData = getItemById(item.itemId);
+    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+      return { newHp: currentHp, message: null };
+    }
+
+    // Check if already at or above max HP
+    if (currentHp >= character.statusInfo.maxHp) {
+      return { newHp: currentHp, message: null };
+    }
+
+    // Consume the potion via the context
+    const result = consumeMacroPotion();
+    if (result.success) {
+      return { newHp: currentHp + result.healAmount, message: result.message };
+    }
+
+    return { newHp: currentHp, message: null };
+  }, [gameState, consumeMacroPotion]);
 
   const handleZoneSelect = (zone: Zone) => {
     setSelectedZone(zone);
@@ -180,6 +220,13 @@ export default function Battle() {
       newPlayerHp = Math.max(0, newPlayerHp - monsterDamage);
       newLog.push(`${selectedMonster.name} hits ${gameState.character!.generalInfo.name} for ${monsterDamage} damage!`);
 
+      // Check if macro should trigger (HP below threshold)
+      const macroResult = checkAndUseMacroPotion(newPlayerHp);
+      if (macroResult.message) {
+        newLog.push(macroResult.message);
+        newPlayerHp = Math.min(macroResult.newHp, gameState.character!.statusInfo.maxHp);
+      }
+
       // Check if player is defeated (death event)
       if (newPlayerHp <= 0) {
         // Calculate death penalty - lose experience
@@ -206,7 +253,7 @@ export default function Battle() {
         battleLog: newLog.slice(-10),
       };
     });
-  }, [selectedMonster, gameState.character]);
+  }, [selectedMonster, gameState.character, checkAndUseMacroPotion]);
 
   // Keep the processBattleTick ref updated to avoid stale closures in intervals
   useEffect(() => {

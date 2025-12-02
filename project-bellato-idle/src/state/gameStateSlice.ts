@@ -412,6 +412,25 @@ export function createEmptyEquipment(): EquippedItems {
   };
 }
 
+// Macro system state - for auto-consuming potions when HP drops below threshold
+export interface MacroState {
+  enabled: boolean;
+  hpThreshold: number;      // HP value at which to auto-consume a potion
+  potionSlot: {             // Reference to the inventory slot containing potions
+    row: number;
+    col: number;
+  } | null;
+}
+
+// Create default macro state
+export function createDefaultMacroState(): MacroState {
+  return {
+    enabled: false,
+    hpThreshold: 0,
+    potionSlot: null,
+  };
+}
+
 // Calculate total defense from all equipped items
 export function calculateEquippedDefense(equippedItems: EquippedItems): number {
   let totalDefense = 0;
@@ -434,6 +453,7 @@ export interface GameState {
   inventory: string[];
   inventoryGrid: InventoryGrid;
   equippedItems: EquippedItems;
+  macroState: MacroState;
   materials: Record<string, number>;
   activeQuest: ActiveQuest | null;
   completedQuestIds: string[];
@@ -448,6 +468,7 @@ export const initialGameState: GameState = {
   inventory: [],
   inventoryGrid: createStarterInventoryGrid(),
   equippedItems: createEmptyEquipment(),
+  macroState: createDefaultMacroState(),
   materials: {},
   activeQuest: null,
   completedQuestIds: [],
@@ -704,6 +725,14 @@ export function migrateGameState(state: GameState): GameState {
     migratedState = {
       ...migratedState,
       equippedItems: createEmptyEquipment(),
+    };
+  }
+  
+  // Migrate macroState if missing
+  if (!migratedState.macroState) {
+    migratedState = {
+      ...migratedState,
+      macroState: createDefaultMacroState(),
     };
   }
   

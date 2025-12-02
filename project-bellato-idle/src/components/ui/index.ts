@@ -13,3 +13,6 @@ export type { EquipmentSlotsProps } from './EquipmentSlots';
 
 export { default as ItemContextMenu } from './ItemContextMenu';
 export type { ItemContextMenuProps, ContextMenuAction } from './ItemContextMenu';
+
+export { default as MacroModal } from './MacroModal';
+export type { MacroModalProps } from './MacroModal';
