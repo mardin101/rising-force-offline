@@ -254,7 +254,7 @@ export default function Battle() {
         battleIntervalRef.current = null;
       }
 
-      // Persist the player's current HP (which is 0 after defeat)
+      // Persist the player's current HP after defeat
       updateCharacter((currentChar) => ({
         statusInfo: {
           ...currentChar.statusInfo,
