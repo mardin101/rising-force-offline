@@ -47,9 +47,9 @@ export interface UseQuestReturn {
 // Props for integrating with actual game state
 export interface UseQuestProps {
   character: Character;
-  updateCharacter: (updates: Partial<Character>) => void;
+  updateCharacter: (updater: Partial<Character> | ((currentChar: Character) => Partial<Character>)) => void;
   inventoryGrid: InventoryGrid;
-  updateInventoryGrid: (grid: InventoryGrid) => void;
+  updateInventoryGrid: (updater: InventoryGrid | ((currentGrid: InventoryGrid) => InventoryGrid)) => void;
   activeQuest: ActiveQuest | null;
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   completedQuestIds: string[];
@@ -62,7 +62,6 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
   const { 
     character, 
     updateCharacter, 
-    inventoryGrid, 
     updateInventoryGrid,
     activeQuest,
     updateActiveQuest,
@@ -139,23 +138,25 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
 
     const { quest } = activeQuest;
 
-    // Apply rewards to the actual player character
-    updateCharacter({
-      gold: character.gold + quest.rewards.gold,
+    // Apply rewards to the actual player character using functional update to avoid race conditions
+    updateCharacter((currentChar) => ({
+      gold: currentChar.gold + quest.rewards.gold,
       statusInfo: {
-        ...character.statusInfo,
-        expPoints: character.statusInfo.expPoints + quest.rewards.exp,
+        ...currentChar.statusInfo,
+        expPoints: currentChar.statusInfo.expPoints + quest.rewards.exp,
       },
-    });
+    }));
 
-    // Add item reward to inventory if present
+    // Add item reward to inventory if present using functional update to avoid race conditions
     if (quest.rewards.item) {
-      const result = addItemToInventory(inventoryGrid, quest.rewards.item);
-      if (result.success) {
-        updateInventoryGrid(result.grid);
-      } else {
-        console.warn('Inventory full, could not add quest reward item:', quest.rewards.item);
-      }
+      const itemId = quest.rewards.item;
+      updateInventoryGrid((currentGrid) => {
+        const result = addItemToInventory(currentGrid, itemId);
+        if (!result.success) {
+          console.warn('Inventory full, could not add quest reward item:', itemId);
+        }
+        return result.grid;
+      });
     }
 
     // Mark quest as completed
@@ -165,7 +166,7 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     updateActiveQuest(null);
 
     return { rewards: quest.rewards };
-  }, [activeQuest, character, updateCharacter, inventoryGrid, updateInventoryGrid, completedQuestIds, updateCompletedQuestIds, updateActiveQuest]);
+  }, [activeQuest, completedQuestIds, updateCompletedQuestIds, updateActiveQuest, updateCharacter, updateInventoryGrid]);
 
   // Simulate killing a monster (for demo purposes)
   const simulateMonsterKill = useCallback((monsterId: string) => {
