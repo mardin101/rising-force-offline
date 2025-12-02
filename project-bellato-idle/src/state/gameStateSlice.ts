@@ -37,15 +37,187 @@ export const CHARACTER_NAME_MIN_LENGTH = 2;
 export const CHARACTER_NAME_MAX_LENGTH = 20;
 export const STARTING_GOLD = 100;
 
-// Base stats for each class
-export const CLASS_BASE_STATS: Record<CharacterClass, { hp: number; attack: number; defense: number }> = {
-  [CHARACTER_CLASSES.WARRIOR]: { hp: 120, attack: 12, defense: 8 },
-  [CHARACTER_CLASSES.RANGER]: { hp: 90, attack: 15, defense: 5 },
-  [CHARACTER_CLASSES.SPIRITUALIST]: { hp: 80, attack: 10, defense: 4 },
-  [CHARACTER_CLASSES.SPECIALIST]: { hp: 100, attack: 8, defense: 6 },
+// PT (Proficiency Points) constants
+export const PT_MIN = 0;
+export const PT_MAX_AT_LEVEL_1 = 2;
+export const PT_MAX_AT_MAX_LEVEL = 99;
+export const MAX_CHARACTER_LEVEL = 55;
+export const PT_EXPERIENCE_PER_ACTION = 0.0005; // 0.05% experience per action
+
+// Character race constants
+export const CHARACTER_RACES = {
+  BELLATO: 'Bellato',
+  CORA: 'Cora',
+  ACCRETIA: 'Accretia',
+} as const;
+
+export type CharacterRace = typeof CHARACTER_RACES[keyof typeof CHARACTER_RACES];
+
+// Character sex constants
+export const CHARACTER_SEX = {
+  MALE: 'Male',
+  FEMALE: 'Female',
+} as const;
+
+export type CharacterSex = typeof CHARACTER_SEX[keyof typeof CHARACTER_SEX];
+
+// Character grade constants
+export const CHARACTER_GRADES = {
+  F: 'F',
+  E: 'E',
+  D: 'D',
+  C: 'C',
+  B: 'B',
+  A: 'A',
+  S: 'S',
+} as const;
+
+export type CharacterGrade = typeof CHARACTER_GRADES[keyof typeof CHARACTER_GRADES];
+
+// Calculate max PT for a given level (linear interpolation from level 1 to 55)
+export function getMaxPtForLevel(level: number): number {
+  if (level <= 1) return PT_MAX_AT_LEVEL_1;
+  if (level >= MAX_CHARACTER_LEVEL) return PT_MAX_AT_MAX_LEVEL;
+  
+  // Linear interpolation: at level 1 max is 2, at level 55 max is 99
+  const progress = (level - 1) / (MAX_CHARACTER_LEVEL - 1);
+  return Math.floor(PT_MAX_AT_LEVEL_1 + progress * (PT_MAX_AT_MAX_LEVEL - PT_MAX_AT_LEVEL_1));
+}
+
+// Experience needed to gain 1 PT (100% / 0.05% per action = 2000 actions)
+export const PT_EXPERIENCE_TO_LEVEL = 1.0;
+
+// Ability Info - PT stats with experience tracking
+export interface AbilityInfo {
+  melee: number;      // Melee PT (0-99)
+  meleeExp: number;   // Melee experience (0-1, 1 = gain 1 PT)
+  range: number;      // Range PT
+  rangeExp: number;
+  unit: number;       // UNIT PT (MAU/vehicle proficiency)
+  unitExp: number;
+  force: number;      // Force PT (magic)
+  forceExp: number;
+  shield: number;     // Shield PT
+  shieldExp: number;
+  defense: number;    // Defense PT
+  defenseExp: number;
+}
+
+// Element Resist Info
+export interface ElementResistInfo {
+  fire: number;
+  aqua: number;
+  terra: number;
+  wind: number;
+}
+
+// Status Info - Combat and resource stats
+export interface StatusInfo {
+  hp: number;
+  maxHp: number;
+  fp: number;         // Force Points
+  maxFp: number;
+  sp: number;         // Stamina Points
+  maxSp: number;
+  defGauge: number;   // Defense Gauge
+  maxDefGauge: number;
+  expPoints: number;  // Experience Points
+  genAttack: number;  // General Attack
+  forceAttack: number;// Force Attack
+  avgDefPwr: number;  // Average Defense Power
+  avgDefRange: number;// Average Defense Range
+  avgDefRate: number; // Average Defense Rate
+  attackSpeed: number;
+  accuracy: number;
+  dodge: number;
+}
+
+// Base stats for each class - extended with new stat structure
+export interface ClassBaseStats {
+  // Status Info base values
+  hp: number;
+  fp: number;
+  sp: number;
+  defGauge: number;
+  genAttack: number;
+  forceAttack: number;
+  avgDefPwr: number;
+  avgDefRange: number;
+  avgDefRate: number;
+  attackSpeed: number;
+  accuracy: number;
+  dodge: number;
+  // Starting Ability PT values
+  melee: number;
+  range: number;
+  unit: number;
+  force: number;
+  shield: number;
+  defense: number;
+  // Element resists
+  fire: number;
+  aqua: number;
+  terra: number;
+  wind: number;
+}
+
+export const CLASS_BASE_STATS: Record<CharacterClass, ClassBaseStats> = {
+  [CHARACTER_CLASSES.WARRIOR]: {
+    hp: 120, fp: 50, sp: 80, defGauge: 100,
+    genAttack: 12, forceAttack: 3, avgDefPwr: 8, avgDefRange: 5, avgDefRate: 15,
+    attackSpeed: 10, accuracy: 85, dodge: 10,
+    melee: 1, range: 0, unit: 0, force: 0, shield: 1, defense: 1,
+    fire: 5, aqua: 5, terra: 5, wind: 5,
+  },
+  [CHARACTER_CLASSES.RANGER]: {
+    hp: 90, fp: 40, sp: 100, defGauge: 60,
+    genAttack: 15, forceAttack: 2, avgDefPwr: 5, avgDefRange: 8, avgDefRate: 12,
+    attackSpeed: 15, accuracy: 95, dodge: 20,
+    melee: 0, range: 1, unit: 0, force: 0, shield: 0, defense: 0,
+    fire: 3, aqua: 3, terra: 3, wind: 3,
+  },
+  [CHARACTER_CLASSES.SPIRITUALIST]: {
+    hp: 80, fp: 120, sp: 60, defGauge: 40,
+    genAttack: 6, forceAttack: 15, avgDefPwr: 4, avgDefRange: 3, avgDefRate: 8,
+    attackSpeed: 8, accuracy: 80, dodge: 15,
+    melee: 0, range: 0, unit: 0, force: 1, shield: 0, defense: 0,
+    fire: 8, aqua: 8, terra: 8, wind: 8,
+  },
+  [CHARACTER_CLASSES.SPECIALIST]: {
+    hp: 100, fp: 70, sp: 90, defGauge: 80,
+    genAttack: 8, forceAttack: 6, avgDefPwr: 6, avgDefRange: 6, avgDefRate: 10,
+    attackSpeed: 12, accuracy: 90, dodge: 12,
+    melee: 0, range: 0, unit: 1, force: 0, shield: 0, defense: 1,
+    fire: 5, aqua: 5, terra: 5, wind: 5,
+  },
 };
 
+// General Info - Basic character information
+export interface GeneralInfo {
+  name: string;
+  race: CharacterRace;
+  sex: CharacterSex;
+  class: CharacterClass;
+  classPropensity: string;  // e.g., "Melee DPS", "Tank", "Support"
+  grade: CharacterGrade;
+  cp: number;  // Combat Power
+}
+
 export interface Character {
+  // General Info
+  generalInfo: GeneralInfo;
+  level: number;
+  gold: number;
+  // Status Info
+  statusInfo: StatusInfo;
+  // Ability Info (PT stats)
+  abilityInfo: AbilityInfo;
+  // Element Resist Info
+  elementResistInfo: ElementResistInfo;
+}
+
+// Legacy Character interface fields for backward compatibility
+export interface LegacyCharacter {
   name: string;
   level: number;
   experience: number;
@@ -182,24 +354,180 @@ export function validateCharacterName(name: string): { valid: boolean; error?: s
   return { valid: true };
 }
 
+// Class propensity descriptions
+export const CLASS_PROPENSITIES: Record<CharacterClass, string> = {
+  [CHARACTER_CLASSES.WARRIOR]: 'Melee DPS / Tank',
+  [CHARACTER_CLASSES.RANGER]: 'Ranged DPS',
+  [CHARACTER_CLASSES.SPIRITUALIST]: 'Force DPS / Support',
+  [CHARACTER_CLASSES.SPECIALIST]: 'Utility / Crafting',
+};
+
+// Calculate Combat Power from stats
+export function calculateCP(statusInfo: StatusInfo, abilityInfo: AbilityInfo): number {
+  const statusCP = statusInfo.genAttack * 10 + statusInfo.forceAttack * 10 +
+    statusInfo.avgDefPwr * 5 + statusInfo.attackSpeed * 3 +
+    statusInfo.accuracy + statusInfo.dodge;
+  const abilityCP = (abilityInfo.melee + abilityInfo.range + abilityInfo.unit +
+    abilityInfo.force + abilityInfo.shield + abilityInfo.defense) * 5;
+  return Math.floor(statusCP + abilityCP);
+}
+
 // Create a new character with class-specific base stats
-export function createCharacter(name: string, characterClass: CharacterClass): Character {
+export function createCharacter(
+  name: string,
+  characterClass: CharacterClass,
+  race: CharacterRace = CHARACTER_RACES.BELLATO,
+  sex: CharacterSex = CHARACTER_SEX.MALE
+): Character {
   const baseStats = CLASS_BASE_STATS[characterClass];
-  return {
-    name,
-    level: 1,
-    experience: 0,
+  
+  const statusInfo: StatusInfo = {
     hp: baseStats.hp,
     maxHp: baseStats.hp,
-    attack: baseStats.attack,
+    fp: baseStats.fp,
+    maxFp: baseStats.fp,
+    sp: baseStats.sp,
+    maxSp: baseStats.sp,
+    defGauge: baseStats.defGauge,
+    maxDefGauge: baseStats.defGauge,
+    expPoints: 0,
+    genAttack: baseStats.genAttack,
+    forceAttack: baseStats.forceAttack,
+    avgDefPwr: baseStats.avgDefPwr,
+    avgDefRange: baseStats.avgDefRange,
+    avgDefRate: baseStats.avgDefRate,
+    attackSpeed: baseStats.attackSpeed,
+    accuracy: baseStats.accuracy,
+    dodge: baseStats.dodge,
+  };
+  
+  const abilityInfo: AbilityInfo = {
+    melee: baseStats.melee,
+    meleeExp: 0,
+    range: baseStats.range,
+    rangeExp: 0,
+    unit: baseStats.unit,
+    unitExp: 0,
+    force: baseStats.force,
+    forceExp: 0,
+    shield: baseStats.shield,
+    shieldExp: 0,
     defense: baseStats.defense,
-    gold: STARTING_GOLD,
+    defenseExp: 0,
+  };
+  
+  const elementResistInfo: ElementResistInfo = {
+    fire: baseStats.fire,
+    aqua: baseStats.aqua,
+    terra: baseStats.terra,
+    wind: baseStats.wind,
+  };
+  
+  const generalInfo: GeneralInfo = {
+    name,
+    race,
+    sex,
     class: characterClass,
+    classPropensity: CLASS_PROPENSITIES[characterClass],
+    grade: CHARACTER_GRADES.F,
+    cp: calculateCP(statusInfo, abilityInfo),
+  };
+  
+  return {
+    generalInfo,
+    level: 1,
+    gold: STARTING_GOLD,
+    statusInfo,
+    abilityInfo,
+    elementResistInfo,
   };
 }
 
 // Storage key for persisting game state
 export const GAME_STATE_STORAGE_KEY = 'bellato-idle-game-state';
+
+// Check if character is in legacy format
+function isLegacyCharacter(char: Record<string, unknown>): boolean {
+  return typeof char.name === 'string' && 
+         typeof char.class === 'string' && 
+         !char.generalInfo;
+}
+
+// Check if character is in new format
+function isNewCharacter(char: Record<string, unknown>): boolean {
+  return typeof char.generalInfo === 'object' && 
+         char.generalInfo !== null &&
+         typeof char.statusInfo === 'object' &&
+         typeof char.abilityInfo === 'object' &&
+         typeof char.elementResistInfo === 'object';
+}
+
+// Migrate legacy character to new format
+export function migrateLegacyCharacter(legacy: LegacyCharacter): Character {
+  const characterClass = legacy.class;
+  const baseStats = CLASS_BASE_STATS[characterClass];
+  
+  const statusInfo: StatusInfo = {
+    hp: legacy.hp,
+    maxHp: legacy.maxHp,
+    fp: baseStats.fp,
+    maxFp: baseStats.fp,
+    sp: baseStats.sp,
+    maxSp: baseStats.sp,
+    defGauge: baseStats.defGauge,
+    maxDefGauge: baseStats.defGauge,
+    expPoints: legacy.experience,
+    genAttack: legacy.attack || baseStats.genAttack,
+    forceAttack: baseStats.forceAttack,
+    avgDefPwr: legacy.defense || baseStats.avgDefPwr,
+    avgDefRange: baseStats.avgDefRange,
+    avgDefRate: baseStats.avgDefRate,
+    attackSpeed: baseStats.attackSpeed,
+    accuracy: baseStats.accuracy,
+    dodge: baseStats.dodge,
+  };
+  
+  const abilityInfo: AbilityInfo = {
+    melee: baseStats.melee,
+    meleeExp: 0,
+    range: baseStats.range,
+    rangeExp: 0,
+    unit: baseStats.unit,
+    unitExp: 0,
+    force: baseStats.force,
+    forceExp: 0,
+    shield: baseStats.shield,
+    shieldExp: 0,
+    defense: baseStats.defense,
+    defenseExp: 0,
+  };
+  
+  const elementResistInfo: ElementResistInfo = {
+    fire: baseStats.fire,
+    aqua: baseStats.aqua,
+    terra: baseStats.terra,
+    wind: baseStats.wind,
+  };
+  
+  const generalInfo: GeneralInfo = {
+    name: legacy.name,
+    race: CHARACTER_RACES.BELLATO,
+    sex: CHARACTER_SEX.MALE,
+    class: characterClass,
+    classPropensity: CLASS_PROPENSITIES[characterClass],
+    grade: CHARACTER_GRADES.F,
+    cp: calculateCP(statusInfo, abilityInfo),
+  };
+  
+  return {
+    generalInfo,
+    level: legacy.level,
+    gold: legacy.gold,
+    statusInfo,
+    abilityInfo,
+    elementResistInfo,
+  };
+}
 
 // Validate that a value is a valid GameState object
 export function isValidGameState(value: unknown): value is GameState {
@@ -227,24 +555,41 @@ export function isValidGameState(value: unknown): value is GameState {
     }
   }
   
-  // Character can be null or a valid Character object
+  // Character can be null or a valid Character object (legacy or new format)
   if (state.character !== null) {
     const char = state.character as Record<string, unknown>;
-    if (typeof char.name !== 'string') return false;
+    // Accept both legacy format and new format
+    if (!isLegacyCharacter(char) && !isNewCharacter(char)) {
+      return false;
+    }
     if (typeof char.level !== 'number') return false;
-    if (typeof char.class !== 'string') return false;
   }
   
   return true;
 }
 
-// Migrate old game state to include inventoryGrid if missing
+// Migrate old game state to include new fields
 export function migrateGameState(state: GameState): GameState {
-  if (!state.inventoryGrid) {
-    return {
-      ...state,
+  let migratedState = state;
+  
+  // Migrate inventoryGrid if missing
+  if (!migratedState.inventoryGrid) {
+    migratedState = {
+      ...migratedState,
       inventoryGrid: createStarterInventoryGrid(),
     };
   }
-  return state;
+  
+  // Migrate legacy character to new format
+  if (migratedState.character) {
+    const char = migratedState.character as unknown as Record<string, unknown>;
+    if (isLegacyCharacter(char)) {
+      migratedState = {
+        ...migratedState,
+        character: migrateLegacyCharacter(char as unknown as LegacyCharacter),
+      };
+    }
+  }
+  
+  return migratedState;
 }

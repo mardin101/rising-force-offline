@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
-import { QUEST_TYPE, CHARACTER_CLASSES } from '../state/gameStateSlice';
+import { QUEST_TYPE, CHARACTER_CLASSES, CHARACTER_RACES, CHARACTER_SEX, CHARACTER_GRADES, CLASS_BASE_STATS, CLASS_PROPENSITIES, calculateCP } from '../state/gameStateSlice';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -50,18 +50,69 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
   const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
     initialState?.completedQuestIds ?? []
   );
-  const [character, setCharacter] = useState<Character>(
-    initialState?.character ?? {
-      name: "Hero",
+  
+  // Create default character if not provided
+  const defaultCharacter = (): Character => {
+    const baseStats = CLASS_BASE_STATS[CHARACTER_CLASSES.WARRIOR];
+    const statusInfo = {
+      hp: baseStats.hp,
+      maxHp: baseStats.hp,
+      fp: baseStats.fp,
+      maxFp: baseStats.fp,
+      sp: baseStats.sp,
+      maxSp: baseStats.sp,
+      defGauge: baseStats.defGauge,
+      maxDefGauge: baseStats.defGauge,
+      expPoints: 0,
+      genAttack: baseStats.genAttack,
+      forceAttack: baseStats.forceAttack,
+      avgDefPwr: baseStats.avgDefPwr,
+      avgDefRange: baseStats.avgDefRange,
+      avgDefRate: baseStats.avgDefRate,
+      attackSpeed: baseStats.attackSpeed,
+      accuracy: baseStats.accuracy,
+      dodge: baseStats.dodge,
+    };
+    const abilityInfo = {
+      melee: baseStats.melee,
+      meleeExp: 0,
+      range: baseStats.range,
+      rangeExp: 0,
+      unit: baseStats.unit,
+      unitExp: 0,
+      force: baseStats.force,
+      forceExp: 0,
+      shield: baseStats.shield,
+      shieldExp: 0,
+      defense: baseStats.defense,
+      defenseExp: 0,
+    };
+    const elementResistInfo = {
+      fire: baseStats.fire,
+      aqua: baseStats.aqua,
+      terra: baseStats.terra,
+      wind: baseStats.wind,
+    };
+    return {
+      generalInfo: {
+        name: 'Hero',
+        race: CHARACTER_RACES.BELLATO,
+        sex: CHARACTER_SEX.MALE,
+        class: CHARACTER_CLASSES.WARRIOR,
+        classPropensity: CLASS_PROPENSITIES[CHARACTER_CLASSES.WARRIOR],
+        grade: CHARACTER_GRADES.F,
+        cp: calculateCP(statusInfo, abilityInfo),
+      },
       level: 1,
-      experience: 0,
-      hp: 100,
-      maxHp: 100,
-      attack: 10,
-      defense: 5,
       gold: 0,
-      class: CHARACTER_CLASSES.WARRIOR,
-    }
+      statusInfo,
+      abilityInfo,
+      elementResistInfo,
+    };
+  };
+  
+  const [character, setCharacter] = useState<Character>(
+    initialState?.character ?? defaultCharacter()
   );
   const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
     initialState?.materials ?? {}
@@ -141,7 +192,10 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     setCharacter((prev) => ({
       ...prev,
       gold: prev.gold + quest.rewards.gold,
-      experience: prev.experience + quest.rewards.exp,
+      statusInfo: {
+        ...prev.statusInfo,
+        expPoints: prev.statusInfo.expPoints + quest.rewards.exp,
+      },
     }));
 
     // Mark quest as completed

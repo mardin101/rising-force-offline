@@ -47,7 +47,7 @@ function GameContent() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 min-w-0">
                 <h1 className="text-lg sm:text-xl font-bold text-amber-400 truncate">Project Bellato Idle</h1>
                 <span className="text-gray-400 text-xs sm:text-sm truncate">
-                  {gameState.character.name} - Lv.{gameState.character.level} {gameState.character.class}
+                  {gameState.character.generalInfo.name} - Lv.{gameState.character.level} {gameState.character.generalInfo.class}
                 </span>
               </div>
               

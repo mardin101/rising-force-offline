@@ -107,12 +107,12 @@ export default function CharacterCreation() {
                 <span className="text-green-400 font-medium">{selectedStats.hp}</span>
               </div>
               <div className="text-center">
-                <span className="text-gray-400 block">Attack</span>
-                <span className="text-red-400 font-medium">{selectedStats.attack}</span>
+                <span className="text-gray-400 block">Gen. Attack</span>
+                <span className="text-red-400 font-medium">{selectedStats.genAttack}</span>
               </div>
               <div className="text-center">
-                <span className="text-gray-400 block">Defense</span>
-                <span className="text-blue-400 font-medium">{selectedStats.defense}</span>
+                <span className="text-gray-400 block">Avg. Def.</span>
+                <span className="text-blue-400 font-medium">{selectedStats.avgDefPwr}</span>
               </div>
             </div>
           </div>
