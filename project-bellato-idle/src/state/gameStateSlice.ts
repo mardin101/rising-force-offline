@@ -309,9 +309,10 @@ export function canEquipToSlot(item: ItemData, slot: EquipmentSlotType): boolean
   return item.equipSlot === slot;
 }
 
-// Inventory item in a grid slot (stores only the item ID reference)
+// Inventory item in a grid slot (stores the item ID reference and optional quantity for stackable items)
 export interface InventoryItem {
   itemId: string;
+  quantity?: number; // For stackable items like potions. Default is 1 if not specified.
 }
 
 // Grid-based inventory slot (null means empty)
@@ -333,8 +334,7 @@ export function createStarterInventoryGrid(): InventoryGrid {
   
   // Add some starter items for demonstration using item IDs
   grid[0][0] = { itemId: 'sword_basic' };
-  grid[0][1] = { itemId: 'potion_health' };
-  grid[0][2] = { itemId: 'potion_health' };
+  grid[0][1] = { itemId: 'potion_health', quantity: 100 }; // 100 low-level health potions
   grid[1][0] = { itemId: 'leather_armor' };
   grid[2][3] = { itemId: 'iron_ore' };
   
