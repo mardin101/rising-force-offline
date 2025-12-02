@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
-import { QUEST_TYPE, CHARACTER_CLASSES } from '../state/gameStateSlice';
+import { QUEST_TYPE, createCharacter, CHARACTER_CLASSES } from '../state/gameStateSlice';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -43,6 +43,13 @@ export interface UseQuestReturn {
   getMaterialName: (materialId: string) => string;
 }
 
+// Create default character for quest hook using the shared createCharacter function
+function createDefaultQuestCharacter(): Character {
+  const character = createCharacter('Hero', CHARACTER_CLASSES.WARRIOR);
+  // Set gold to 0 for quest tracking (different from normal starting gold)
+  return { ...character, gold: 0 };
+}
+
 export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
   const [activeQuest, setActiveQuest] = useState<ActiveQuest | null>(
     initialState?.activeQuest ?? null
@@ -50,18 +57,9 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
   const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
     initialState?.completedQuestIds ?? []
   );
+  
   const [character, setCharacter] = useState<Character>(
-    initialState?.character ?? {
-      name: "Hero",
-      level: 1,
-      experience: 0,
-      hp: 100,
-      maxHp: 100,
-      attack: 10,
-      defense: 5,
-      gold: 0,
-      class: CHARACTER_CLASSES.WARRIOR,
-    }
+    initialState?.character ?? createDefaultQuestCharacter()
   );
   const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
     initialState?.materials ?? {}
@@ -141,7 +139,10 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     setCharacter((prev) => ({
       ...prev,
       gold: prev.gold + quest.rewards.gold,
-      experience: prev.experience + quest.rewards.exp,
+      statusInfo: {
+        ...prev.statusInfo,
+        expPoints: prev.statusInfo.expPoints + quest.rewards.exp,
+      },
     }));
 
     // Mark quest as completed

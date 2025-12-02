@@ -97,7 +97,7 @@ export default function QuestMaster() {
         <div className="game-menu-section-title">Adventurer Status</div>
         <div className="game-menu-row">
           <span className="game-menu-label">Name</span>
-          <span className="game-menu-value">{character.name}</span>
+          <span className="game-menu-value">{character.generalInfo.name}</span>
         </div>
         <div className="game-menu-row">
           <span className="game-menu-label">Level</span>
