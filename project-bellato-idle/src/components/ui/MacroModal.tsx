@@ -28,6 +28,13 @@ interface AvailablePotion {
   healAmount: number;
 }
 
+// Utility function to check if coordinates are valid inventory bounds
+function isValidInventoryCoordinate(row: number, col: number): boolean {
+  return !isNaN(row) && !isNaN(col) &&
+         row >= 0 && row < INVENTORY_ROWS &&
+         col >= 0 && col < INVENTORY_COLS;
+}
+
 /**
  * MacroModal - A modal for configuring the potion auto-use macro
  * 
@@ -60,12 +67,12 @@ export default function MacroModal({
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = '';
+      };
     }
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
   }, [isOpen, handleKeyDown]);
 
   // Get available potions from inventory
@@ -166,9 +173,7 @@ export default function MacroModal({
     const row = parseInt(parts[0], 10);
     const col = parseInt(parts[1], 10);
     
-    if (isNaN(row) || isNaN(col) || 
-        row < 0 || row >= INVENTORY_ROWS || 
-        col < 0 || col >= INVENTORY_COLS) {
+    if (!isValidInventoryCoordinate(row, col)) {
       return;
     }
 

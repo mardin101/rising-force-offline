@@ -415,7 +415,7 @@ export function createEmptyEquipment(): EquippedItems {
 // Macro system state - for auto-consuming potions when HP drops below threshold
 export interface MacroState {
   enabled: boolean;
-  hpThreshold: number;      // HP value at which to auto-consume a potion
+  hpThreshold: number;      // HP value - potion is consumed when current HP drops below this value
   potionSlot: {             // Reference to the inventory slot containing potions
     row: number;
     col: number;
