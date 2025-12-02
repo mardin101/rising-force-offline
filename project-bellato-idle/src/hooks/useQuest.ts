@@ -39,6 +39,7 @@ export interface UseQuestReturn {
   materials: Record<string, number>;
   acceptQuest: (quest: Quest) => void;
   simulateMonsterKill: (monsterId: string) => void;
+  recordMonsterKill: (monsterId: string, materialDropId?: string) => void;
   completeQuest: () => { rewards: Quest['rewards'] } | null;
   getMonsterName: (monsterId: string) => string;
   getMaterialName: (materialId: string) => string;
@@ -196,6 +197,11 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     }
   }, [updateQuestProgress, playerMaterials, updateMaterials]);
 
+  // Record a monster kill for quest progress (used by Battle page where material drops are handled separately)
+  const recordMonsterKill = useCallback((monsterId: string, materialDropId?: string) => {
+    updateQuestProgress(monsterId, materialDropId);
+  }, [updateQuestProgress]);
+
   return {
     activeQuest,
     completedQuestIds,
@@ -204,6 +210,7 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     materials: playerMaterials,
     acceptQuest,
     simulateMonsterKill,
+    recordMonsterKill,
     completeQuest,
     getMonsterName,
     getMaterialName,

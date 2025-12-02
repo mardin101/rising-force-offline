@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import zones from '../data/zones.json';
 import monsters from '../data/monsters.json';
 import { useGameState } from '../state/GameStateContext';
+import { useQuestContext } from '../state/QuestContext';
 import { calculateExpAndLevel } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
 
@@ -63,6 +64,7 @@ function calculateDamage(attack: number, defense: number): number {
 
 export default function Battle() {
   const { gameState, updateCharacter, updateMaterials, updateCurrentZone } = useGameState();
+  const { recordMonsterKill } = useQuestContext();
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   // Initialize selectedZone from global state if available
   const [selectedZone, setSelectedZone] = useState<Zone | null>(() => {
@@ -250,8 +252,13 @@ export default function Battle() {
           [materialDrop]: (currentMaterials[materialDrop] || 0) + 1,
         });
       }
+
+      // Record the monster kill for quest progress tracking
+      if (monsterId) {
+        recordMonsterKill(monsterId, materialDrop ?? undefined);
+      }
     }
-  }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials]);
+  }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials, recordMonsterKill]);
 
   // Handle battle defeat
   useEffect(() => {
