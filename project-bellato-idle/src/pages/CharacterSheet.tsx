@@ -7,7 +7,7 @@ import { getMaxPtForLevel } from '../state/gameStateSlice';
 type StatsTab = 'general' | 'status' | 'ability' | 'element';
 
 export default function CharacterSheet() {
-  const { gameState, swapInventoryItems, equipItem, unequipItem } = useGameState();
+  const { gameState, swapInventoryItems, equipItem, unequipItem, useItem } = useGameState();
   const character = gameState.character;
   const [isStatsMenuOpen, setIsStatsMenuOpen] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
@@ -337,6 +337,7 @@ export default function CharacterSheet() {
         onSwapItems={swapInventoryItems}
         onEquipItem={equipItem}
         onUnequipItem={unequipItem}
+        onUseItem={useItem}
       />
     </div>
   );

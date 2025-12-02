@@ -17,6 +17,7 @@ import {
   INVENTORY_COLS,
   CLASS_BASE_STATS,
   calculateEquippedDefense,
+  ITEM_TYPE,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -27,6 +28,7 @@ export interface GameStateContextValue {
   swapInventoryItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
   equipItem: (slot: EquipmentSlotType, fromRow: number, fromCol: number) => void;
   unequipItem: (slot: EquipmentSlotType) => void;
+  useItem: (row: number, col: number) => { success: boolean; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -219,6 +221,84 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     });
   }, []);
 
+  // Use a consumable item from the inventory (e.g., potions)
+  const useItem = useCallback((row: number, col: number): { success: boolean; message: string } => {
+    let result = { success: false, message: '' };
+    
+    setGameState((prev) => {
+      const inventoryItem = prev.inventoryGrid[row][col];
+      if (!inventoryItem) {
+        result = { success: false, message: 'No item in this slot' };
+        return prev;
+      }
+
+      const itemData = getItemById(inventoryItem.itemId);
+      if (!itemData) {
+        result = { success: false, message: 'Item data not found' };
+        return prev;
+      }
+
+      // Only consumable items can be used
+      if (itemData.type !== ITEM_TYPE.CONSUMABLE) {
+        result = { success: false, message: 'This item cannot be used' };
+        return prev;
+      }
+
+      // Check if character exists
+      if (!prev.character) {
+        result = { success: false, message: 'No character found' };
+        return prev;
+      }
+
+      // Handle health potions
+      if (itemData.healAmount) {
+        const currentHp = prev.character.statusInfo.hp;
+        const maxHp = prev.character.statusInfo.maxHp;
+        
+        // Check if already at full health
+        if (currentHp >= maxHp) {
+          result = { success: false, message: 'Already at full health' };
+          return prev;
+        }
+
+        // Calculate new HP (capped at maxHp)
+        const newHp = Math.min(currentHp + itemData.healAmount, maxHp);
+        const healedAmount = newHp - currentHp;
+
+        // Update inventory: reduce quantity or remove item
+        const newGrid = prev.inventoryGrid.map(r => [...r]);
+        const currentQuantity = inventoryItem.quantity ?? 1;
+        
+        if (currentQuantity > 1) {
+          // Reduce quantity by 1
+          newGrid[row][col] = { ...inventoryItem, quantity: currentQuantity - 1 };
+        } else {
+          // Remove item from inventory
+          newGrid[row][col] = null;
+        }
+
+        result = { success: true, message: `Restored ${healedAmount} HP` };
+
+        return {
+          ...prev,
+          character: {
+            ...prev.character,
+            statusInfo: {
+              ...prev.character.statusInfo,
+              hp: newHp,
+            },
+          },
+          inventoryGrid: newGrid,
+        };
+      }
+
+      result = { success: false, message: 'This item has no effect' };
+      return prev;
+    });
+
+    return result;
+  }, []);
+
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
       ...prev,
@@ -255,6 +335,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     swapInventoryItems,
     equipItem,
     unequipItem,
+    useItem,
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,

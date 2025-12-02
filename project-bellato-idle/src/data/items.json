@@ -14,6 +14,27 @@
     "description": "Restores 50 HP when consumed."
   },
   {
+    "id": "potion_health_medium",
+    "name": "Medium Health Potion",
+    "type": "consumable",
+    "healAmount": 100,
+    "description": "Restores 100 HP when consumed."
+  },
+  {
+    "id": "potion_health_large",
+    "name": "Large Health Potion",
+    "type": "consumable",
+    "healAmount": 500,
+    "description": "Restores 500 HP when consumed."
+  },
+  {
+    "id": "potion_health_mega",
+    "name": "Mega Health Potion",
+    "type": "consumable",
+    "healAmount": 1000,
+    "description": "Restores 1000 HP when consumed."
+  },
+  {
     "id": "leather_armor",
     "name": "Leather Armor",
     "type": "armor",

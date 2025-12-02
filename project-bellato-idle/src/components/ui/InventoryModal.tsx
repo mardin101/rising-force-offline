@@ -17,6 +17,7 @@ export interface InventoryModalProps {
   onSwapItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
   onEquipItem: (slot: EquipmentSlotType, fromRow: number, fromCol: number) => void;
   onUnequipItem: (slot: EquipmentSlotType) => void;
+  onUseItem?: (row: number, col: number) => { success: boolean; message: string };
 }
 
 /**
@@ -38,6 +39,7 @@ export default function InventoryModal({
   onSwapItems,
   onEquipItem,
   onUnequipItem,
+  onUseItem,
 }: InventoryModalProps) {
   const [selectedSlot, setSelectedSlot] = useState<{ row: number; col: number } | null>(null);
 
@@ -137,11 +139,12 @@ export default function InventoryModal({
             onSwapItems={onSwapItems}
             selectedSlot={selectedSlot}
             onSelectedSlotChange={setSelectedSlot}
+            onUseItem={onUseItem}
           />
           
           {/* Instructions */}
           <div className="inventory-instructions">
-            <p>💡 <strong>Desktop:</strong> Drag and drop items to rearrange or equip</p>
+            <p>💡 <strong>Desktop:</strong> Drag and drop items to rearrange or equip. Right-click to use items.</p>
             <p>📱 <strong>Mobile:</strong> Tap an item, then tap destination to swap or equip</p>
           </div>
         </div>
