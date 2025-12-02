@@ -72,7 +72,7 @@ export default function QuestProgress() {
       <div className="flex items-center gap-3 mt-3 text-xs">
         <span className="text-gray-500">Rewards:</span>
         <span className="text-yellow-400">💰 {quest.rewards.gold}</span>
-        <span className="text-blue-400">⭐ {quest.rewards.exp} XP</span>
+        <span className="text-blue-400">⭐ {(quest.rewards.exp * 100).toFixed(1)}% XP</span>
         {quest.rewards.item && (
           <span className="text-purple-400">🎁 {quest.rewards.item}</span>
         )}

@@ -7,7 +7,7 @@
     "description": "Eliminate the slimes that are terrorizing the village outskirts.",
     "targetMonster": "slime",
     "targetAmount": 5,
-    "rewards": { "gold": 50, "exp": 30 }
+    "rewards": { "gold": 50, "exp": 0.03 }
   },
   {
     "id": "quest_2",
@@ -17,7 +17,7 @@
     "description": "The goblins are becoming too aggressive. Cull their numbers.",
     "targetMonster": "goblin",
     "targetAmount": 8,
-    "rewards": { "gold": 80, "exp": 50 }
+    "rewards": { "gold": 80, "exp": 0.05 }
   },
   {
     "id": "quest_3",
@@ -28,7 +28,7 @@
     "targetMonster": "wolf",
     "targetMaterial": "wolf_fang",
     "targetAmount": 4,
-    "rewards": { "gold": 100, "exp": 65 }
+    "rewards": { "gold": 100, "exp": 0.065 }
   },
   {
     "id": "quest_4",
@@ -39,7 +39,7 @@
     "targetMonster": "spider",
     "targetMaterial": "spider_silk",
     "targetAmount": 6,
-    "rewards": { "gold": 120, "exp": 80 }
+    "rewards": { "gold": 120, "exp": 0.08 }
   },
   {
     "id": "quest_5",
@@ -49,7 +49,7 @@
     "description": "Wild boars are destroying the farmlands. Hunt them down.",
     "targetMonster": "boar",
     "targetAmount": 10,
-    "rewards": { "gold": 150, "exp": 100 }
+    "rewards": { "gold": 150, "exp": 0.1 }
   },
   {
     "id": "quest_6",
@@ -59,7 +59,7 @@
     "description": "An undead threat rises from the old cemetery. Destroy the skeletons.",
     "targetMonster": "skeleton",
     "targetAmount": 12,
-    "rewards": { "gold": 180, "exp": 120 }
+    "rewards": { "gold": 180, "exp": 0.12 }
   },
   {
     "id": "quest_7",
@@ -70,7 +70,7 @@
     "targetMonster": "bat",
     "targetMaterial": "bat_wing",
     "targetAmount": 8,
-    "rewards": { "gold": 200, "exp": 140, "item": "potion_health" }
+    "rewards": { "gold": 200, "exp": 0.14, "item": "potion_health" }
   },
   {
     "id": "quest_8",
@@ -80,7 +80,7 @@
     "description": "The orc war party threatens our borders. Defeat them!",
     "targetMonster": "orc",
     "targetAmount": 10,
-    "rewards": { "gold": 250, "exp": 165 }
+    "rewards": { "gold": 250, "exp": 0.165 }
   },
   {
     "id": "quest_9",
@@ -91,7 +91,7 @@
     "targetMonster": "harpy",
     "targetMaterial": "harpy_feather",
     "targetAmount": 5,
-    "rewards": { "gold": 280, "exp": 185 }
+    "rewards": { "gold": 280, "exp": 0.185 }
   },
   {
     "id": "quest_10",
@@ -101,7 +101,7 @@
     "description": "Lizardman scouts have been spotted near the village. Eliminate them.",
     "targetMonster": "lizardman",
     "targetAmount": 8,
-    "rewards": { "gold": 320, "exp": 210, "item": "sword_basic" }
+    "rewards": { "gold": 320, "exp": 0.21, "item": "sword_basic" }
   },
   {
     "id": "quest_11",
@@ -112,7 +112,7 @@
     "targetMonster": "ghost",
     "targetMaterial": "ectoplasm",
     "targetAmount": 6,
-    "rewards": { "gold": 360, "exp": 240 }
+    "rewards": { "gold": 360, "exp": 0.24 }
   },
   {
     "id": "quest_12",
@@ -122,7 +122,7 @@
     "description": "Ancient golems have awakened. They must be stopped.",
     "targetMonster": "golem",
     "targetAmount": 6,
-    "rewards": { "gold": 400, "exp": 270 }
+    "rewards": { "gold": 400, "exp": 0.27 }
   },
   {
     "id": "quest_13",
@@ -132,7 +132,7 @@
     "description": "A bandit gang is terrorizing travelers. Bring them to justice.",
     "targetMonster": "bandit",
     "targetAmount": 15,
-    "rewards": { "gold": 450, "exp": 300 }
+    "rewards": { "gold": 450, "exp": 0.3 }
   },
   {
     "id": "quest_14",
@@ -143,7 +143,7 @@
     "targetMonster": "treant",
     "targetMaterial": "ancient_bark",
     "targetAmount": 4,
-    "rewards": { "gold": 500, "exp": 340 }
+    "rewards": { "gold": 500, "exp": 0.34 }
   },
   {
     "id": "quest_15",
@@ -153,7 +153,7 @@
     "description": "The ogre tribe has become too dangerous. End their reign.",
     "targetMonster": "ogre",
     "targetAmount": 8,
-    "rewards": { "gold": 550, "exp": 380 }
+    "rewards": { "gold": 550, "exp": 0.38 }
   },
   {
     "id": "quest_16",
@@ -164,7 +164,7 @@
     "targetMonster": "wyvern",
     "targetMaterial": "wyvern_scale",
     "targetAmount": 5,
-    "rewards": { "gold": 600, "exp": 420 }
+    "rewards": { "gold": 600, "exp": 0.42 }
   },
   {
     "id": "quest_17",
@@ -175,7 +175,7 @@
     "targetMonster": "troll",
     "targetMaterial": "troll_blood",
     "targetAmount": 4,
-    "rewards": { "gold": 680, "exp": 470 }
+    "rewards": { "gold": 680, "exp": 0.47 }
   },
   {
     "id": "quest_18",
@@ -185,7 +185,7 @@
     "description": "Fire elementals are scorching the forests. Extinguish them.",
     "targetMonster": "elemental",
     "targetAmount": 10,
-    "rewards": { "gold": 750, "exp": 520 }
+    "rewards": { "gold": 750, "exp": 0.52 }
   },
   {
     "id": "quest_19",
@@ -196,7 +196,7 @@
     "targetMonster": "gargoyle",
     "targetMaterial": "stone_heart",
     "targetAmount": 3,
-    "rewards": { "gold": 820, "exp": 580 }
+    "rewards": { "gold": 820, "exp": 0.58 }
   },
   {
     "id": "quest_20",
@@ -206,6 +206,6 @@
     "description": "Demons have emerged from the underworld. Prove your worth by defeating them.",
     "targetMonster": "demon",
     "targetAmount": 5,
-    "rewards": { "gold": 1000, "exp": 700, "item": "sword_legendary" }
+    "rewards": { "gold": 1000, "exp": 0.7, "item": "sword_legendary" }
   }
 ]
