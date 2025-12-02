@@ -1,6 +1,8 @@
 // Game state management
 // This file contains the core game state structure and types
 
+import itemsData from '../data/items.json';
+
 // Quest type constants
 export const QUEST_TYPE = {
   SLAY: 'slay',
@@ -8,6 +10,17 @@ export const QUEST_TYPE = {
 } as const;
 
 export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
+
+// Item type constants
+export const ITEM_TYPE = {
+  WEAPON: 'weapon',
+  ARMOR: 'armor',
+  CONSUMABLE: 'consumable',
+  MATERIAL: 'material',
+  ACCESSORY: 'accessory',
+} as const;
+
+export type ItemType = typeof ITEM_TYPE[keyof typeof ITEM_TYPE];
 
 // Character class constants
 export const CHARACTER_CLASSES = {
@@ -44,6 +57,63 @@ export interface Character {
   class: CharacterClass;
 }
 
+// Inventory constants
+export const INVENTORY_ROWS = 5;
+export const INVENTORY_COLS = 8;
+
+// Item data interface (from items.json)
+export interface ItemData {
+  id: string;
+  name: string;
+  type: ItemType;
+  description: string;
+  attack?: number;
+  defense?: number;
+  healAmount?: number;
+}
+
+// Get all items from the data file
+export function getItemsData(): ItemData[] {
+  return itemsData as ItemData[];
+}
+
+// Get an item by ID from the data file
+export function getItemById(id: string): ItemData | undefined {
+  return getItemsData().find(item => item.id === id);
+}
+
+// Inventory item in a grid slot (stores only the item ID reference)
+export interface InventoryItem {
+  itemId: string;
+}
+
+// Grid-based inventory slot (null means empty)
+export type InventorySlot = InventoryItem | null;
+
+// Full inventory grid type (5 rows x 8 columns)
+export type InventoryGrid = InventorySlot[][];
+
+// Create an empty inventory grid
+export function createEmptyInventoryGrid(): InventoryGrid {
+  return Array.from({ length: INVENTORY_ROWS }, () => 
+    Array.from({ length: INVENTORY_COLS }, () => null)
+  );
+}
+
+// Create an inventory grid with starter items
+export function createStarterInventoryGrid(): InventoryGrid {
+  const grid = createEmptyInventoryGrid();
+  
+  // Add some starter items for demonstration using item IDs
+  grid[0][0] = { itemId: 'sword_basic' };
+  grid[0][1] = { itemId: 'potion_health' };
+  grid[0][2] = { itemId: 'potion_health' };
+  grid[1][0] = { itemId: 'leather_armor' };
+  grid[2][3] = { itemId: 'iron_ore' };
+  
+  return grid;
+}
+
 export interface QuestRewards {
   gold: number;
   exp: number;
@@ -73,6 +143,7 @@ export interface GameState {
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
+  inventoryGrid: InventoryGrid;
   materials: Record<string, number>;
   activeQuest: ActiveQuest | null;
   completedQuestIds: string[];
@@ -85,6 +156,7 @@ export const initialGameState: GameState = {
   currentZone: null,
   isInBattle: false,
   inventory: [],
+  inventoryGrid: createStarterInventoryGrid(),
   materials: {},
   activeQuest: null,
   completedQuestIds: [],
@@ -144,6 +216,17 @@ export function isValidGameState(value: unknown): value is GameState {
   if (!Array.isArray(state.completedQuestIds)) return false;
   if (typeof state.materials !== 'object' || state.materials === null) return false;
   
+  // Validate inventoryGrid if it exists
+  if (state.inventoryGrid !== undefined) {
+    if (!Array.isArray(state.inventoryGrid)) return false;
+    // Validate grid structure (should be 5 rows x 8 columns)
+    if (state.inventoryGrid.length !== INVENTORY_ROWS) return false;
+    for (const row of state.inventoryGrid) {
+      if (!Array.isArray(row)) return false;
+      if (row.length !== INVENTORY_COLS) return false;
+    }
+  }
+  
   // Character can be null or a valid Character object
   if (state.character !== null) {
     const char = state.character as Record<string, unknown>;
@@ -153,4 +236,15 @@ export function isValidGameState(value: unknown): value is GameState {
   }
   
   return true;
+}
+
+// Migrate old game state to include inventoryGrid if missing
+export function migrateGameState(state: GameState): GameState {
+  if (!state.inventoryGrid) {
+    return {
+      ...state,
+      inventoryGrid: createStarterInventoryGrid(),
+    };
+  }
+  return state;
 }

@@ -1,0 +1,168 @@
+/* InventoryGrid Component Styles
+ * Styled for mobile-friendly 8x5 grid inventory
+ * - Touch-friendly slot sizes
+ * - Drag-and-drop visual feedback
+ * - Consistent with GameMenu styling
+ */
+
+.inventory-grid-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inventory-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: rgba(5, 15, 35, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(80, 140, 200, 0.3);
+}
+
+.inventory-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.inventory-slot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  background: linear-gradient(180deg, rgba(20, 35, 60, 0.8) 0%, rgba(10, 20, 40, 0.9) 100%);
+  border: 1px solid rgba(60, 100, 160, 0.4);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.inventory-slot:hover {
+  border-color: rgba(100, 180, 255, 0.6);
+  box-shadow: 0 0 8px rgba(60, 140, 220, 0.3);
+}
+
+.inventory-slot:focus {
+  outline: none;
+  border-color: rgba(100, 180, 255, 0.8);
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.3);
+}
+
+.inventory-slot.empty {
+  background: linear-gradient(180deg, rgba(15, 25, 45, 0.5) 0%, rgba(8, 15, 30, 0.6) 100%);
+}
+
+.inventory-slot.has-item {
+  background: linear-gradient(180deg, rgba(30, 50, 80, 0.85) 0%, rgba(20, 35, 60, 0.9) 100%);
+  border-color: rgba(80, 140, 200, 0.5);
+}
+
+.inventory-slot.dragging {
+  opacity: 0.5;
+  border-color: rgba(255, 200, 100, 0.6);
+  box-shadow: 0 0 12px rgba(255, 200, 100, 0.4);
+}
+
+.inventory-slot.selected {
+  border-color: rgba(100, 220, 255, 0.8);
+  box-shadow: 
+    0 0 12px rgba(100, 220, 255, 0.5),
+    inset 0 0 8px rgba(100, 220, 255, 0.2);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 12px rgba(100, 220, 255, 0.5),
+      inset 0 0 8px rgba(100, 220, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 18px rgba(100, 220, 255, 0.7),
+      inset 0 0 12px rgba(100, 220, 255, 0.3);
+  }
+}
+
+.inventory-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  pointer-events: none;
+}
+
+.item-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.item-name {
+  font-size: 8px;
+  color: #a0d0ff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 2px;
+}
+
+.inventory-hint {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(160, 200, 240, 0.7);
+  padding: 6px 8px;
+  background: rgba(30, 60, 100, 0.3);
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .inventory-slot {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+  
+  .item-icon {
+    font-size: 16px;
+  }
+  
+  .item-name {
+    font-size: 7px;
+  }
+}
+
+/* Larger screens can have bigger slots */
+@media (min-width: 600px) {
+  .inventory-slot {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  
+  .item-icon {
+    font-size: 20px;
+  }
+  
+  .item-name {
+    font-size: 9px;
+  }
+}

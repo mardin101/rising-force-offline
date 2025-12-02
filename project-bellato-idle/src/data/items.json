@@ -12,5 +12,18 @@
     "type": "consumable",
     "healAmount": 50,
     "description": "Restores 50 HP when consumed."
+  },
+  {
+    "id": "leather_armor",
+    "name": "Leather Armor",
+    "type": "armor",
+    "defense": 5,
+    "description": "Basic leather armor."
+  },
+  {
+    "id": "iron_ore",
+    "name": "Iron Ore",
+    "type": "material",
+    "description": "Raw iron ore for crafting."
   }
 ]

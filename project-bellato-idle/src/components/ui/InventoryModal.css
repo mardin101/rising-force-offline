@@ -1,0 +1,205 @@
+/* InventoryModal Component Styles
+ * Semi-transparent modal with sci-fi aesthetic
+ * - Slightly transparent backdrop and modal
+ * - Mobile-friendly dimensions
+ * - Smooth animations
+ */
+
+.inventory-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.inventory-modal {
+  background: linear-gradient(180deg, rgba(15, 25, 50, 0.92) 0%, rgba(10, 18, 35, 0.95) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(100, 180, 255, 0.3),
+    0 0 30px rgba(60, 140, 220, 0.3),
+    0 0 60px rgba(30, 80, 150, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+  max-width: 420px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.25s ease-out;
+  position: relative;
+}
+
+/* Sci-fi corner accents */
+.inventory-modal::before,
+.inventory-modal::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.inventory-modal::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(100, 180, 255, 0.6);
+  border-left: 2px solid rgba(100, 180, 255, 0.6);
+  border-top-left-radius: 8px;
+}
+
+.inventory-modal::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(100, 180, 255, 0.6);
+  border-right: 2px solid rgba(100, 180, 255, 0.6);
+  border-bottom-right-radius: 8px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inventory-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(25, 45, 80, 0.85) 0%, rgba(15, 30, 55, 0.9) 100%);
+  border-bottom: 1px solid rgba(80, 140, 200, 0.4);
+  padding: 12px 16px;
+  position: relative;
+}
+
+/* Glowing bottom line effect for header */
+.inventory-modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.5), transparent);
+}
+
+.inventory-modal-title {
+  color: #a0d0ff;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 180, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.inventory-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(180deg, rgba(40, 70, 120, 0.7) 0%, rgba(25, 45, 80, 0.8) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #a0d0ff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.inventory-modal-close:hover {
+  background: linear-gradient(180deg, rgba(50, 90, 150, 0.8) 0%, rgba(35, 60, 100, 0.85) 100%);
+  border-color: #ff5566;
+  color: #ff5566;
+  box-shadow: 0 0 12px rgba(255, 85, 102, 0.5);
+}
+
+.inventory-modal-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.4);
+}
+
+.inventory-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: calc(90vh - 60px);
+}
+
+.inventory-instructions {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+}
+
+.inventory-instructions p {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(160, 200, 240, 0.7);
+  line-height: 1.6;
+}
+
+.inventory-instructions p:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.inventory-instructions strong {
+  color: rgba(180, 220, 255, 0.9);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 450px) {
+  .inventory-modal-backdrop {
+    padding: 12px;
+  }
+  
+  .inventory-modal {
+    max-width: 100%;
+  }
+  
+  .inventory-modal-header {
+    padding: 10px 14px;
+  }
+  
+  .inventory-modal-title {
+    font-size: 14px;
+  }
+  
+  .inventory-modal-body {
+    padding: 12px;
+  }
+  
+  .inventory-instructions {
+    padding: 8px 10px;
+  }
+  
+  .inventory-instructions p {
+    font-size: 10px;
+  }
+}

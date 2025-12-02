@@ -3,8 +3,10 @@ import {
   type GameState,
   type Character,
   type CharacterClass,
+  type InventoryGrid,
   initialGameState,
   createCharacter,
+  migrateGameState,
   GAME_STATE_STORAGE_KEY,
   isValidGameState,
 } from './gameStateSlice';
@@ -13,6 +15,8 @@ export interface GameStateContextValue {
   gameState: GameState;
   createNewCharacter: (name: string, characterClass: CharacterClass) => void;
   updateCharacter: (updates: Partial<Character>) => void;
+  updateInventoryGrid: (grid: InventoryGrid) => void;
+  swapInventoryItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
   resetGame: () => void;
 }
 
@@ -29,7 +33,8 @@ function loadGameState(): GameState {
     if (saved) {
       const parsed: unknown = JSON.parse(saved);
       if (isValidGameState(parsed)) {
-        return parsed;
+        // Migrate old state to include new fields
+        return migrateGameState(parsed);
       }
       console.warn('Invalid game state in localStorage, using initial state');
     }
@@ -84,10 +89,32 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     setGameState(initialGameState);
   }, []);
 
+  const updateInventoryGrid = useCallback((grid: InventoryGrid) => {
+    setGameState((prev) => ({
+      ...prev,
+      inventoryGrid: grid,
+    }));
+  }, []);
+
+  const swapInventoryItems = useCallback((fromRow: number, fromCol: number, toRow: number, toCol: number) => {
+    setGameState((prev) => {
+      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      const temp = newGrid[fromRow][fromCol];
+      newGrid[fromRow][fromCol] = newGrid[toRow][toCol];
+      newGrid[toRow][toCol] = temp;
+      return {
+        ...prev,
+        inventoryGrid: newGrid,
+      };
+    });
+  }, []);
+
   const value: GameStateContextValue = {
     gameState,
     createNewCharacter,
     updateCharacter,
+    updateInventoryGrid,
+    swapInventoryItems,
     resetGame,
   };
 
