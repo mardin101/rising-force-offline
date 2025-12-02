@@ -3,7 +3,7 @@ import zones from '../data/zones.json';
 import monsters from '../data/monsters.json';
 import { useGameState } from '../state/GameStateContext';
 import { useQuestContext } from '../state/QuestContext';
-import { calculateExpAndLevel } from '../state/gameStateSlice';
+import { calculateExpAndLevel, calculateDeathPenalty, DEATH_EXP_PENALTY } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
 
 interface Zone {
@@ -34,6 +34,7 @@ interface BattleState {
   battleLog: string[];
   isVictory: boolean | null;
   pendingReward: { expGain: number; goldGain: number; monsterId: string } | null;
+  pendingDeathPenalty: { expLost: number } | null;
 }
 
 // Combat constants
@@ -82,10 +83,12 @@ export default function Battle() {
     battleLog: [],
     isVictory: null,
     pendingReward: null,
+    pendingDeathPenalty: null,
   });
   
   const battleIntervalRef = useRef<number | null>(null);
   const victoryProcessedRef = useRef<boolean>(false);
+  const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
 
   const handleZoneSelect = (zone: Zone) => {
@@ -108,8 +111,10 @@ export default function Battle() {
       battleLog: [],
       isVictory: null,
       pendingReward: null,
+      pendingDeathPenalty: null,
     });
     victoryProcessedRef.current = false;
+    defeatProcessedRef.current = false;
   };
 
   const closeBattleModal = () => {
@@ -126,8 +131,10 @@ export default function Battle() {
       battleLog: [],
       isVictory: null,
       pendingReward: null,
+      pendingDeathPenalty: null,
     });
     victoryProcessedRef.current = false;
+    defeatProcessedRef.current = false;
   };
 
   const processBattleTick = useCallback(() => {
@@ -173,15 +180,22 @@ export default function Battle() {
       newPlayerHp = Math.max(0, newPlayerHp - monsterDamage);
       newLog.push(`${selectedMonster.name} hits ${gameState.character!.generalInfo.name} for ${monsterDamage} damage!`);
 
-      // Check if player is defeated
+      // Check if player is defeated (death event)
       if (newPlayerHp <= 0) {
+        // Calculate death penalty - lose experience
+        const { actualPenalty } = calculateDeathPenalty(
+          gameState.character!.statusInfo.expPoints,
+          DEATH_EXP_PENALTY
+        );
         newLog.push(`${gameState.character!.generalInfo.name} has been defeated!`);
+        newLog.push(`You lost ${(actualPenalty * 100).toFixed(1)}% experience.`);
         return {
           ...prev,
           playerCurrentHp: 0,
           monsterCurrentHp: newMonsterHp,
           battleLog: newLog.slice(-10),
           isVictory: false,
+          pendingDeathPenalty: { expLost: actualPenalty },
         };
       }
 
@@ -260,30 +274,41 @@ export default function Battle() {
     }
   }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials, recordMonsterKill]);
 
-  // Handle battle defeat
+  // Handle battle defeat (death event)
   useEffect(() => {
-    if (battleState.isVictory === false && gameState.character) {
+    if (battleState.isVictory === false && gameState.character && !defeatProcessedRef.current) {
+      defeatProcessedRef.current = true;
+
       // Stop the battle interval
       if (battleIntervalRef.current) {
         clearInterval(battleIntervalRef.current);
         battleIntervalRef.current = null;
       }
 
-      // Persist the player's current HP after defeat
+      // Apply death penalty: lose experience and restore HP to full
+      const { newExp } = calculateDeathPenalty(
+        gameState.character.statusInfo.expPoints,
+        DEATH_EXP_PENALTY
+      );
+
       updateCharacter((currentChar) => ({
         statusInfo: {
           ...currentChar.statusInfo,
-          hp: battleState.playerCurrentHp,
+          // Apply experience penalty
+          expPoints: newExp,
+          // Restore HP to full after death (player is revived)
+          hp: currentChar.statusInfo.maxHp,
         },
       }));
     }
-  }, [battleState.isVictory, battleState.playerCurrentHp, gameState.character, updateCharacter]);
+  }, [battleState.isVictory, gameState.character, updateCharacter]);
 
   const startBattle = () => {
     if (!selectedMonster || !gameState.character) return;
 
-    // Reset victory processed flag
+    // Reset processed flags
     victoryProcessedRef.current = false;
+    defeatProcessedRef.current = false;
 
     // Reset battle state for new fight
     setBattleState({
@@ -293,6 +318,7 @@ export default function Battle() {
       battleLog: [`Battle started against ${selectedMonster.name}!`],
       isVictory: null,
       pendingReward: null,
+      pendingDeathPenalty: null,
     });
 
     // Clear any existing interval
@@ -532,8 +558,13 @@ export default function Battle() {
               )}
               {battleState.isVictory === false && (
                 <div className="bg-red-900/50 border border-red-500 rounded-lg p-3 text-center">
-                  <p className="text-red-400 font-bold">Defeat!</p>
-                  <p className="text-sm text-gray-300">Click "Fight Monster" to try again!</p>
+                  <p className="text-red-400 font-bold">💀 You Died!</p>
+                  {battleState.pendingDeathPenalty && (
+                    <p className="text-sm text-amber-400">
+                      Lost {(battleState.pendingDeathPenalty.expLost * 100).toFixed(1)}% experience as death penalty.
+                    </p>
+                  )}
+                  <p className="text-sm text-gray-300 mt-1">HP restored. Click "Fight Monster" to try again!</p>
                 </div>
               )}
 

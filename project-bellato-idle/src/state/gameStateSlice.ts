@@ -65,6 +65,11 @@ export const PT_EXPERIENCE_PER_ACTION = 0.0005; // 0.05% experience per action
 export const EXP_MAX_PERCENT = 1.0; // 100% to level up
 export const EXP_CAP_BUFFER = 0.001; // Buffer to prevent exp from reaching exactly 100% at max level
 
+// Death penalty constants
+// When a player dies, they lose a percentage of their current experience
+// The penalty is a percentage of EXP_MAX_PERCENT (e.g., 0.05 = 5% of a level)
+export const DEATH_EXP_PENALTY = 0.05; // 5% experience penalty on death
+
 // Character race constants
 export const CHARACTER_RACES = {
   BELLATO: 'Bellato',
@@ -131,6 +136,26 @@ export function calculateExpAndLevel(
   exp = Math.max(0, exp);
 
   return { newLevel: level, newExp: exp };
+}
+
+/**
+ * Calculate the experience penalty from death.
+ * Player loses a fixed percentage of experience but cannot lose levels.
+ *
+ * @param currentExp - The player's current experience (0.0 to 1.0)
+ * @param penalty - The experience penalty (default is DEATH_EXP_PENALTY)
+ * @returns Object with newExp (clamped to minimum 0) and actualPenalty (the amount actually lost)
+ */
+export function calculateDeathPenalty(
+  currentExp: number,
+  penalty: number = DEATH_EXP_PENALTY
+): { newExp: number; actualPenalty: number } {
+  // Calculate the actual penalty (capped at current exp to prevent negative)
+  const actualPenalty = Math.min(currentExp, penalty);
+  // Apply penalty (cannot go below 0)
+  const newExp = Math.max(0, currentExp - penalty);
+
+  return { newExp, actualPenalty };
 }
 
 // Experience needed to gain 1 PT (100% / 0.05% per action = 2000 actions)
