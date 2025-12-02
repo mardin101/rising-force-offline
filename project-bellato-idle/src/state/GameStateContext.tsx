@@ -67,6 +67,25 @@ function saveGameState(state: GameState): void {
   }
 }
 
+// Helper function to update character stats based on equipped items
+function updateCharacterStatsFromEquipment(
+  character: Character | null,
+  equippedItems: EquippedItems
+): Character | null {
+  if (!character) return null;
+  
+  const baseDefPwr = CLASS_BASE_STATS[character.generalInfo.class].avgDefPwr;
+  const equippedDefense = calculateEquippedDefense(equippedItems);
+  
+  return {
+    ...character,
+    statusInfo: {
+      ...character.statusInfo,
+      avgDefPwr: baseDefPwr + equippedDefense,
+    },
+  };
+}
+
 export function GameStateProvider({ children }: GameStateProviderProps) {
   // Use lazy initialization to load saved state on first render
   const [gameState, setGameState] = useState<GameState>(loadGameState);
@@ -150,23 +169,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         [slot]: inventoryItem,
       };
 
-      // Update character stats if character exists
-      let updatedCharacter = prev.character;
-      if (prev.character) {
-        const baseDefPwr = CLASS_BASE_STATS[prev.character.generalInfo.class].avgDefPwr;
-        const equippedDefense = calculateEquippedDefense(newEquippedItems);
-        updatedCharacter = {
-          ...prev.character,
-          statusInfo: {
-            ...prev.character.statusInfo,
-            avgDefPwr: baseDefPwr + equippedDefense,
-          },
-        };
-      }
-
       return {
         ...prev,
-        character: updatedCharacter,
+        character: updateCharacterStatsFromEquipment(prev.character, newEquippedItems),
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };
@@ -205,23 +210,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         [slot]: null,
       };
 
-      // Update character stats if character exists
-      let updatedCharacter = prev.character;
-      if (prev.character) {
-        const baseDefPwr = CLASS_BASE_STATS[prev.character.generalInfo.class].avgDefPwr;
-        const equippedDefense = calculateEquippedDefense(newEquippedItems);
-        updatedCharacter = {
-          ...prev.character,
-          statusInfo: {
-            ...prev.character.statusInfo,
-            avgDefPwr: baseDefPwr + equippedDefense,
-          },
-        };
-      }
-
       return {
         ...prev,
-        character: updatedCharacter,
+        character: updateCharacterStatsFromEquipment(prev.character, newEquippedItems),
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };
