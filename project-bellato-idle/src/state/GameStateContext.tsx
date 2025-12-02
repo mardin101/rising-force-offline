@@ -15,6 +15,8 @@ import {
   getItemById,
   INVENTORY_ROWS,
   INVENTORY_COLS,
+  CLASS_BASE_STATS,
+  calculateEquippedDefense,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -63,6 +65,25 @@ function saveGameState(state: GameState): void {
   } catch (error) {
     console.error('Failed to save game state:', error);
   }
+}
+
+// Helper function to update character stats based on equipped items
+function updateCharacterStatsFromEquipment(
+  character: Character | null,
+  equippedItems: EquippedItems
+): Character | null {
+  if (!character) return null;
+  
+  const baseDefPwr = CLASS_BASE_STATS[character.generalInfo.class].avgDefPwr;
+  const equippedDefense = calculateEquippedDefense(equippedItems);
+  
+  return {
+    ...character,
+    statusInfo: {
+      ...character.statusInfo,
+      avgDefPwr: baseDefPwr + equippedDefense,
+    },
+  };
 }
 
 export function GameStateProvider({ children }: GameStateProviderProps) {
@@ -150,6 +171,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
       return {
         ...prev,
+        character: updateCharacterStatsFromEquipment(prev.character, newEquippedItems),
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };
@@ -190,6 +212,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
       return {
         ...prev,
+        character: updateCharacterStatsFromEquipment(prev.character, newEquippedItems),
         inventoryGrid: newGrid,
         equippedItems: newEquippedItems,
       };

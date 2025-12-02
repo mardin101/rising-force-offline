@@ -387,6 +387,21 @@ export function createEmptyEquipment(): EquippedItems {
   };
 }
 
+// Calculate total defense from all equipped items
+export function calculateEquippedDefense(equippedItems: EquippedItems): number {
+  let totalDefense = 0;
+  for (const slot of EQUIPMENT_SLOTS) {
+    const item = equippedItems[slot];
+    if (item) {
+      const itemData = getItemById(item.itemId);
+      if (itemData?.defense) {
+        totalDefense += itemData.defense;
+      }
+    }
+  }
+  return totalDefense;
+}
+
 export interface GameState {
   character: Character | null;
   currentZone: string | null;
