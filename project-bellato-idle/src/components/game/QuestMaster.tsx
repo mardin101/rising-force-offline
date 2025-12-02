@@ -11,7 +11,6 @@ export default function QuestMaster() {
   const {
     activeQuest,
     availableQuest,
-    character,
     acceptQuest,
     completeQuest,
     getMonsterName,
@@ -92,23 +91,6 @@ export default function QuestMaster() {
             <span className="text-green-300">✨ {showRewardMessage}</span>
           </div>
         )}
-
-        {/* Player Info Section */}
-        <div className="game-menu-section-title">Adventurer Status</div>
-        <div className="game-menu-row">
-          <span className="game-menu-label">Name</span>
-          <span className="game-menu-value">{character.generalInfo.name}</span>
-        </div>
-        <div className="game-menu-row">
-          <span className="game-menu-label">Level</span>
-          <span className="game-menu-value-highlight">{character.level}</span>
-        </div>
-        <div className="game-menu-row">
-          <span className="game-menu-label">Gold</span>
-          <span className="game-menu-value text-yellow-400">{character.gold}</span>
-        </div>
-
-        <div className="game-menu-divider"></div>
 
         {/* Active Quest Section */}
         {activeQuest ? (
