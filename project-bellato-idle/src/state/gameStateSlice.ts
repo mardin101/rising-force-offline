@@ -22,6 +22,21 @@ export const ITEM_TYPE = {
 
 export type ItemType = typeof ITEM_TYPE[keyof typeof ITEM_TYPE];
 
+// Equipment slot types - the slots where items can be equipped
+export const EQUIPMENT_SLOT = {
+  HELMET: 'helmet',
+  UPPER_BODY: 'upperBody',
+  LOWER_BODY: 'lowerBody',
+  GLOVES: 'gloves',
+  SHOES: 'shoes',
+  CAPE: 'cape',
+} as const;
+
+export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLOT];
+
+// All equipment slot types as an array for iteration
+export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT);
+
 // Character class constants
 export const CHARACTER_CLASSES = {
   WARRIOR: 'Warrior',
@@ -276,6 +291,7 @@ export interface ItemData {
   attack?: number;
   defense?: number;
   healAmount?: number;
+  equipSlot?: EquipmentSlotType; // The slot where this item can be equipped
 }
 
 // Get all items from the data file
@@ -286,6 +302,11 @@ export function getItemsData(): ItemData[] {
 // Get an item by ID from the data file
 export function getItemById(id: string): ItemData | undefined {
   return getItemsData().find(item => item.id === id);
+}
+
+// Check if an item can be equipped to a specific slot
+export function canEquipToSlot(item: ItemData, slot: EquipmentSlotType): boolean {
+  return item.equipSlot === slot;
 }
 
 // Inventory item in a grid slot (stores only the item ID reference)
@@ -317,6 +338,13 @@ export function createStarterInventoryGrid(): InventoryGrid {
   grid[1][0] = { itemId: 'leather_armor' };
   grid[2][3] = { itemId: 'iron_ore' };
   
+  // Add equippable starter items
+  grid[0][3] = { itemId: 'leather_helmet' };
+  grid[1][1] = { itemId: 'leather_pants' };
+  grid[1][2] = { itemId: 'leather_gloves' };
+  grid[1][3] = { itemId: 'leather_boots' };
+  grid[2][0] = { itemId: 'travelers_cape' };
+  
   return grid;
 }
 
@@ -344,12 +372,28 @@ export interface ActiveQuest {
   isComplete: boolean;
 }
 
+// Equipment slots state - maps each slot to an item or null
+export type EquippedItems = Record<EquipmentSlotType, InventoryItem | null>;
+
+// Create empty equipment slots
+export function createEmptyEquipment(): EquippedItems {
+  return {
+    [EQUIPMENT_SLOT.HELMET]: null,
+    [EQUIPMENT_SLOT.UPPER_BODY]: null,
+    [EQUIPMENT_SLOT.LOWER_BODY]: null,
+    [EQUIPMENT_SLOT.GLOVES]: null,
+    [EQUIPMENT_SLOT.SHOES]: null,
+    [EQUIPMENT_SLOT.CAPE]: null,
+  };
+}
+
 export interface GameState {
   character: Character | null;
   currentZone: string | null;
   isInBattle: boolean;
   inventory: string[];
   inventoryGrid: InventoryGrid;
+  equippedItems: EquippedItems;
   materials: Record<string, number>;
   activeQuest: ActiveQuest | null;
   completedQuestIds: string[];
@@ -363,6 +407,7 @@ export const initialGameState: GameState = {
   isInBattle: false,
   inventory: [],
   inventoryGrid: createStarterInventoryGrid(),
+  equippedItems: createEmptyEquipment(),
   materials: {},
   activeQuest: null,
   completedQuestIds: [],
@@ -611,6 +656,14 @@ export function migrateGameState(state: GameState): GameState {
     migratedState = {
       ...migratedState,
       inventoryGrid: createStarterInventoryGrid(),
+    };
+  }
+  
+  // Migrate equippedItems if missing
+  if (!migratedState.equippedItems) {
+    migratedState = {
+      ...migratedState,
+      equippedItems: createEmptyEquipment(),
     };
   }
   

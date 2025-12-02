@@ -1,25 +1,46 @@
-import { useEffect, useCallback } from 'react';
-import { type InventoryGrid as InventoryGridType } from '../../state/gameStateSlice';
+import { useEffect, useCallback, useState } from 'react';
+import { 
+  type InventoryGrid as InventoryGridType,
+  type EquippedItems,
+  type EquipmentSlotType,
+  getItemById,
+} from '../../state/gameStateSlice';
 import InventoryGrid from './InventoryGrid';
+import EquipmentSlots from './EquipmentSlots';
 import './InventoryModal.css';
 
 export interface InventoryModalProps {
   isOpen: boolean;
   onClose: () => void;
   grid: InventoryGridType;
+  equippedItems: EquippedItems;
   onSwapItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
+  onEquipItem: (slot: EquipmentSlotType, fromRow: number, fromCol: number) => void;
+  onUnequipItem: (slot: EquipmentSlotType) => void;
 }
 
 /**
- * InventoryModal - A modal component for displaying the inventory grid
+ * InventoryModal - A modal component for displaying the inventory grid and equipment slots
  * 
  * Features:
  * - Transparent/semi-transparent backdrop
  * - Mobile-friendly design
  * - Close button and click-outside to close
  * - Smooth animations
+ * - Equipment slots above backpack in person-shaped layout
+ * - Drag and drop from inventory to equipment slots
  */
-export default function InventoryModal({ isOpen, onClose, grid, onSwapItems }: InventoryModalProps) {
+export default function InventoryModal({ 
+  isOpen, 
+  onClose, 
+  grid, 
+  equippedItems,
+  onSwapItems,
+  onEquipItem,
+  onUnequipItem,
+}: InventoryModalProps) {
+  const [selectedSlot, setSelectedSlot] = useState<{ row: number; col: number } | null>(null);
+
   // Handle escape key to close modal
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -40,12 +61,34 @@ export default function InventoryModal({ isOpen, onClose, grid, onSwapItems }: I
     };
   }, [isOpen, handleKeyDown]);
 
-  // Handle backdrop click
+  // Handle backdrop click - also clears selection
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
+      setSelectedSlot(null);
       onClose();
     }
   };
+
+  // Handle close button click
+  const handleCloseClick = () => {
+    setSelectedSlot(null);
+    onClose();
+  };
+
+  // Check if the selected inventory item can be equipped to a specific slot
+  const canEquipSelectedItem = useCallback((slot: EquipmentSlotType): boolean => {
+    if (!selectedSlot) return false;
+    const inventoryItem = grid[selectedSlot.row][selectedSlot.col];
+    if (!inventoryItem) return false;
+    const itemData = getItemById(inventoryItem.itemId);
+    return itemData?.equipSlot === slot;
+  }, [selectedSlot, grid]);
+
+  // Handle drop to equipment slot
+  const handleDropToSlot = useCallback((slot: EquipmentSlotType, fromRow: number, fromCol: number) => {
+    onEquipItem(slot, fromRow, fromCol);
+    setSelectedSlot(null);
+  }, [onEquipItem]);
 
   if (!isOpen) {
     return null;
@@ -65,21 +108,41 @@ export default function InventoryModal({ isOpen, onClose, grid, onSwapItems }: I
           <span className="inventory-modal-title">Inventory</span>
           <button
             className="inventory-modal-close"
-            onClick={onClose}
+            onClick={handleCloseClick}
             aria-label="Close inventory"
           >
             ×
           </button>
         </div>
         
-        {/* Body with inventory grid */}
+        {/* Body with equipment slots and inventory grid */}
         <div className="inventory-modal-body">
-          <InventoryGrid grid={grid} onSwapItems={onSwapItems} />
+          {/* Equipment Slots - Person-shaped layout above inventory */}
+          <EquipmentSlots
+            equippedItems={equippedItems}
+            onUnequipItem={onUnequipItem}
+            onDropToSlot={handleDropToSlot}
+            selectedInventorySlot={selectedSlot}
+            canEquipSelectedItem={canEquipSelectedItem}
+          />
+
+          {/* Divider */}
+          <div className="inventory-divider">
+            <span className="inventory-divider-text">Backpack</span>
+          </div>
+
+          {/* Inventory Grid */}
+          <InventoryGrid 
+            grid={grid} 
+            onSwapItems={onSwapItems}
+            selectedSlot={selectedSlot}
+            onSelectedSlotChange={setSelectedSlot}
+          />
           
           {/* Instructions */}
           <div className="inventory-instructions">
-            <p>💡 <strong>Desktop:</strong> Drag and drop items to rearrange</p>
-            <p>📱 <strong>Mobile:</strong> Tap an item, then tap destination to swap</p>
+            <p>💡 <strong>Desktop:</strong> Drag and drop items to rearrange or equip</p>
+            <p>📱 <strong>Mobile:</strong> Tap an item, then tap destination to swap or equip</p>
           </div>
         </div>
       </div>
