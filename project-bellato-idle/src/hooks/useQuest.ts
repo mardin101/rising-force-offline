@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
-import { QUEST_TYPE, createCharacter, CHARACTER_CLASSES } from '../state/gameStateSlice';
+import type { Quest, ActiveQuest, Character, InventoryGrid } from '../state/gameStateSlice';
+import { QUEST_TYPE, INVENTORY_ROWS, INVENTORY_COLS } from '../state/gameStateSlice';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -43,26 +43,49 @@ export interface UseQuestReturn {
   getMaterialName: (materialId: string) => string;
 }
 
-// Create default character for quest hook using the shared createCharacter function
-function createDefaultQuestCharacter(): Character {
-  const character = createCharacter('Hero', CHARACTER_CLASSES.WARRIOR);
-  // Set gold to 0 for quest tracking (different from normal starting gold)
-  return { ...character, gold: 0 };
+// Props for integrating with actual game state
+export interface UseQuestProps {
+  character: Character;
+  updateCharacter: (updates: Partial<Character>) => void;
+  inventoryGrid: InventoryGrid;
+  updateInventoryGrid: (grid: InventoryGrid) => void;
+  initialActiveQuest?: ActiveQuest | null;
+  initialCompletedQuestIds?: string[];
+  initialMaterials?: Record<string, number>;
 }
 
-export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
+// Find the first empty slot in the inventory grid
+function findEmptySlot(grid: InventoryGrid): { row: number; col: number } | null {
+  for (let row = 0; row < INVENTORY_ROWS; row++) {
+    for (let col = 0; col < INVENTORY_COLS; col++) {
+      if (grid[row][col] === null) {
+        return { row, col };
+      }
+    }
+  }
+  return null;
+}
+
+export function useQuest(props: UseQuestProps): UseQuestReturn {
+  const { 
+    character, 
+    updateCharacter, 
+    inventoryGrid, 
+    updateInventoryGrid,
+    initialActiveQuest,
+    initialCompletedQuestIds,
+    initialMaterials
+  } = props;
+  
   const [activeQuest, setActiveQuest] = useState<ActiveQuest | null>(
-    initialState?.activeQuest ?? null
+    initialActiveQuest ?? null
   );
   const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
-    initialState?.completedQuestIds ?? []
+    initialCompletedQuestIds ?? []
   );
   
-  const [character, setCharacter] = useState<Character>(
-    initialState?.character ?? createDefaultQuestCharacter()
-  );
   const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
-    initialState?.materials ?? {}
+    initialMaterials ?? {}
   );
 
   // Get the next available quest for the player's current level (lowest level first for progression)
@@ -135,15 +158,26 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
 
     const { quest } = activeQuest;
 
-    // Apply rewards
-    setCharacter((prev) => ({
-      ...prev,
-      gold: prev.gold + quest.rewards.gold,
+    // Apply rewards to the actual player character
+    updateCharacter({
+      gold: character.gold + quest.rewards.gold,
       statusInfo: {
-        ...prev.statusInfo,
-        expPoints: prev.statusInfo.expPoints + quest.rewards.exp,
+        ...character.statusInfo,
+        expPoints: character.statusInfo.expPoints + quest.rewards.exp,
       },
-    }));
+    });
+
+    // Add item reward to inventory if present
+    if (quest.rewards.item) {
+      const emptySlot = findEmptySlot(inventoryGrid);
+      if (emptySlot) {
+        const newGrid = inventoryGrid.map(row => [...row]);
+        newGrid[emptySlot.row][emptySlot.col] = { itemId: quest.rewards.item };
+        updateInventoryGrid(newGrid);
+      } else {
+        console.warn('Inventory full, could not add quest reward item:', quest.rewards.item);
+      }
+    }
 
     // Mark quest as completed
     setCompletedQuestIds((prev) => [...prev, quest.id]);
@@ -152,7 +186,7 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     setActiveQuest(null);
 
     return { rewards: quest.rewards };
-  }, [activeQuest]);
+  }, [activeQuest, character, updateCharacter, inventoryGrid, updateInventoryGrid]);
 
   // Simulate killing a monster (for demo purposes)
   const simulateMonsterKill = useCallback((monsterId: string) => {
