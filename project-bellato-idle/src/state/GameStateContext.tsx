@@ -5,11 +5,16 @@ import {
   type CharacterClass,
   type InventoryGrid,
   type ActiveQuest,
+  type EquipmentSlotType,
+  type EquippedItems,
   initialGameState,
   createCharacter,
   migrateGameState,
   GAME_STATE_STORAGE_KEY,
   isValidGameState,
+  getItemById,
+  INVENTORY_ROWS,
+  INVENTORY_COLS,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -18,6 +23,8 @@ export interface GameStateContextValue {
   updateCharacter: (updater: Partial<Character> | ((currentChar: Character) => Partial<Character>)) => void;
   updateInventoryGrid: (updater: InventoryGrid | ((currentGrid: InventoryGrid) => InventoryGrid)) => void;
   swapInventoryItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
+  equipItem: (slot: EquipmentSlotType, fromRow: number, fromCol: number) => void;
+  unequipItem: (slot: EquipmentSlotType) => void;
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -117,6 +124,77 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     });
   }, []);
 
+  // Equip an item from the inventory grid to an equipment slot
+  const equipItem = useCallback((slot: EquipmentSlotType, fromRow: number, fromCol: number) => {
+    setGameState((prev) => {
+      const inventoryItem = prev.inventoryGrid[fromRow][fromCol];
+      if (!inventoryItem) return prev;
+
+      // Get item data to validate it can be equipped to this slot
+      const itemData = getItemById(inventoryItem.itemId);
+      if (!itemData || itemData.equipSlot !== slot) return prev;
+
+      // Get the currently equipped item (if any)
+      const currentlyEquipped = prev.equippedItems[slot];
+
+      // Update inventory grid: remove item from inventory, put equipped item back if any
+      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      newGrid[fromRow][fromCol] = currentlyEquipped; // swap: currently equipped goes to inventory
+
+      // Update equipped items
+      const newEquippedItems: EquippedItems = {
+        ...prev.equippedItems,
+        [slot]: inventoryItem,
+      };
+
+      return {
+        ...prev,
+        inventoryGrid: newGrid,
+        equippedItems: newEquippedItems,
+      };
+    });
+  }, []);
+
+  // Unequip an item from an equipment slot back to inventory
+  const unequipItem = useCallback((slot: EquipmentSlotType) => {
+    setGameState((prev) => {
+      const equippedItem = prev.equippedItems[slot];
+      if (!equippedItem) return prev;
+
+      // Find first empty slot in inventory
+      let emptyRow = -1;
+      let emptyCol = -1;
+      for (let row = 0; row < INVENTORY_ROWS && emptyRow === -1; row++) {
+        for (let col = 0; col < INVENTORY_COLS; col++) {
+          if (!prev.inventoryGrid[row][col]) {
+            emptyRow = row;
+            emptyCol = col;
+            break;
+          }
+        }
+      }
+
+      // If no empty slot found, cannot unequip
+      if (emptyRow === -1) return prev;
+
+      // Update inventory grid
+      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      newGrid[emptyRow][emptyCol] = equippedItem;
+
+      // Update equipped items
+      const newEquippedItems: EquippedItems = {
+        ...prev.equippedItems,
+        [slot]: null,
+      };
+
+      return {
+        ...prev,
+        inventoryGrid: newGrid,
+        equippedItems: newEquippedItems,
+      };
+    });
+  }, []);
+
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
       ...prev,
@@ -144,6 +222,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     updateCharacter,
     updateInventoryGrid,
     swapInventoryItems,
+    equipItem,
+    unequipItem,
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,

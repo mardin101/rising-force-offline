@@ -173,6 +173,31 @@
   color: rgba(180, 220, 255, 0.9);
 }
 
+/* Divider between equipment and backpack */
+.inventory-divider {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  gap: 12px;
+}
+
+.inventory-divider::before,
+.inventory-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(80, 140, 200, 0.4), rgba(80, 140, 200, 0.4), transparent);
+}
+
+.inventory-divider-text {
+  color: #7090c0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 450px) {
   .inventory-modal-backdrop {
@@ -200,6 +225,10 @@
   }
   
   .inventory-instructions p {
+    font-size: 10px;
+  }
+
+  .inventory-divider-text {
     font-size: 10px;
   }
 }

@@ -13,6 +13,8 @@ import './InventoryGrid.css';
 export interface InventoryGridProps {
   grid: InventoryGridType;
   onSwapItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
+  selectedSlot?: { row: number; col: number } | null;
+  onSelectedSlotChange?: (slot: { row: number; col: number } | null) => void;
 }
 
 interface DragState {
@@ -29,14 +31,37 @@ interface DragState {
  * - Touch-friendly drag and drop for item rearrangement
  * - Visual feedback during drag operations
  * - Mobile-optimized touch interactions
+ * - Controlled or uncontrolled selection state
  */
-export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps) {
+export default function InventoryGrid({ 
+  grid, 
+  onSwapItems,
+  selectedSlot: controlledSelectedSlot,
+  onSelectedSlotChange,
+}: InventoryGridProps) {
   const [dragState, setDragState] = useState<DragState>({ 
     isDragging: false, 
     fromRow: -1, 
     fromCol: -1 
   });
-  const [touchedSlot, setTouchedSlot] = useState<{ row: number; col: number } | null>(null);
+  const [internalSelectedSlot, setInternalSelectedSlot] = useState<{ row: number; col: number } | null>(null);
+  
+  // Use controlled or uncontrolled selection
+  const isControlled = controlledSelectedSlot !== undefined;
+  
+  // Compute the effective selected slot, clearing it if the slot is now empty
+  const rawSelectedSlot = isControlled ? controlledSelectedSlot : internalSelectedSlot;
+  const selectedSlot = rawSelectedSlot && grid[rawSelectedSlot.row][rawSelectedSlot.col] 
+    ? rawSelectedSlot 
+    : null;
+  
+  const setSelectedSlot = useCallback((slot: { row: number; col: number } | null) => {
+    if (isControlled) {
+      onSelectedSlotChange?.(slot);
+    } else {
+      setInternalSelectedSlot(slot);
+    }
+  }, [isControlled, onSelectedSlotChange]);
 
   // Handle drag start (mouse)
   const handleDragStart = useCallback((row: number, col: number, e: React.DragEvent) => {
@@ -89,24 +114,24 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
     setDragState({ isDragging: false, fromRow: -1, fromCol: -1 });
   }, []);
 
-  // Handle touch start for mobile
-  const handleTouchStart = useCallback((row: number, col: number) => {
-    if (touchedSlot) {
+  // Handle touch/click for mobile
+  const handleSlotClick = useCallback((row: number, col: number) => {
+    if (selectedSlot) {
       // Second tap - swap items
-      if (touchedSlot.row !== row || touchedSlot.col !== col) {
-        onSwapItems(touchedSlot.row, touchedSlot.col, row, col);
+      if (selectedSlot.row !== row || selectedSlot.col !== col) {
+        onSwapItems(selectedSlot.row, selectedSlot.col, row, col);
       }
-      setTouchedSlot(null);
+      setSelectedSlot(null);
     } else if (grid[row][col]) {
       // First tap - select item
-      setTouchedSlot({ row, col });
+      setSelectedSlot({ row, col });
     }
-  }, [touchedSlot, onSwapItems, grid]);
+  }, [selectedSlot, onSwapItems, grid, setSelectedSlot]);
 
   // Render a single inventory slot
   const renderSlot = (slot: InventorySlot, row: number, col: number) => {
     const isDragSource = dragState.isDragging && dragState.fromRow === row && dragState.fromCol === col;
-    const isSelected = touchedSlot?.row === row && touchedSlot?.col === col;
+    const isSelected = selectedSlot?.row === row && selectedSlot?.col === col;
     
     // Look up item data from the data file
     const itemData = slot ? getItemById(slot.itemId) : null;
@@ -120,7 +145,7 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
         onDragOver={handleDragOver}
         onDrop={(e) => handleDrop(row, col, e)}
         onDragEnd={handleDragEnd}
-        onClick={() => handleTouchStart(row, col)}
+        onClick={() => handleSlotClick(row, col)}
         role="button"
         aria-label={itemData ? `${itemData.name} - Click to select for swap` : 'Empty slot'}
         tabIndex={0}
@@ -148,7 +173,7 @@ export default function InventoryGrid({ grid, onSwapItems }: InventoryGridProps)
           </div>
         ))}
       </div>
-      {touchedSlot && (
+      {selectedSlot && (
         <div className="inventory-hint">
           Tap another slot to swap, or tap the same slot to deselect
         </div>

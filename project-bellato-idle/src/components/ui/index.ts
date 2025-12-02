@@ -7,3 +7,6 @@ export type { InventoryGridProps } from './InventoryGrid';
 
 export { default as InventoryModal } from './InventoryModal';
 export type { InventoryModalProps } from './InventoryModal';
+
+export { default as EquipmentSlots } from './EquipmentSlots';
+export type { EquipmentSlotsProps } from './EquipmentSlots';

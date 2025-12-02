@@ -1,0 +1,225 @@
+/* EquipmentSlots Component Styles
+ * Person-shaped layout for equipment slots
+ * - Touch-friendly slot sizes
+ * - Drag-and-drop visual feedback
+ * - Consistent with inventory styling
+ */
+
+.equipment-slots-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.equipment-slots-title {
+  color: #a0d0ff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.equipment-slots-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: rgba(5, 15, 35, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(80, 140, 200, 0.3);
+}
+
+.equipment-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.equipment-spacer {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+}
+
+.equipment-slot {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  background: linear-gradient(180deg, rgba(20, 35, 60, 0.8) 0%, rgba(10, 20, 40, 0.9) 100%);
+  border: 1px solid rgba(60, 100, 160, 0.4);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.equipment-slot:hover {
+  border-color: rgba(100, 180, 255, 0.6);
+  box-shadow: 0 0 8px rgba(60, 140, 220, 0.3);
+}
+
+.equipment-slot:focus {
+  outline: none;
+  border-color: rgba(100, 180, 255, 0.8);
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.3);
+}
+
+.equipment-slot.empty {
+  background: linear-gradient(180deg, rgba(15, 25, 45, 0.5) 0%, rgba(8, 15, 30, 0.6) 100%);
+  border-style: dashed;
+}
+
+.equipment-slot.has-item {
+  background: linear-gradient(180deg, rgba(40, 70, 100, 0.85) 0%, rgba(25, 45, 70, 0.9) 100%);
+  border-color: rgba(100, 180, 255, 0.5);
+  box-shadow: 0 0 8px rgba(60, 140, 220, 0.2);
+}
+
+.equipment-slot.drag-over {
+  border-color: rgba(100, 220, 150, 0.8);
+  background: linear-gradient(180deg, rgba(30, 80, 60, 0.6) 0%, rgba(20, 60, 45, 0.7) 100%);
+  box-shadow: 0 0 12px rgba(100, 220, 150, 0.4);
+}
+
+.equipment-slot.can-accept {
+  border-color: rgba(100, 220, 150, 0.6);
+  animation: pulse-accept 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-accept {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(100, 220, 150, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(100, 220, 150, 0.5);
+  }
+}
+
+.equipped-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  pointer-events: none;
+}
+
+.equipped-item-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.equipped-item-name {
+  font-size: 7px;
+  color: #a0d0ff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 2px;
+}
+
+.empty-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.empty-slot-icon {
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.empty-slot-label {
+  font-size: 6px;
+  color: #7090c0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 2px;
+}
+
+.equipment-hint {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(100, 220, 150, 0.8);
+  padding: 6px 8px;
+  background: rgba(30, 80, 60, 0.3);
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .equipment-slot,
+  .equipment-spacer {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .equipped-item-icon,
+  .empty-slot-icon {
+    font-size: 14px;
+  }
+  
+  .equipped-item-name {
+    font-size: 6px;
+  }
+  
+  .empty-slot-label {
+    font-size: 5px;
+  }
+}
+
+/* Larger screens can have bigger slots */
+@media (min-width: 600px) {
+  .equipment-slot,
+  .equipment-spacer {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    min-height: 58px;
+  }
+  
+  .equipped-item-icon {
+    font-size: 20px;
+  }
+  
+  .equipped-item-name {
+    font-size: 8px;
+  }
+  
+  .empty-slot-icon {
+    font-size: 18px;
+  }
+  
+  .empty-slot-label {
+    font-size: 7px;
+  }
+}
