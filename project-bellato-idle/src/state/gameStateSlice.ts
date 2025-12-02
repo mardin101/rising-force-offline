@@ -35,14 +35,7 @@ export const EQUIPMENT_SLOT = {
 export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLOT];
 
 // All equipment slot types as an array for iteration
-export const EQUIPMENT_SLOTS: EquipmentSlotType[] = [
-  EQUIPMENT_SLOT.HELMET,
-  EQUIPMENT_SLOT.UPPER_BODY,
-  EQUIPMENT_SLOT.LOWER_BODY,
-  EQUIPMENT_SLOT.GLOVES,
-  EQUIPMENT_SLOT.SHOES,
-  EQUIPMENT_SLOT.CAPE,
-];
+export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT);
 
 // Character class constants
 export const CHARACTER_CLASSES = {
