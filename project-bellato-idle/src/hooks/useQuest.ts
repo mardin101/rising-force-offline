@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react';
-import type { Quest, ActiveQuest, GameState, Character } from '../state/gameStateSlice';
-import { QUEST_TYPE, createCharacter, CHARACTER_CLASSES } from '../state/gameStateSlice';
+import { useCallback } from 'react';
+import type { Quest, ActiveQuest, Character, InventoryGrid } from '../state/gameStateSlice';
+import { QUEST_TYPE } from '../state/gameStateSlice';
+import { addItemToInventory } from '../utils/inventoryManager';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -43,27 +44,32 @@ export interface UseQuestReturn {
   getMaterialName: (materialId: string) => string;
 }
 
-// Create default character for quest hook using the shared createCharacter function
-function createDefaultQuestCharacter(): Character {
-  const character = createCharacter('Hero', CHARACTER_CLASSES.WARRIOR);
-  // Set gold to 0 for quest tracking (different from normal starting gold)
-  return { ...character, gold: 0 };
+// Props for integrating with actual game state
+export interface UseQuestProps {
+  character: Character;
+  updateCharacter: (updater: Partial<Character> | ((currentChar: Character) => Partial<Character>)) => void;
+  inventoryGrid: InventoryGrid;
+  updateInventoryGrid: (updater: InventoryGrid | ((currentGrid: InventoryGrid) => InventoryGrid)) => void;
+  activeQuest: ActiveQuest | null;
+  updateActiveQuest: (quest: ActiveQuest | null) => void;
+  completedQuestIds: string[];
+  updateCompletedQuestIds: (ids: string[]) => void;
+  materials: Record<string, number>;
+  updateMaterials: (materials: Record<string, number>) => void;
 }
 
-export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
-  const [activeQuest, setActiveQuest] = useState<ActiveQuest | null>(
-    initialState?.activeQuest ?? null
-  );
-  const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
-    initialState?.completedQuestIds ?? []
-  );
-  
-  const [character, setCharacter] = useState<Character>(
-    initialState?.character ?? createDefaultQuestCharacter()
-  );
-  const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
-    initialState?.materials ?? {}
-  );
+export function useQuest(props: UseQuestProps): UseQuestReturn {
+  const { 
+    character, 
+    updateCharacter, 
+    updateInventoryGrid,
+    activeQuest,
+    updateActiveQuest,
+    completedQuestIds,
+    updateCompletedQuestIds,
+    materials: playerMaterials,
+    updateMaterials,
+  } = props;
 
   // Get the next available quest for the player's current level (lowest level first for progression)
   const availableQuest: Quest | null = quests
@@ -89,12 +95,12 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
       console.warn('Quest already completed');
       return;
     }
-    setActiveQuest({
+    updateActiveQuest({
       quest,
       progress: 0,
       isComplete: false,
     });
-  }, [activeQuest, completedQuestIds]);
+  }, [activeQuest, completedQuestIds, updateActiveQuest]);
 
   const updateQuestProgress = useCallback(
     (monsterId: string, materialId?: string) => {
@@ -113,19 +119,16 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
       }
 
       if (shouldIncrement) {
-        setActiveQuest((prev) => {
-          if (!prev) return null;
-          const newProgress = prev.progress + 1;
-          const isComplete = newProgress >= prev.quest.targetAmount;
-          return {
-            ...prev,
-            progress: newProgress,
-            isComplete,
-          };
+        const newProgress = activeQuest.progress + 1;
+        const isComplete = newProgress >= activeQuest.quest.targetAmount;
+        updateActiveQuest({
+          ...activeQuest,
+          progress: newProgress,
+          isComplete,
         });
       }
     },
-    [activeQuest]
+    [activeQuest, updateActiveQuest]
   );
 
   const completeQuest = useCallback((): { rewards: Quest['rewards'] } | null => {
@@ -135,24 +138,35 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
 
     const { quest } = activeQuest;
 
-    // Apply rewards
-    setCharacter((prev) => ({
-      ...prev,
-      gold: prev.gold + quest.rewards.gold,
+    // Apply rewards to the actual player character using functional update to avoid race conditions
+    updateCharacter((currentChar) => ({
+      gold: currentChar.gold + quest.rewards.gold,
       statusInfo: {
-        ...prev.statusInfo,
-        expPoints: prev.statusInfo.expPoints + quest.rewards.exp,
+        ...currentChar.statusInfo,
+        expPoints: currentChar.statusInfo.expPoints + quest.rewards.exp,
       },
     }));
 
+    // Add item reward to inventory if present using functional update to avoid race conditions
+    if (quest.rewards.item) {
+      const itemId = quest.rewards.item;
+      updateInventoryGrid((currentGrid) => {
+        const result = addItemToInventory(currentGrid, itemId);
+        if (!result.success) {
+          console.warn('Inventory full, could not add quest reward item:', itemId);
+        }
+        return result.grid;
+      });
+    }
+
     // Mark quest as completed
-    setCompletedQuestIds((prev) => [...prev, quest.id]);
+    updateCompletedQuestIds([...completedQuestIds, quest.id]);
 
     // Clear active quest
-    setActiveQuest(null);
+    updateActiveQuest(null);
 
     return { rewards: quest.rewards };
-  }, [activeQuest]);
+  }, [activeQuest, completedQuestIds, updateCompletedQuestIds, updateActiveQuest, updateCharacter, updateInventoryGrid]);
 
   // Simulate killing a monster (for demo purposes)
   const simulateMonsterKill = useCallback((monsterId: string) => {
@@ -162,15 +176,15 @@ export function useQuest(initialState?: Partial<GameState>): UseQuestReturn {
     // Check if material drops
     if (monster.materialDropId && Math.random() < monster.materialDropRate) {
       const materialId = monster.materialDropId;
-      setPlayerMaterials((prev) => ({
-        ...prev,
-        [materialId]: (prev[materialId] ?? 0) + 1,
-      }));
+      updateMaterials({
+        ...playerMaterials,
+        [materialId]: (playerMaterials[materialId] ?? 0) + 1,
+      });
       updateQuestProgress(monsterId, materialId);
     } else {
       updateQuestProgress(monsterId);
     }
-  }, [updateQuestProgress]);
+  }, [updateQuestProgress, playerMaterials, updateMaterials]);
 
   return {
     activeQuest,

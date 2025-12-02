@@ -1,5 +1,6 @@
 import { createContext, useContext, type ReactNode } from 'react';
 import { useQuest, type UseQuestReturn } from '../hooks/useQuest';
+import { useGameState } from './GameStateContext';
 
 const QuestContext = createContext<UseQuestReturn | null>(null);
 
@@ -8,7 +9,32 @@ export interface QuestProviderProps {
 }
 
 export function QuestProvider({ children }: QuestProviderProps) {
-  const questState = useQuest();
+  const { 
+    gameState, 
+    updateCharacter, 
+    updateInventoryGrid,
+    updateActiveQuest,
+    updateCompletedQuestIds,
+    updateMaterials,
+  } = useGameState();
+  
+  // Guard: QuestProvider should only be rendered after character creation
+  if (!gameState.character) {
+    throw new Error('QuestProvider must be rendered after character creation (gameState.character is null)');
+  }
+  
+  const questState = useQuest({
+    character: gameState.character,
+    updateCharacter,
+    inventoryGrid: gameState.inventoryGrid,
+    updateInventoryGrid,
+    activeQuest: gameState.activeQuest,
+    updateActiveQuest,
+    completedQuestIds: gameState.completedQuestIds,
+    updateCompletedQuestIds,
+    materials: gameState.materials,
+    updateMaterials,
+  });
   
   return (
     <QuestContext.Provider value={questState}>
