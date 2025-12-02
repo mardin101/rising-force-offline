@@ -123,8 +123,8 @@ export default function Battle() {
       return { newHp: currentHp, message: null };
     }
 
-    // Consume the potion via the context
-    const result = consumeMacroPotion();
+    // Consume the potion via the context, passing current battle HP for accurate calculation
+    const result = consumeMacroPotion(currentHp);
     if (result.success) {
       return { newHp: currentHp + result.healAmount, message: result.message };
     }

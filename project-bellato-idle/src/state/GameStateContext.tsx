@@ -31,7 +31,7 @@ export interface GameStateContextValue {
   unequipItem: (slot: EquipmentSlotType) => void;
   useItem: (row: number, col: number) => { success: boolean; message: string };
   updateMacroState: (updater: Partial<MacroState>) => void;
-  consumeMacroPotion: () => { success: boolean; healAmount: number; message: string };
+  consumeMacroPotion: (currentBattleHp: number) => { success: boolean; healAmount: number; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -314,7 +314,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
   }, []);
 
   // Consume a potion from the macro slot (used during battle when HP drops below threshold)
-  const consumeMacroPotion = useCallback((): { success: boolean; healAmount: number; message: string } => {
+  // currentBattleHp: The current HP in battle (may differ from global state during combat)
+  const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
     let result = { success: false, healAmount: 0, message: '' };
     
     setGameState((prev) => {
@@ -351,18 +352,17 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         return prev;
       }
 
-      const currentHp = prev.character.statusInfo.hp;
       const maxHp = prev.character.statusInfo.maxHp;
       
-      // Check if already at full health
-      if (currentHp >= maxHp) {
+      // Check if already at full health (using battle HP)
+      if (currentBattleHp >= maxHp) {
         result = { success: false, healAmount: 0, message: 'Already at full health' };
         return prev;
       }
 
-      // Calculate new HP (capped at maxHp)
-      const newHp = Math.min(currentHp + itemData.healAmount, maxHp);
-      const healedAmount = newHp - currentHp;
+      // Calculate heal amount based on current battle HP (capped at maxHp)
+      const newHp = Math.min(currentBattleHp + itemData.healAmount, maxHp);
+      const healedAmount = newHp - currentBattleHp;
 
       // Update inventory: reduce quantity or remove item
       const newGrid = prev.inventoryGrid.map(r => [...r]);
@@ -380,15 +380,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
       result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} HP` };
 
+      // Only update inventory and macro state - battle system handles HP
       return {
         ...prev,
-        character: {
-          ...prev.character,
-          statusInfo: {
-            ...prev.character.statusInfo,
-            hp: newHp,
-          },
-        },
         inventoryGrid: newGrid,
         macroState: {
           ...prev.macroState,
