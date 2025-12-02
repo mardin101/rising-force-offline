@@ -44,6 +44,11 @@ export const PT_MAX_AT_MAX_LEVEL = 99;
 export const MAX_CHARACTER_LEVEL = 55;
 export const PT_EXPERIENCE_PER_ACTION = 0.0005; // 0.05% experience per action
 
+// Experience constants
+// Experience is expressed as a percentage (0.0 to 1.0 where 1.0 = 100%)
+// Level up occurs when experience reaches 100% (1.0)
+export const EXP_MAX_PERCENT = 1.0; // 100% to level up
+
 // Character race constants
 export const CHARACTER_RACES = {
   BELLATO: 'Bellato',
@@ -82,6 +87,34 @@ export function getMaxPtForLevel(level: number): number {
   // Linear interpolation: at level 1 max is 2, at level 55 max is 99
   const progress = (level - 1) / (MAX_CHARACTER_LEVEL - 1);
   return Math.floor(PT_MAX_AT_LEVEL_1 + progress * (PT_MAX_AT_MAX_LEVEL - PT_MAX_AT_LEVEL_1));
+}
+
+// Calculate new level and remaining experience after adding exp percentage
+// Experience is expressed as a decimal (e.g., 0.05 = 5%)
+// Returns { newLevel, newExp } where newExp is the remaining experience percentage
+export function calculateExpAndLevel(
+  currentLevel: number,
+  currentExp: number,
+  expGain: number
+): { newLevel: number; newExp: number } {
+  let level = currentLevel;
+  let exp = currentExp + expGain;
+
+  // Handle level ups (can potentially gain multiple levels)
+  while (exp >= EXP_MAX_PERCENT && level < MAX_CHARACTER_LEVEL) {
+    exp -= EXP_MAX_PERCENT;
+    level += 1;
+  }
+
+  // Cap experience at max level
+  if (level >= MAX_CHARACTER_LEVEL) {
+    exp = Math.min(exp, EXP_MAX_PERCENT - 0.001); // Cap at 99.9% to prevent further level ups
+  }
+
+  // Ensure exp doesn't go negative
+  exp = Math.max(0, exp);
+
+  return { newLevel: level, newExp: exp };
 }
 
 // Experience needed to gain 1 PT (100% / 0.05% per action = 2000 actions)

@@ -151,9 +151,19 @@ export default function CharacterSheet() {
         </span>
       </div>
       <div className="game-menu-divider"></div>
-      <div className="game-menu-row">
-        <span className="game-menu-label">Exp. Points</span>
-        <span className="game-menu-value text-purple-400">{statusInfo.expPoints}</span>
+      <div className="game-menu-row flex-col items-start">
+        <div className="flex justify-between w-full">
+          <span className="game-menu-label">Experience</span>
+          <span className="game-menu-value text-purple-400">
+            {(statusInfo.expPoints * 100).toFixed(1)}%
+          </span>
+        </div>
+        <div className="w-full mt-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-purple-500 transition-all duration-300"
+            style={{ width: `${Math.min(statusInfo.expPoints * 100, 100)}%` }}
+          />
+        </div>
       </div>
       <div className="game-menu-row">
         <span className="game-menu-label">Gen. Attack</span>

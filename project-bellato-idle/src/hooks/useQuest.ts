@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { Quest, ActiveQuest, Character, InventoryGrid } from '../state/gameStateSlice';
-import { QUEST_TYPE } from '../state/gameStateSlice';
+import { QUEST_TYPE, calculateExpAndLevel } from '../state/gameStateSlice';
 import { addItemToInventory } from '../utils/inventoryManager';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
@@ -139,13 +139,23 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     const { quest } = activeQuest;
 
     // Apply rewards to the actual player character using functional update to avoid race conditions
-    updateCharacter((currentChar) => ({
-      gold: currentChar.gold + quest.rewards.gold,
-      statusInfo: {
-        ...currentChar.statusInfo,
-        expPoints: currentChar.statusInfo.expPoints + quest.rewards.exp,
-      },
-    }));
+    updateCharacter((currentChar) => {
+      // Calculate new experience and level using percentage-based exp
+      const { newLevel, newExp } = calculateExpAndLevel(
+        currentChar.level,
+        currentChar.statusInfo.expPoints,
+        quest.rewards.exp
+      );
+      
+      return {
+        gold: currentChar.gold + quest.rewards.gold,
+        level: newLevel,
+        statusInfo: {
+          ...currentChar.statusInfo,
+          expPoints: newExp,
+        },
+      };
+    });
 
     // Add item reward to inventory if present using functional update to avoid race conditions
     if (quest.rewards.item) {

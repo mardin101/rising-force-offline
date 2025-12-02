@@ -28,7 +28,7 @@ export default function QuestMaster() {
     const result = completeQuest();
     if (result) {
       const { rewards } = result;
-      let message = `Quest Complete! Rewards: ${rewards.gold} Gold, ${rewards.exp} EXP`;
+      let message = `Quest Complete! Rewards: ${rewards.gold} Gold, ${(rewards.exp * 100).toFixed(1)}% EXP`;
       if (rewards.item) {
         message += `, Item: ${rewards.item}`;
       }
@@ -159,7 +159,7 @@ export default function QuestMaster() {
               <span className="game-menu-value text-xs">
                 <span className="text-yellow-400">{activeQuest.quest.rewards.gold}g</span>
                 {' | '}
-                <span className="text-blue-400">{activeQuest.quest.rewards.exp} exp</span>
+                <span className="text-blue-400">{(activeQuest.quest.rewards.exp * 100).toFixed(1)}% exp</span>
                 {activeQuest.quest.rewards.item && (
                   <>
                     {' | '}
@@ -205,7 +205,7 @@ export default function QuestMaster() {
               <span className="game-menu-value text-xs">
                 <span className="text-yellow-400">{availableQuest.rewards.gold}g</span>
                 {' | '}
-                <span className="text-blue-400">{availableQuest.rewards.exp} exp</span>
+                <span className="text-blue-400">{(availableQuest.rewards.exp * 100).toFixed(1)}% exp</span>
                 {availableQuest.rewards.item && (
                   <>
                     {' | '}

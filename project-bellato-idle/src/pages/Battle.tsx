@@ -105,7 +105,7 @@ export default function Battle() {
                     <span className="text-gray-500">DEF:</span> {monster.defense}
                   </p>
                   <p className="text-amber-400">
-                    <span className="text-gray-500">EXP:</span> {monster.expReward}
+                    <span className="text-gray-500">EXP:</span> {(monster.expReward * 100).toFixed(1)}%
                   </p>
                   <p className="text-yellow-400">
                     <span className="text-gray-500">Gold:</span> {monster.goldDrop[0]}-{monster.goldDrop[1]}
