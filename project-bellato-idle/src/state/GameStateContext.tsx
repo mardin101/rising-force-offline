@@ -28,6 +28,7 @@ export interface GameStateContextValue {
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
+  updateCurrentZone: (zoneId: string | null) => void;
   resetGame: () => void;
 }
 
@@ -216,6 +217,13 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     }));
   }, []);
 
+  const updateCurrentZone = useCallback((zoneId: string | null) => {
+    setGameState((prev) => ({
+      ...prev,
+      currentZone: zoneId,
+    }));
+  }, []);
+
   const value: GameStateContextValue = {
     gameState,
     createNewCharacter,
@@ -227,6 +235,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,
+    updateCurrentZone,
     resetGame,
   };
 
