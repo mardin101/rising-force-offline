@@ -223,13 +223,14 @@ export default function Battle() {
         }
       }
 
-      // Update character with exp and gold
+      // Update character with exp, gold, and current HP
       updateCharacter((currentChar) => ({
         level: newLevel,
         gold: currentChar.gold + goldGain,
         statusInfo: {
           ...currentChar.statusInfo,
           expPoints: newExp,
+          hp: battleState.playerCurrentHp,
         },
       }));
 
@@ -242,18 +243,26 @@ export default function Battle() {
         });
       }
     }
-  }, [battleState.isVictory, battleState.pendingReward, gameState.character, gameState.materials, updateCharacter, updateMaterials]);
+  }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials]);
 
   // Handle battle defeat
   useEffect(() => {
-    if (battleState.isVictory === false) {
+    if (battleState.isVictory === false && gameState.character) {
       // Stop the battle interval
       if (battleIntervalRef.current) {
         clearInterval(battleIntervalRef.current);
         battleIntervalRef.current = null;
       }
+
+      // Persist the player's current HP after defeat
+      updateCharacter((currentChar) => ({
+        statusInfo: {
+          ...currentChar.statusInfo,
+          hp: battleState.playerCurrentHp,
+        },
+      }));
     }
-  }, [battleState.isVictory]);
+  }, [battleState.isVictory, battleState.playerCurrentHp, gameState.character, updateCharacter]);
 
   const startBattle = () => {
     if (!selectedMonster || !gameState.character) return;
@@ -447,12 +456,12 @@ export default function Battle() {
                   <div
                     className="bg-green-500 h-4 rounded-full transition-all duration-300"
                     style={{
-                      width: `${(battleState.playerCurrentHp / gameState.character.statusInfo.hp) * 100}%`,
+                      width: `${(battleState.playerCurrentHp / gameState.character.statusInfo.maxHp) * 100}%`,
                     }}
                   />
                 </div>
                 <div className="text-xs text-gray-400 flex justify-between">
-                  <span>HP: {battleState.playerCurrentHp} / {gameState.character.statusInfo.hp}</span>
+                  <span>HP: {battleState.playerCurrentHp} / {gameState.character.statusInfo.maxHp}</span>
                   <span>ATK: {gameState.character.statusInfo.genAttack} | DEF: {gameState.character.statusInfo.avgDefPwr}</span>
                 </div>
               </div>
