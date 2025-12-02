@@ -100,8 +100,9 @@ export default function Battle() {
       return { newHp: currentHp, message: null };
     }
 
-    // Check if HP is below threshold
-    if (currentHp >= macroState.hpThreshold) {
+    // Clamp threshold to current max HP and check if HP is below threshold
+    const effectiveThreshold = Math.min(macroState.hpThreshold, character.statusInfo.maxHp);
+    if (currentHp >= effectiveThreshold) {
       return { newHp: currentHp, message: null };
     }
 
