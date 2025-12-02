@@ -582,11 +582,14 @@ export function migrateGameState(state: GameState): GameState {
   
   // Migrate legacy character to new format
   if (migratedState.character) {
-    const char = migratedState.character as unknown as Record<string, unknown>;
-    if (isLegacyCharacter(char)) {
+    const char = migratedState.character;
+    // Check if it's a legacy character by looking for 'name' property directly on character
+    // rather than in generalInfo (which indicates new format)
+    if ('name' in char && typeof (char as Record<string, unknown>).name === 'string' && !('generalInfo' in char)) {
+      const legacyChar = char as unknown as LegacyCharacter;
       migratedState = {
         ...migratedState,
-        character: migrateLegacyCharacter(char as unknown as LegacyCharacter),
+        character: migrateLegacyCharacter(legacyChar),
       };
     }
   }
