@@ -48,6 +48,7 @@ export const PT_EXPERIENCE_PER_ACTION = 0.0005; // 0.05% experience per action
 // Experience is expressed as a percentage (0.0 to 1.0 where 1.0 = 100%)
 // Level up occurs when experience reaches 100% (1.0)
 export const EXP_MAX_PERCENT = 1.0; // 100% to level up
+export const EXP_CAP_BUFFER = 0.001; // Buffer to prevent exp from reaching exactly 100% at max level
 
 // Character race constants
 export const CHARACTER_RACES = {
@@ -108,7 +109,7 @@ export function calculateExpAndLevel(
 
   // Cap experience at max level
   if (level >= MAX_CHARACTER_LEVEL) {
-    exp = Math.min(exp, EXP_MAX_PERCENT - 0.001); // Cap at 99.9% to prevent further level ups
+    exp = Math.min(exp, EXP_MAX_PERCENT - EXP_CAP_BUFFER); // Cap at 99.9% to prevent further level ups
   }
 
   // Ensure exp doesn't go negative
