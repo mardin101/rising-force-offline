@@ -62,9 +62,16 @@ function calculateDamage(attack: number, defense: number): number {
 }
 
 export default function Battle() {
-  const { gameState, updateCharacter, updateMaterials } = useGameState();
+  const { gameState, updateCharacter, updateMaterials, updateCurrentZone } = useGameState();
   const [isPortalOpen, setIsPortalOpen] = useState(false);
-  const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
+  // Initialize selectedZone from global state if available
+  const [selectedZone, setSelectedZone] = useState<Zone | null>(() => {
+    if (gameState.currentZone) {
+      const zone = (zones as Zone[]).find((z) => z.id === gameState.currentZone);
+      return zone ?? null;
+    }
+    return null;
+  });
   const [selectedMonster, setSelectedMonster] = useState<Monster | null>(null);
   const [battleState, setBattleState] = useState<BattleState>({
     isActive: false,
@@ -81,6 +88,7 @@ export default function Battle() {
 
   const handleZoneSelect = (zone: Zone) => {
     setSelectedZone(zone);
+    updateCurrentZone(zone.id);
     setIsPortalOpen(false);
   };
 
