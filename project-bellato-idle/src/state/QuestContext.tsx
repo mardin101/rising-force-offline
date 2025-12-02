@@ -1,7 +1,6 @@
 import { createContext, useContext, type ReactNode } from 'react';
 import { useQuest, type UseQuestReturn } from '../hooks/useQuest';
 import { useGameState } from './GameStateContext';
-import { createCharacter, CHARACTER_CLASSES } from './gameStateSlice';
 
 const QuestContext = createContext<UseQuestReturn | null>(null);
 
@@ -12,12 +11,13 @@ export interface QuestProviderProps {
 export function QuestProvider({ children }: QuestProviderProps) {
   const { gameState, updateCharacter, updateInventoryGrid } = useGameState();
   
-  // Fallback character in case gameState.character is null (should not happen in practice)
-  // since QuestProvider is only rendered after character creation
-  const character = gameState.character ?? createCharacter('Default', CHARACTER_CLASSES.WARRIOR);
+  // Guard: QuestProvider should only be rendered after character creation
+  if (!gameState.character) {
+    throw new Error('QuestProvider must be rendered after character creation (gameState.character is null)');
+  }
   
   const questState = useQuest({
-    character,
+    character: gameState.character,
     updateCharacter,
     inventoryGrid: gameState.inventoryGrid,
     updateInventoryGrid,

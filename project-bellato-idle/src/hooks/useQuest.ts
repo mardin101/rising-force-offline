@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import type { Quest, ActiveQuest, Character, InventoryGrid } from '../state/gameStateSlice';
-import { QUEST_TYPE, INVENTORY_ROWS, INVENTORY_COLS } from '../state/gameStateSlice';
+import { QUEST_TYPE } from '../state/gameStateSlice';
+import { addItemToInventory } from '../utils/inventoryManager';
 import questsData from '../data/quests.json';
 import monstersData from '../data/monsters.json';
 import materialsData from '../data/materials.json';
@@ -52,18 +53,6 @@ export interface UseQuestProps {
   initialActiveQuest?: ActiveQuest | null;
   initialCompletedQuestIds?: string[];
   initialMaterials?: Record<string, number>;
-}
-
-// Find the first empty slot in the inventory grid
-function findEmptySlot(grid: InventoryGrid): { row: number; col: number } | null {
-  for (let row = 0; row < INVENTORY_ROWS; row++) {
-    for (let col = 0; col < INVENTORY_COLS; col++) {
-      if (grid[row][col] === null) {
-        return { row, col };
-      }
-    }
-  }
-  return null;
 }
 
 export function useQuest(props: UseQuestProps): UseQuestReturn {
@@ -169,11 +158,9 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
 
     // Add item reward to inventory if present
     if (quest.rewards.item) {
-      const emptySlot = findEmptySlot(inventoryGrid);
-      if (emptySlot) {
-        const newGrid = inventoryGrid.map(row => [...row]);
-        newGrid[emptySlot.row][emptySlot.col] = { itemId: quest.rewards.item };
-        updateInventoryGrid(newGrid);
+      const result = addItemToInventory(inventoryGrid, quest.rewards.item);
+      if (result.success) {
+        updateInventoryGrid(result.grid);
       } else {
         console.warn('Inventory full, could not add quest reward item:', quest.rewards.item);
       }
