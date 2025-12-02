@@ -9,7 +9,14 @@ export interface QuestProviderProps {
 }
 
 export function QuestProvider({ children }: QuestProviderProps) {
-  const { gameState, updateCharacter, updateInventoryGrid } = useGameState();
+  const { 
+    gameState, 
+    updateCharacter, 
+    updateInventoryGrid,
+    updateActiveQuest,
+    updateCompletedQuestIds,
+    updateMaterials,
+  } = useGameState();
   
   // Guard: QuestProvider should only be rendered after character creation
   if (!gameState.character) {
@@ -21,9 +28,12 @@ export function QuestProvider({ children }: QuestProviderProps) {
     updateCharacter,
     inventoryGrid: gameState.inventoryGrid,
     updateInventoryGrid,
-    initialActiveQuest: gameState.activeQuest,
-    initialCompletedQuestIds: gameState.completedQuestIds,
-    initialMaterials: gameState.materials,
+    activeQuest: gameState.activeQuest,
+    updateActiveQuest,
+    completedQuestIds: gameState.completedQuestIds,
+    updateCompletedQuestIds,
+    materials: gameState.materials,
+    updateMaterials,
   });
   
   return (

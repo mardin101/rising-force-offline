@@ -4,6 +4,7 @@ import {
   type Character,
   type CharacterClass,
   type InventoryGrid,
+  type ActiveQuest,
   initialGameState,
   createCharacter,
   migrateGameState,
@@ -17,6 +18,9 @@ export interface GameStateContextValue {
   updateCharacter: (updates: Partial<Character>) => void;
   updateInventoryGrid: (grid: InventoryGrid) => void;
   swapInventoryItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
+  updateActiveQuest: (quest: ActiveQuest | null) => void;
+  updateCompletedQuestIds: (ids: string[]) => void;
+  updateMaterials: (materials: Record<string, number>) => void;
   resetGame: () => void;
 }
 
@@ -109,12 +113,36 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     });
   }, []);
 
+  const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
+    setGameState((prev) => ({
+      ...prev,
+      activeQuest: quest,
+    }));
+  }, []);
+
+  const updateCompletedQuestIds = useCallback((ids: string[]) => {
+    setGameState((prev) => ({
+      ...prev,
+      completedQuestIds: ids,
+    }));
+  }, []);
+
+  const updateMaterials = useCallback((materials: Record<string, number>) => {
+    setGameState((prev) => ({
+      ...prev,
+      materials,
+    }));
+  }, []);
+
   const value: GameStateContextValue = {
     gameState,
     createNewCharacter,
     updateCharacter,
     updateInventoryGrid,
     swapInventoryItems,
+    updateActiveQuest,
+    updateCompletedQuestIds,
+    updateMaterials,
     resetGame,
   };
 

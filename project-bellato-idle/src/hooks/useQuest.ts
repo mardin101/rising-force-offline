@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import type { Quest, ActiveQuest, Character, InventoryGrid } from '../state/gameStateSlice';
 import { QUEST_TYPE } from '../state/gameStateSlice';
 import { addItemToInventory } from '../utils/inventoryManager';
@@ -50,9 +50,12 @@ export interface UseQuestProps {
   updateCharacter: (updates: Partial<Character>) => void;
   inventoryGrid: InventoryGrid;
   updateInventoryGrid: (grid: InventoryGrid) => void;
-  initialActiveQuest?: ActiveQuest | null;
-  initialCompletedQuestIds?: string[];
-  initialMaterials?: Record<string, number>;
+  activeQuest: ActiveQuest | null;
+  updateActiveQuest: (quest: ActiveQuest | null) => void;
+  completedQuestIds: string[];
+  updateCompletedQuestIds: (ids: string[]) => void;
+  materials: Record<string, number>;
+  updateMaterials: (materials: Record<string, number>) => void;
 }
 
 export function useQuest(props: UseQuestProps): UseQuestReturn {
@@ -61,21 +64,13 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     updateCharacter, 
     inventoryGrid, 
     updateInventoryGrid,
-    initialActiveQuest,
-    initialCompletedQuestIds,
-    initialMaterials
+    activeQuest,
+    updateActiveQuest,
+    completedQuestIds,
+    updateCompletedQuestIds,
+    materials: playerMaterials,
+    updateMaterials,
   } = props;
-  
-  const [activeQuest, setActiveQuest] = useState<ActiveQuest | null>(
-    initialActiveQuest ?? null
-  );
-  const [completedQuestIds, setCompletedQuestIds] = useState<string[]>(
-    initialCompletedQuestIds ?? []
-  );
-  
-  const [playerMaterials, setPlayerMaterials] = useState<Record<string, number>>(
-    initialMaterials ?? {}
-  );
 
   // Get the next available quest for the player's current level (lowest level first for progression)
   const availableQuest: Quest | null = quests
@@ -101,12 +96,12 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
       console.warn('Quest already completed');
       return;
     }
-    setActiveQuest({
+    updateActiveQuest({
       quest,
       progress: 0,
       isComplete: false,
     });
-  }, [activeQuest, completedQuestIds]);
+  }, [activeQuest, completedQuestIds, updateActiveQuest]);
 
   const updateQuestProgress = useCallback(
     (monsterId: string, materialId?: string) => {
@@ -125,19 +120,16 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
       }
 
       if (shouldIncrement) {
-        setActiveQuest((prev) => {
-          if (!prev) return null;
-          const newProgress = prev.progress + 1;
-          const isComplete = newProgress >= prev.quest.targetAmount;
-          return {
-            ...prev,
-            progress: newProgress,
-            isComplete,
-          };
+        const newProgress = activeQuest.progress + 1;
+        const isComplete = newProgress >= activeQuest.quest.targetAmount;
+        updateActiveQuest({
+          ...activeQuest,
+          progress: newProgress,
+          isComplete,
         });
       }
     },
-    [activeQuest]
+    [activeQuest, updateActiveQuest]
   );
 
   const completeQuest = useCallback((): { rewards: Quest['rewards'] } | null => {
@@ -167,13 +159,13 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     }
 
     // Mark quest as completed
-    setCompletedQuestIds((prev) => [...prev, quest.id]);
+    updateCompletedQuestIds([...completedQuestIds, quest.id]);
 
     // Clear active quest
-    setActiveQuest(null);
+    updateActiveQuest(null);
 
     return { rewards: quest.rewards };
-  }, [activeQuest, character, updateCharacter, inventoryGrid, updateInventoryGrid]);
+  }, [activeQuest, character, updateCharacter, inventoryGrid, updateInventoryGrid, completedQuestIds, updateCompletedQuestIds, updateActiveQuest]);
 
   // Simulate killing a monster (for demo purposes)
   const simulateMonsterKill = useCallback((monsterId: string) => {
@@ -183,15 +175,15 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     // Check if material drops
     if (monster.materialDropId && Math.random() < monster.materialDropRate) {
       const materialId = monster.materialDropId;
-      setPlayerMaterials((prev) => ({
-        ...prev,
-        [materialId]: (prev[materialId] ?? 0) + 1,
-      }));
+      updateMaterials({
+        ...playerMaterials,
+        [materialId]: (playerMaterials[materialId] ?? 0) + 1,
+      });
       updateQuestProgress(monsterId, materialId);
     } else {
       updateQuestProgress(monsterId);
     }
-  }, [updateQuestProgress]);
+  }, [updateQuestProgress, playerMaterials, updateMaterials]);
 
   return {
     activeQuest,
