@@ -31,7 +31,7 @@ interface BattleState {
   playerCurrentHp: number;
   battleLog: string[];
   isVictory: boolean | null;
-  pendingReward: { expGain: number; goldGain: number } | null;
+  pendingReward: { expGain: number; goldGain: number; monsterId: string } | null;
 }
 
 // Combat constants
@@ -40,17 +40,28 @@ const BASE_ATTACK_SPEED = 10; // Default attack speed value
 const MIN_TICK_INTERVAL_MS = 200; // Minimum time between attacks in ms
 const BASE_TICK_INTERVAL_MS = 1000; // Base interval between attacks in ms
 
-// Calculate damage dealt (attacker attack vs defender defense)
+/**
+ * Calculate damage dealt from an attacker to a defender.
+ * 
+ * @param attack - The attacker's attack power
+ * @param defense - The defender's defense power
+ * @returns The calculated damage amount (minimum 1)
+ * 
+ * @description
+ * Damage formula: (attack - defense) with ±20% variance.
+ * The base damage is clamped to a minimum of 1 before variance is applied.
+ * The final damage is also clamped to a minimum of 1.
+ */
 function calculateDamage(attack: number, defense: number): number {
   // Base damage = attack - defense, minimum 1 damage
   const baseDamage = Math.max(1, attack - defense);
-  // Add some variance
+  // Add variance (±DAMAGE_VARIANCE, default ±20%)
   const multiplier = 1 + (Math.random() * 2 - 1) * DAMAGE_VARIANCE;
   return Math.max(1, Math.floor(baseDamage * multiplier));
 }
 
 export default function Battle() {
-  const { gameState, updateCharacter } = useGameState();
+  const { gameState, updateCharacter, updateMaterials } = useGameState();
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
   const [selectedMonster, setSelectedMonster] = useState<Monster | null>(null);
@@ -65,6 +76,7 @@ export default function Battle() {
   
   const battleIntervalRef = useRef<number | null>(null);
   const victoryProcessedRef = useRef<boolean>(false);
+  const processBattleTickRef = useRef<(() => void) | null>(null);
 
   const handleZoneSelect = (zone: Zone) => {
     setSelectedZone(zone);
@@ -138,7 +150,7 @@ export default function Battle() {
           monsterCurrentHp: 0,
           battleLog: newLog.slice(-10), // Keep last 10 log entries
           isVictory: true,
-          pendingReward: { expGain, goldGain },
+          pendingReward: { expGain, goldGain, monsterId: selectedMonster.id },
         };
       }
 
@@ -171,6 +183,11 @@ export default function Battle() {
     });
   }, [selectedMonster, gameState.character]);
 
+  // Keep the processBattleTick ref updated to avoid stale closures in intervals
+  useEffect(() => {
+    processBattleTickRef.current = processBattleTick;
+  }, [processBattleTick]);
+
   // Handle battle victory - grant experience
   useEffect(() => {
     if (battleState.isVictory === true && battleState.pendingReward && gameState.character && !victoryProcessedRef.current) {
@@ -191,9 +208,9 @@ export default function Battle() {
       );
 
       // Material drop logic
-      let materialDrop = null;
+      let materialDrop: string | null = null;
       if (monsterId) {
-        const monsterData = monsters.find((m) => m.id === monsterId);
+        const monsterData = (monsters as Monster[]).find((m) => m.id === monsterId);
         if (
           monsterData &&
           monsterData.materialDropId &&
@@ -205,24 +222,26 @@ export default function Battle() {
         }
       }
 
-      updateCharacter((currentChar) => {
-        // Add material to inventory if dropped
-        let newInventory = currentChar.inventory ? { ...currentChar.inventory } : {};
-        if (materialDrop) {
-          newInventory[materialDrop] = (newInventory[materialDrop] || 0) + 1;
-        }
-        return {
-          level: newLevel,
-          gold: currentChar.gold + goldGain,
-          statusInfo: {
-            ...currentChar.statusInfo,
-            expPoints: newExp,
-          },
-          inventory: newInventory,
-        };
-      });
+      // Update character with exp and gold
+      updateCharacter((currentChar) => ({
+        level: newLevel,
+        gold: currentChar.gold + goldGain,
+        statusInfo: {
+          ...currentChar.statusInfo,
+          expPoints: newExp,
+        },
+      }));
+
+      // Update materials if a drop occurred
+      if (materialDrop) {
+        const currentMaterials = gameState.materials || {};
+        updateMaterials({
+          ...currentMaterials,
+          [materialDrop]: (currentMaterials[materialDrop] || 0) + 1,
+        });
+      }
     }
-  }, [battleState.isVictory, battleState.pendingReward, gameState.character, updateCharacter]);
+  }, [battleState.isVictory, battleState.pendingReward, gameState.character, gameState.materials, updateCharacter, updateMaterials]);
 
   // Handle battle defeat
   useEffect(() => {
@@ -261,9 +280,9 @@ export default function Battle() {
     const attackSpeedModifier = Math.max(1, gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED);
     const tickInterval = Math.max(MIN_TICK_INTERVAL_MS, BASE_TICK_INTERVAL_MS / attackSpeedModifier);
 
-    // Start battle loop
+    // Start battle loop - use ref to always call the latest processBattleTick
     battleIntervalRef.current = window.setInterval(() => {
-      processBattleTick();
+      processBattleTickRef.current?.();
     }, tickInterval);
   };
 
@@ -275,6 +294,32 @@ export default function Battle() {
       }
     };
   }, []);
+
+  // Handle escape key and body scroll for battle modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedMonster) {
+        closeBattleModal();
+      }
+    };
+
+    if (selectedMonster) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedMonster]);
+
+  // Handle backdrop click to close modal
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      closeBattleModal();
+    }
+  };
 
   return (
     <div className="p-6 relative">
@@ -364,7 +409,13 @@ export default function Battle() {
 
       {/* Battle Modal */}
       {selectedMonster && gameState.character && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div 
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={handleBackdropClick}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Battle Arena"
+        >
           <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="p-4 border-b border-gray-700 flex justify-between items-center">
@@ -372,6 +423,7 @@ export default function Battle() {
               <button
                 onClick={closeBattleModal}
                 className="text-gray-400 hover:text-white transition-colors text-2xl"
+                aria-label="Close battle"
               >
                 ×
               </button>
@@ -423,22 +475,13 @@ export default function Battle() {
               </div>
 
               {/* Battle Log */}
-              <div className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto">
+              <div className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
                 <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
                 {battleState.battleLog.length > 0 ? (
                   <div className="space-y-1">
-                    {battleState.battleLog.map((log, index) => {
-                      // If log is an object with id/message, use log.id as key; else fallback to log+index
-                      const key = typeof log === 'object' && log !== null && 'id' in log
-                        ? log.id
-                        : `${log}-${index}`;
-                      const message = typeof log === 'object' && log !== null && 'message' in log
-                        ? log.message
-                        : log;
-                      return (
-                        <p key={key} className="text-xs text-gray-300">{message}</p>
-                      );
-                    })}
+                    {battleState.battleLog.map((log, index) => (
+                      <p key={`${log}-${index}`} className="text-xs text-gray-300">{log}</p>
+                    ))}
                   </div>
                 ) : (
                   <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
