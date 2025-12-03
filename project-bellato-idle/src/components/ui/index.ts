@@ -22,3 +22,5 @@ export type { ShopProps } from './Shop';
 
 export { default as ShopModal } from './ShopModal';
 export type { ShopModalProps } from './ShopModal';
+
+export { default as ExperienceBar } from './ExperienceBar';
