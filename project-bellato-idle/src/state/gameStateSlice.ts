@@ -1,42 +1,24 @@
 // Game state management
 // This file contains the core game state structure and types
 
-import itemsData from '../data/items.json';
+import itemsData, { type ItemData } from '../data/items';
+import {
+  type QuestType,
+  EQUIPMENT_SLOT,
+  type EquipmentSlotType,
+  EQUIPMENT_SLOTS,
+} from '../data/constants';
 
-// Quest type constants
-export const QUEST_TYPE = {
-  SLAY: 'slay',
-  COLLECT: 'collect',
-} as const;
-
-export type QuestType = typeof QUEST_TYPE[keyof typeof QUEST_TYPE];
-
-// Item type constants
-export const ITEM_TYPE = {
-  WEAPON: 'weapon',
-  ARMOR: 'armor',
-  CONSUMABLE: 'consumable',
-  MATERIAL: 'material',
-  ACCESSORY: 'accessory',
-} as const;
-
-export type ItemType = typeof ITEM_TYPE[keyof typeof ITEM_TYPE];
-
-// Equipment slot types - the slots where items can be equipped
-export const EQUIPMENT_SLOT = {
-  HELMET: 'helmet',
-  UPPER_BODY: 'upperBody',
-  LOWER_BODY: 'lowerBody',
-  GLOVES: 'gloves',
-  SHOES: 'shoes',
-  CAPE: 'cape',
-  WEAPON: 'weapon',
-} as const;
-
-export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLOT];
-
-// All equipment slot types as an array for iteration
-export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT);
+// Re-export constants from constants.ts for backwards compatibility
+export {
+  QUEST_TYPE,
+  type QuestType,
+  ITEM_TYPE,
+  type ItemType,
+  EQUIPMENT_SLOT,
+  type EquipmentSlotType,
+  EQUIPMENT_SLOTS,
+} from '../data/constants';
 
 // Character class constants
 export const CHARACTER_CLASSES = {
@@ -308,21 +290,12 @@ export interface LegacyCharacter {
 export const INVENTORY_ROWS = 5;
 export const INVENTORY_COLS = 8;
 
-// Item data interface (from items.json)
-export interface ItemData {
-  id: string;
-  name: string;
-  type: ItemType;
-  description: string;
-  attack?: number;
-  defense?: number;
-  healAmount?: number;
-  equipSlot?: EquipmentSlotType; // The slot where this item can be equipped
-}
+// Re-export ItemData from items.ts
+export type { ItemData } from '../data/items';
 
 // Get all items from the data file
 export function getItemsData(): ItemData[] {
-  return itemsData as ItemData[];
+  return itemsData;
 }
 
 // Get an item by ID from the data file
