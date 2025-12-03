@@ -43,6 +43,7 @@ const DAMAGE_VARIANCE = 0.2; // ±20% damage variance
 const BASE_ATTACK_SPEED = 10; // Default attack speed value
 const MIN_TICK_INTERVAL_MS = 200; // Minimum time between attacks in ms
 const BASE_TICK_INTERVAL_MS = 1000; // Base interval between attacks in ms
+const CONTINUOUS_BATTLE_DELAY_MS = 500; // Delay before starting next battle in continuous mode
 
 /**
  * Calculate damage dealt from an attacker to a defender.
@@ -93,7 +94,7 @@ export default function Battle() {
   const victoryProcessedRef = useRef<boolean>(false);
   const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
-  const continuousCombatRef = useRef<boolean>(continuousCombat);
+  const continuousCombatRef = useRef<boolean>(false);
   
   // Keep ref in sync with state for use in callbacks
   useEffect(() => {
@@ -411,7 +412,7 @@ export default function Battle() {
         // Small delay before starting next battle for visual feedback
         setTimeout(() => {
           startBattle(true);
-        }, 500);
+        }, CONTINUOUS_BATTLE_DELAY_MS);
       }
     }
   }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials, recordMonsterKill, selectedMonster, startBattle]);
@@ -729,8 +730,8 @@ export default function Battle() {
                   </button>
                 )}
 
-                {/* End Combat Button - shown after victory when in continuous mode */}
-                {continuousCombat && (battleState.isActive || battleState.monstersDefeated > 0) && (
+                {/* End Combat Button - shown when in continuous mode and not actively fighting */}
+                {continuousCombat && battleState.monstersDefeated > 0 && !(battleState.isActive && battleState.isVictory === null) && (
                   <button
                     onClick={endCombat}
                     className="w-full py-2 rounded-lg font-medium text-sm transition-colors bg-gray-700 hover:bg-gray-600 text-white border border-gray-500"
