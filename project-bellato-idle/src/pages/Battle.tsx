@@ -35,6 +35,7 @@ interface BattleState {
   isVictory: boolean | null;
   pendingReward: { expGain: number; goldGain: number; monsterId: string } | null;
   pendingDeathPenalty: { expLost: number } | null;
+  monstersDefeated: number; // Track total monsters defeated in continuous mode
 }
 
 // Combat constants
@@ -76,6 +77,7 @@ export default function Battle() {
     return null;
   });
   const [selectedMonster, setSelectedMonster] = useState<Monster | null>(null);
+  const [continuousCombat, setContinuousCombat] = useState(false);
   const [battleState, setBattleState] = useState<BattleState>({
     isActive: false,
     monsterCurrentHp: 0,
@@ -84,12 +86,19 @@ export default function Battle() {
     isVictory: null,
     pendingReward: null,
     pendingDeathPenalty: null,
+    monstersDefeated: 0,
   });
   
   const battleIntervalRef = useRef<number | null>(null);
   const victoryProcessedRef = useRef<boolean>(false);
   const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
+  const continuousCombatRef = useRef<boolean>(continuousCombat);
+  
+  // Keep ref in sync with state for use in callbacks
+  useEffect(() => {
+    continuousCombatRef.current = continuousCombat;
+  }, [continuousCombat]);
 
   // Helper function to check if macro should trigger and consume potion
   const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
@@ -153,6 +162,7 @@ export default function Battle() {
       isVictory: null,
       pendingReward: null,
       pendingDeathPenalty: null,
+      monstersDefeated: 0,
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
@@ -173,10 +183,50 @@ export default function Battle() {
       isVictory: null,
       pendingReward: null,
       pendingDeathPenalty: null,
+      monstersDefeated: 0,
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
   };
+
+  // Flee from battle - stops combat without rewards or penalties
+  const fleeBattle = useCallback(() => {
+    // Stop the battle interval
+    if (battleIntervalRef.current) {
+      clearInterval(battleIntervalRef.current);
+      battleIntervalRef.current = null;
+    }
+    
+    setBattleState((prev) => ({
+      ...prev,
+      isActive: false,
+      battleLog: [...prev.battleLog, 'You fled from battle!'],
+      isVictory: null,
+    }));
+  }, []);
+
+  // End combat after victory (when in continuous mode)
+  const endCombat = useCallback(() => {
+    // Stop the battle interval if any
+    if (battleIntervalRef.current) {
+      clearInterval(battleIntervalRef.current);
+      battleIntervalRef.current = null;
+    }
+    
+    // Reset battle state but keep the modal open
+    setBattleState((prev) => ({
+      isActive: false,
+      monsterCurrentHp: selectedMonster?.hp ?? 0,
+      playerCurrentHp: prev.playerCurrentHp,
+      battleLog: [...prev.battleLog, `Combat ended. Defeated ${prev.monstersDefeated} monster(s).`],
+      isVictory: null,
+      pendingReward: null,
+      pendingDeathPenalty: null,
+      monstersDefeated: 0,
+    }));
+    victoryProcessedRef.current = false;
+    defeatProcessedRef.current = false;
+  }, [selectedMonster?.hp]);
 
   const processBattleTick = useCallback(() => {
     if (!selectedMonster || !gameState.character) return;
@@ -210,6 +260,7 @@ export default function Battle() {
           battleLog: newLog.slice(-10), // Keep last 10 log entries
           isVictory: true,
           pendingReward: { expGain, goldGain, monsterId: selectedMonster.id },
+          monstersDefeated: prev.monstersDefeated + 1,
         };
       }
 
@@ -260,6 +311,41 @@ export default function Battle() {
   useEffect(() => {
     processBattleTickRef.current = processBattleTick;
   }, [processBattleTick]);
+
+  const startBattle = useCallback((preserveMonstersDefeated: boolean = false) => {
+    if (!selectedMonster || !gameState.character) return;
+
+    // Reset processed flags
+    victoryProcessedRef.current = false;
+    defeatProcessedRef.current = false;
+
+    // Reset battle state for new fight
+    setBattleState((prev) => ({
+      isActive: true,
+      monsterCurrentHp: selectedMonster.hp,
+      playerCurrentHp: gameState.character!.statusInfo.hp,
+      battleLog: [`Battle started against ${selectedMonster.name}!`],
+      isVictory: null,
+      pendingReward: null,
+      pendingDeathPenalty: null,
+      monstersDefeated: preserveMonstersDefeated ? prev.monstersDefeated : 0,
+    }));
+
+    // Clear any existing interval
+    if (battleIntervalRef.current) {
+      clearInterval(battleIntervalRef.current);
+    }
+
+    // Calculate tick interval based on attack speed
+    // Higher attack speed = faster attacks
+    const attackSpeedModifier = Math.max(1, gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED);
+    const tickInterval = Math.max(MIN_TICK_INTERVAL_MS, BASE_TICK_INTERVAL_MS / attackSpeedModifier);
+
+    // Start battle loop - use ref to always call the latest processBattleTick
+    battleIntervalRef.current = window.setInterval(() => {
+      processBattleTickRef.current?.();
+    }, tickInterval);
+  }, [selectedMonster, gameState.character]);
 
   // Handle battle victory - grant experience
   useEffect(() => {
@@ -319,8 +405,16 @@ export default function Battle() {
       if (monsterId) {
         recordMonsterKill(monsterId, materialDrop ?? undefined);
       }
+
+      // If continuous combat is enabled, automatically start the next battle
+      if (continuousCombatRef.current && selectedMonster) {
+        // Small delay before starting next battle for visual feedback
+        setTimeout(() => {
+          startBattle(true);
+        }, 500);
+      }
     }
-  }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials, recordMonsterKill]);
+  }, [battleState.isVictory, battleState.pendingReward, battleState.playerCurrentHp, gameState.character, gameState.materials, updateCharacter, updateMaterials, recordMonsterKill, selectedMonster, startBattle]);
 
   // Handle battle defeat (death event)
   useEffect(() => {
@@ -350,40 +444,6 @@ export default function Battle() {
       }));
     }
   }, [battleState.isVictory, gameState.character, updateCharacter]);
-
-  const startBattle = () => {
-    if (!selectedMonster || !gameState.character) return;
-
-    // Reset processed flags
-    victoryProcessedRef.current = false;
-    defeatProcessedRef.current = false;
-
-    // Reset battle state for new fight
-    setBattleState({
-      isActive: true,
-      monsterCurrentHp: selectedMonster.hp,
-      playerCurrentHp: gameState.character.statusInfo.hp,
-      battleLog: [`Battle started against ${selectedMonster.name}!`],
-      isVictory: null,
-      pendingReward: null,
-      pendingDeathPenalty: null,
-    });
-
-    // Clear any existing interval
-    if (battleIntervalRef.current) {
-      clearInterval(battleIntervalRef.current);
-    }
-
-    // Calculate tick interval based on attack speed
-    // Higher attack speed = faster attacks
-    const attackSpeedModifier = Math.max(1, gameState.character.statusInfo.attackSpeed / BASE_ATTACK_SPEED);
-    const tickInterval = Math.max(MIN_TICK_INTERVAL_MS, BASE_TICK_INTERVAL_MS / attackSpeedModifier);
-
-    // Start battle loop - use ref to always call the latest processBattleTick
-    battleIntervalRef.current = window.setInterval(() => {
-      processBattleTickRef.current?.();
-    }, tickInterval);
-  };
 
   // Cleanup interval on unmount
   useEffect(() => {
@@ -593,7 +653,7 @@ export default function Battle() {
               </div>
 
               {/* Battle Result */}
-              {battleState.isVictory === true && (
+              {battleState.isVictory === true && !continuousCombat && (
                 <div className="bg-green-900/50 border border-green-500 rounded-lg p-3 text-center">
                   <p className="text-green-400 font-bold">Victory!</p>
                   {battleState.pendingReward && (
@@ -616,22 +676,69 @@ export default function Battle() {
                 </div>
               )}
 
-              {/* Fight Button */}
-              <button
-                onClick={startBattle}
-                disabled={battleState.isActive && battleState.isVictory === null}
-                className={`w-full py-3 rounded-lg font-bold text-lg transition-colors ${
-                  battleState.isActive && battleState.isVictory === null
-                    ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                    : 'bg-red-600 hover:bg-red-500 text-white'
-                }`}
-              >
-                {battleState.isActive && battleState.isVictory === null
-                  ? 'Fighting...'
-                  : battleState.isVictory !== null
-                  ? 'Fight Monster Again'
-                  : 'Fight Monster'}
-              </button>
+              {/* Continuous Combat Stats */}
+              {continuousCombat && battleState.monstersDefeated > 0 && (
+                <div className="bg-blue-900/30 border border-blue-500 rounded-lg p-3 text-center">
+                  <p className="text-blue-400 font-bold">⚔️ Auto-Battle Active</p>
+                  <p className="text-sm text-gray-300">
+                    Monsters Defeated: <span className="text-amber-400 font-bold">{battleState.monstersDefeated}</span>
+                  </p>
+                </div>
+              )}
+
+              {/* Continuous Combat Toggle */}
+              <div className="flex items-center justify-between bg-gray-800 rounded-lg p-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium text-gray-300">Auto-Battle</span>
+                  <span className="text-xs text-gray-500">(Fight continuously)</span>
+                </div>
+                <button
+                  onClick={() => setContinuousCombat(!continuousCombat)}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    continuousCombat ? 'bg-green-600' : 'bg-gray-600'
+                  }`}
+                  aria-label="Toggle continuous combat"
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      continuousCombat ? 'translate-x-6' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* Battle Control Buttons */}
+              <div className="space-y-2">
+                {/* Main Fight/Start Button - shown when not in active battle */}
+                {!(battleState.isActive && battleState.isVictory === null) && (
+                  <button
+                    onClick={() => startBattle()}
+                    className="w-full py-3 rounded-lg font-bold text-lg transition-colors bg-red-600 hover:bg-red-500 text-white"
+                  >
+                    {battleState.isVictory !== null ? 'Fight Monster Again' : 'Fight Monster'}
+                  </button>
+                )}
+
+                {/* Flee Button - shown during active battle */}
+                {battleState.isActive && battleState.isVictory === null && (
+                  <button
+                    onClick={fleeBattle}
+                    className="w-full py-3 rounded-lg font-bold text-lg transition-colors bg-yellow-600 hover:bg-yellow-500 text-white"
+                  >
+                    🏃 Flee Battle
+                  </button>
+                )}
+
+                {/* End Combat Button - shown after victory when in continuous mode */}
+                {continuousCombat && (battleState.isActive || battleState.monstersDefeated > 0) && (
+                  <button
+                    onClick={endCombat}
+                    className="w-full py-2 rounded-lg font-medium text-sm transition-colors bg-gray-700 hover:bg-gray-600 text-white border border-gray-500"
+                  >
+                    End Combat ({battleState.monstersDefeated} defeated)
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
