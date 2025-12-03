@@ -239,6 +239,7 @@ export default function Battle() {
       pendingReward: null,
       pendingDeathPenalty: null,
       monstersDefeated: 0,
+      pendingExpOnHit: 0,
     }));
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
