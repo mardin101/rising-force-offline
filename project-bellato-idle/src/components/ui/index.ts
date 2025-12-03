@@ -16,3 +16,5 @@ export type { ItemContextMenuProps, ContextMenuAction } from './ItemContextMenu'
 
 export { default as MacroModal } from './MacroModal';
 export type { MacroModalProps } from './MacroModal';
+
+export { default as ExperienceBar } from './ExperienceBar';

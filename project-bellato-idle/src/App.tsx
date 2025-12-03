@@ -6,6 +6,7 @@ import CharacterSheet from './pages/CharacterSheet'
 import CharacterCreation from './pages/CharacterCreation'
 import { QuestProvider } from './state/QuestContext'
 import { GameStateProvider, useGameState } from './state/GameStateContext'
+import { ExperienceBar } from './components/ui'
 
 type Page = 'town' | 'battle' | 'character'
 
@@ -179,9 +180,12 @@ function GameContent() {
         </nav>
 
         {/* Main Content Area */}
-        <main className="max-w-4xl mx-auto mt-4 sm:mt-6 px-3 sm:px-0">
+        <main className="max-w-4xl mx-auto mt-4 sm:mt-6 px-3 sm:px-0 pb-8">
           {renderPage()}
         </main>
+
+        {/* Experience Bar at bottom of screen */}
+        <ExperienceBar experience={gameState.character.statusInfo.expPoints} />
       </div>
     </QuestProvider>
   )
