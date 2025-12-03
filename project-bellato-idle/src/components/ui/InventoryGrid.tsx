@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { 
   type InventoryGrid as InventoryGridType, 
   type InventorySlot,
@@ -13,6 +13,8 @@ import './InventoryGrid.css';
 
 // Constants
 const FEEDBACK_DISPLAY_DURATION = 2000; // ms
+const LONG_PRESS_DELAY = 500; // ms - delay before context menu appears on long press
+const TOUCH_MOVE_THRESHOLD = 10; // pixels - movement threshold to prevent accidental cancellation
 
 export interface InventoryGridProps {
   grid: InventoryGridType;
@@ -68,6 +70,11 @@ export default function InventoryGrid({
     col: -1,
   });
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+  
+  // Long press handling for mobile context menu
+  const longPressTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const longPressTriggeredRef = useRef<boolean>(false);
+  const touchStartPositionRef = useRef<{ x: number; y: number } | null>(null);
 
   // Auto-dismiss feedback message after duration
   useEffect(() => {
@@ -113,6 +120,70 @@ export default function InventoryGrid({
   const closeContextMenu = useCallback(() => {
     setContextMenu(prev => ({ ...prev, isOpen: false }));
   }, []);
+
+  // Clear long press timer
+  const clearLongPressTimer = useCallback(() => {
+    if (longPressTimeoutRef.current) {
+      clearTimeout(longPressTimeoutRef.current);
+      longPressTimeoutRef.current = null;
+    }
+  }, []);
+
+  // Handle touch start for long press context menu
+  const handleTouchStart = useCallback((row: number, col: number, e: React.TouchEvent) => {
+    const slot = grid[row][col];
+    if (!slot) return;
+
+    longPressTriggeredRef.current = false;
+    
+    const touch = e.touches[0];
+    touchStartPositionRef.current = { x: touch.clientX, y: touch.clientY };
+    
+    longPressTimeoutRef.current = setTimeout(() => {
+      longPressTriggeredRef.current = true;
+      setContextMenu({
+        isOpen: true,
+        x: touch.clientX,
+        y: touch.clientY,
+        row,
+        col,
+      });
+    }, LONG_PRESS_DELAY);
+  }, [grid]);
+
+  // Handle touch end - cancel long press if still pending
+  const handleTouchEnd = useCallback(() => {
+    clearLongPressTimer();
+    touchStartPositionRef.current = null;
+  }, [clearLongPressTimer]);
+
+  // Handle touch move - cancel long press if user moves finger beyond threshold
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartPositionRef.current) return;
+    
+    const touch = e.touches[0];
+    const deltaX = Math.abs(touch.clientX - touchStartPositionRef.current.x);
+    const deltaY = Math.abs(touch.clientY - touchStartPositionRef.current.y);
+    
+    // Only cancel if movement exceeds threshold
+    if (deltaX > TOUCH_MOVE_THRESHOLD || deltaY > TOUCH_MOVE_THRESHOLD) {
+      clearLongPressTimer();
+      touchStartPositionRef.current = null;
+    }
+  }, [clearLongPressTimer]);
+
+  // Handle touch cancel
+  const handleTouchCancel = useCallback(() => {
+    clearLongPressTimer();
+    touchStartPositionRef.current = null;
+  }, [clearLongPressTimer]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      clearLongPressTimer();
+    };
+  }, [clearLongPressTimer]);
 
   // Get context menu actions for the current slot
   const getContextMenuActions = useCallback((): ContextMenuAction[] => {
@@ -193,6 +264,12 @@ export default function InventoryGrid({
 
   // Handle touch/click for mobile
   const handleSlotClick = useCallback((row: number, col: number) => {
+    // Skip click if long press triggered the context menu
+    if (longPressTriggeredRef.current) {
+      longPressTriggeredRef.current = false;
+      return;
+    }
+    
     if (selectedSlot) {
       // Second tap - swap items
       if (selectedSlot.row !== row || selectedSlot.col !== col) {
@@ -225,8 +302,12 @@ export default function InventoryGrid({
         onDragEnd={handleDragEnd}
         onClick={() => handleSlotClick(row, col)}
         onContextMenu={(e) => handleContextMenu(row, col, e)}
+        onTouchStart={(e) => handleTouchStart(row, col, e)}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+        onTouchCancel={handleTouchCancel}
         role="button"
-        aria-label={itemData ? `${itemData.name}${quantity && quantity > 1 ? ` (${quantity})` : ''} - Click to select, right-click for options` : 'Empty slot'}
+        aria-label={itemData ? `${itemData.name}${quantity && quantity > 1 ? ` (${quantity})` : ''} - Click to select, right-click or long press for options` : 'Empty slot'}
         tabIndex={0}
       >
         {itemData && (
