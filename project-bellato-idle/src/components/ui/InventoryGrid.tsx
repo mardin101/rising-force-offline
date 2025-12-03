@@ -14,6 +14,7 @@ import './InventoryGrid.css';
 // Constants
 const FEEDBACK_DISPLAY_DURATION = 2000; // ms
 const LONG_PRESS_DELAY = 500; // ms - delay before context menu appears on long press
+const TOUCH_MOVE_THRESHOLD = 10; // pixels - movement threshold to prevent accidental cancellation
 
 export interface InventoryGridProps {
   grid: InventoryGridType;
@@ -73,6 +74,7 @@ export default function InventoryGrid({
   // Long press handling for mobile context menu
   const longPressTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggeredRef = useRef<boolean>(false);
+  const touchStartPositionRef = useRef<{ x: number; y: number } | null>(null);
 
   // Auto-dismiss feedback message after duration
   useEffect(() => {
@@ -135,6 +137,8 @@ export default function InventoryGrid({
     longPressTriggeredRef.current = false;
     
     const touch = e.touches[0];
+    touchStartPositionRef.current = { x: touch.clientX, y: touch.clientY };
+    
     longPressTimeoutRef.current = setTimeout(() => {
       longPressTriggeredRef.current = true;
       setContextMenu({
@@ -150,16 +154,28 @@ export default function InventoryGrid({
   // Handle touch end - cancel long press if still pending
   const handleTouchEnd = useCallback(() => {
     clearLongPressTimer();
+    touchStartPositionRef.current = null;
   }, [clearLongPressTimer]);
 
-  // Handle touch move - cancel long press if user moves finger
-  const handleTouchMove = useCallback(() => {
-    clearLongPressTimer();
+  // Handle touch move - cancel long press if user moves finger beyond threshold
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartPositionRef.current) return;
+    
+    const touch = e.touches[0];
+    const deltaX = Math.abs(touch.clientX - touchStartPositionRef.current.x);
+    const deltaY = Math.abs(touch.clientY - touchStartPositionRef.current.y);
+    
+    // Only cancel if movement exceeds threshold
+    if (deltaX > TOUCH_MOVE_THRESHOLD || deltaY > TOUCH_MOVE_THRESHOLD) {
+      clearLongPressTimer();
+      touchStartPositionRef.current = null;
+    }
   }, [clearLongPressTimer]);
 
   // Handle touch cancel
   const handleTouchCancel = useCallback(() => {
     clearLongPressTimer();
+    touchStartPositionRef.current = null;
   }, [clearLongPressTimer]);
 
   // Clean up timer on unmount
@@ -291,7 +307,7 @@ export default function InventoryGrid({
         onTouchMove={handleTouchMove}
         onTouchCancel={handleTouchCancel}
         role="button"
-        aria-label={itemData ? `${itemData.name}${quantity && quantity > 1 ? ` (${quantity})` : ''} - Click to select, long press for options` : 'Empty slot'}
+        aria-label={itemData ? `${itemData.name}${quantity && quantity > 1 ? ` (${quantity})` : ''} - Click to select, right-click or long press for options` : 'Empty slot'}
         tabIndex={0}
       >
         {itemData && (
