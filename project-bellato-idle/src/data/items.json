@@ -4,6 +4,7 @@
     "name": "Basic Sword",
     "type": "weapon",
     "attack": 10,
+    "equipSlot": "weapon",
     "description": "A basic iron sword for beginners."
   },
   {

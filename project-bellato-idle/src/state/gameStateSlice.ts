@@ -30,6 +30,7 @@ export const EQUIPMENT_SLOT = {
   GLOVES: 'gloves',
   SHOES: 'shoes',
   CAPE: 'cape',
+  WEAPON: 'weapon',
 } as const;
 
 export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLOT];
@@ -409,6 +410,7 @@ export function createEmptyEquipment(): EquippedItems {
     [EQUIPMENT_SLOT.GLOVES]: null,
     [EQUIPMENT_SLOT.SHOES]: null,
     [EQUIPMENT_SLOT.CAPE]: null,
+    [EQUIPMENT_SLOT.WEAPON]: null,
   };
 }
 
