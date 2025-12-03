@@ -14,6 +14,7 @@ interface MonsterData {
   attack: number;
   defense: number;
   expReward: number;
+  expOnHit: number;
   goldDrop: [number, number];
   levelRange: [number, number];
   materialDropId: string;

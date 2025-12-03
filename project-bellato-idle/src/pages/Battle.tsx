@@ -21,6 +21,7 @@ interface Monster {
   attack: number;
   defense: number;
   expReward: number;
+  expOnHit: number;
   goldDrop: number[];
   levelRange: number[];
   materialDropId: string;
@@ -36,6 +37,7 @@ interface BattleState {
   pendingReward: { expGain: number; goldGain: number; monsterId: string } | null;
   pendingDeathPenalty: { expLost: number } | null;
   monstersDefeated: number; // Track total monsters defeated in continuous mode
+  pendingExpOnHit: number;
 }
 
 // Combat constants
@@ -88,6 +90,7 @@ export default function Battle() {
     pendingReward: null,
     pendingDeathPenalty: null,
     monstersDefeated: 0,
+    pendingExpOnHit: 0,
   });
   
   const battleIntervalRef = useRef<number | null>(null);
@@ -101,6 +104,7 @@ export default function Battle() {
   useEffect(() => {
     continuousCombatRef.current = continuousCombat;
   }, [continuousCombat]);
+  const lastAppliedExpOnHitRef = useRef<number>(0);
 
   // Helper function to check if macro should trigger and consume potion
   const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
@@ -165,9 +169,11 @@ export default function Battle() {
       pendingReward: null,
       pendingDeathPenalty: null,
       monstersDefeated: 0,
+      pendingExpOnHit: 0,
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
+    lastAppliedExpOnHitRef.current = 0;
   };
 
   const closeBattleModal = () => {
@@ -191,9 +197,11 @@ export default function Battle() {
       pendingReward: null,
       pendingDeathPenalty: null,
       monstersDefeated: 0,
+      pendingExpOnHit: 0,
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
+    lastAppliedExpOnHitRef.current = 0;
   };
 
   // Flee from battle - stops combat without rewards or penalties
@@ -245,6 +253,7 @@ export default function Battle() {
       const newLog = [...prev.battleLog];
       let newMonsterHp = prev.monsterCurrentHp;
       let newPlayerHp = prev.playerCurrentHp;
+      let newPendingExpOnHit = prev.pendingExpOnHit;
 
       // Player attacks monster
       const playerDamage = calculateDamage(
@@ -253,6 +262,11 @@ export default function Battle() {
       );
       newMonsterHp = Math.max(0, newMonsterHp - playerDamage);
       newLog.push(`${gameState.character!.generalInfo.name} hits ${selectedMonster.name} for ${playerDamage} damage!`);
+
+      // Grant experience on hit (tiny portion)
+      const expOnHit = selectedMonster.expOnHit;
+      newPendingExpOnHit += expOnHit;
+      console.log(`[EXP] Gained ${(expOnHit * 100).toFixed(4)}% experience from attacking ${selectedMonster.name}`);
 
       // Check if monster is defeated
       if (newMonsterHp <= 0) {
@@ -269,6 +283,7 @@ export default function Battle() {
           isVictory: true,
           pendingReward: { expGain, goldGain, monsterId: selectedMonster.id },
           monstersDefeated: prev.monstersDefeated + 1,
+          pendingExpOnHit: newPendingExpOnHit,
         };
       }
 
@@ -303,6 +318,7 @@ export default function Battle() {
           battleLog: newLog.slice(-10),
           isVictory: false,
           pendingDeathPenalty: { expLost: actualPenalty },
+          pendingExpOnHit: newPendingExpOnHit,
         };
       }
 
@@ -311,6 +327,7 @@ export default function Battle() {
         monsterCurrentHp: newMonsterHp,
         playerCurrentHp: newPlayerHp,
         battleLog: newLog.slice(-10),
+        pendingExpOnHit: newPendingExpOnHit,
       };
     });
   }, [selectedMonster, gameState.character, checkAndUseMacroPotion]);
@@ -326,6 +343,7 @@ export default function Battle() {
     // Reset processed flags
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
+    lastAppliedExpOnHitRef.current = 0;
 
     // Reset battle state for new fight
     setBattleState((prev) => ({
@@ -337,6 +355,7 @@ export default function Battle() {
       pendingReward: null,
       pendingDeathPenalty: null,
       monstersDefeated: preserveMonstersDefeated ? prev.monstersDefeated : 0,
+      pendingExpOnHit: 0,
     }));
 
     // Clear any existing interval
@@ -354,6 +373,29 @@ export default function Battle() {
       processBattleTickRef.current?.();
     }, tickInterval);
   }, [selectedMonster, gameState.character]);
+  // Handle experience gain on hit - apply experience when player attacks a monster
+  useEffect(() => {
+    const newExpToApply = battleState.pendingExpOnHit - lastAppliedExpOnHitRef.current;
+    if (newExpToApply > 0 && gameState.character) {
+      // Apply only the new experience gained since last application
+      const { newLevel, newExp } = calculateExpAndLevel(
+        gameState.character.level,
+        gameState.character.statusInfo.expPoints,
+        newExpToApply
+      );
+
+      updateCharacter((currentChar) => ({
+        level: newLevel,
+        statusInfo: {
+          ...currentChar.statusInfo,
+          expPoints: newExp,
+        },
+      }));
+
+      // Update the ref to track what we've already applied
+      lastAppliedExpOnHitRef.current = battleState.pendingExpOnHit;
+    }
+  }, [battleState.pendingExpOnHit, gameState.character, updateCharacter]);
 
   // Handle battle victory - grant experience
   useEffect(() => {
@@ -453,7 +495,7 @@ export default function Battle() {
     }
   }, [battleState.isVictory, gameState.character, updateCharacter]);
 
-  // Cleanup interval and timeout on unmount
+  // Cleanup interval on unmount
   useEffect(() => {
     return () => {
       if (battleIntervalRef.current) {
