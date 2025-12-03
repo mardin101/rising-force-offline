@@ -24,6 +24,7 @@ const SLOT_CONFIG: Record<EquipmentSlotType, { label: string; icon: string }> = 
   [EQUIPMENT_SLOT.GLOVES]: { label: 'Gloves', icon: '🧤' },
   [EQUIPMENT_SLOT.SHOES]: { label: 'Shoes', icon: '👟' },
   [EQUIPMENT_SLOT.CAPE]: { label: 'Cape', icon: '🧣' },
+  [EQUIPMENT_SLOT.WEAPON]: { label: 'Weapon', icon: '⚔️' },
 };
 
 /**
@@ -31,7 +32,7 @@ const SLOT_CONFIG: Record<EquipmentSlotType, { label: string; icon: string }> = 
  * 
  * Layout:
  *        [Helmet]
- *   [Cape] [Upper] 
+ *   [Cape] [Upper] [Weapon]
  *   [Gloves][Lower]
  *         [Shoes]
  */
@@ -130,11 +131,11 @@ export default function EquipmentSlots({
           <div className="equipment-spacer"></div>
         </div>
         
-        {/* Middle row: Cape, Upper Body */}
+        {/* Middle row: Cape, Upper Body, Weapon */}
         <div className="equipment-row equipment-row-middle">
           {renderSlot(EQUIPMENT_SLOT.CAPE)}
           {renderSlot(EQUIPMENT_SLOT.UPPER_BODY)}
-          <div className="equipment-spacer"></div>
+          {renderSlot(EQUIPMENT_SLOT.WEAPON)}
         </div>
         
         {/* Third row: Gloves, Lower Body */}
