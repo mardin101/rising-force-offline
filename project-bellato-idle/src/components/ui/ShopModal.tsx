@@ -19,7 +19,7 @@ export interface ShopModalProps {
  * ShopModal - A modal for purchasing potions
  *
  * Features:
- * - Slider to select quantity (0-99)
+ * - Slider to select quantity (1-99)
  * - Dynamic price calculation
  * - Confirm purchase button
  */
@@ -32,25 +32,12 @@ export default function ShopModal({
 }: ShopModalProps) {
   const [quantity, setQuantity] = useState(1);
   const [purchaseMessage, setPurchaseMessage] = useState<{ success: boolean; message: string } | null>(null);
-  const [lastPotionId, setLastPotionId] = useState<string | null>(null);
 
   // Get the potion data
   const potionData: ItemData | undefined = selectedPotionId ? getItemById(selectedPotionId) : undefined;
   const potionPrice = selectedPotionId ? (POTION_PRICES[selectedPotionId] ?? 0) : 0;
   const totalCost = potionPrice * quantity;
   const canAfford = playerGold >= totalCost && quantity > 0;
-
-  // Reset quantity and message when potion changes (using derived state pattern)
-  if (isOpen && selectedPotionId && selectedPotionId !== lastPotionId) {
-    setLastPotionId(selectedPotionId);
-    setQuantity(1);
-    setPurchaseMessage(null);
-  }
-
-  // Reset tracking when modal closes
-  if (!isOpen && lastPotionId !== null) {
-    setLastPotionId(null);
-  }
 
   // Handle escape key to close modal
   const handleKeyDown = useCallback(
@@ -148,14 +135,14 @@ export default function ShopModal({
             <input
               type="range"
               className="shop-slider"
-              min="0"
+              min="1"
               max={SHOP_MAX_PURCHASE_QUANTITY}
               value={quantity}
               onChange={handleSliderChange}
               aria-label="Quantity"
             />
             <div className="shop-slider-range">
-              <span>0</span>
+              <span>1</span>
               <span>{SHOP_MAX_PURCHASE_QUANTITY}</span>
             </div>
           </div>

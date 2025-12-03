@@ -76,6 +76,7 @@ export default function Shop({ playerGold, onPurchase }: ShopProps) {
       </div>
 
       <ShopModal
+        key={selectedPotionId ?? 'closed'}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         selectedPotionId={selectedPotionId}

@@ -38,10 +38,10 @@ export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT
 
 // Potion prices in gold
 export const POTION_PRICES: Record<string, number> = {
-  'potion_health': 1,       // Small potion: 1 gold
+  'potion_health': 1,         // Small potion: 1 gold
   'potion_health_medium': 5,  // Medium potion: 5 gold
   'potion_health_large': 10,  // Large potion: 10 gold
-  'potion_health_mega': 20,   // Ultra potion: 20 gold
+  'potion_health_mega': 20,   // Mega potion: 20 gold
 };
 
 // Shop constants
