@@ -91,6 +91,7 @@ export default function Battle() {
   });
   
   const battleIntervalRef = useRef<number | null>(null);
+  const continuousBattleTimeoutRef = useRef<number | null>(null);
   const victoryProcessedRef = useRef<boolean>(false);
   const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
@@ -174,6 +175,11 @@ export default function Battle() {
     if (battleIntervalRef.current) {
       clearInterval(battleIntervalRef.current);
       battleIntervalRef.current = null;
+    }
+    // Clear any pending continuous battle timeout
+    if (continuousBattleTimeoutRef.current) {
+      clearTimeout(continuousBattleTimeoutRef.current);
+      continuousBattleTimeoutRef.current = null;
     }
     setSelectedMonster(null);
     setBattleState({
@@ -411,7 +417,7 @@ export default function Battle() {
       // If continuous combat is enabled, automatically start the next battle
       if (continuousCombatRef.current && selectedMonster) {
         // Small delay before starting next battle for visual feedback
-        setTimeout(() => {
+        continuousBattleTimeoutRef.current = window.setTimeout(() => {
           startBattle(true);
         }, CONTINUOUS_BATTLE_DELAY_MS);
       }
@@ -447,11 +453,14 @@ export default function Battle() {
     }
   }, [battleState.isVictory, gameState.character, updateCharacter]);
 
-  // Cleanup interval on unmount
+  // Cleanup interval and timeout on unmount
   useEffect(() => {
     return () => {
       if (battleIntervalRef.current) {
         clearInterval(battleIntervalRef.current);
+      }
+      if (continuousBattleTimeoutRef.current) {
+        clearTimeout(continuousBattleTimeoutRef.current);
       }
     };
   }, []);
