@@ -2,16 +2,17 @@ import { useState } from 'react';
 import {
   getItemById,
   POTION_PRICES,
+  POTION_ID,
 } from '../../state/gameStateSlice';
 import ShopModal from './ShopModal';
 import './Shop.css';
 
 // Available potions in the shop (in order: small, medium, large, mega)
 const SHOP_POTIONS = [
-  'potion_health',
-  'potion_health_medium',
-  'potion_health_large',
-  'potion_health_mega',
+  POTION_ID.HEALTH_SMALL,
+  POTION_ID.HEALTH_MEDIUM,
+  POTION_ID.HEALTH_LARGE,
+  POTION_ID.HEALTH_MEGA,
 ];
 
 export interface ShopProps {

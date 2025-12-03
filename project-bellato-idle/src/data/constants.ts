@@ -36,12 +36,22 @@ export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLO
 // All equipment slot types as an array for iteration
 export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT);
 
+// Potion ID constants
+export const POTION_ID = {
+  HEALTH_SMALL: 'potion_health',
+  HEALTH_MEDIUM: 'potion_health_medium',
+  HEALTH_LARGE: 'potion_health_large',
+  HEALTH_MEGA: 'potion_health_mega',
+} as const;
+
+export type PotionId = typeof POTION_ID[keyof typeof POTION_ID];
+
 // Potion prices in gold
 export const POTION_PRICES: Record<string, number> = {
-  'potion_health': 1,         // Small potion: 1 gold
-  'potion_health_medium': 5,  // Medium potion: 5 gold
-  'potion_health_large': 10,  // Large potion: 10 gold
-  'potion_health_mega': 20,   // Mega potion: 20 gold
+  [POTION_ID.HEALTH_SMALL]: 1,   // Small potion: 1 gold
+  [POTION_ID.HEALTH_MEDIUM]: 5,  // Medium potion: 5 gold
+  [POTION_ID.HEALTH_LARGE]: 10,  // Large potion: 10 gold
+  [POTION_ID.HEALTH_MEGA]: 20,   // Mega potion: 20 gold
 };
 
 // Shop constants

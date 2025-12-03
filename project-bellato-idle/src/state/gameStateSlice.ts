@@ -18,6 +18,8 @@ export {
   EQUIPMENT_SLOT,
   type EquipmentSlotType,
   EQUIPMENT_SLOTS,
+  POTION_ID,
+  type PotionId,
   POTION_PRICES,
   SHOP_MAX_PURCHASE_QUANTITY,
 } from '../data/constants';
