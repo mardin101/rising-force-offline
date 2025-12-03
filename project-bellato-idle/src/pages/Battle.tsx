@@ -203,6 +203,7 @@ export default function Battle() {
       isActive: false,
       battleLog: [...prev.battleLog, 'You fled from battle!'],
       isVictory: null,
+      monstersDefeated: 0,
     }));
   }, []);
 
