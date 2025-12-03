@@ -6,7 +6,7 @@ import {
 import ShopModal from './ShopModal';
 import './Shop.css';
 
-// Available potions in the shop (in order: small, medium, large, ultra)
+// Available potions in the shop (in order: small, medium, large, mega)
 const SHOP_POTIONS = [
   'potion_health',
   'potion_health_medium',
