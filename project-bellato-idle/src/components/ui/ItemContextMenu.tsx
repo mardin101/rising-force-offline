@@ -23,16 +23,24 @@ export interface ItemContextMenuProps {
  * ItemContextMenu - A context menu component for inventory items
  * 
  * Features:
- * - Positioned at click location
- * - Click outside to close
+ * - Positioned at click/touch location
+ * - Click or tap outside to close
  * - Keyboard accessible (Escape to close)
  * - Action buttons for item interactions
+ * - Mobile-friendly with touch support
  */
 export default function ItemContextMenu({ x, y, actions, onClose }: ItemContextMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Handle click outside
+  // Handle click outside (mouse)
   const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      onClose();
+    }
+  }, [onClose]);
+
+  // Handle touch outside (mobile)
+  const handleTouchOutside = useCallback((e: TouchEvent) => {
     if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
       onClose();
     }
@@ -47,13 +55,15 @@ export default function ItemContextMenu({ x, y, actions, onClose }: ItemContextM
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleTouchOutside);
     document.addEventListener('keydown', handleKeyDown);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleTouchOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleClickOutside, handleKeyDown]);
+  }, [handleClickOutside, handleTouchOutside, handleKeyDown]);
 
   // Adjust position to keep menu within viewport
   const adjustedPosition = {
