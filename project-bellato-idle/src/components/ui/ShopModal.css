@@ -1,0 +1,388 @@
+/* ShopModal Component Styles
+ * Modal for purchasing potions from the shop
+ * - Sci-fi aesthetic matching other modals
+ * - Mobile-friendly dimensions
+ */
+
+.shop-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: shopFadeIn 0.2s ease-out;
+}
+
+@keyframes shopFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shop-modal {
+  background: linear-gradient(180deg, rgba(15, 25, 50, 0.92) 0%, rgba(10, 18, 35, 0.95) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(100, 180, 255, 0.3),
+    0 0 30px rgba(60, 140, 220, 0.3),
+    0 0 60px rgba(30, 80, 150, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+  max-width: 380px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: shopSlideUp 0.25s ease-out;
+  position: relative;
+}
+
+/* Sci-fi corner accents */
+.shop-modal::before,
+.shop-modal::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.shop-modal::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(100, 180, 255, 0.6);
+  border-left: 2px solid rgba(100, 180, 255, 0.6);
+  border-top-left-radius: 8px;
+}
+
+.shop-modal::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(100, 180, 255, 0.6);
+  border-right: 2px solid rgba(100, 180, 255, 0.6);
+  border-bottom-right-radius: 8px;
+}
+
+@keyframes shopSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shop-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(25, 45, 80, 0.85) 0%, rgba(15, 30, 55, 0.9) 100%);
+  border-bottom: 1px solid rgba(80, 140, 200, 0.4);
+  padding: 12px 16px;
+  position: relative;
+}
+
+/* Glowing bottom line effect for header */
+.shop-modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.5), transparent);
+}
+
+.shop-modal-title {
+  color: #a0d0ff;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 180, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.shop-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(180deg, rgba(40, 70, 120, 0.7) 0%, rgba(25, 45, 80, 0.8) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #a0d0ff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.shop-modal-close:hover {
+  background: linear-gradient(180deg, rgba(50, 90, 150, 0.8) 0%, rgba(35, 60, 100, 0.85) 100%);
+  border-color: #ff5566;
+  color: #ff5566;
+  box-shadow: 0 0 12px rgba(255, 85, 102, 0.5);
+}
+
+.shop-modal-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.4);
+}
+
+.shop-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: calc(90vh - 60px);
+}
+
+/* Potion Info Section */
+.shop-potion-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+  margin-bottom: 16px;
+}
+
+.shop-potion-icon {
+  font-size: 36px;
+}
+
+.shop-potion-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shop-potion-name {
+  color: #a0d0ff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.shop-potion-desc {
+  color: rgba(160, 200, 240, 0.7);
+  font-size: 12px;
+}
+
+.shop-potion-price {
+  color: #a0d0ff;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.gold-amount {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Slider Section */
+.shop-slider-section {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+}
+
+.shop-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.shop-slider-label {
+  color: #a0d0ff;
+  font-size: 14px;
+}
+
+.shop-slider-value {
+  color: #80ffc0;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: right;
+}
+
+.shop-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(80, 140, 200, 0.3) 0%, rgba(100, 200, 150, 0.3) 100%);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgba(80, 140, 200, 0.3);
+}
+
+.shop-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #80ffc0 0%, #40c080 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.shop-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(100, 255, 150, 0.5);
+}
+
+.shop-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #80ffc0 0%, #40c080 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.shop-slider-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11px;
+  color: rgba(160, 200, 240, 0.5);
+}
+
+/* Cost Section */
+.shop-cost-section {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(20, 40, 70, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(60, 100, 160, 0.25);
+}
+
+.shop-cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.shop-cost-row:last-child {
+  margin-bottom: 0;
+}
+
+.shop-cost-label {
+  color: rgba(160, 200, 240, 0.7);
+}
+
+.shop-cost-value {
+  color: #a0d0ff;
+  font-weight: 500;
+}
+
+.shop-cost-value.insufficient {
+  color: #ff6666;
+}
+
+.shop-cost-warning {
+  color: #ff6666;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Message Section */
+.shop-message {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.shop-message.success {
+  background: rgba(80, 200, 120, 0.2);
+  border: 1px solid rgba(80, 200, 120, 0.4);
+  color: #80ffc0;
+}
+
+.shop-message.error {
+  background: rgba(255, 100, 100, 0.2);
+  border: 1px solid rgba(255, 100, 100, 0.4);
+  color: #ff8888;
+}
+
+/* Confirm Button */
+.shop-confirm-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(40, 180, 100, 0.7) 0%, rgba(30, 140, 80, 0.8) 100%);
+  border: 1px solid rgba(80, 200, 120, 0.5);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.shop-confirm-button:hover:not(:disabled) {
+  background: linear-gradient(180deg, rgba(50, 200, 120, 0.8) 0%, rgba(40, 160, 100, 0.85) 100%);
+  box-shadow: 0 0 12px rgba(80, 200, 120, 0.5);
+}
+
+.shop-confirm-button:disabled {
+  background: linear-gradient(180deg, rgba(80, 80, 100, 0.5) 0%, rgba(60, 60, 80, 0.6) 100%);
+  border-color: rgba(100, 100, 120, 0.4);
+  color: rgba(160, 160, 180, 0.5);
+  cursor: not-allowed;
+}
+
+.shop-confirm-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(80, 200, 120, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .shop-modal-backdrop {
+    padding: 12px;
+  }
+
+  .shop-modal {
+    max-width: 100%;
+  }
+
+  .shop-modal-header {
+    padding: 10px 14px;
+  }
+
+  .shop-modal-title {
+    font-size: 14px;
+  }
+
+  .shop-modal-body {
+    padding: 12px;
+  }
+}

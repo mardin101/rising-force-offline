@@ -1,6 +1,11 @@
 import { QuestMaster, QuestProgress } from '../components/game';
+import { Shop } from '../components/ui';
+import { useGameState } from '../state/GameStateContext';
 
 export default function Town() {
+  const { gameState, purchasePotion } = useGameState();
+  const playerGold = gameState.character?.gold ?? 0;
+
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold text-amber-400 mb-4">Town Hub</h1>
@@ -10,6 +15,11 @@ export default function Town() {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Shop Section */}
+        <div>
+          <Shop playerGold={playerGold} onPurchase={purchasePotion} />
+        </div>
+
         {/* Quest Progress Section */}
         <div>
           <QuestProgress />

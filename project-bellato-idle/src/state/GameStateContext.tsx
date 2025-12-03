@@ -19,6 +19,7 @@ import {
   CLASS_BASE_STATS,
   calculateEquippedDefense,
   ITEM_TYPE,
+  POTION_PRICES,
 } from './gameStateSlice';
 
 export interface GameStateContextValue {
@@ -32,6 +33,7 @@ export interface GameStateContextValue {
   useItem: (row: number, col: number) => { success: boolean; message: string };
   updateMacroState: (updater: Partial<MacroState>) => void;
   consumeMacroPotion: (currentBattleHp: number) => { success: boolean; healAmount: number; message: string };
+  purchasePotion: (potionId: string, quantity: number) => { success: boolean; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -394,6 +396,107 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     return result;
   }, []);
 
+  // Purchase potions from the shop
+  const purchasePotion = useCallback((potionId: string, quantity: number): { success: boolean; message: string } => {
+    let result = { success: false, message: '' };
+
+    setGameState((prev) => {
+      // Validate quantity
+      if (quantity <= 0) {
+        result = { success: false, message: 'Invalid quantity' };
+        return prev;
+      }
+
+      // Check if character exists
+      if (!prev.character) {
+        result = { success: false, message: 'No character found' };
+        return prev;
+      }
+
+      // Check if potion is valid
+      const potionData = getItemById(potionId);
+      if (!potionData || potionData.type !== ITEM_TYPE.CONSUMABLE) {
+        result = { success: false, message: 'Invalid potion' };
+        return prev;
+      }
+
+      // Check the price
+      const pricePerPotion = POTION_PRICES[potionId];
+      if (pricePerPotion === undefined) {
+        result = { success: false, message: 'Potion not for sale' };
+        return prev;
+      }
+
+      const totalCost = pricePerPotion * quantity;
+
+      // Check if player has enough gold
+      if (prev.character.gold < totalCost) {
+        result = { success: false, message: 'Not enough gold' };
+        return prev;
+      }
+
+      // Check for existing stack of the same potion or find empty slot
+      let targetRow = -1;
+      let targetCol = -1;
+      let existingQuantity = 0;
+
+      // First, look for existing stack
+      for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
+        for (let col = 0; col < INVENTORY_COLS; col++) {
+          const item = prev.inventoryGrid[row][col];
+          if (item && item.itemId === potionId) {
+            targetRow = row;
+            targetCol = col;
+            existingQuantity = item.quantity ?? 1;
+            break;
+          }
+        }
+      }
+
+      // If no existing stack, find empty slot
+      if (targetRow === -1) {
+        for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
+          for (let col = 0; col < INVENTORY_COLS; col++) {
+            if (!prev.inventoryGrid[row][col]) {
+              targetRow = row;
+              targetCol = col;
+              break;
+            }
+          }
+        }
+      }
+
+      // If no slot available, fail
+      if (targetRow === -1) {
+        result = { success: false, message: 'No inventory space available' };
+        return prev;
+      }
+
+      // Update inventory
+      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      newGrid[targetRow][targetCol] = {
+        itemId: potionId,
+        quantity: existingQuantity + quantity,
+      };
+
+      // Deduct gold
+      const newGold = prev.character.gold - totalCost;
+
+      result = { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
+
+      return {
+        ...prev,
+        character: {
+          ...prev.character,
+          gold: newGold,
+        },
+        inventoryGrid: newGrid,
+      };
+    });
+
+    return result;
+  }, []);
+
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
       ...prev,
@@ -433,6 +536,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     useItem,
     updateMacroState,
     consumeMacroPotion,
+    purchasePotion,
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,

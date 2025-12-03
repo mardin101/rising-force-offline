@@ -1,0 +1,167 @@
+/* Shop Component Styles
+ * Displays potions for sale in the town
+ * - Sci-fi aesthetic matching other components
+ * - Grid layout for potions
+ */
+
+.shop-container {
+  background: linear-gradient(180deg, rgba(15, 25, 50, 0.6) 0%, rgba(10, 18, 35, 0.7) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.3);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(100, 180, 255, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  position: relative;
+}
+
+/* Sci-fi corner accents */
+.shop-container::before,
+.shop-container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.shop-container::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(100, 180, 255, 0.4);
+  border-left: 2px solid rgba(100, 180, 255, 0.4);
+  border-top-left-radius: 8px;
+}
+
+.shop-container::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(100, 180, 255, 0.4);
+  border-right: 2px solid rgba(100, 180, 255, 0.4);
+  border-bottom-right-radius: 8px;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(80, 140, 200, 0.3);
+}
+
+.shop-title {
+  color: #a0d0ff;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 180, 255, 0.4);
+  margin: 0;
+}
+
+.shop-gold {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.shop-gold-label {
+  color: rgba(160, 200, 240, 0.7);
+  font-size: 13px;
+}
+
+.shop-gold-value {
+  color: #ffd700;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.shop-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.shop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  background: linear-gradient(180deg, rgba(25, 45, 80, 0.6) 0%, rgba(15, 30, 55, 0.7) 100%);
+  border: 1px solid rgba(80, 140, 200, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shop-item:hover {
+  background: linear-gradient(180deg, rgba(35, 60, 100, 0.7) 0%, rgba(25, 45, 80, 0.8) 100%);
+  border-color: rgba(100, 180, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(60, 140, 220, 0.3);
+}
+
+.shop-item:active {
+  transform: translateY(0);
+}
+
+.shop-item:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 180, 255, 0.4);
+}
+
+.shop-item-icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.shop-item-name {
+  color: #a0d0ff;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.shop-item-heal {
+  color: #80ffc0;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.shop-item-price {
+  color: rgba(160, 200, 240, 0.7);
+  font-size: 11px;
+}
+
+.shop-item-price-value {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .shop-container {
+    padding: 12px;
+  }
+
+  .shop-title {
+    font-size: 16px;
+  }
+
+  .shop-items-grid {
+    gap: 8px;
+  }
+
+  .shop-item {
+    padding: 10px 6px;
+  }
+
+  .shop-item-icon {
+    font-size: 28px;
+  }
+
+  .shop-item-name {
+    font-size: 11px;
+  }
+}
