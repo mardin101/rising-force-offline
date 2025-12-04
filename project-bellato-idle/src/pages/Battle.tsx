@@ -347,10 +347,12 @@ export default function Battle() {
     lastAppliedExpOnHitRef.current = 0;
 
     // Reset battle state for new fight
+    // When preserving state from continuous combat, use the previous battle's HP
+    // to avoid restoring HP due to stale closures in the setTimeout callback
     setBattleState((prev) => ({
       isActive: true,
       monsterCurrentHp: selectedMonster.hp,
-      playerCurrentHp: gameState.character!.statusInfo.hp,
+      playerCurrentHp: preserveMonstersDefeated ? prev.playerCurrentHp : gameState.character!.statusInfo.hp,
       battleLog: [`Battle started against ${selectedMonster.name}!`],
       isVictory: null,
       pendingReward: null,
