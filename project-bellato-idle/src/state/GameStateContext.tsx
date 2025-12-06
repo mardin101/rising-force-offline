@@ -259,6 +259,13 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       if (itemData.healAmount) {
         const currentHp = prev.character.statusInfo.hp;
         const maxHp = prev.character.statusInfo.maxHp;
+        const playerLevel = prev.character.level;
+        
+        // Check level requirement
+        if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
+          result = { success: false, message: `Requires level ${itemData.levelRequirement}` };
+          return prev;
+        }
         
         // Check if already at full health
         if (currentHp >= maxHp) {
@@ -355,6 +362,13 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
 
       const maxHp = prev.character.statusInfo.maxHp;
+      const playerLevel = prev.character.level;
+      
+      // Check level requirement
+      if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
+        result = { success: false, healAmount: 0, message: `Macro: Requires level ${itemData.levelRequirement}` };
+        return prev;
+      }
       
       // Check if already at full health (using battle HP)
       if (currentBattleHp >= maxHp) {

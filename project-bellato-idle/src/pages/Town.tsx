@@ -5,6 +5,7 @@ import { useGameState } from '../state/GameStateContext';
 export default function Town() {
   const { gameState, purchasePotion } = useGameState();
   const playerGold = gameState.character?.gold ?? 0;
+  const playerLevel = gameState.character?.level ?? 1;
 
   return (
     <div className="p-6">
@@ -17,7 +18,7 @@ export default function Town() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Shop Section */}
         <div>
-          <Shop playerGold={playerGold} onPurchase={purchasePotion} />
+          <Shop playerGold={playerGold} playerLevel={playerLevel} onPurchase={purchasePotion} />
         </div>
 
         {/* Quest Progress Section */}

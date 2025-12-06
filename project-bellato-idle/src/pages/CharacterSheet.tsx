@@ -374,6 +374,7 @@ export default function CharacterSheet() {
         inventoryGrid={gameState.inventoryGrid}
         maxHp={statusInfo.maxHp}
         currentHp={statusInfo.hp}
+        playerLevel={character.level}
         onUpdateMacro={updateMacroState}
       />
     </div>

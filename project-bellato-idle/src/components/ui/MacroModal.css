@@ -399,6 +399,33 @@
   margin-top: 2px;
 }
 
+.macro-potion-item-level {
+  font-size: 8px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.macro-potion-item-level.met {
+  color: #80ffc0;
+  background: rgba(128, 255, 192, 0.15);
+  border: 1px solid rgba(128, 255, 192, 0.3);
+}
+
+.macro-potion-item-level.unmet {
+  color: #ff8080;
+  background: rgba(255, 128, 128, 0.15);
+  border: 1px solid rgba(255, 128, 128, 0.3);
+}
+
+.macro-potion-item.level-locked {
+  opacity: 0.6;
+}
+
+.macro-potion-item.level-locked:hover {
+  opacity: 0.8;
+}
+
 .macro-no-potions {
   grid-column: 1 / -1;
   text-align: center;

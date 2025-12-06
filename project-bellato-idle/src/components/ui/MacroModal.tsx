@@ -16,6 +16,7 @@ export interface MacroModalProps {
   inventoryGrid: InventoryGridType;
   maxHp: number;
   currentHp: number;
+  playerLevel: number;
   onUpdateMacro: (updates: Partial<MacroState>) => void;
 }
 
@@ -26,6 +27,7 @@ interface AvailablePotion {
   name: string;
   quantity: number;
   healAmount: number;
+  levelRequirement?: number;
 }
 
 // Utility function to check if coordinates are valid inventory bounds
@@ -51,6 +53,7 @@ export default function MacroModal({
   inventoryGrid,
   maxHp,
   currentHp,
+  playerLevel,
   onUpdateMacro,
 }: MacroModalProps) {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -92,6 +95,7 @@ export default function MacroModal({
               name: itemData.name,
               quantity: item.quantity ?? 1,
               healAmount: itemData.healAmount,
+              levelRequirement: itemData.levelRequirement,
             });
           }
         }
@@ -116,6 +120,7 @@ export default function MacroModal({
       name: itemData.name,
       quantity: item.quantity ?? 1,
       healAmount: itemData.healAmount ?? 0,
+      levelRequirement: itemData.levelRequirement,
     };
   }, [macroState.potionSlot, inventoryGrid]);
 
@@ -266,6 +271,21 @@ export default function MacroModal({
             {assignedPotion && (
               <div style={{ textAlign: 'center', fontSize: '11px', color: '#a0d0ff' }}>
                 {assignedPotion.name} (+{assignedPotion.healAmount} HP)
+                {assignedPotion.levelRequirement && (
+                  <span style={{ 
+                    marginLeft: '6px',
+                    padding: '1px 4px', 
+                    borderRadius: '3px',
+                    fontSize: '10px',
+                    backgroundColor: playerLevel >= assignedPotion.levelRequirement 
+                      ? 'rgba(128, 255, 192, 0.15)' 
+                      : 'rgba(255, 128, 128, 0.15)',
+                    color: playerLevel >= assignedPotion.levelRequirement ? '#80ffc0' : '#ff8080',
+                    border: `1px solid ${playerLevel >= assignedPotion.levelRequirement ? 'rgba(128, 255, 192, 0.3)' : 'rgba(255, 128, 128, 0.3)'}`
+                  }}>
+                    Lv.{assignedPotion.levelRequirement}+
+                  </span>
+                )}
               </div>
             )}
           </div>
@@ -301,23 +321,31 @@ export default function MacroModal({
           {/* Available Potions Grid */}
           <div className="macro-potions-grid">
             {availablePotions.length > 0 ? (
-              availablePotions.map((potion) => (
-                <div
-                  key={`${potion.row}-${potion.col}`}
-                  className={`macro-potion-item ${
-                    draggingFrom?.row === potion.row && draggingFrom?.col === potion.col ? 'dragging' : ''
-                  }`}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, potion.row, potion.col)}
-                  onDragEnd={handleDragEnd}
-                  onClick={() => handlePotionClick(potion.row, potion.col)}
-                  title={`${potion.name}: +${potion.healAmount} HP (x${potion.quantity})`}
-                >
-                  <span className="macro-potion-item-icon">🧪</span>
-                  <span className="macro-potion-item-name">{potion.name}</span>
-                  <span className="macro-potion-item-quantity">x{potion.quantity}</span>
-                </div>
-              ))
+              availablePotions.map((potion) => {
+                const meetsLevel = !potion.levelRequirement || playerLevel >= potion.levelRequirement;
+                return (
+                  <div
+                    key={`${potion.row}-${potion.col}`}
+                    className={`macro-potion-item ${
+                      draggingFrom?.row === potion.row && draggingFrom?.col === potion.col ? 'dragging' : ''
+                    } ${!meetsLevel ? 'level-locked' : ''}`}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, potion.row, potion.col)}
+                    onDragEnd={handleDragEnd}
+                    onClick={() => handlePotionClick(potion.row, potion.col)}
+                    title={`${potion.name}: +${potion.healAmount} HP (x${potion.quantity})${potion.levelRequirement ? ` - Requires Lv.${potion.levelRequirement}` : ''}`}
+                  >
+                    <span className="macro-potion-item-icon">🧪</span>
+                    <span className="macro-potion-item-name">{potion.name}</span>
+                    <span className="macro-potion-item-quantity">x{potion.quantity}</span>
+                    {potion.levelRequirement && (
+                      <span className={`macro-potion-item-level ${meetsLevel ? 'met' : 'unmet'}`}>
+                        Lv.{potion.levelRequirement}
+                      </span>
+                    )}
+                  </div>
+                );
+              })
             ) : (
               <div className="macro-no-potions">
                 No potions in inventory

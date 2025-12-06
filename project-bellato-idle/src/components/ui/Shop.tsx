@@ -7,16 +7,20 @@ import {
 import ShopModal from './ShopModal';
 import './Shop.css';
 
-// Available potions in the shop (in order: small, medium, large, mega)
+// Available potions in the shop (in order: weakest to strongest)
 const SHOP_POTIONS = [
-  POTION_ID.HEALTH_SMALL,
-  POTION_ID.HEALTH_MEDIUM,
-  POTION_ID.HEALTH_LARGE,
-  POTION_ID.HEALTH_MEGA,
+  POTION_ID.BLESS_HP_100,
+  POTION_ID.BLESS_HP_250,
+  POTION_ID.BLESS_HP_500,
+  POTION_ID.BLESS_HP_2000,
+  POTION_ID.BLESS_HP_3000,
+  POTION_ID.BLESS_HP_4000,
+  POTION_ID.BLESS_HP_5000,
 ];
 
 export interface ShopProps {
   playerGold: number;
+  playerLevel: number;
   onPurchase: (potionId: string, quantity: number) => { success: boolean; message: string };
 }
 
@@ -24,10 +28,11 @@ export interface ShopProps {
  * Shop - A component that displays potions for sale
  *
  * Features:
- * - Displays all four potion types with prices
+ * - Displays all Bless HP potions with prices and level requirements
  * - Click on a potion to open the purchase modal
+ * - Shows level requirements for each potion
  */
-export default function Shop({ playerGold, onPurchase }: ShopProps) {
+export default function Shop({ playerGold, playerLevel, onPurchase }: ShopProps) {
   const [selectedPotionId, setSelectedPotionId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,10 +63,12 @@ export default function Shop({ playerGold, onPurchase }: ShopProps) {
 
           if (!potionData) return null;
 
+          const meetsLevelRequirement = !potionData.levelRequirement || playerLevel >= potionData.levelRequirement;
+
           return (
             <button
               key={potionId}
-              className="shop-item"
+              className={`shop-item ${!meetsLevelRequirement ? 'shop-item-locked' : ''}`}
               onClick={() => handlePotionClick(potionId)}
               title={`${potionData.name}: ${potionData.description}`}
             >
@@ -71,6 +78,11 @@ export default function Shop({ playerGold, onPurchase }: ShopProps) {
               <span className="shop-item-price">
                 <span className="shop-item-price-value">{price}</span> gold
               </span>
+              {potionData.levelRequirement && (
+                <span className={`shop-item-level ${meetsLevelRequirement ? 'met' : 'unmet'}`}>
+                  Lv. {potionData.levelRequirement}+
+                </span>
+              )}
             </button>
           );
         })}
@@ -82,6 +94,7 @@ export default function Shop({ playerGold, onPurchase }: ShopProps) {
         onClose={handleCloseModal}
         selectedPotionId={selectedPotionId}
         playerGold={playerGold}
+        playerLevel={playerLevel}
         onPurchase={onPurchase}
       />
     </div>

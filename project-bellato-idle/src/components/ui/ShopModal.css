@@ -193,6 +193,26 @@
   font-weight: bold;
 }
 
+.shop-potion-level {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.shop-potion-level.met {
+  color: #80ffc0;
+  background: rgba(128, 255, 192, 0.15);
+  border: 1px solid rgba(128, 255, 192, 0.3);
+}
+
+.shop-potion-level.unmet {
+  color: #ff8080;
+  background: rgba(255, 128, 128, 0.15);
+  border: 1px solid rgba(255, 128, 128, 0.3);
+}
+
 /* Slider Section */
 .shop-slider-section {
   margin-bottom: 16px;
