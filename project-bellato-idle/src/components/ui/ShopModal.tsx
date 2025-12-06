@@ -4,6 +4,7 @@ import {
   POTION_PRICES,
   SHOP_MAX_PURCHASE_QUANTITY,
 } from '../../state/gameStateSlice';
+import { getAssetPath } from '../../utils/assets';
 import type { ItemData } from '../../data/items';
 import './ShopModal.css';
 
@@ -122,7 +123,15 @@ export default function ShopModal({
         <div className="shop-modal-body">
           {/* Potion Info */}
           <div className="shop-potion-info">
-            <span className="shop-potion-icon">🧪</span>
+            {potionData.image ? (
+              <img 
+                src={getAssetPath(potionData.image)} 
+                alt={potionData.name} 
+                className="shop-potion-icon shop-potion-image"
+              />
+            ) : (
+              <span className="shop-potion-icon">🧪</span>
+            )}
             <div className="shop-potion-details">
               <span className="shop-potion-name">{potionData.name}</span>
               <span className="shop-potion-desc">{potionData.description}</span>

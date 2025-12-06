@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="potionGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8c69"/>
+      <stop offset="100%" style="stop-color:#d63031"/>
+    </linearGradient>
+    <linearGradient id="glassGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.3)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="16" cy="24" rx="8" ry="6" fill="url(#potionGradient2)"/>
+  <rect x="8" y="12" width="16" height="12" rx="2" fill="url(#potionGradient2)"/>
+  <rect x="12" y="6" width="8" height="6" fill="#4a3728"/>
+  <rect x="11" y="3" width="10" height="4" rx="1" fill="#8b5a2b"/>
+  <rect x="10" y="14" width="3" height="8" rx="1" fill="url(#glassGradient2)"/>
+  <text x="16" y="22" font-size="8" fill="white" text-anchor="middle" font-weight="bold">250</text>
+</svg>

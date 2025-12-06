@@ -8,6 +8,7 @@ import {
   ITEM_TYPE,
   getItemById,
 } from '../../state/gameStateSlice';
+import { getAssetPath } from '../../utils/assets';
 import ItemContextMenu, { type ContextMenuAction } from './ItemContextMenu';
 import './InventoryGrid.css';
 
@@ -313,7 +314,15 @@ export default function InventoryGrid({
         {itemData && (
           <div className="inventory-item">
             <div className="item-icon">
-              {getItemIcon(itemData.type)}
+              {itemData.image ? (
+                <img 
+                  src={getAssetPath(itemData.image)} 
+                  alt={itemData.name} 
+                  className="item-image"
+                />
+              ) : (
+                getItemIcon(itemData.type)
+              )}
             </div>
             <div className="item-name">{itemData.name}</div>
             {quantity && quantity > 1 && (

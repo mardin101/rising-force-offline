@@ -255,6 +255,12 @@
   font-size: 24px;
 }
 
+.macro-potion-icon.macro-potion-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .macro-potion-quantity {
   font-size: 10px;
   color: #ffd700;
@@ -380,6 +386,12 @@
 .macro-potion-item-icon {
   font-size: 20px;
   margin-bottom: 4px;
+}
+
+.macro-potion-item-icon.macro-potion-item-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .macro-potion-item-name {

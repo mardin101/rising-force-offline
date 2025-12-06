@@ -24,6 +24,7 @@ export interface ItemData {
   levelRequirement?: number;
   levelRequirementText?: string;
   maxQuantity?: number;  // Maximum stack size for this item
+  image?: string;  // Path to the item image (relative to public folder)
 }
 
 const itemsData: ItemData[] = [
@@ -52,6 +53,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 1 level.',
     levelRequirementText: 'Only use higher than 1 level.',
     levelRequirement: 1,
+    image: 'images/items/ipbhp01.svg',
   },
   {
     id: 'bless_hp_potion_250',
@@ -69,6 +71,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 5 level.',
     levelRequirementText: 'Only use higher than 5 level.',
     levelRequirement: 5,
+    image: 'images/items/ipbhp02.svg',
   },
   {
     id: 'bless_hp_potion_500',
@@ -86,6 +89,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 10 level.',
     levelRequirementText: 'Only use higher than 10 level.',
     levelRequirement: 10,
+    image: 'images/items/ipbhp03.svg',
   },
   {
     id: 'bless_hp_potion_2000',
@@ -103,6 +107,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 25 level.',
     levelRequirementText: 'Only use higher than 25 level.',
     levelRequirement: 25,
+    image: 'images/items/ipbhp04.svg',
   },
   {
     id: 'bless_hp_potion_3000',
@@ -120,6 +125,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 35 level.',
     levelRequirementText: 'Only use higher than 35 level.',
     levelRequirement: 35,
+    image: 'images/items/ipbhp05.svg',
   },
   {
     id: 'bless_hp_potion_4000',
@@ -137,6 +143,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 40 level.',
     levelRequirementText: 'Only use higher than 40 level.',
     levelRequirement: 40,
+    image: 'images/items/ipbhp06.svg',
   },
   {
     id: 'bless_hp_potion_5000',
@@ -154,6 +161,7 @@ const itemsData: ItemData[] = [
     description: 'Potion exclusive for Bellato. Only use higher than 50 level.',
     levelRequirementText: 'Only use higher than 50 level.',
     levelRequirement: 50,
+    image: 'images/items/ipbhp07.svg',
   },
   {
     id: 'leather_armor',
