@@ -4,6 +4,7 @@ import {
   POTION_PRICES,
   POTION_ID,
 } from '../../state/gameStateSlice';
+import { getAssetPath } from '../../utils/assets';
 import ShopModal from './ShopModal';
 import './Shop.css';
 
@@ -72,7 +73,15 @@ export default function Shop({ playerGold, playerLevel, onPurchase }: ShopProps)
               onClick={() => handlePotionClick(potionId)}
               title={`${potionData.name}: ${potionData.description}`}
             >
-              <span className="shop-item-icon">🧪</span>
+              {potionData.image ? (
+                <img 
+                  src={getAssetPath(potionData.image)} 
+                  alt={potionData.name} 
+                  className="shop-item-icon shop-item-image"
+                />
+              ) : (
+                <span className="shop-item-icon">🧪</span>
+              )}
               <span className="shop-item-name">{potionData.name}</span>
               <span className="shop-item-heal">+{potionData.healAmount} HP</span>
               <span className="shop-item-price">

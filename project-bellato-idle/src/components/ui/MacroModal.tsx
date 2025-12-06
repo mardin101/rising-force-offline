@@ -7,6 +7,7 @@ import {
   INVENTORY_ROWS,
   INVENTORY_COLS,
 } from '../../state/gameStateSlice';
+import { getAssetPath } from '../../utils/assets';
 import './MacroModal.css';
 
 export interface MacroModalProps {
@@ -28,6 +29,7 @@ interface AvailablePotion {
   quantity: number;
   healAmount: number;
   levelRequirement?: number;
+  image?: string;
 }
 
 // Utility function to check if coordinates are valid inventory bounds
@@ -96,6 +98,7 @@ export default function MacroModal({
               quantity: item.quantity ?? 1,
               healAmount: itemData.healAmount,
               levelRequirement: itemData.levelRequirement,
+              image: itemData.image,
             });
           }
         }
@@ -121,6 +124,7 @@ export default function MacroModal({
       quantity: item.quantity ?? 1,
       healAmount: itemData.healAmount ?? 0,
       levelRequirement: itemData.levelRequirement,
+      image: itemData.image,
     };
   }, [macroState.potionSlot, inventoryGrid]);
 
@@ -261,7 +265,15 @@ export default function MacroModal({
             >
               {assignedPotion ? (
                 <div className="macro-potion-slot-content">
-                  <span className="macro-potion-icon">🧪</span>
+                  {assignedPotion.image ? (
+                    <img 
+                      src={getAssetPath(assignedPotion.image)} 
+                      alt={assignedPotion.name} 
+                      className="macro-potion-icon macro-potion-image"
+                    />
+                  ) : (
+                    <span className="macro-potion-icon">🧪</span>
+                  )}
                   <span className="macro-potion-quantity">x{assignedPotion.quantity}</span>
                 </div>
               ) : (
@@ -335,7 +347,15 @@ export default function MacroModal({
                     onClick={() => handlePotionClick(potion.row, potion.col)}
                     title={`${potion.name}: +${potion.healAmount} HP (x${potion.quantity})${potion.levelRequirement ? ` - Requires Lv.${potion.levelRequirement}` : ''}`}
                   >
-                    <span className="macro-potion-item-icon">🧪</span>
+                    {potion.image ? (
+                      <img 
+                        src={getAssetPath(potion.image)} 
+                        alt={potion.name} 
+                        className="macro-potion-item-icon macro-potion-item-image"
+                      />
+                    ) : (
+                      <span className="macro-potion-item-icon">🧪</span>
+                    )}
                     <span className="macro-potion-item-name">{potion.name}</span>
                     <span className="macro-potion-item-quantity">x{potion.quantity}</span>
                     {potion.levelRequirement && (
