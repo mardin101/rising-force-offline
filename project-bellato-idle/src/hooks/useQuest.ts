@@ -39,7 +39,6 @@ export interface UseQuestReturn {
   character: Character;
   materials: Record<string, number>;
   acceptQuest: (quest: Quest) => void;
-  simulateMonsterKill: (monsterId: string) => void;
   recordMonsterKill: (monsterId: string, materialDropId?: string) => void;
   completeQuest: () => { rewards: Quest['rewards'] } | null;
   getMonsterName: (monsterId: string) => string;
@@ -70,7 +69,6 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     completedQuestIds,
     updateCompletedQuestIds,
     materials: playerMaterials,
-    updateMaterials,
   } = props;
 
   // Get the next available quest for the player's current level (lowest level first for progression)
@@ -180,24 +178,6 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     return { rewards: quest.rewards };
   }, [activeQuest, completedQuestIds, updateCompletedQuestIds, updateActiveQuest, updateCharacter, updateInventoryGrid]);
 
-  // Simulate killing a monster (for demo purposes)
-  const simulateMonsterKill = useCallback((monsterId: string) => {
-    const monster = monsters.find((m) => m.id === monsterId);
-    if (!monster) return;
-
-    // Check if material drops
-    if (monster.materialDropId && Math.random() < monster.materialDropRate) {
-      const materialId = monster.materialDropId;
-      updateMaterials({
-        ...playerMaterials,
-        [materialId]: (playerMaterials[materialId] ?? 0) + 1,
-      });
-      updateQuestProgress(monsterId, materialId);
-    } else {
-      updateQuestProgress(monsterId);
-    }
-  }, [updateQuestProgress, playerMaterials, updateMaterials]);
-
   // Record a monster kill for quest progress (used by Battle page where material drops are handled separately)
   const recordMonsterKill = useCallback((monsterId: string, materialDropId?: string) => {
     updateQuestProgress(monsterId, materialDropId);
@@ -210,7 +190,6 @@ export function useQuest(props: UseQuestProps): UseQuestReturn {
     character,
     materials: playerMaterials,
     acceptQuest,
-    simulateMonsterKill,
     recordMonsterKill,
     completeQuest,
     getMonsterName,

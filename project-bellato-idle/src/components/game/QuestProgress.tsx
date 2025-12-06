@@ -6,7 +6,6 @@ export default function QuestProgress() {
     activeQuest,
     getMonsterName,
     getMaterialName,
-    simulateMonsterKill,
   } = useQuestContext();
 
   if (!activeQuest) {
@@ -30,11 +29,6 @@ export default function QuestProgress() {
       return `Collect ${quest.targetAmount} ${materialName}`;
     }
     return `Complete objective: ${quest.targetAmount}`;
-  };
-
-  // Demo button to simulate killing monsters
-  const handleSimulateKill = () => {
-    simulateMonsterKill(quest.targetMonster);
   };
 
   return (
@@ -77,16 +71,6 @@ export default function QuestProgress() {
           <span className="text-purple-400">🎁 {quest.rewards.item}</span>
         )}
       </div>
-
-      {/* Demo: Simulate Kill Button */}
-      {!isComplete && (
-        <button
-          onClick={handleSimulateKill}
-          className="mt-3 w-full px-3 py-1.5 bg-red-600/80 text-white text-sm rounded hover:bg-red-700 transition-colors"
-        >
-          🗡️ Simulate Kill ({getMonsterName(quest.targetMonster)})
-        </button>
-      )}
 
       {isComplete && (
         <p className="mt-3 text-sm text-green-400 text-center">
