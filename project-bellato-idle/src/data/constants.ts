@@ -38,20 +38,26 @@ export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT
 
 // Potion ID constants
 export const POTION_ID = {
-  HEALTH_SMALL: 'potion_health',
-  HEALTH_MEDIUM: 'potion_health_medium',
-  HEALTH_LARGE: 'potion_health_large',
-  HEALTH_MEGA: 'potion_health_mega',
+  BLESS_HP_100: 'bless_hp_potion_100',
+  BLESS_HP_250: 'bless_hp_potion_250',
+  BLESS_HP_500: 'bless_hp_potion_500',
+  BLESS_HP_2000: 'bless_hp_potion_2000',
+  BLESS_HP_3000: 'bless_hp_potion_3000',
+  BLESS_HP_4000: 'bless_hp_potion_4000',
+  BLESS_HP_5000: 'bless_hp_potion_5000',
 } as const;
 
 export type PotionId = typeof POTION_ID[keyof typeof POTION_ID];
 
 // Potion prices in gold
 export const POTION_PRICES: Record<string, number> = {
-  [POTION_ID.HEALTH_SMALL]: 1,   // Small potion: 1 gold
-  [POTION_ID.HEALTH_MEDIUM]: 5,  // Medium potion: 5 gold
-  [POTION_ID.HEALTH_LARGE]: 10,  // Large potion: 10 gold
-  [POTION_ID.HEALTH_MEGA]: 20,   // Mega potion: 20 gold
+  [POTION_ID.BLESS_HP_100]: 5,     // BlessHPPotion 100: 5 gold
+  [POTION_ID.BLESS_HP_250]: 15,    // BlessHPPotion 250: 15 gold
+  [POTION_ID.BLESS_HP_500]: 30,    // BlessHPPotion 500: 30 gold
+  [POTION_ID.BLESS_HP_2000]: 100,  // BlessHPPotion 2000: 100 gold
+  [POTION_ID.BLESS_HP_3000]: 150,  // BlessHPPotion 3000: 150 gold
+  [POTION_ID.BLESS_HP_4000]: 200,  // BlessHPPotion 4000: 200 gold
+  [POTION_ID.BLESS_HP_5000]: 250,  // BlessHPPotion 5000: 250 gold
 };
 
 // Shop constants

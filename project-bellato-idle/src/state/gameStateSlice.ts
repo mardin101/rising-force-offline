@@ -337,7 +337,7 @@ export function createStarterInventoryGrid(): InventoryGrid {
   
   // Add some starter items for demonstration using item IDs
   grid[0][0] = { itemId: 'sword_basic' };
-  grid[0][1] = { itemId: 'potion_health', quantity: 100 }; // 100 low-level health potions
+  grid[0][1] = { itemId: 'bless_hp_potion_100', quantity: 50 }; // 50 Bless HP Potion 100 (Level 1+)
   grid[1][0] = { itemId: 'leather_armor' };
   grid[2][3] = { itemId: 'iron_ore' };
   

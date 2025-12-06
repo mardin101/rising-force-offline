@@ -139,6 +139,33 @@
   font-weight: bold;
 }
 
+.shop-item-level {
+  font-size: 10px;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.shop-item-level.met {
+  color: #80ffc0;
+  background: rgba(128, 255, 192, 0.1);
+  border: 1px solid rgba(128, 255, 192, 0.3);
+}
+
+.shop-item-level.unmet {
+  color: #ff8080;
+  background: rgba(255, 128, 128, 0.1);
+  border: 1px solid rgba(255, 128, 128, 0.3);
+}
+
+.shop-item-locked {
+  opacity: 0.6;
+}
+
+.shop-item-locked:hover {
+  opacity: 0.8;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 400px) {
   .shop-container {

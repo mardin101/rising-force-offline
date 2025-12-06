@@ -12,6 +12,7 @@ export interface ShopModalProps {
   onClose: () => void;
   selectedPotionId: string | null;
   playerGold: number;
+  playerLevel: number;
   onPurchase: (potionId: string, quantity: number) => { success: boolean; message: string };
 }
 
@@ -19,8 +20,9 @@ export interface ShopModalProps {
  * ShopModal - A modal for purchasing potions
  *
  * Features:
- * - Slider to select quantity (1-99)
+ * - Slider to select quantity (1-99 or item's max quantity)
  * - Dynamic price calculation
+ * - Level requirement check
  * - Confirm purchase button
  */
 export default function ShopModal({
@@ -28,6 +30,7 @@ export default function ShopModal({
   onClose,
   selectedPotionId,
   playerGold,
+  playerLevel,
   onPurchase,
 }: ShopModalProps) {
   const [quantity, setQuantity] = useState(1);
@@ -38,6 +41,9 @@ export default function ShopModal({
   const potionPrice = selectedPotionId ? (POTION_PRICES[selectedPotionId] ?? 0) : 0;
   const totalCost = potionPrice * quantity;
   const canAfford = playerGold >= totalCost && quantity > 0;
+  const meetsLevelRequirement = !potionData?.levelRequirement || playerLevel >= potionData.levelRequirement;
+  const maxQuantity = potionData?.maxQuantity ?? SHOP_MAX_PURCHASE_QUANTITY;
+  const canPurchase = canAfford && meetsLevelRequirement;
 
   // Handle escape key to close modal
   const handleKeyDown = useCallback(
@@ -123,6 +129,11 @@ export default function ShopModal({
               <span className="shop-potion-price">
                 Price: <span className="gold-amount">{potionPrice}</span> gold each
               </span>
+              {potionData.levelRequirement && (
+                <span className={`shop-potion-level ${meetsLevelRequirement ? 'met' : 'unmet'}`}>
+                  Required Level: {potionData.levelRequirement}+ {meetsLevelRequirement ? '✓' : '✗'}
+                </span>
+              )}
             </div>
           </div>
 
@@ -136,14 +147,14 @@ export default function ShopModal({
               type="range"
               className="shop-slider"
               min="1"
-              max={SHOP_MAX_PURCHASE_QUANTITY}
+              max={maxQuantity}
               value={quantity}
               onChange={handleSliderChange}
               aria-label="Quantity"
             />
             <div className="shop-slider-range">
               <span>1</span>
-              <span>{SHOP_MAX_PURCHASE_QUANTITY}</span>
+              <span>{maxQuantity}</span>
             </div>
           </div>
 
@@ -162,6 +173,9 @@ export default function ShopModal({
             {!canAfford && quantity > 0 && (
               <div className="shop-cost-warning">Insufficient gold!</div>
             )}
+            {!meetsLevelRequirement && (
+              <div className="shop-cost-warning">Level requirement not met!</div>
+            )}
           </div>
 
           {/* Purchase Message */}
@@ -175,7 +189,7 @@ export default function ShopModal({
           <button
             className="shop-confirm-button"
             onClick={handlePurchase}
-            disabled={!canAfford}
+            disabled={!canPurchase}
           >
             Confirm Purchase
           </button>
