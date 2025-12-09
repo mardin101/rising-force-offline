@@ -1,0 +1,46 @@
+# Ignore build artifacts and dependencies
+node_modules
+dist
+dist-ssr
+*.local
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore editor files
+.vscode
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore Docker files themselves
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Ignore CI/CD
+.github
+
+# Ignore documentation
+README.md
+CONTRIBUTING.md
+*.md
+
+# Ignore other directories not needed in container
+agents
+tasks
+environments

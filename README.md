@@ -100,6 +100,8 @@ rising-force-offline/
 
 ### Installation & Setup
 
+#### Option 1: Local Development
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/mardin101/rising-force-offline.git
@@ -118,10 +120,33 @@ npm run build
 npm run lint
 ```
 
+#### Option 2: Docker Deployment
+
+For production deployment with HTTPS using Docker and Traefik:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/mardin101/rising-force-offline.git
+cd rising-force-offline
+
+# 2. Configure environment
+cp .env.example .env
+# Edit .env with your domain and email
+
+# 3. Start with Docker Compose
+docker compose up -d
+
+# Access your app at https://yourdomain.com
+```
+
+See [Quick Start Guide](./QUICKSTART.md) for a 5-minute setup or [Docker Setup Guide](./DOCKER.md) for detailed instructions.
+
 ---
 
 ## 📚 Documentation
 
+- [Quick Start Guide](./QUICKSTART.md) - 5-minute Docker deployment
+- [Docker Setup Guide](./DOCKER.md) - Complete Docker and Traefik guide
 - [Contributing Guidelines](./CONTRIBUTING.md) - How to contribute to the project
 - [Agents Documentation](./agents/README.md) - Agentic AI implementations
 - [Tasks Documentation](./tasks/README.md) - Task definitions for agents
