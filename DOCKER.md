@@ -118,23 +118,50 @@ Then access via http://localhost:8080/dashboard/
 
 ## Docker Commands
 
+### Using Makefile (Recommended)
+
+A Makefile is provided for convenience:
+
+```bash
+# Show all available commands
+make help
+
+# Build Docker images
+make build
+
+# Start all services
+make up
+
+# Stop all services
+make down
+
+# View logs
+make logs
+
+# Rebuild everything
+make rebuild
+
+# Validate configuration
+make validate
+```
+
 ### Basic Operations
 
 ```bash
 # Start services
-docker-compose up -d
+docker compose up -d
 
 # Stop services
-docker-compose down
+docker compose down
 
 # Restart services
-docker-compose restart
+docker compose restart
 
 # View logs
-docker-compose logs -f rising-force-app
+docker compose logs -f rising-force-app
 
 # Rebuild after code changes
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ### Maintenance
