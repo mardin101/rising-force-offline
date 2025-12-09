@@ -25,13 +25,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t ${{ env.IMAGE_NAME }} .
+        run: docker build -t "${{ env.IMAGE_NAME }}" .
 
       - name: Run Docker container
         run: |
           # Container exposes nginx on port specified by CONTAINER_INTERNAL_PORT, mapped to host CONTAINER_PORT
           docker run -d -p ${{ env.CONTAINER_PORT }}:${{ env.CONTAINER_INTERNAL_PORT }} \
-            --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE_NAME }}
+            --name "${{ env.CONTAINER_NAME }}" "${{ env.IMAGE_NAME }}"
           echo "Container started successfully"
 
       - name: Wait for application and verify HTTP 200 OK
