@@ -80,7 +80,10 @@ docker-compose logs -f
 
 ### Traefik Dashboard Authentication
 
-To secure the Traefik dashboard with basic authentication:
+The Traefik dashboard port (8080) is commented out by default for security. To access the dashboard:
+
+**Option 1: Via Domain (Recommended)**
+Access via https://traefik.yourdomain.com with proper authentication.
 
 1. Generate a password hash:
 ```bash
@@ -102,6 +105,16 @@ TRAEFIK_AUTH=admin:$apr1$...your-hash...
 - "traefik.http.routers.dashboard.middlewares=auth"
 - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_AUTH}"
 ```
+
+**Option 2: Direct Port Access (Development Only)**
+For local development, you can uncomment the port mapping in `docker-compose.yml`:
+```yaml
+ports:
+  - "8080:8080"  # Uncomment for local development
+```
+Then access via http://localhost:8080/dashboard/
+
+**⚠️ Security Warning**: Never expose port 8080 in production without authentication!
 
 ## Docker Commands
 

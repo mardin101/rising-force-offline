@@ -1,7 +1,7 @@
 services:
   # Traefik reverse proxy with HTTPS support
   traefik:
-    image: traefik:v2.11
+    image: traefik:v2.11.12
     container_name: traefik
     restart: unless-stopped
     command:
@@ -32,7 +32,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"  # Traefik dashboard (optional)
+      # Dashboard port - Comment out in production or enable authentication
+      # - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
