@@ -1,0 +1,67 @@
+name: Docker Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  docker-build-and-test:
+    name: Build Docker Image and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t rising-force-offline:test .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name rising-force-test rising-force-offline:test
+          echo "Container started, waiting for it to be ready..."
+          sleep 5
+
+      - name: Wait for application to be ready
+        run: |
+          max_attempts=30
+          attempt=0
+          
+          while [ $attempt -lt $max_attempts ]; do
+            if curl -f -s -o /dev/null -w "%{http_code}" http://localhost:8080 | grep -q "200"; then
+              echo "Application is ready!"
+              exit 0
+            fi
+            
+            attempt=$((attempt + 1))
+            echo "Waiting for application... attempt $attempt/$max_attempts"
+            sleep 2
+          done
+          
+          echo "Application failed to become ready"
+          docker logs rising-force-test
+          exit 1
+
+      - name: Check HTTP 200 OK status
+        run: |
+          status_code=$(curl -f -s -o /dev/null -w "%{http_code}" http://localhost:8080)
+          
+          if [ "$status_code" = "200" ]; then
+            echo "✓ Success! Application returned HTTP $status_code"
+            exit 0
+          else
+            echo "✗ Failed! Application returned HTTP $status_code instead of 200"
+            docker logs rising-force-test
+            exit 1
+          fi
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker stop rising-force-test || true
+          docker rm rising-force-test || true
