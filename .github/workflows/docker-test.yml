@@ -44,7 +44,7 @@ jobs:
             # Get HTTP status code with timeouts to handle network issues gracefully
             status_code=$(curl -s -o /dev/null -w "%{http_code}" \
               --max-time 5 --connect-timeout 3 \
-              http://localhost:${{ env.CONTAINER_PORT }} 2>&1 || echo "000")
+              http://localhost:${{ env.CONTAINER_PORT }} || echo "000")
             
             if [ "$status_code" = "200" ]; then
               echo "✓ Success! Application is ready and returned HTTP $status_code"
@@ -58,11 +58,11 @@ jobs:
           
           echo "✗ Failed! Application did not become ready after $max_attempts attempts"
           echo "Container logs:"
-          docker logs ${{ env.CONTAINER_NAME }}
+          docker logs "${{ env.CONTAINER_NAME }}"
           exit 1
 
       - name: Cleanup
         if: always()
         run: |
-          docker stop --time 10 ${{ env.CONTAINER_NAME }} || true
-          docker rm ${{ env.CONTAINER_NAME }} || true
+          docker stop --time 10 "${{ env.CONTAINER_NAME }}" || true
+          docker rm "${{ env.CONTAINER_NAME }}" || true
