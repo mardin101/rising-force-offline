@@ -139,13 +139,14 @@ docker compose up -d
 # Access your app at https://yourdomain.com
 ```
 
-See [Docker Setup Guide](./DOCKER.md) for detailed instructions.
+See [Quick Start Guide](./QUICKSTART.md) for a 5-minute setup or [Docker Setup Guide](./DOCKER.md) for detailed instructions.
 
 ---
 
 ## 📚 Documentation
 
-- [Docker Setup Guide](./DOCKER.md) - Deploy with Docker and Traefik
+- [Quick Start Guide](./QUICKSTART.md) - 5-minute Docker deployment
+- [Docker Setup Guide](./DOCKER.md) - Complete Docker and Traefik guide
 - [Contributing Guidelines](./CONTRIBUTING.md) - How to contribute to the project
 - [Agents Documentation](./agents/README.md) - Agentic AI implementations
 - [Tasks Documentation](./tasks/README.md) - Task definitions for agents
