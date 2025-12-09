@@ -16,6 +16,7 @@ jobs:
     
     env:
       CONTAINER_PORT: 8080
+      CONTAINER_INTERNAL_PORT: 80
       CONTAINER_NAME: rising-force-test
       IMAGE_NAME: rising-force-offline:test
 
@@ -28,8 +29,9 @@ jobs:
 
       - name: Run Docker container
         run: |
-          # Container exposes port 80 (nginx) which is mapped to host port 8080
-          docker run -d -p ${{ env.CONTAINER_PORT }}:80 --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE_NAME }}
+          # Container exposes nginx on port specified by CONTAINER_INTERNAL_PORT, mapped to host CONTAINER_PORT
+          docker run -d -p ${{ env.CONTAINER_PORT }}:${{ env.CONTAINER_INTERNAL_PORT }} \
+            --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE_NAME }}
           echo "Container started successfully"
 
       - name: Wait for application and verify HTTP 200 OK
@@ -39,8 +41,10 @@ jobs:
           
           echo "Waiting for application to be ready..."
           while [ $attempt -lt $max_attempts ]; do
-            # Get HTTP status code, allowing curl to succeed even on HTTP errors
-            status_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:${{ env.CONTAINER_PORT }} 2>/dev/null || echo "000")
+            # Get HTTP status code with timeouts to handle network issues gracefully
+            status_code=$(curl -s -o /dev/null -w "%{http_code}" \
+              --max-time 5 --connect-timeout 3 \
+              http://localhost:${{ env.CONTAINER_PORT }} 2>&1 || echo "000")
             
             if [ "$status_code" = "200" ]; then
               echo "✓ Success! Application is ready and returned HTTP $status_code"
@@ -60,5 +64,5 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
-          docker stop ${{ env.CONTAINER_NAME }} || true
+          docker stop --time 10 ${{ env.CONTAINER_NAME }} || true
           docker rm ${{ env.CONTAINER_NAME }} || true
