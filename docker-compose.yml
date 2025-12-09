@@ -1,0 +1,88 @@
+services:
+  # Traefik reverse proxy with HTTPS support
+  traefik:
+    image: traefik:v2.11
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      # Enable Docker provider
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      
+      # Configure entrypoints
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      
+      # HTTP to HTTPS redirect
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      
+      # Enable Let's Encrypt
+      - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL:-admin@example.com}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      
+      # Enable API and dashboard (optional, can be disabled in production)
+      - "--api.dashboard=true"
+      - "--api.insecure=false"
+      
+      # Logging
+      - "--log.level=INFO"
+      - "--accesslog=true"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Traefik dashboard (optional)
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
+    labels:
+      # Enable Traefik dashboard with authentication
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      # Uncomment and configure for basic auth on dashboard
+      # - "traefik.http.routers.dashboard.middlewares=auth"
+      # - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_AUTH:-admin:$$apr1$$...}"
+    networks:
+      - traefik-network
+
+  # Rising Force Offline application
+  rising-force-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rising-force-offline
+    restart: unless-stopped
+    labels:
+      # Enable Traefik for this service
+      - "traefik.enable=true"
+      
+      # HTTP router
+      - "traefik.http.routers.rising-force.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.rising-force.entrypoints=websecure"
+      - "traefik.http.routers.rising-force.tls.certresolver=letsencrypt"
+      
+      # Service configuration
+      - "traefik.http.services.rising-force.loadbalancer.server.port=80"
+      
+      # Security headers middleware
+      - "traefik.http.middlewares.security-headers.headers.customResponseHeaders.X-Frame-Options=SAMEORIGIN"
+      - "traefik.http.middlewares.security-headers.headers.customResponseHeaders.X-Content-Type-Options=nosniff"
+      - "traefik.http.middlewares.security-headers.headers.customResponseHeaders.X-XSS-Protection=1; mode=block"
+      - "traefik.http.middlewares.security-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.security-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.security-headers.headers.stsPreload=true"
+      
+      # Apply middleware
+      - "traefik.http.routers.rising-force.middlewares=security-headers"
+    networks:
+      - traefik-network
+    depends_on:
+      - traefik
+
+networks:
+  traefik-network:
+    driver: bridge

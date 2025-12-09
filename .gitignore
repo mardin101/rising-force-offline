@@ -1,0 +1,6 @@
+# Docker environment and data
+.env
+letsencrypt/
+
+# Docker volumes and build cache
+*.log
