@@ -396,13 +396,23 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
       result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} HP` };
 
-      // Only update inventory and macro state - battle system handles HP
+      // Update inventory, macro state, AND character HP
+      // Battle system will receive updated HP through battle state sync
+      const newCharacterHp = Math.min(currentBattleHp + healedAmount, maxHp);
+      
       return {
         ...prev,
         inventoryGrid: newGrid,
         macroState: {
           ...prev.macroState,
           potionSlot: newPotionSlot,
+        },
+        character: {
+          ...prev.character!,
+          statusInfo: {
+            ...prev.character!.statusInfo,
+            hp: newCharacterHp,
+          },
         },
       };
     });

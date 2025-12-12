@@ -1,5 +1,6 @@
 import type { ItemType, EquipmentSlotType, WeaponType } from './constants';
-import itemsJson from './items/items.json';
+import itemsJsonRaw from './items/items.json';
+import { loadPotions } from './potions/loadPotions';
 
 // Potion-specific type for HP potions
 export type PotionType = 'HP' | 'FP' | 'SP';
@@ -38,9 +39,34 @@ export interface ItemData {
   image?: string;  // Path to the item image (relative to public folder)
 }
 
-// Import items from JSON and cast to ItemData array
-// The items.json contains the required fields (id, itemId, name, description, code1, code2, imageUrl, localImagePath)
-// Optional fields (type, healAmount, etc.) are used for extended functionality and backward compatibility
-const itemsData: ItemData[] = itemsJson as ItemData[];
+// Transform items.json format to ItemData format
+// items.json uses "soldAtNpc" and "class" instead of "code1" and "code2"
+interface RawItemData {
+  id: string;
+  itemId: string;
+  name: string;
+  description: string;
+  soldAtNpc: string;
+  class: string;
+  imageUrl: string;
+  localImagePath: string;
+}
+
+function transformRawItem(rawItem: RawItemData): ItemData {
+  return {
+    ...rawItem,
+    code1: rawItem.soldAtNpc,
+    code2: rawItem.class,
+  };
+}
+
+// Import items from JSON and transform to ItemData format
+const baseItems: ItemData[] = (itemsJsonRaw as RawItemData[]).map(transformRawItem);
+
+// Load potions from potions.json
+const potionItems: ItemData[] = loadPotions();
+
+// Combine base items and potions
+const itemsData: ItemData[] = [...baseItems, ...potionItems];
 
 export default itemsData;

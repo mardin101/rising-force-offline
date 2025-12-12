@@ -1,23 +1,11 @@
 import { useState } from 'react';
 import {
-  getItemById,
   POTION_PRICES,
-  POTION_ID,
 } from '../../state/gameStateSlice';
+import { getShopHPPotions } from '../../data/potions/loadPotions';
 import { getAssetPath } from '../../utils/assets';
 import ShopModal from './ShopModal';
 import './Shop.css';
-
-// Available potions in the shop (in order: weakest to strongest)
-const SHOP_POTIONS = [
-  POTION_ID.BLESS_HP_100,
-  POTION_ID.BLESS_HP_250,
-  POTION_ID.BLESS_HP_500,
-  POTION_ID.BLESS_HP_2000,
-  POTION_ID.BLESS_HP_3000,
-  POTION_ID.BLESS_HP_4000,
-  POTION_ID.BLESS_HP_5000,
-];
 
 export interface ShopProps {
   playerGold: number;
@@ -29,13 +17,16 @@ export interface ShopProps {
  * Shop - A component that displays potions for sale
  *
  * Features:
- * - Displays all Bless HP potions with prices and level requirements
+ * - Displays all HP potions available for purchase from potions.json
  * - Click on a potion to open the purchase modal
  * - Shows level requirements for each potion
  */
 export default function Shop({ playerGold, playerLevel, onPurchase }: ShopProps) {
   const [selectedPotionId, setSelectedPotionId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Get all shop HP potions from the potion system
+  const shopPotions = getShopHPPotions();
 
   const handlePotionClick = (potionId: string) => {
     setSelectedPotionId(potionId);
@@ -58,19 +49,15 @@ export default function Shop({ playerGold, playerLevel, onPurchase }: ShopProps)
       </div>
 
       <div className="shop-items-grid">
-        {SHOP_POTIONS.map((potionId) => {
-          const potionData = getItemById(potionId);
-          const price = POTION_PRICES[potionId] ?? 0;
-
-          if (!potionData) return null;
-
+        {shopPotions.map((potionData) => {
+          const price = POTION_PRICES[potionData.id] ?? 0;
           const meetsLevelRequirement = !potionData.levelRequirement || playerLevel >= potionData.levelRequirement;
 
           return (
             <button
-              key={potionId}
+              key={potionData.id}
               className={`shop-item ${!meetsLevelRequirement ? 'shop-item-locked' : ''}`}
-              onClick={() => handlePotionClick(potionId)}
+              onClick={() => handlePotionClick(potionData.id)}
               title={`${potionData.name}: ${potionData.description}`}
             >
               {potionData.image ? (
