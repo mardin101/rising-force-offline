@@ -34,7 +34,7 @@ jobs:
             # Stop existing containers
             docker compose down
             
-            # Pull latest images and rebuild
+            # Rebuild Docker images from source
             docker compose build --no-cache
             
             # Start containers in detached mode
