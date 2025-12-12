@@ -148,6 +148,8 @@ docker-compose --version
 
 ```bash
 # Create directory for the application
+# Note: Using /opt/rising-force-offline as default
+# If you want a different path, update the APP_DIR in .github/workflows/deploy-vps.yml
 sudo mkdir -p /opt/rising-force-offline
 
 # Change ownership to your user
@@ -246,7 +248,18 @@ Add the following three secrets:
 
 **Security Note:** For production environments, consider using SSH keys instead of passwords. See [Advanced Security](#advanced-security-ssh-keys) section.
 
-### 3. Verify Secrets
+### 3. Optional: Customize Deployment Path
+
+If you're using a different application directory (not `/opt/rising-force-offline`), you need to update the workflow:
+
+1. Edit `.github/workflows/deploy-vps.yml`
+2. Update the `APP_DIR` environment variable:
+   ```yaml
+   env:
+     APP_DIR: /your/custom/path
+   ```
+
+### 4. Verify Secrets
 
 After adding secrets, you should see them listed (values will be hidden).
 

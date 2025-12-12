@@ -8,6 +8,9 @@ on:
 permissions:
   contents: read
 
+env:
+  APP_DIR: /opt/rising-force-offline
+
 jobs:
   deploy:
     name: Deploy to VPS
@@ -26,7 +29,7 @@ jobs:
           port: 22
           script: |
             # Navigate to application directory
-            cd /opt/rising-force-offline || exit 1
+            cd ${{ env.APP_DIR }} || exit 1
             
             # Pull latest changes from main branch
             git pull origin main
@@ -35,7 +38,7 @@ jobs:
             docker compose down
             
             # Rebuild Docker images from source
-            docker compose build --no-cache
+            docker compose build
             
             # Start containers in detached mode
             docker compose up -d
