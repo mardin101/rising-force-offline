@@ -1,5 +1,4 @@
 import type { ItemData } from '../items';
-import { ITEM_TYPE } from '../constants';
 import potionsJson from './potions.json';
 
 // Raw potion data structure from JSON
@@ -66,7 +65,7 @@ export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
     code2: rawPotion.healingAmount,
     imageUrl: rawPotion.imageUrl,
     localImagePath: rawPotion.localImagePath,
-    type: ITEM_TYPE.CONSUMABLE,
+    type: 'consumable', // Use string literal instead of ITEM_TYPE.CONSUMABLE to avoid circular dependency
     healAmount: healAmount,
     potionType: isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined,
     image: rawPotion.localImagePath,
