@@ -99,12 +99,20 @@ export default function Battle() {
   const defeatProcessedRef = useRef<boolean>(false);
   const processBattleTickRef = useRef<(() => void) | null>(null);
   const continuousCombatRef = useRef<boolean>(false);
+  const battleLogRef = useRef<HTMLDivElement>(null);
   
   // Keep ref in sync with state for use in callbacks
   useEffect(() => {
     continuousCombatRef.current = continuousCombat;
   }, [continuousCombat]);
   const lastAppliedExpOnHitRef = useRef<number>(0);
+
+  // Auto-scroll battle log to bottom when new entries are added
+  useEffect(() => {
+    if (battleLogRef.current) {
+      battleLogRef.current.scrollTop = battleLogRef.current.scrollHeight;
+    }
+  }, [battleState.battleLog]);
 
   // Helper function to check if macro should trigger and consume potion
   const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
@@ -636,7 +644,7 @@ export default function Battle() {
           aria-modal="true"
           aria-label="Battle Arena"
         >
-          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg h-[600px] flex flex-col">
             {/* Modal Header */}
             <div className="p-4 border-b border-gray-700 flex justify-between items-center">
               <h2 className="text-xl font-bold text-red-400">Battle: {selectedMonster.name}</h2>
@@ -650,7 +658,7 @@ export default function Battle() {
             </div>
 
             {/* Battle Stats */}
-            <div className="p-4 space-y-4">
+            <div className="p-4 space-y-4 overflow-y-auto flex-1">
               {/* Player Stats */}
               <div className="bg-gray-800 rounded-lg p-3">
                 <div className="flex justify-between items-center mb-2">
@@ -695,7 +703,7 @@ export default function Battle() {
               </div>
 
               {/* Battle Log */}
-              <div className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
+              <div ref={battleLogRef} className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
                 <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
                 {battleState.battleLog.length > 0 ? (
                   <div className="space-y-1">
