@@ -321,7 +321,7 @@ export default function InventoryGrid({
                   className="item-image"
                 />
               ) : (
-                getItemIcon(itemData.type)
+                getItemIcon(itemData.type ?? ITEM_TYPE.MATERIAL)
               )}
             </div>
             <div className="item-name">{itemData.name}</div>
