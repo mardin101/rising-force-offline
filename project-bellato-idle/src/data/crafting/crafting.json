@@ -1,0 +1,100 @@
+[
+  {
+    "id": "recipe_001",
+    "name": "Beam Sword +1",
+    "type": "weapon",
+    "skillLevel": 10,
+    "outputItemId": "weapon_001_plus1",
+    "outputQuantity": 1,
+    "materials": [
+      {
+        "itemId": "weapon_001",
+        "name": "Beam Sword",
+        "quantity": 1
+      },
+      {
+        "itemId": "material_001",
+        "name": "Talic",
+        "quantity": 3
+      },
+      {
+        "itemId": "material_002",
+        "name": "Excelsior",
+        "quantity": 1
+      }
+    ],
+    "successRate": 80,
+    "description": "Upgrade Beam Sword to +1"
+  },
+  {
+    "id": "recipe_002",
+    "name": "Ammo Type A",
+    "type": "ammunition",
+    "skillLevel": 5,
+    "outputItemId": "ammo_001",
+    "outputQuantity": 100,
+    "materials": [
+      {
+        "itemId": "material_003",
+        "name": "Iron Ore",
+        "quantity": 5
+      },
+      {
+        "itemId": "material_004",
+        "name": "Gunpowder",
+        "quantity": 2
+      }
+    ],
+    "successRate": 95,
+    "description": "Craft basic ammunition"
+  },
+  {
+    "id": "recipe_003",
+    "name": "HP Potion",
+    "type": "consumable",
+    "skillLevel": 1,
+    "outputItemId": "potion_001",
+    "outputQuantity": 5,
+    "materials": [
+      {
+        "itemId": "material_005",
+        "name": "Herb",
+        "quantity": 3
+      },
+      {
+        "itemId": "material_006",
+        "name": "Water",
+        "quantity": 1
+      }
+    ],
+    "successRate": 100,
+    "description": "Craft basic HP potions"
+  },
+  {
+    "id": "recipe_004",
+    "name": "Intense Ranger Armor",
+    "type": "armor",
+    "skillLevel": 30,
+    "outputItemId": "armor_001",
+    "outputQuantity": 1,
+    "materials": [
+      {
+        "itemId": "material_007",
+        "name": "Leather",
+        "quantity": 10
+      },
+      {
+        "itemId": "material_008",
+        "name": "Steel Plate",
+        "quantity": 5
+      },
+      {
+        "itemId": "material_009",
+        "name": "Magic Thread",
+        "quantity": 3
+      }
+    ],
+    "successRate": 60,
+    "description": "Craft Intense Ranger upper armor"
+  }
+]

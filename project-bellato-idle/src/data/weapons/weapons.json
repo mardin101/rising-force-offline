@@ -1,0 +1,2875 @@
+[
+  {
+    "id": "weapon_1",
+    "weaponId": "1",
+    "name": "Dagger",
+    "description": "",
+    "type": "knife",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "13 - 15",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Dagger.gif",
+    "localImagePath": "../images/weapons/weapon_1.gif"
+  },
+  {
+    "id": "weapon_2",
+    "weaponId": "2",
+    "name": "Hanger",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "16 - 20",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Hanger.gif",
+    "localImagePath": "../images/weapons/weapon_2.gif"
+  },
+  {
+    "id": "weapon_3",
+    "weaponId": "3",
+    "name": "Kukri",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "20 - 26",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Kukri.gif",
+    "localImagePath": "../images/weapons/weapon_3.gif"
+  },
+  {
+    "id": "weapon_4",
+    "weaponId": "4",
+    "name": "Stick Knife",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "28 - 35",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_StickKnife.gif",
+    "localImagePath": "../images/weapons/weapon_4.gif"
+  },
+  {
+    "id": "weapon_5",
+    "weaponId": "5",
+    "name": "Blade",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "40 - 48",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Blade.gif",
+    "localImagePath": "../images/weapons/weapon_5.gif"
+  },
+  {
+    "id": "weapon_6",
+    "weaponId": "6",
+    "name": "Saber",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "63 - 75",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Saber.gif",
+    "localImagePath": "../images/weapons/weapon_6.gif"
+  },
+  {
+    "id": "weapon_7",
+    "weaponId": "7",
+    "name": "Shamshire",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "81 - 99",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Shamshire.gif",
+    "localImagePath": "../images/weapons/weapon_7.gif"
+  },
+  {
+    "id": "weapon_8",
+    "weaponId": "8",
+    "name": "Hunting Knife",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "114 - 141",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_HuntingKnife.gif",
+    "localImagePath": "../images/weapons/weapon_8.gif"
+  },
+  {
+    "id": "weapon_9",
+    "weaponId": "9",
+    "name": "Sosun Patta",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "156 - 192",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_SosunPatta.gif",
+    "localImagePath": "../images/weapons/weapon_9.gif"
+  },
+  {
+    "id": "weapon_10",
+    "weaponId": "10",
+    "name": "Falchion",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "185 - 232",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Falchion.gif",
+    "localImagePath": "../images/weapons/weapon_10.gif"
+  },
+  {
+    "id": "weapon_11",
+    "weaponId": "11",
+    "name": "Katana",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "218 - 277",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Katana.gif",
+    "localImagePath": "../images/weapons/weapon_11.gif"
+  },
+  {
+    "id": "weapon_12",
+    "weaponId": "12",
+    "name": "Shotel",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "271 - 354",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_Shotel.gif",
+    "localImagePath": "../images/weapons/weapon_12.gif"
+  },
+  {
+    "id": "weapon_13",
+    "weaponId": "13",
+    "name": "Defender Saber",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "335 - 439",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_DefenderSaber.gif",
+    "localImagePath": "../images/weapons/weapon_13.gif"
+  },
+  {
+    "id": "weapon_14",
+    "weaponId": "14",
+    "name": "Beam Saber",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "375 - 633",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_BeamSaber.gif",
+    "localImagePath": "../images/weapons/weapon_14.gif"
+  },
+  {
+    "id": "weapon_15",
+    "weaponId": "15",
+    "name": "Bone Knife",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "502 - 691",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_BoneKnife.gif",
+    "localImagePath": "../images/weapons/weapon_15.gif"
+  },
+  {
+    "id": "weapon_16",
+    "weaponId": "16",
+    "name": "Gun Blade",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "650 - 909",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_GunBlade.gif",
+    "localImagePath": "../images/weapons/weapon_16.gif"
+  },
+  {
+    "id": "weapon_17",
+    "weaponId": "17",
+    "name": "Sickle Knife",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "842 - 1124",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_SickleKnife.gif",
+    "localImagePath": "../images/weapons/weapon_17.gif"
+  },
+  {
+    "id": "weapon_18",
+    "weaponId": "18",
+    "name": "Hora Knife",
+    "description": "",
+    "type": "Knife",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1180 - 1554",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_knife/Knife_HoraKnife.gif",
+    "localImagePath": "../images/weapons/weapon_18.gif"
+  },
+  {
+    "id": "weapon_23",
+    "weaponId": "23",
+    "name": "Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "18 - 25",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Sword.gif",
+    "localImagePath": "../images/weapons/weapon_23.gif"
+  },
+  {
+    "id": "weapon_24",
+    "weaponId": "24",
+    "name": "Nova Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "23 - 33",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_NovaSword.gif",
+    "localImagePath": "../images/weapons/weapon_24.gif"
+  },
+  {
+    "id": "weapon_25",
+    "weaponId": "25",
+    "name": "Long Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "29 - 43",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_LongSword.gif",
+    "localImagePath": "../images/weapons/weapon_25.gif"
+  },
+  {
+    "id": "weapon_26",
+    "weaponId": "26",
+    "name": "Sword Breaker",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "33 - 52",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_SwordBreaker.gif",
+    "localImagePath": "../images/weapons/weapon_26.gif"
+  },
+  {
+    "id": "weapon_27",
+    "weaponId": "27",
+    "name": "Katzbalger",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "55 - 81",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Katzbalger.gif",
+    "localImagePath": "../images/weapons/weapon_27.gif"
+  },
+  {
+    "id": "weapon_28",
+    "weaponId": "28",
+    "name": "Broad Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "87 - 123",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_BroadSword.gif",
+    "localImagePath": "../images/weapons/weapon_28.gif"
+  },
+  {
+    "id": "weapon_29",
+    "weaponId": "29",
+    "name": "Valkyrie Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "113 - 160",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_ValkyrieSword.gif",
+    "localImagePath": "../images/weapons/weapon_29.gif"
+  },
+  {
+    "id": "weapon_30",
+    "weaponId": "30",
+    "name": "Butcher Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "160 - 223",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_ButcherSword.gif",
+    "localImagePath": "../images/weapons/weapon_30.gif"
+  },
+  {
+    "id": "weapon_31",
+    "weaponId": "31",
+    "name": "Two Hand Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "211 - 302",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_TwoHandSword.gif",
+    "localImagePath": "../images/weapons/weapon_31.gif"
+  },
+  {
+    "id": "weapon_32",
+    "weaponId": "32",
+    "name": "Zweihander",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "242 - 366",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Zweihander.gif",
+    "localImagePath": "../images/weapons/weapon_32.gif"
+  },
+  {
+    "id": "weapon_33",
+    "weaponId": "33",
+    "name": "Bastard Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "305 - 417",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_BastardSword.gif",
+    "localImagePath": "../images/weapons/weapon_33.gif"
+  },
+  {
+    "id": "weapon_34",
+    "weaponId": "34",
+    "name": "Claymore",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "376 - 526",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Claymore.gif",
+    "localImagePath": "../images/weapons/weapon_34.gif"
+  },
+  {
+    "id": "weapon_35",
+    "weaponId": "35",
+    "name": "Big Sword Breaker",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "405 - 649",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_BigSwordBreaker.gif",
+    "localImagePath": "../images/weapons/weapon_35.gif"
+  },
+  {
+    "id": "weapon_36",
+    "weaponId": "36",
+    "name": "Beam Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "532 - 731",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_BeamSword.gif",
+    "localImagePath": "../images/weapons/weapon_36.gif"
+  },
+  {
+    "id": "weapon_37",
+    "weaponId": "37",
+    "name": "Scale Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "708 - 989",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_ScaleSword.gif",
+    "localImagePath": "../images/weapons/weapon_37.gif"
+  },
+  {
+    "id": "weapon_38",
+    "weaponId": "38",
+    "name": "Estoc",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "914 - 1294",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Estoc.gif",
+    "localImagePath": "../images/weapons/weapon_38.gif"
+  },
+  {
+    "id": "weapon_39",
+    "weaponId": "39",
+    "name": "Spadona",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "1213 - 1567",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_Spadona.gif",
+    "localImagePath": "../images/weapons/weapon_39.gif"
+  },
+  {
+    "id": "weapon_40",
+    "weaponId": "40",
+    "name": "Hora Sword",
+    "description": "",
+    "type": "Sword",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1699 - 2153",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_sword/Sword_HoraSword.gif",
+    "localImagePath": "../images/weapons/weapon_40.gif"
+  },
+  {
+    "id": "weapon_41",
+    "weaponId": "41",
+    "name": "Hand Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "14 - 16",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_HandAxe.gif",
+    "localImagePath": "../images/weapons/weapon_41.gif"
+  },
+  {
+    "id": "weapon_42",
+    "weaponId": "42",
+    "name": "Broad Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "20 - 27",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_BroadAxe.gif",
+    "localImagePath": "../images/weapons/weapon_42.gif"
+  },
+  {
+    "id": "weapon_43",
+    "weaponId": "43",
+    "name": "Twin Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "23 - 36",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_TwinAxe.gif",
+    "localImagePath": "../images/weapons/weapon_43.gif"
+  },
+  {
+    "id": "weapon_44",
+    "weaponId": "44",
+    "name": "Great Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "36 - 56",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_GreatAxe.gif",
+    "localImagePath": "../images/weapons/weapon_44.gif"
+  },
+  {
+    "id": "weapon_46",
+    "weaponId": "46",
+    "name": "Twin Great Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "45 - 68",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_TwinGreatAxe.gif",
+    "localImagePath": "../images/weapons/weapon_46.gif"
+  },
+  {
+    "id": "weapon_47",
+    "weaponId": "47",
+    "name": "Butcher Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "65 - 79",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_ButcherAxe.gif",
+    "localImagePath": "../images/weapons/weapon_47.gif"
+  },
+  {
+    "id": "weapon_48",
+    "weaponId": "48",
+    "name": "Pole Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "103 - 152",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_PoleAxe.gif",
+    "localImagePath": "../images/weapons/weapon_48.gif"
+  },
+  {
+    "id": "weapon_49",
+    "weaponId": "49",
+    "name": "Kraika",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "149 - 211",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_Kraika.gif",
+    "localImagePath": "../images/weapons/weapon_49.gif"
+  },
+  {
+    "id": "weapon_50",
+    "weaponId": "50",
+    "name": "Beam Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "167 - 200",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_BeamAxe.gif",
+    "localImagePath": "../images/weapons/weapon_50.gif"
+  },
+  {
+    "id": "weapon_51",
+    "weaponId": "51",
+    "name": "Twin Beam Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "222 - 320",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_TwinBeamAxe.gif",
+    "localImagePath": "../images/weapons/weapon_51.gif"
+  },
+  {
+    "id": "weapon_52",
+    "weaponId": "52",
+    "name": "Two Hand Beam Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "293 - 391",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_TwoHandBeamAxe.gif",
+    "localImagePath": "../images/weapons/weapon_52.gif"
+  },
+  {
+    "id": "weapon_53",
+    "weaponId": "53",
+    "name": "Double Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "365 - 493",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_DoubleAxe.gif",
+    "localImagePath": "../images/weapons/weapon_53.gif"
+  },
+  {
+    "id": "weapon_54",
+    "weaponId": "54",
+    "name": "Battle Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "447 - 607",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_BattleAxe.gif",
+    "localImagePath": "../images/weapons/weapon_54.gif"
+  },
+  {
+    "id": "weapon_55",
+    "weaponId": "55",
+    "name": "Battle Beam Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "506 - 693",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_BattleBeamAxe.gif",
+    "localImagePath": "../images/weapons/weapon_55.gif"
+  },
+  {
+    "id": "weapon_56",
+    "weaponId": "56",
+    "name": "Great Beam Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "637 - 963",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_GreatBeamAxe.gif",
+    "localImagePath": "../images/weapons/weapon_56.gif"
+  },
+  {
+    "id": "weapon_57",
+    "weaponId": "57",
+    "name": "Bullova",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "883 - 1220",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_Bullova.gif",
+    "localImagePath": "../images/weapons/weapon_57.gif"
+  },
+  {
+    "id": "weapon_58",
+    "weaponId": "58",
+    "name": "Tower Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "1131 - 1505",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_TowerAxe.gif",
+    "localImagePath": "../images/weapons/weapon_58.gif"
+  },
+  {
+    "id": "weapon_59",
+    "weaponId": "59",
+    "name": "Hora Axe",
+    "description": "",
+    "type": "Axe",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1584 - 2068",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_axe/Axe_HoraAxe.gif",
+    "localImagePath": "../images/weapons/weapon_59.gif"
+  },
+  {
+    "id": "weapon_60",
+    "weaponId": "60",
+    "name": "Club",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "14 - 16",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Club.gif",
+    "localImagePath": "../images/weapons/weapon_60.gif"
+  },
+  {
+    "id": "weapon_61",
+    "weaponId": "61",
+    "name": "Small Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 21",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_SmallHammer.gif",
+    "localImagePath": "../images/weapons/weapon_61.gif"
+  },
+  {
+    "id": "weapon_62",
+    "weaponId": "62",
+    "name": "Mace",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "22 - 26",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Mace.gif",
+    "localImagePath": "../images/weapons/weapon_62.gif"
+  },
+  {
+    "id": "weapon_63",
+    "weaponId": "63",
+    "name": "Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "39 - 54",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Hammer.gif",
+    "localImagePath": "../images/weapons/weapon_63.gif"
+  },
+  {
+    "id": "weapon_64",
+    "weaponId": "64",
+    "name": "Spiked Club",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "52 - 75",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_SpikedClub.gif",
+    "localImagePath": "../images/weapons/weapon_64.gif"
+  },
+  {
+    "id": "weapon_65",
+    "weaponId": "65",
+    "name": "Frenge",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "82 - 116",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Frenge.gif",
+    "localImagePath": "../images/weapons/weapon_65.gif"
+  },
+  {
+    "id": "weapon_66",
+    "weaponId": "66",
+    "name": "Slaughter Piker",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "88 - 102",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_SlaughterPiker.gif",
+    "localImagePath": "../images/weapons/weapon_66.gif"
+  },
+  {
+    "id": "weapon_67",
+    "weaponId": "67",
+    "name": "Gurz",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "122 - 147",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Gurz.gif",
+    "localImagePath": "../images/weapons/weapon_67.gif"
+  },
+  {
+    "id": "weapon_68",
+    "weaponId": "68",
+    "name": "Blackjack",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "212 - 276",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_Blackjack.gif",
+    "localImagePath": "../images/weapons/weapon_68.gif"
+  },
+  {
+    "id": "weapon_69",
+    "weaponId": "69",
+    "name": "Beam Mace",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "203 - 238",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_BeamMace.gif",
+    "localImagePath": "../images/weapons/weapon_69.gif"
+  },
+  {
+    "id": "weapon_70",
+    "weaponId": "70",
+    "name": "War Piker",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "294 - 391",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_WarPiker.gif",
+    "localImagePath": "../images/weapons/weapon_70.gif"
+  },
+  {
+    "id": "weapon_71",
+    "weaponId": "71",
+    "name": "War Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "362 - 496",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_WarHammer.gif",
+    "localImagePath": "../images/weapons/weapon_71.gif"
+  },
+  {
+    "id": "weapon_72",
+    "weaponId": "72",
+    "name": "Iron Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "466 - 594",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_IronHammer.gif",
+    "localImagePath": "../images/weapons/weapon_72.gif"
+  },
+  {
+    "id": "weapon_73",
+    "weaponId": "73",
+    "name": "Beam Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "416 - 520",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_BeamHammer.gif",
+    "localImagePath": "../images/weapons/weapon_73.gif"
+  },
+  {
+    "id": "weapon_74",
+    "weaponId": "74",
+    "name": "Great Maul",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "680 - 934",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_GreatMaul.gif",
+    "localImagePath": "../images/weapons/weapon_74.gif"
+  },
+  {
+    "id": "weapon_75",
+    "weaponId": "75",
+    "name": "Beam Great Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "925 - 1193",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_BeamGreatHammer.gif",
+    "localImagePath": "../images/weapons/weapon_75.gif"
+  },
+  {
+    "id": "weapon_76",
+    "weaponId": "76",
+    "name": "Beam Great Maul",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "1131 - 1505",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_BeamGreatMaul.gif",
+    "localImagePath": "../images/weapons/weapon_76.gif"
+  },
+  {
+    "id": "weapon_77",
+    "weaponId": "77",
+    "name": "Hora Hammer",
+    "description": "",
+    "type": "Mace",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1584 - 2068",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_mace/Mace_HoraHammer.gif",
+    "localImagePath": "../images/weapons/weapon_77.gif"
+  },
+  {
+    "id": "weapon_78",
+    "weaponId": "78",
+    "name": "Short Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 1,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 25",
+      "force": "12 - 18"
+    },
+    "imageUrl": "images/weapon_staff/Staff_ShortStaff.gif",
+    "localImagePath": "../images/weapons/weapon_78.gif"
+  },
+  {
+    "id": "weapon_79",
+    "weaponId": "79",
+    "name": "Long Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 2,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 25",
+      "force": "12 - 18"
+    },
+    "imageUrl": "images/weapon_staff/Staff_LongStaff.gif",
+    "localImagePath": "../images/weapons/weapon_79.gif"
+  },
+  {
+    "id": "weapon_80",
+    "weaponId": "80",
+    "name": "Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 3,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 25",
+      "force": "20 - 30"
+    },
+    "imageUrl": "images/weapon_staff/Staff_Wand.gif",
+    "localImagePath": "../images/weapons/weapon_80.gif"
+  },
+  {
+    "id": "weapon_81",
+    "weaponId": "81",
+    "name": "Bead",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 5,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "28 - 41",
+      "force": "29 - 43"
+    },
+    "imageUrl": "images/weapon_staff/Staff_Bead.gif",
+    "localImagePath": "../images/weapons/weapon_81.gif"
+  },
+  {
+    "id": "weapon_82",
+    "weaponId": "82",
+    "name": "Stick Bead",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 7,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "28 - 41",
+      "force": "41 - 61"
+    },
+    "imageUrl": "images/weapon_staff/Staff_StickBead.gif",
+    "localImagePath": "../images/weapons/weapon_82.gif"
+  },
+  {
+    "id": "weapon_83",
+    "weaponId": "83",
+    "name": "Battle Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 10,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "28 - 41",
+      "force": "65 - 97"
+    },
+    "imageUrl": "images/weapon_staff/Staff_BattleStaff.gif",
+    "localImagePath": "../images/weapons/weapon_83.gif"
+  },
+  {
+    "id": "weapon_84",
+    "weaponId": "84",
+    "name": "Red Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 12,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "28 - 41",
+      "force": "85 - 127"
+    },
+    "imageUrl": "images/weapon_staff/Staff_RedWand.gif",
+    "localImagePath": "../images/weapons/weapon_84.gif"
+  },
+  {
+    "id": "weapon_85",
+    "weaponId": "85",
+    "name": "War Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 15,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "39 - 57",
+      "force": "121 - 181"
+    },
+    "imageUrl": "images/weapon_staff/Staff_WarStaff.gif",
+    "localImagePath": "../images/weapons/weapon_85.gif"
+  },
+  {
+    "id": "weapon_86",
+    "weaponId": "86",
+    "name": "War Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 18,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 6",
+    "durability": 0,
+    "attack": {
+      "physical": "39 - 57",
+      "force": "164 - 264"
+    },
+    "imageUrl": "images/weapon_staff/Staff_WarWand.gif",
+    "localImagePath": "../images/weapons/weapon_86.gif"
+  },
+  {
+    "id": "weapon_87",
+    "weaponId": "87",
+    "name": "Red Bead",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 20,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "48 - 65",
+      "force": "197 - 295"
+    },
+    "imageUrl": "images/weapon_staff/Staff_RedBead.gif",
+    "localImagePath": "../images/weapons/weapon_87.gif"
+  },
+  {
+    "id": "weapon_88",
+    "weaponId": "88",
+    "name": "Black Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 22,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "46 - 66",
+      "force": "233 - 349"
+    },
+    "imageUrl": "images/weapon_staff/Staff_BlackWand.gif",
+    "localImagePath": "../images/weapons/weapon_88.gif"
+  },
+  {
+    "id": "weapon_89",
+    "weaponId": "89",
+    "name": "Field Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 25,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "62 - 91",
+      "force": "293 - 439"
+    },
+    "imageUrl": "images/weapon_staff/Staff_FieldStaff.gif",
+    "localImagePath": "../images/weapons/weapon_89.gif"
+  },
+  {
+    "id": "weapon_90",
+    "weaponId": "90",
+    "name": "Beam Bead",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 28,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 13",
+    "durability": 0,
+    "attack": {
+      "physical": "66 - 88",
+      "force": "360 - 540"
+    },
+    "imageUrl": "images/weapon_staff/Staff_BeamBead.gif",
+    "localImagePath": "../images/weapons/weapon_90.gif"
+  },
+  {
+    "id": "weapon_91",
+    "weaponId": "91",
+    "name": "Dual Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 30,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 14",
+    "durability": 0,
+    "attack": {
+      "physical": "65 - 90",
+      "force": "410 - 616"
+    },
+    "imageUrl": "images/weapon_staff/Staff_DualWand.gif",
+    "localImagePath": "../images/weapons/weapon_91.gif"
+  },
+  {
+    "id": "weapon_92",
+    "weaponId": "92",
+    "name": "Blue Wand",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 35,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 20",
+    "durability": 0,
+    "attack": {
+      "physical": "64 - 90",
+      "force": "550 - 826"
+    },
+    "imageUrl": "images/weapon_staff/Staff_BlueWand.gif",
+    "localImagePath": "../images/weapons/weapon_92.gif"
+  },
+  {
+    "id": "weapon_93",
+    "weaponId": "93",
+    "name": "Black Stick Bead",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 40,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 36",
+    "durability": 0,
+    "attack": {
+      "physical": "66 - 88",
+      "force": "710 - 1066"
+    },
+    "imageUrl": "images/weapon_staff/Staff_BlackStickBead.gif",
+    "localImagePath": "../images/weapons/weapon_93.gif"
+  },
+  {
+    "id": "weapon_94",
+    "weaponId": "94",
+    "name": "Sickle Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 45,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 60",
+    "durability": 0,
+    "attack": {
+      "physical": "65 - 90",
+      "force": "890 - 1336"
+    },
+    "imageUrl": "images/weapon_staff/Staff_SickleStaff.gif",
+    "localImagePath": "../images/weapons/weapon_94.gif"
+  },
+  {
+    "id": "weapon_95",
+    "weaponId": "95",
+    "name": "Hora Staff",
+    "description": "",
+    "type": "Staff",
+    "requiredLevel": 50,
+    "race": "Bellato & Cora",
+    "requiredSkill": "Force Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "87 - 117",
+      "force": "1248 - 1872"
+    },
+    "imageUrl": "images/weapon_staff/Staff_HoraStaff.gif",
+    "localImagePath": "../images/weapons/weapon_95.gif"
+  },
+  {
+    "id": "weapon_96",
+    "weaponId": "96",
+    "name": "Short Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "15 - 25",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_ShortSpear.gif",
+    "localImagePath": "../images/weapons/weapon_96.gif"
+  },
+  {
+    "id": "weapon_97",
+    "weaponId": "97",
+    "name": "Long Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "19 - 33",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_LongSpear.gif",
+    "localImagePath": "../images/weapons/weapon_97.gif"
+  },
+  {
+    "id": "weapon_98",
+    "weaponId": "98",
+    "name": "Pike",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "24 - 34",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Pike.gif",
+    "localImagePath": "../images/weapons/weapon_98.gif"
+  },
+  {
+    "id": "weapon_99",
+    "weaponId": "99",
+    "name": "Harpoon",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "33 - 58",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Harpoon.gif",
+    "localImagePath": "../images/weapons/weapon_99.gif"
+  },
+  {
+    "id": "weapon_100",
+    "weaponId": "100",
+    "name": "Trident",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "48 - 80",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Trident.gif",
+    "localImagePath": "../images/weapons/weapon_100.gif"
+  },
+  {
+    "id": "weapon_101",
+    "weaponId": "101",
+    "name": "Glaive",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "76 - 121",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Glaive.gif",
+    "localImagePath": "../images/weapons/weapon_101.gif"
+  },
+  {
+    "id": "weapon_102",
+    "weaponId": "102",
+    "name": "Ahlspiess",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "96 - 160",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Ahlspiess.gif",
+    "localImagePath": "../images/weapons/weapon_102.gif"
+  },
+  {
+    "id": "weapon_103",
+    "weaponId": "103",
+    "name": "Corsesca",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "137 - 225",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Corsesca.gif",
+    "localImagePath": "../images/weapons/weapon_103.gif"
+  },
+  {
+    "id": "weapon_104",
+    "weaponId": "104",
+    "name": "Elastic",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "189 - 301",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Elastic.gif",
+    "localImagePath": "../images/weapons/weapon_104.gif"
+  },
+  {
+    "id": "weapon_105",
+    "weaponId": "105",
+    "name": "Vouge",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "221 - 363",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Vouge.gif",
+    "localImagePath": "../images/weapons/weapon_105.gif"
+  },
+  {
+    "id": "weapon_106",
+    "weaponId": "106",
+    "name": "Halbert",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "273 - 423",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Halbert.gif",
+    "localImagePath": "../images/weapons/weapon_106.gif"
+  },
+  {
+    "id": "weapon_107",
+    "weaponId": "107",
+    "name": "Winged Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "327 - 544",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_WingedSpear.gif",
+    "localImagePath": "../images/weapons/weapon_107.gif"
+  },
+  {
+    "id": "weapon_108",
+    "weaponId": "108",
+    "name": "Beam Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "408 - 667",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_BeamSpear.gif",
+    "localImagePath": "../images/weapons/weapon_108.gif"
+  },
+  {
+    "id": "weapon_109",
+    "weaponId": "109",
+    "name": "Beam Pike",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "450 - 770",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_BeamPike.gif",
+    "localImagePath": "../images/weapons/weapon_109.gif"
+  },
+  {
+    "id": "weapon_110",
+    "weaponId": "110",
+    "name": "Beam Winged Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "566 - 1069",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_BeamwingedSpear.gif",
+    "localImagePath": "../images/weapons/weapon_110.gif"
+  },
+  {
+    "id": "weapon_111",
+    "weaponId": "111",
+    "name": "Lance",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "728 - 1404",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Lance.gif",
+    "localImagePath": "../images/weapons/weapon_111.gif"
+  },
+  {
+    "id": "weapon_112",
+    "weaponId": "112",
+    "name": "Field Lance",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "1060 - 1654",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_Fieldlance.gif",
+    "localImagePath": "../images/weapons/weapon_112.gif"
+  },
+  {
+    "id": "weapon_113",
+    "weaponId": "113",
+    "name": "Hora Spear",
+    "description": "",
+    "type": "Spear",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Close Range Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1484 - 2280",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_spear/Spear_HoraSpear.gif",
+    "localImagePath": "../images/weapons/weapon_113.gif"
+  },
+  {
+    "id": "weapon_114",
+    "weaponId": "114",
+    "name": "Short Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "10 - 22",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_ShortBow.gif",
+    "localImagePath": "../images/weapons/weapon_114.gif"
+  },
+  {
+    "id": "weapon_115",
+    "weaponId": "115",
+    "name": "Long Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "10 - 22",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_LongBow.gif",
+    "localImagePath": "../images/weapons/weapon_115.gif"
+  },
+  {
+    "id": "weapon_116",
+    "weaponId": "116",
+    "name": "Battle Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 35",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BattleBow.gif",
+    "localImagePath": "../images/weapons/weapon_116.gif"
+  },
+  {
+    "id": "weapon_117",
+    "weaponId": "117",
+    "name": "Assemble Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "24 - 48",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_AssembleBow.gif",
+    "localImagePath": "../images/weapons/weapon_117.gif"
+  },
+  {
+    "id": "weapon_118",
+    "weaponId": "118",
+    "name": "Assemble Long Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "34 - 66",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_AssembleLongBow.gif",
+    "localImagePath": "../images/weapons/weapon_118.gif"
+  },
+  {
+    "id": "weapon_119",
+    "weaponId": "119",
+    "name": "Cross-Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "53 - 99",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_Cross-Bow.gif",
+    "localImagePath": "../images/weapons/weapon_119.gif"
+  },
+  {
+    "id": "weapon_120",
+    "weaponId": "120",
+    "name": "Composite Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "70 - 134",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_CompositeBow.gif",
+    "localImagePath": "../images/weapons/weapon_120.gif"
+  },
+  {
+    "id": "weapon_121",
+    "weaponId": "121",
+    "name": "Assemble Cross-Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "99 - 185",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_AssembleCross-Bow.gif",
+    "localImagePath": "../images/weapons/weapon_121.gif"
+  },
+  {
+    "id": "weapon_122",
+    "weaponId": "122",
+    "name": "Tower Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "137 - 257",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_TowerBow.gif",
+    "localImagePath": "../images/weapons/weapon_122.gif"
+  },
+  {
+    "id": "weapon_123",
+    "weaponId": "123",
+    "name": "Beam Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "164 - 308",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamBow.gif",
+    "localImagePath": "../images/weapons/weapon_123.gif"
+  },
+  {
+    "id": "weapon_124",
+    "weaponId": "124",
+    "name": "Beam Cross-Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "191 - 362",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamCross-Bow.gif",
+    "localImagePath": "../images/weapons/weapon_124.gif"
+  },
+  {
+    "id": "weapon_125",
+    "weaponId": "125",
+    "name": "Beam Assemble Long Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "244 - 465",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamAssembleLongBow.gif",
+    "localImagePath": "../images/weapons/weapon_125.gif"
+  },
+  {
+    "id": "weapon_126",
+    "weaponId": "126",
+    "name": "Beam Assemble Cross-Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "296 - 573",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamAssembleCross-Bow.gif",
+    "localImagePath": "../images/weapons/weapon_126.gif"
+  },
+  {
+    "id": "weapon_127",
+    "weaponId": "127",
+    "name": "Siege Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "342 - 659",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_SiegeBow.gif",
+    "localImagePath": "../images/weapons/weapon_127.gif"
+  },
+  {
+    "id": "weapon_128",
+    "weaponId": "128",
+    "name": "Gun Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "452 - 895",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_GunBow.gif",
+    "localImagePath": "../images/weapons/weapon_128.gif"
+  },
+  {
+    "id": "weapon_129",
+    "weaponId": "129",
+    "name": "Beam Siege Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "592 - 1180",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamSiegeBow.gif",
+    "localImagePath": "../images/weapons/weapon_129.gif"
+  },
+  {
+    "id": "weapon_130",
+    "weaponId": "130",
+    "name": "Beam Gun-Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "731 - 1477",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_BeamGun-Bow.gif",
+    "localImagePath": "../images/weapons/weapon_130.gif"
+  },
+  {
+    "id": "weapon_131",
+    "weaponId": "131",
+    "name": "Hora Bow",
+    "description": "",
+    "type": "Bow",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1040 - 2041",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_bow/Bow_HoraBow.gif",
+    "localImagePath": "../images/weapons/weapon_131.gif"
+  },
+  {
+    "id": "weapon_132",
+    "weaponId": "132",
+    "name": "Hand Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 1,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "10 - 21",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_HandGun.gif",
+    "localImagePath": "../images/weapons/weapon_132.gif"
+  },
+  {
+    "id": "weapon_133",
+    "weaponId": "133",
+    "name": "Machine Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 2,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "13 - 26",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_MachineGun.gif",
+    "localImagePath": "../images/weapons/weapon_133.gif"
+  },
+  {
+    "id": "weapon_134",
+    "weaponId": "134",
+    "name": "Enforcer",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 3,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "17 - 33",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_Enforcer.gif",
+    "localImagePath": "../images/weapons/weapon_134.gif"
+  },
+  {
+    "id": "weapon_135",
+    "weaponId": "135",
+    "name": "Rattle Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "24 - 47",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_RattleGun.gif",
+    "localImagePath": "../images/weapons/weapon_135.gif"
+  },
+  {
+    "id": "weapon_136",
+    "weaponId": "136",
+    "name": "Shot Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 7,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "34 - 65",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_ShotGun.gif",
+    "localImagePath": "../images/weapons/weapon_136.gif"
+  },
+  {
+    "id": "weapon_137",
+    "weaponId": "137",
+    "name": "Beam Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "53 - 99",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_BeamGun.gif",
+    "localImagePath": "../images/weapons/weapon_137.gif"
+  },
+  {
+    "id": "weapon_138",
+    "weaponId": "138",
+    "name": "Stout Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 12,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "69 - 128",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_StoutGun.gif",
+    "localImagePath": "../images/weapons/weapon_138.gif"
+  },
+  {
+    "id": "weapon_139",
+    "weaponId": "139",
+    "name": "Rifle",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "100 - 187",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_Rifle.gif",
+    "localImagePath": "../images/weapons/weapon_139.gif"
+  },
+  {
+    "id": "weapon_140",
+    "weaponId": "140",
+    "name": "Assult Rifle",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 18,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "136 - 255",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_AssultRifle.gif",
+    "localImagePath": "../images/weapons/weapon_140.gif"
+  },
+  {
+    "id": "weapon_141",
+    "weaponId": "141",
+    "name": "Uzi",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "162 - 304",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_Uzi.gif",
+    "localImagePath": "../images/weapons/weapon_141.gif"
+  },
+  {
+    "id": "weapon_142",
+    "weaponId": "142",
+    "name": "Rail Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 22,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "192 - 364",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_RailGun.gif",
+    "localImagePath": "../images/weapons/weapon_142.gif"
+  },
+  {
+    "id": "weapon_143",
+    "weaponId": "143",
+    "name": "Plasma Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "234 - 454",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_PlasmaGun.gif",
+    "localImagePath": "../images/weapons/weapon_143.gif"
+  },
+  {
+    "id": "weapon_144",
+    "weaponId": "144",
+    "name": "Laser Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 28,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "293 - 571",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_LaserGun.gif",
+    "localImagePath": "../images/weapons/weapon_144.gif"
+  },
+  {
+    "id": "weapon_145",
+    "weaponId": "145",
+    "name": "Lightning Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "329 - 650",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_LightningGun.gif",
+    "localImagePath": "../images/weapons/weapon_145.gif"
+  },
+  {
+    "id": "weapon_146",
+    "weaponId": "146",
+    "name": "Gatling Gun",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "450 - 894",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_GatlingGun.gif",
+    "localImagePath": "../images/weapons/weapon_146.gif"
+  },
+  {
+    "id": "weapon_147",
+    "weaponId": "147",
+    "name": "Bolt Rifle",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "568 - 1178",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_BoltRifle.gif",
+    "localImagePath": "../images/weapons/weapon_147.gif"
+  },
+  {
+    "id": "weapon_148",
+    "weaponId": "148",
+    "name": "Vulcan",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "728 - 1477",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_Vulcan.gif",
+    "localImagePath": "../images/weapons/weapon_148.gif"
+  },
+  {
+    "id": "weapon_149",
+    "weaponId": "149",
+    "name": "Hora Vulcan",
+    "description": "",
+    "type": "Firearm",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1021 - 2045",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_firearm/FireArm_Horavulcan.gif",
+    "localImagePath": "../images/weapons/weapon_149.gif"
+  },
+  {
+    "id": "weapon_150",
+    "weaponId": "150",
+    "name": "Throwing Knife",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 5,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "24 - 39",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_ThrowingKnife.gif",
+    "localImagePath": "../images/weapons/weapon_150.gif"
+  },
+  {
+    "id": "weapon_151",
+    "weaponId": "151",
+    "name": "Throwing Cutter",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 10,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 3",
+    "durability": 0,
+    "attack": {
+      "physical": "56 - 84",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_ThrowingCutter.gif",
+    "localImagePath": "../images/weapons/weapon_151.gif"
+  },
+  {
+    "id": "weapon_152",
+    "weaponId": "152",
+    "name": "Roundly Knife",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 15,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "104 - 155",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_RoundlyKnife.gif",
+    "localImagePath": "../images/weapons/weapon_152.gif"
+  },
+  {
+    "id": "weapon_153",
+    "weaponId": "153",
+    "name": "Seeker",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 20,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 8",
+    "durability": 0,
+    "attack": {
+      "physical": "170 - 255",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_Seeker.gif",
+    "localImagePath": "../images/weapons/weapon_153.gif"
+  },
+  {
+    "id": "weapon_154",
+    "weaponId": "154",
+    "name": "Harpe",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 25,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 12",
+    "durability": 0,
+    "attack": {
+      "physical": "253 - 387",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_Harpe.gif",
+    "localImagePath": "../images/weapons/weapon_154.gif"
+  },
+  {
+    "id": "weapon_155",
+    "weaponId": "155",
+    "name": "Beam Seeker",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 30,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 17",
+    "durability": 0,
+    "attack": {
+      "physical": "355 - 551",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_BeamSeeker.gif",
+    "localImagePath": "../images/weapons/weapon_155.gif"
+  },
+  {
+    "id": "weapon_156",
+    "weaponId": "156",
+    "name": "Throwing Breaker",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 35,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 26",
+    "durability": 0,
+    "attack": {
+      "physical": "476 - 752",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_ThrowingBreaker.gif",
+    "localImagePath": "../images/weapons/weapon_156.gif"
+  },
+  {
+    "id": "weapon_157",
+    "weaponId": "157",
+    "name": "Throwing Beam Cutter",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 40,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 40",
+    "durability": 0,
+    "attack": {
+      "physical": "614 - 990",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_ThrowingBeamCutter.gif",
+    "localImagePath": "../images/weapons/weapon_157.gif"
+  },
+  {
+    "id": "weapon_158",
+    "weaponId": "158",
+    "name": "Beam Harpe",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 45,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 68",
+    "durability": 0,
+    "attack": {
+      "physical": "770 - 1240",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_BeamHarpe.gif",
+    "localImagePath": "../images/weapons/weapon_158.gif"
+  },
+  {
+    "id": "weapon_159",
+    "weaponId": "159",
+    "name": "Throwing Hora Knife",
+    "description": "",
+    "type": "Throwing",
+    "requiredLevel": 50,
+    "race": "All",
+    "requiredSkill": "Ranged Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1078 - 1717",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_throwing/Throw_ThrowingHoraKnife.gif",
+    "localImagePath": "../images/weapons/weapon_159.gif"
+  },
+  {
+    "id": "weapon_160",
+    "weaponId": "160",
+    "name": "Mini Rocket Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 15,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 1",
+    "durability": 0,
+    "attack": {
+      "physical": "122 - 254",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_MiniRocketLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_160.gif"
+  },
+  {
+    "id": "weapon_161",
+    "weaponId": "161",
+    "name": "Rocket Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 18,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "166 - 345",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_RocketLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_161.gif"
+  },
+  {
+    "id": "weapon_162",
+    "weaponId": "162",
+    "name": "Redeemer",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 20,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 4",
+    "durability": 0,
+    "attack": {
+      "physical": "199 - 413",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_Redeemer.gif",
+    "localImagePath": "../images/weapons/weapon_162.gif"
+  },
+  {
+    "id": "weapon_163",
+    "weaponId": "163",
+    "name": "Mini FlameThrower",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 22,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 5",
+    "durability": 0,
+    "attack": {
+      "physical": "231 - 481",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_MiniFlameThrower.gif",
+    "localImagePath": "../images/weapons/weapon_163.gif"
+  },
+  {
+    "id": "weapon_164",
+    "weaponId": "164",
+    "name": "Roburite Shooter",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 25,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 7",
+    "durability": 0,
+    "attack": {
+      "physical": "296 - 623",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_RoburiteShooter.gif",
+    "localImagePath": "../images/weapons/weapon_164.gif"
+  },
+  {
+    "id": "weapon_165",
+    "weaponId": "165",
+    "name": "Mini Faust",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 28,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 9",
+    "durability": 0,
+    "attack": {
+      "physical": "378 - 787",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_MiniFaust.gif",
+    "localImagePath": "../images/weapons/weapon_165.gif"
+  },
+  {
+    "id": "weapon_166",
+    "weaponId": "166",
+    "name": "Cannon",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 30,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 10",
+    "durability": 0,
+    "attack": {
+      "physical": "416 - 880",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_Cannon.gif",
+    "localImagePath": "../images/weapons/weapon_166.gif"
+  },
+  {
+    "id": "weapon_167",
+    "weaponId": "167",
+    "name": "Bazooka",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 35,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 15",
+    "durability": 0,
+    "attack": {
+      "physical": "558 - 1195",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_Bazooka.gif",
+    "localImagePath": "../images/weapons/weapon_167.gif"
+  },
+  {
+    "id": "weapon_168",
+    "weaponId": "168",
+    "name": "Flame Thrower",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 40,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 22",
+    "durability": 0,
+    "attack": {
+      "physical": "706 - 1567",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_FlameThrower.gif",
+    "localImagePath": "../images/weapons/weapon_168.gif"
+  },
+  {
+    "id": "weapon_169",
+    "weaponId": "169",
+    "name": "Missile Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 45,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 33",
+    "durability": 0,
+    "attack": {
+      "physical": "902 - 1964",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_MissileLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_169.gif"
+  },
+  {
+    "id": "weapon_170",
+    "weaponId": "170",
+    "name": "Hora Faust",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 50,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill 99",
+    "durability": 0,
+    "attack": {
+      "physical": "1310 - 2709",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_HoraFaust.gif",
+    "localImagePath": "../images/weapons/weapon_170.gif"
+  },
+  {
+    "id": "weapon_171",
+    "weaponId": "171",
+    "name": "Normal Grenade Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 1,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill",
+    "durability": 0,
+    "attack": {
+      "physical": "10 - 22",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_NormalGrenadeLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_171.gif"
+  },
+  {
+    "id": "weapon_172",
+    "weaponId": "172",
+    "name": "Grenade Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 30,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill",
+    "durability": 0,
+    "attack": {
+      "physical": "342 - 659",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_GrenadeLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_172.gif"
+  },
+  {
+    "id": "weapon_173",
+    "weaponId": "173",
+    "name": "Advanced Grenade Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 40,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill",
+    "durability": 0,
+    "attack": {
+      "physical": "592 - 1180",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_AdvancedGrenadeLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_173.gif"
+  },
+  {
+    "id": "weapon_174",
+    "weaponId": "174",
+    "name": "Hora Grenade Launcher",
+    "description": "",
+    "type": "Launcher",
+    "requiredLevel": 50,
+    "race": "Accretia",
+    "requiredSkill": "Launcher Skill",
+    "durability": 0,
+    "attack": {
+      "physical": "1040 - 2041",
+      "force": "-"
+    },
+    "imageUrl": "images/weapon_Launcher/Launcher_HoraGrenadeLauncher.gif",
+    "localImagePath": "../images/weapons/weapon_174.gif"
+  }
+]
