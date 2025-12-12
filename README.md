@@ -147,6 +147,7 @@ See [Quick Start Guide](./QUICKSTART.md) for a 5-minute setup or [Docker Setup G
 
 - [Quick Start Guide](./QUICKSTART.md) - 5-minute Docker deployment
 - [Docker Setup Guide](./DOCKER.md) - Complete Docker and Traefik guide
+- [VPS Setup Guide](./VPS_SETUP.md) - Production VPS deployment with automated CI/CD
 - [Contributing Guidelines](./CONTRIBUTING.md) - How to contribute to the project
 - [Agents Documentation](./agents/README.md) - Agentic AI implementations
 - [Tasks Documentation](./tasks/README.md) - Task definitions for agents

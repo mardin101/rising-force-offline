@@ -1,0 +1,51 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  APP_DIR: /opt/rising-force-offline
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          script: |
+            # Navigate to application directory
+            cd ${{ env.APP_DIR }} || exit 1
+            
+            # Pull latest changes from main branch
+            git pull origin main
+            
+            # Stop existing containers
+            docker compose down
+            
+            # Rebuild Docker images from source
+            docker compose build
+            
+            # Start containers in detached mode
+            docker compose up -d
+            
+            # Clean up unused Docker resources
+            docker system prune -f
+            
+            # Show running containers
+            echo "=== Deployment Complete ==="
+            docker compose ps
