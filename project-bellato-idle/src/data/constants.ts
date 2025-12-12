@@ -62,3 +62,11 @@ export const POTION_PRICES: Record<string, number> = {
 
 // Shop constants
 export const SHOP_MAX_PURCHASE_QUANTITY = 99;
+
+// Weapon type constants - for PT system
+export const WEAPON_TYPE = {
+  MELEE: 'melee',
+  RANGED: 'ranged',
+} as const;
+
+export type WeaponType = typeof WEAPON_TYPE[keyof typeof WEAPON_TYPE];

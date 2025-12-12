@@ -1,4 +1,4 @@
-import { ITEM_TYPE, EQUIPMENT_SLOT, type ItemType, type EquipmentSlotType } from './constants';
+import { ITEM_TYPE, EQUIPMENT_SLOT, WEAPON_TYPE, type ItemType, type EquipmentSlotType, type WeaponType } from './constants';
 
 // Potion-specific type for HP potions
 export type PotionType = 'HP' | 'FP' | 'SP';
@@ -13,6 +13,8 @@ export interface ItemData {
   defense?: number;
   healAmount?: number;
   equipSlot?: EquipmentSlotType;
+  // Weapon-specific fields
+  weaponType?: WeaponType;  // For PT system: melee or ranged
   // Potion-specific fields
   potionType?: PotionType;
   race?: string;
@@ -32,6 +34,7 @@ const itemsData: ItemData[] = [
     id: 'sword_basic',
     name: 'Basic Sword',
     type: ITEM_TYPE.WEAPON,
+    weaponType: WEAPON_TYPE.MELEE,
     attack: 10,
     equipSlot: EQUIPMENT_SLOT.WEAPON,
     description: 'A basic iron sword for beginners.',

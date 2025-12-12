@@ -3,7 +3,18 @@ import zones from '../data/zones.json';
 import monsters from '../data/monsters.json';
 import { useGameState } from '../state/GameStateContext';
 import { useQuestContext } from '../state/QuestContext';
-import { calculateExpAndLevel, calculateDeathPenalty, DEATH_EXP_PENALTY, getItemById, ITEM_TYPE } from '../state/gameStateSlice';
+import { 
+  calculateExpAndLevel, 
+  calculateDeathPenalty, 
+  calculatePtExpGain,
+  calculatePtAndExp,
+  getMaxPtForLevel,
+  DEATH_EXP_PENALTY, 
+  getItemById, 
+  ITEM_TYPE,
+  WEAPON_TYPE,
+  EQUIPMENT_SLOT,
+} from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
 
 interface Zone {
@@ -38,6 +49,13 @@ interface BattleState {
   pendingDeathPenalty: { expLost: number } | null;
   monstersDefeated: number; // Track total monsters defeated in continuous mode
   pendingExpOnHit: number;
+  // PT experience tracking
+  pendingPtExp: {
+    melee: number;
+    range: number;
+    shield: number;
+    defense: number;
+  };
 }
 
 // Combat constants
@@ -91,6 +109,12 @@ export default function Battle() {
     pendingDeathPenalty: null,
     monstersDefeated: 0,
     pendingExpOnHit: 0,
+    pendingPtExp: {
+      melee: 0,
+      range: 0,
+      shield: 0,
+      defense: 0,
+    },
   });
   
   const battleIntervalRef = useRef<number | null>(null);
@@ -106,6 +130,12 @@ export default function Battle() {
     continuousCombatRef.current = continuousCombat;
   }, [continuousCombat]);
   const lastAppliedExpOnHitRef = useRef<number>(0);
+  const lastAppliedPtExpRef = useRef({
+    melee: 0,
+    range: 0,
+    shield: 0,
+    defense: 0,
+  });
 
   // Auto-scroll battle log to bottom when new entries are added
   useEffect(() => {
@@ -178,10 +208,22 @@ export default function Battle() {
       pendingDeathPenalty: null,
       monstersDefeated: 0,
       pendingExpOnHit: 0,
+      pendingPtExp: {
+        melee: 0,
+        range: 0,
+        shield: 0,
+        defense: 0,
+      },
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
     lastAppliedExpOnHitRef.current = 0;
+    lastAppliedPtExpRef.current = {
+      melee: 0,
+      range: 0,
+      shield: 0,
+      defense: 0,
+    };
   };
 
   const closeBattleModal = () => {
@@ -206,10 +248,22 @@ export default function Battle() {
       pendingDeathPenalty: null,
       monstersDefeated: 0,
       pendingExpOnHit: 0,
+      pendingPtExp: {
+        melee: 0,
+        range: 0,
+        shield: 0,
+        defense: 0,
+      },
     });
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
     lastAppliedExpOnHitRef.current = 0;
+    lastAppliedPtExpRef.current = {
+      melee: 0,
+      range: 0,
+      shield: 0,
+      defense: 0,
+    };
   };
 
   // Flee from battle - stops combat without rewards or penalties
@@ -248,6 +302,12 @@ export default function Battle() {
       pendingDeathPenalty: null,
       monstersDefeated: 0,
       pendingExpOnHit: 0,
+      pendingPtExp: {
+        melee: 0,
+        range: 0,
+        shield: 0,
+        defense: 0,
+      },
     }));
     victoryProcessedRef.current = false;
     defeatProcessedRef.current = false;
@@ -263,6 +323,10 @@ export default function Battle() {
       let newMonsterHp = prev.monsterCurrentHp;
       let newPlayerHp = prev.playerCurrentHp;
       let newPendingExpOnHit = prev.pendingExpOnHit;
+      const newPendingPtExp = { ...prev.pendingPtExp };
+
+      // Get monster level (average of level range)
+      const monsterLevel = Math.floor((selectedMonster.levelRange[0] + selectedMonster.levelRange[1]) / 2);
 
       // Player attacks monster
       const playerDamage = calculateDamage(
@@ -276,6 +340,33 @@ export default function Battle() {
       const expOnHit = selectedMonster.expOnHit;
       newPendingExpOnHit += expOnHit;
       console.log(`[EXP] Gained ${(expOnHit * 100).toFixed(4)}% experience from attacking ${selectedMonster.name}`);
+
+      // Grant PT experience based on equipped weapon
+      const equippedWeapon = gameState.equippedItems[EQUIPMENT_SLOT.WEAPON];
+      if (equippedWeapon) {
+        const weaponData = getItemById(equippedWeapon.itemId);
+        if (weaponData && weaponData.weaponType) {
+          if (weaponData.weaponType === WEAPON_TYPE.MELEE) {
+            // Grant Melee PT experience
+            const meleePtExp = calculatePtExpGain(
+              gameState.character!.abilityInfo.melee,
+              gameState.character!.level,
+              monsterLevel
+            );
+            newPendingPtExp.melee += meleePtExp;
+            console.log(`[PT] Gained ${(meleePtExp * 100).toFixed(4)}% Melee PT experience`);
+          } else if (weaponData.weaponType === WEAPON_TYPE.RANGED) {
+            // Grant Range PT experience
+            const rangePtExp = calculatePtExpGain(
+              gameState.character!.abilityInfo.range,
+              gameState.character!.level,
+              monsterLevel
+            );
+            newPendingPtExp.range += rangePtExp;
+            console.log(`[PT] Gained ${(rangePtExp * 100).toFixed(4)}% Range PT experience`);
+          }
+        }
+      }
 
       // Check if monster is defeated
       if (newMonsterHp <= 0) {
@@ -293,6 +384,7 @@ export default function Battle() {
           pendingReward: { expGain, goldGain, monsterId: selectedMonster.id },
           monstersDefeated: prev.monstersDefeated + 1,
           pendingExpOnHit: newPendingExpOnHit,
+          pendingPtExp: newPendingPtExp,
         };
       }
 
@@ -303,6 +395,25 @@ export default function Battle() {
       );
       newPlayerHp = Math.max(0, newPlayerHp - monsterDamage);
       newLog.push(`${selectedMonster.name} hits ${gameState.character!.generalInfo.name} for ${monsterDamage} damage!`);
+
+      // Grant Defense PT experience when wearing armor and taking damage
+      // Check if player has any armor equipped
+      const hasArmor = Object.entries(gameState.equippedItems).some(([, item]) => {
+        if (!item) return false;
+        const itemData = getItemById(item.itemId);
+        return itemData && itemData.type === ITEM_TYPE.ARMOR;
+      });
+
+      if (hasArmor) {
+        // Grant Defense PT experience
+        const defensePtExp = calculatePtExpGain(
+          gameState.character!.abilityInfo.defense,
+          gameState.character!.level,
+          monsterLevel
+        );
+        newPendingPtExp.defense += defensePtExp;
+        console.log(`[PT] Gained ${(defensePtExp * 100).toFixed(4)}% Defense PT experience`);
+      }
 
       // Check if macro should trigger (HP below threshold)
       const macroResult = checkAndUseMacroPotion(newPlayerHp);
@@ -328,6 +439,7 @@ export default function Battle() {
           isVictory: false,
           pendingDeathPenalty: { expLost: actualPenalty },
           pendingExpOnHit: newPendingExpOnHit,
+          pendingPtExp: newPendingPtExp,
         };
       }
 
@@ -337,9 +449,10 @@ export default function Battle() {
         playerCurrentHp: newPlayerHp,
         battleLog: newLog.slice(-10),
         pendingExpOnHit: newPendingExpOnHit,
+        pendingPtExp: newPendingPtExp,
       };
     });
-  }, [selectedMonster, gameState.character, checkAndUseMacroPotion]);
+  }, [selectedMonster, gameState.character, gameState.equippedItems, checkAndUseMacroPotion]);
 
   // Keep the processBattleTick ref updated to avoid stale closures in intervals
   useEffect(() => {
@@ -367,6 +480,12 @@ export default function Battle() {
       pendingDeathPenalty: null,
       monstersDefeated: preserveMonstersDefeated ? prev.monstersDefeated : 0,
       pendingExpOnHit: 0,
+      pendingPtExp: {
+        melee: 0,
+        range: 0,
+        shield: 0,
+        defense: 0,
+      },
     }));
 
     // Clear any existing interval
@@ -407,6 +526,85 @@ export default function Battle() {
       lastAppliedExpOnHitRef.current = battleState.pendingExpOnHit;
     }
   }, [battleState.pendingExpOnHit, gameState.character, updateCharacter]);
+
+  // Handle PT experience gains - apply PT experience when player performs actions
+  useEffect(() => {
+    if (!gameState.character) return;
+
+    const maxPt = getMaxPtForLevel(gameState.character.level);
+    let abilityUpdates: Partial<typeof gameState.character.abilityInfo> = {};
+    let hasUpdates = false;
+
+    // Apply Melee PT experience
+    const newMeleePtExp = battleState.pendingPtExp.melee - lastAppliedPtExpRef.current.melee;
+    if (newMeleePtExp > 0) {
+      const { newPt, newPtExp } = calculatePtAndExp(
+        gameState.character.abilityInfo.melee,
+        gameState.character.abilityInfo.meleeExp,
+        newMeleePtExp,
+        maxPt
+      );
+      abilityUpdates.melee = newPt;
+      abilityUpdates.meleeExp = newPtExp;
+      hasUpdates = true;
+      lastAppliedPtExpRef.current.melee = battleState.pendingPtExp.melee;
+    }
+
+    // Apply Range PT experience
+    const newRangePtExp = battleState.pendingPtExp.range - lastAppliedPtExpRef.current.range;
+    if (newRangePtExp > 0) {
+      const { newPt, newPtExp } = calculatePtAndExp(
+        gameState.character.abilityInfo.range,
+        gameState.character.abilityInfo.rangeExp,
+        newRangePtExp,
+        maxPt
+      );
+      abilityUpdates.range = newPt;
+      abilityUpdates.rangeExp = newPtExp;
+      hasUpdates = true;
+      lastAppliedPtExpRef.current.range = battleState.pendingPtExp.range;
+    }
+
+    // Apply Shield PT experience (placeholder for future)
+    const newShieldPtExp = battleState.pendingPtExp.shield - lastAppliedPtExpRef.current.shield;
+    if (newShieldPtExp > 0) {
+      const { newPt, newPtExp } = calculatePtAndExp(
+        gameState.character.abilityInfo.shield,
+        gameState.character.abilityInfo.shieldExp,
+        newShieldPtExp,
+        maxPt
+      );
+      abilityUpdates.shield = newPt;
+      abilityUpdates.shieldExp = newPtExp;
+      hasUpdates = true;
+      lastAppliedPtExpRef.current.shield = battleState.pendingPtExp.shield;
+    }
+
+    // Apply Defense PT experience
+    const newDefensePtExp = battleState.pendingPtExp.defense - lastAppliedPtExpRef.current.defense;
+    if (newDefensePtExp > 0) {
+      const { newPt, newPtExp } = calculatePtAndExp(
+        gameState.character.abilityInfo.defense,
+        gameState.character.abilityInfo.defenseExp,
+        newDefensePtExp,
+        maxPt
+      );
+      abilityUpdates.defense = newPt;
+      abilityUpdates.defenseExp = newPtExp;
+      hasUpdates = true;
+      lastAppliedPtExpRef.current.defense = battleState.pendingPtExp.defense;
+    }
+
+    // Apply updates if any PT changed
+    if (hasUpdates) {
+      updateCharacter((currentChar) => ({
+        abilityInfo: {
+          ...currentChar.abilityInfo,
+          ...abilityUpdates,
+        },
+      }));
+    }
+  }, [battleState.pendingPtExp, gameState.character, updateCharacter]);
 
   // Handle battle victory - grant experience
   useEffect(() => {

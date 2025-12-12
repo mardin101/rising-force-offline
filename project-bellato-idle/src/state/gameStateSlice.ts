@@ -22,6 +22,8 @@ export {
   type PotionId,
   POTION_PRICES,
   SHOP_MAX_PURCHASE_QUANTITY,
+  WEAPON_TYPE,
+  type WeaponType,
 } from '../data/constants';
 
 // Character class constants
@@ -147,6 +149,90 @@ export function calculateDeathPenalty(
 
 // Experience needed to gain 1 PT (100% / 0.05% per action = 2000 actions)
 export const PT_EXPERIENCE_TO_LEVEL = 1.0;
+
+/**
+ * Calculate PT experience gain based on player PT level, player character level, and monster level.
+ * 
+ * @param playerPtLevel - Current PT level (0-99)
+ * @param playerCharLevel - Player's character level
+ * @param monsterLevel - Monster's level (average if range)
+ * @returns PT experience gain amount (0.0 to 1.0)
+ * 
+ * @description
+ * - Base PT exp is PT_EXPERIENCE_PER_ACTION (0.0005 = 0.05%)
+ * - More exp is gained fighting higher level monsters
+ * - No exp is gained if monster is more than 5 levels below player
+ * - Experience scales with the player's current PT level (diminishing returns at higher PT)
+ */
+export function calculatePtExpGain(
+  playerPtLevel: number,
+  playerCharLevel: number,
+  monsterLevel: number
+): number {
+  // No experience if monster is more than 5 levels below player
+  if (monsterLevel < playerCharLevel - 5) {
+    return 0;
+  }
+  
+  // Base PT experience per action
+  let ptExp = PT_EXPERIENCE_PER_ACTION;
+  
+  // Level difference modifier (fighting higher level monsters gives more exp)
+  const levelDiff = monsterLevel - playerCharLevel;
+  if (levelDiff > 0) {
+    // Gain up to 50% more exp for fighting monsters up to 10 levels higher
+    const bonusMultiplier = Math.min(levelDiff / 10, 1.0) * 0.5;
+    ptExp *= (1 + bonusMultiplier);
+  }
+  
+  // PT level scaling - diminishing returns at higher PT levels
+  // At PT 0-20: 100% exp
+  // At PT 40: 75% exp
+  // At PT 60: 50% exp
+  // At PT 80: 25% exp
+  // At PT 99: ~10% exp
+  const ptScaling = Math.max(0.1, 1 - (playerPtLevel / 100) * 0.9);
+  ptExp *= ptScaling;
+  
+  return ptExp;
+}
+
+/**
+ * Calculate new PT level and remaining experience after adding PT exp.
+ * Similar to calculateExpAndLevel but for PT progression.
+ * 
+ * @param currentPt - Current PT level (0-99)
+ * @param currentPtExp - Current PT experience (0.0 to 1.0)
+ * @param ptExpGain - PT experience to add
+ * @param maxPt - Maximum PT level allowed (based on character level)
+ * @returns Object with newPt and newPtExp
+ */
+export function calculatePtAndExp(
+  currentPt: number,
+  currentPtExp: number,
+  ptExpGain: number,
+  maxPt: number
+): { newPt: number; newPtExp: number } {
+  let pt = currentPt;
+  let exp = currentPtExp + ptExpGain;
+  
+  // Handle PT level ups
+  while (exp >= PT_EXPERIENCE_TO_LEVEL && pt < maxPt) {
+    exp -= PT_EXPERIENCE_TO_LEVEL;
+    pt += 1;
+  }
+  
+  // Cap PT exp at max PT level for character
+  if (pt >= maxPt) {
+    pt = maxPt;
+    exp = 0; // Reset exp at max PT
+  }
+  
+  // Ensure exp doesn't go negative
+  exp = Math.max(0, exp);
+  
+  return { newPt: pt, newPtExp: exp };
+}
 
 // Ability Info - PT stats with experience tracking
 export interface AbilityInfo {
