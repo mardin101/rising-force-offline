@@ -46,13 +46,19 @@ export const PT_MIN = 0;
 export const PT_MAX_AT_LEVEL_1 = 2;
 export const PT_MAX_AT_MAX_LEVEL = 99;
 export const MAX_CHARACTER_LEVEL = 55;
-export const PT_EXPERIENCE_PER_ACTION = 0.0005; // 0.05% experience per action
+export const PT_EXPERIENCE_PER_ACTION = 0.002; // 0.2% experience per action (increased from 0.0005 for early game)
 
 // Experience constants
 // Experience is expressed as a percentage (0.0 to 1.0 where 1.0 = 100%)
 // Level up occurs when experience reaches 100% (1.0)
 export const EXP_MAX_PERCENT = 1.0; // 100% to level up
 export const EXP_CAP_BUFFER = 0.001; // Buffer to prevent exp from reaching exactly 100% at max level
+
+// Early game experience boost constants
+// Players should level up by defeating 5-10 monsters of the same level until level 10
+export const EARLY_GAME_LEVEL_THRESHOLD = 10; // Level threshold for early game boost
+export const EARLY_GAME_EXP_MULTIPLIER = 10.0; // Multiplier for early game experience (levels 1-10)
+export const MID_GAME_EXP_MULTIPLIER = 2.0; // Reduced multiplier for mid-game (levels 11-20)
 
 // Death penalty constants
 // When a player dies, they lose a percentage of their current experience
@@ -128,6 +134,30 @@ export function calculateExpAndLevel(
 }
 
 /**
+ * Calculate experience multiplier based on player level.
+ * This makes the early game (levels 1-10) more generous so players can level up
+ * by defeating 5-10 monsters of the same level.
+ *
+ * @param playerLevel - The player's current level
+ * @returns Experience multiplier to apply to base monster experience rewards
+ *
+ * @description
+ * - Levels 1-10: 10x multiplier (early game boost)
+ * - Levels 11-20: 2x multiplier (mid-game transition)
+ * - Levels 21+: 1x multiplier (standard experience rates)
+ */
+export function getExperienceMultiplier(playerLevel: number): number {
+  if (playerLevel <= EARLY_GAME_LEVEL_THRESHOLD) {
+    return EARLY_GAME_EXP_MULTIPLIER; // 10x for early game (levels 1-10)
+  } else if (playerLevel <= 20) {
+    // Smooth transition from 2x to 1x between levels 11-20
+    const progress = (playerLevel - EARLY_GAME_LEVEL_THRESHOLD) / 10;
+    return MID_GAME_EXP_MULTIPLIER - (progress * (MID_GAME_EXP_MULTIPLIER - 1));
+  }
+  return 1.0; // Standard rate for levels 21+
+}
+
+/**
  * Calculate the experience penalty from death.
  * Player loses a fixed percentage of experience but cannot lose levels.
  *
@@ -159,10 +189,11 @@ export const PT_EXPERIENCE_TO_LEVEL = 1.0;
  * @returns PT experience gain amount (0.0 to 1.0)
  * 
  * @description
- * - Base PT exp is PT_EXPERIENCE_PER_ACTION (0.0005 = 0.05%)
+ * - Base PT exp is PT_EXPERIENCE_PER_ACTION (0.002 = 0.2%, increased for early game)
  * - More exp is gained fighting higher level monsters
  * - No exp is gained if monster is more than 5 levels below player
  * - Experience scales with the player's current PT level (diminishing returns at higher PT)
+ * - Early game boost: 3x PT exp for character levels 1-10
  */
 export function calculatePtExpGain(
   playerPtLevel: number,
@@ -176,6 +207,11 @@ export function calculatePtExpGain(
   
   // Base PT experience per action
   let ptExp = PT_EXPERIENCE_PER_ACTION;
+  
+  // Early game boost for PT experience (levels 1-10 get 3x PT exp)
+  if (playerCharLevel <= EARLY_GAME_LEVEL_THRESHOLD) {
+    ptExp *= 3.0;
+  }
   
   // Level difference modifier (fighting higher level monsters gives more exp)
   const levelDiff = monsterLevel - playerCharLevel;
