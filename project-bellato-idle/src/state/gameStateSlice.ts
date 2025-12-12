@@ -57,7 +57,7 @@ export const EXP_CAP_BUFFER = 0.001; // Buffer to prevent exp from reaching exac
 // Early game experience boost constants
 // Players should level up by defeating 5-10 monsters of the same level until level 10
 export const EARLY_GAME_LEVEL_THRESHOLD = 10; // Level threshold for early game boost
-export const EARLY_GAME_EXP_MULTIPLIER = 12.0; // Multiplier for early game experience (levels 1-10)
+export const EARLY_GAME_EXP_MULTIPLIER = 10.0; // Multiplier for early game experience (levels 1-10)
 export const MID_GAME_EXP_MULTIPLIER = 2.0; // Reduced multiplier for mid-game (levels 11-20)
 
 // Death penalty constants
@@ -142,7 +142,7 @@ export function calculateExpAndLevel(
  * @returns Experience multiplier to apply to base monster experience rewards
  *
  * @description
- * - Levels 1-10: 12x multiplier (early game boost)
+ * - Levels 1-10: 10x multiplier (early game boost)
  * - Levels 11-20: 2x multiplier (mid-game transition)
  * - Levels 21+: 1x multiplier (standard experience rates)
  */
