@@ -9,6 +9,7 @@ import {
   calculatePtExpGain,
   calculatePtAndExp,
   getMaxPtForLevel,
+  getExperienceMultiplier,
   DEATH_EXP_PENALTY, 
   getItemById, 
   ITEM_TYPE,
@@ -371,7 +372,10 @@ export default function Battle() {
       // Check if monster is defeated
       if (newMonsterHp <= 0) {
         // Calculate rewards when monster is defeated
-        const expGain = selectedMonster.expReward;
+        // Apply experience multiplier based on player level for early game boost
+        const baseExpGain = selectedMonster.expReward;
+        const expMultiplier = getExperienceMultiplier(gameState.character!.level);
+        const expGain = baseExpGain * expMultiplier;
         const goldGain = Math.floor(
           Math.random() * (selectedMonster.goldDrop[1] - selectedMonster.goldDrop[0] + 1) + selectedMonster.goldDrop[0]
         );
@@ -532,7 +536,7 @@ export default function Battle() {
     if (!gameState.character) return;
 
     const maxPt = getMaxPtForLevel(gameState.character.level);
-    let abilityUpdates: Partial<typeof gameState.character.abilityInfo> = {};
+    const abilityUpdates: Partial<typeof gameState.character.abilityInfo> = {};
     let hasUpdates = false;
 
     // Apply Melee PT experience
