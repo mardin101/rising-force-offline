@@ -1,6 +1,8 @@
 // Game constants
 // This file contains constants used across the game
 
+import { getPotionPrices } from './potions/loadPotions';
+
 // Quest type constants
 export const QUEST_TYPE = {
   SLAY: 'slay',
@@ -36,7 +38,7 @@ export type EquipmentSlotType = typeof EQUIPMENT_SLOT[keyof typeof EQUIPMENT_SLO
 // All equipment slot types as an array for iteration
 export const EQUIPMENT_SLOTS: EquipmentSlotType[] = Object.values(EQUIPMENT_SLOT);
 
-// Potion ID constants
+// Legacy Potion ID constants (kept for backward compatibility)
 export const POTION_ID = {
   BLESS_HP_100: 'bless_hp_potion_100',
   BLESS_HP_250: 'bless_hp_potion_250',
@@ -49,16 +51,8 @@ export const POTION_ID = {
 
 export type PotionId = typeof POTION_ID[keyof typeof POTION_ID];
 
-// Potion prices in gold
-export const POTION_PRICES: Record<string, number> = {
-  [POTION_ID.BLESS_HP_100]: 5,     // BlessHPPotion 100: 5 gold
-  [POTION_ID.BLESS_HP_250]: 15,    // BlessHPPotion 250: 15 gold
-  [POTION_ID.BLESS_HP_500]: 30,    // BlessHPPotion 500: 30 gold
-  [POTION_ID.BLESS_HP_2000]: 100,  // BlessHPPotion 2000: 100 gold
-  [POTION_ID.BLESS_HP_3000]: 150,  // BlessHPPotion 3000: 150 gold
-  [POTION_ID.BLESS_HP_4000]: 200,  // BlessHPPotion 4000: 200 gold
-  [POTION_ID.BLESS_HP_5000]: 250,  // BlessHPPotion 5000: 250 gold
-};
+// Potion prices in gold - dynamically generated from potions.json
+export const POTION_PRICES: Record<string, number> = getPotionPrices();
 
 // Shop constants
 export const SHOP_MAX_PURCHASE_QUANTITY = 99;
