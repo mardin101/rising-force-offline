@@ -148,7 +148,7 @@ export function calculateExpAndLevel(
  */
 export function getExperienceMultiplier(playerLevel: number): number {
   if (playerLevel <= EARLY_GAME_LEVEL_THRESHOLD) {
-    return EARLY_GAME_EXP_MULTIPLIER; // 12x for early game (levels 1-10)
+    return EARLY_GAME_EXP_MULTIPLIER; // 10x for early game (levels 1-10)
   } else if (playerLevel <= 20) {
     // Smooth transition from 2x to 1x between levels 11-20
     const progress = (playerLevel - EARLY_GAME_LEVEL_THRESHOLD) / 10;
