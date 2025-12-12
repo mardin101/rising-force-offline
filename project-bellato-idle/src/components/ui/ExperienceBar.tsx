@@ -15,7 +15,7 @@ export default function ExperienceBar({ experience }: ExperienceBarProps) {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 w-full h-6 bg-blue-800 z-50 relative"
+      className="fixed bottom-0 left-0 right-0 w-full h-6 bg-blue-800 z-50"
       role="progressbar"
       aria-valuenow={normalizedExp * 100}
       aria-valuemin={0}
