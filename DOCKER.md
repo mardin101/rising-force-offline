@@ -4,7 +4,7 @@ This guide explains how to run the Rising Force Offline application using Docker
 
 ## Prerequisites
 
-- Docker Engine (version 20.10 or higher)
+- Docker Engine (version 25.0 or higher recommended)
 - Docker Compose (version 2.0 or higher)
 - A domain name (for production HTTPS setup)
 
