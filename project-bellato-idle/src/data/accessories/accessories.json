@@ -15,7 +15,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_FirePartialAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_fire_partial_appendix_1.gif"
+    "localImagePath": "images/accessories/accessory_fire_partial_appendix_1.gif"
   },
   {
     "id": "accessory_fire_sprits_appendix_2",
@@ -33,7 +33,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_FireSpritsAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_fire_sprits_appendix_2.gif"
+    "localImagePath": "images/accessories/accessory_fire_sprits_appendix_2.gif"
   },
   {
     "id": "accessory_fire_mind_appendix_3",
@@ -51,7 +51,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_FireMindAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_fire_mind_appendix_3.gif"
+    "localImagePath": "images/accessories/accessory_fire_mind_appendix_3.gif"
   },
   {
     "id": "accessory_fire_el_appendix_4",
@@ -69,7 +69,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_FireElAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_fire_el_appendix_4.gif"
+    "localImagePath": "images/accessories/accessory_fire_el_appendix_4.gif"
   },
   {
     "id": "accessory_aqua_partial_appendix_5",
@@ -87,7 +87,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_AquaPartialAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_partial_appendix_5.gif"
+    "localImagePath": "images/accessories/accessory_aqua_partial_appendix_5.gif"
   },
   {
     "id": "accessory_aqua_partial_appendix_6",
@@ -105,7 +105,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_AquaPartialAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_partial_appendix_6.gif"
+    "localImagePath": "images/accessories/accessory_aqua_partial_appendix_6.gif"
   },
   {
     "id": "accessory_aqua_el_appendix_7",
@@ -123,7 +123,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_AquaElAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_el_appendix_7.gif"
+    "localImagePath": "images/accessories/accessory_aqua_el_appendix_7.gif"
   },
   {
     "id": "accessory_terra_partial_appendix_8",
@@ -141,7 +141,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_TerraPartialAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_terra_partial_appendix_8.gif"
+    "localImagePath": "images/accessories/accessory_terra_partial_appendix_8.gif"
   },
   {
     "id": "accessory_terra_mind_appendix_9",
@@ -159,7 +159,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_TerraMindAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_terra_mind_appendix_9.gif"
+    "localImagePath": "images/accessories/accessory_terra_mind_appendix_9.gif"
   },
   {
     "id": "accessory_wind_partial_appendix_10",
@@ -177,7 +177,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_WindPartialAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_wind_partial_appendix_10.gif"
+    "localImagePath": "images/accessories/accessory_wind_partial_appendix_10.gif"
   },
   {
     "id": "accessory_wind_mind_appendix_11",
@@ -195,7 +195,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_WindMindAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_wind_mind_appendix_11.gif"
+    "localImagePath": "images/accessories/accessory_wind_mind_appendix_11.gif"
   },
   {
     "id": "accessory_elemental___appendix_12",
@@ -213,7 +213,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Amulet_B_ElementalTombAppendix.gif",
-    "localImagePath": "../images/accessories/accessory_elemental___appendix_12.gif"
+    "localImagePath": "images/accessories/accessory_elemental___appendix_12.gif"
   },
   {
     "id": "accessory_fire_partial_wristlet_13",
@@ -231,7 +231,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_FirePartialWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_fire_partial_wristlet_13.gif"
+    "localImagePath": "images/accessories/accessory_fire_partial_wristlet_13.gif"
   },
   {
     "id": "accessory_fire_mind_wristlet_14",
@@ -249,7 +249,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_FireMindWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_fire_mind_wristlet_14.gif"
+    "localImagePath": "images/accessories/accessory_fire_mind_wristlet_14.gif"
   },
   {
     "id": "accessory_aqua_partial_wristlet_15",
@@ -267,7 +267,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_AquaPartialWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_partial_wristlet_15.gif"
+    "localImagePath": "images/accessories/accessory_aqua_partial_wristlet_15.gif"
   },
   {
     "id": "accessory_aqua_sprits_wristlet_16",
@@ -285,7 +285,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_AquaSpritsWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_sprits_wristlet_16.gif"
+    "localImagePath": "images/accessories/accessory_aqua_sprits_wristlet_16.gif"
   },
   {
     "id": "accessory_aqua_mind_wristlet_17",
@@ -303,7 +303,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_AquaMindWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_mind_wristlet_17.gif"
+    "localImagePath": "images/accessories/accessory_aqua_mind_wristlet_17.gif"
   },
   {
     "id": "accessory_aqua_el_wristlet_18",
@@ -321,7 +321,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_AquaElWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_aqua_el_wristlet_18.gif"
+    "localImagePath": "images/accessories/accessory_aqua_el_wristlet_18.gif"
   },
   {
     "id": "accessory_terra_partial_wristlet_19",
@@ -339,7 +339,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_TerraPartialWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_terra_partial_wristlet_19.gif"
+    "localImagePath": "images/accessories/accessory_terra_partial_wristlet_19.gif"
   },
   {
     "id": "accessory_wind_partial_wristlet_20",
@@ -357,7 +357,7 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_WindPartialWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_wind_partial_wristlet_20.gif"
+    "localImagePath": "images/accessories/accessory_wind_partial_wristlet_20.gif"
   },
   {
     "id": "accessory_elemental___wristlet_21",
@@ -375,6 +375,6 @@
     "speedIncrease": "-",
     "race": "Bellato",
     "imageUrl": "images/item_accessory/bellato/Ring_B_ElementalPartialWristlet.gif",
-    "localImagePath": "../images/accessories/accessory_elemental___wristlet_21.gif"
+    "localImagePath": "images/accessories/accessory_elemental___wristlet_21.gif"
   }
 ]

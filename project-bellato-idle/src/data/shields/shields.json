@@ -12,7 +12,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_RoundShield.gif",
-    "localImagePath": "../images/shields/shield_1.gif"
+    "localImagePath": "images/shields/shield_1.gif"
   },
   {
     "id": "shield_2",
@@ -27,7 +27,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Buckler.gif",
-    "localImagePath": "../images/shields/shield_2.gif"
+    "localImagePath": "images/shields/shield_2.gif"
   },
   {
     "id": "shield_3",
@@ -42,7 +42,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Targe.gif",
-    "localImagePath": "../images/shields/shield_3.gif"
+    "localImagePath": "images/shields/shield_3.gif"
   },
   {
     "id": "shield_4",
@@ -57,7 +57,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_LargeShield.gif",
-    "localImagePath": "../images/shields/shield_4.gif"
+    "localImagePath": "images/shields/shield_4.gif"
   },
   {
     "id": "shield_5",
@@ -72,7 +72,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_KiteShield.gif",
-    "localImagePath": "../images/shields/shield_5.gif"
+    "localImagePath": "images/shields/shield_5.gif"
   },
   {
     "id": "shield_6",
@@ -87,7 +87,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Defender.gif",
-    "localImagePath": "../images/shields/shield_6.gif"
+    "localImagePath": "images/shields/shield_6.gif"
   },
   {
     "id": "shield_7",
@@ -102,7 +102,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_TowerShield.gif",
-    "localImagePath": "../images/shields/shield_7.gif"
+    "localImagePath": "images/shields/shield_7.gif"
   },
   {
     "id": "shield_8",
@@ -117,7 +117,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Scutum.gif",
-    "localImagePath": "../images/shields/shield_8.gif"
+    "localImagePath": "images/shields/shield_8.gif"
   },
   {
     "id": "shield_9",
@@ -132,7 +132,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Aspis.gif",
-    "localImagePath": "../images/shields/shield_9.gif"
+    "localImagePath": "images/shields/shield_9.gif"
   },
   {
     "id": "shield_10",
@@ -147,7 +147,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_BeamShield.gif",
-    "localImagePath": "../images/shields/shield_10.gif"
+    "localImagePath": "images/shields/shield_10.gif"
   },
   {
     "id": "shield_11",
@@ -162,7 +162,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_BeamLargeShield.gif",
-    "localImagePath": "../images/shields/shield_11.gif"
+    "localImagePath": "images/shields/shield_11.gif"
   },
   {
     "id": "shield_12",
@@ -177,7 +177,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_ScaleShield.gif",
-    "localImagePath": "../images/shields/shield_12.gif"
+    "localImagePath": "images/shields/shield_12.gif"
   },
   {
     "id": "shield_13",
@@ -192,7 +192,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Rondache.gif",
-    "localImagePath": "../images/shields/shield_13.gif"
+    "localImagePath": "images/shields/shield_13.gif"
   },
   {
     "id": "shield_14",
@@ -207,7 +207,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Hopron.gif",
-    "localImagePath": "../images/shields/shield_14.gif"
+    "localImagePath": "images/shields/shield_14.gif"
   },
   {
     "id": "shield_15",
@@ -222,7 +222,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_MirrorShield.gif",
-    "localImagePath": "../images/shields/shield_15.gif"
+    "localImagePath": "images/shields/shield_15.gif"
   },
   {
     "id": "shield_16",
@@ -237,7 +237,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_GothicShield.gif",
-    "localImagePath": "../images/shields/shield_16.gif"
+    "localImagePath": "images/shields/shield_16.gif"
   },
   {
     "id": "shield_17",
@@ -252,7 +252,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_ParviseShield.gif",
-    "localImagePath": "../images/shields/shield_17.gif"
+    "localImagePath": "images/shields/shield_17.gif"
   },
   {
     "id": "shield_18",
@@ -267,7 +267,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_Adarga.gif",
-    "localImagePath": "../images/shields/shield_18.gif"
+    "localImagePath": "images/shields/shield_18.gif"
   },
   {
     "id": "shield_19",
@@ -282,7 +282,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_BeamParviseShield.gif",
-    "localImagePath": "../images/shields/shield_19.gif"
+    "localImagePath": "images/shields/shield_19.gif"
   },
   {
     "id": "shield_20",
@@ -297,7 +297,7 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_HeaterShield.gif",
-    "localImagePath": "../images/shields/shield_20.gif"
+    "localImagePath": "images/shields/shield_20.gif"
   },
   {
     "id": "shield_21",
@@ -312,6 +312,6 @@
     "race": "Bellato & Cora",
     "specialEffect": "100 Decrease in damage avoidance.",
     "imageUrl": "images/armor_shield/bell_cora/Shield_HoraShield.gif",
-    "localImagePath": "../images/shields/shield_21.gif"
+    "localImagePath": "images/shields/shield_21.gif"
   }
 ]
