@@ -21,12 +21,13 @@ export interface ItemData {
   type?: ItemType;
   attack?: number;
   defense?: number;
-  healAmount?: number;
+  healAmount?: number;  // @deprecated - use amount instead
   equipSlot?: EquipmentSlotType;
   // Weapon-specific fields (only for items with type: ITEM_TYPE.WEAPON)
   weaponType?: WeaponType;  // For PT system: melee or ranged
   // Potion-specific fields (only for items with type: ITEM_TYPE.CONSUMABLE)
   potionType?: PotionType;
+  amount?: number;  // Amount to heal/restore for consumables
   race?: string;
   target?: string;
   specialEffects?: string;

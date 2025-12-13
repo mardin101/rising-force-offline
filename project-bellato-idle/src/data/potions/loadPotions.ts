@@ -12,26 +12,9 @@ interface RawPotionData {
   class: string;
   imageUrl: string;
   localImagePath: string;
-}
-
-/**
- * Parse healing amount from string format like "+100 HP" or "+50 FP"
- * Returns the numeric value if it's a simple HP restoration, 0 otherwise
- */
-function parseHealAmount(healingAmount: string): number {
-  // Match patterns like "+100 HP", "+250 HP", etc.
-  const hpMatch = healingAmount.match(/\+(\d+)\s*HP/i);
-  if (hpMatch) {
-    return parseInt(hpMatch[1], 10);
-  }
-  return 0;
-}
-
-/**
- * Determine if this is a simple HP restoration potion
- */
-function isHPPotion(healingAmount: string): boolean {
-  return /\+\d+\s*HP/i.test(healingAmount) && !/\(/.test(healingAmount);
+  race: string | null;
+  potionType: 'HP' | 'FP' | 'SP' | null;
+  amount: number | null;
 }
 
 /**
@@ -54,8 +37,6 @@ function getPotionPrice(healAmount: number): number {
  * Convert raw potion data from JSON to ItemData format
  */
 export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
-  const healAmount = parseHealAmount(rawPotion.healingAmount);
-  
   return {
     id: rawPotion.id,
     itemId: rawPotion.potionId,
@@ -66,8 +47,9 @@ export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
     imageUrl: rawPotion.imageUrl,
     localImagePath: rawPotion.localImagePath,
     type: 'consumable', // Use string literal instead of ITEM_TYPE.CONSUMABLE to avoid circular dependency
-    healAmount: healAmount,
-    potionType: isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined,
+    amount: rawPotion.amount ?? 0, // Buff potions may not have amount
+    potionType: rawPotion.potionType ?? undefined,
+    race: rawPotion.race ?? undefined,
     image: rawPotion.localImagePath,
     maxQuantity: 99,
   };
@@ -90,8 +72,8 @@ export function getPotionPrices(): Record<string, number> {
   
   rawPotions.forEach(potion => {
     if (potion.soldAtNPC === 'Y') {
-      const healAmount = parseHealAmount(potion.healingAmount);
-      prices[potion.id] = getPotionPrice(healAmount);
+      const amount = potion.amount ?? 0; // Buff potions may not have amount
+      prices[potion.id] = getPotionPrice(amount);
     }
   });
   
@@ -99,28 +81,42 @@ export function getPotionPrices(): Record<string, number> {
 }
 
 /**
+ * Check if a potion's race matches the player's race
+ * Strict matching - no exceptions
+ */
+export function isRaceCompatible(potionRace: string | undefined, playerRace: string | undefined): boolean {
+  if (!playerRace || !potionRace) {
+    return true; // No race restriction
+  }
+  
+  return potionRace.toLowerCase() === playerRace.toLowerCase();
+}
+
+/**
+ * Get all potions of a specific type sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+function getShopPotionsByType(potionType: 'HP' | 'FP' | 'SP', race?: string): ItemData[] {
+  const allPotions = loadPotions();
+  return allPotions
+    .filter(potion => {
+      // Check if sold at NPC and is the specified potion type
+      if (potion.code1 !== 'Y' || potion.potionType !== potionType) {
+        return false;
+      }
+      
+      // Filter by race if specified
+      return isRaceCompatible(potion.race, race);
+    })
+    .sort((a, b) => (a.amount || 0) - (b.amount || 0));
+}
+
+/**
  * Get all HP potions sold at NPC, sorted by heal amount (lowest first)
  * Optionally filter by race (Bellato, Cora, or Accretia)
  */
 export function getShopHPPotions(race?: string): ItemData[] {
-  const allPotions = loadPotions();
-  return allPotions
-    .filter(potion => {
-      // Check if sold at NPC and is an HP potion
-      if (potion.code1 !== 'Y' || potion.potionType !== 'HP' || !potion.healAmount || potion.healAmount <= 0) {
-        return false;
-      }
-      
-      // If race is specified, filter by race prefix in potion name
-      if (race) {
-        // Match race prefix in potion name (e.g., "Bellato", "Cora", "Acc" for Accretia)
-        const racePrefix = race === 'Accretia' ? 'Acc' : race;
-        return potion.name.startsWith(racePrefix);
-      }
-      
-      return true;
-    })
-    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+  return getShopPotionsByType('HP', race);
 }
 
 /**
@@ -130,6 +126,22 @@ export function getShopHPPotions(race?: string): ItemData[] {
 export function getLowestHPPotion(race?: string): ItemData | null {
   const hpPotions = getShopHPPotions(race);
   return hpPotions.length > 0 ? hpPotions[0] : null;
+}
+
+/**
+ * Get all FP potions sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+export function getShopFPPotions(race?: string): ItemData[] {
+  return getShopPotionsByType('FP', race);
+}
+
+/**
+ * Get all SP potions sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+export function getShopSPPotions(race?: string): ItemData[] {
+  return getShopPotionsByType('SP', race);
 }
 
 export default loadPotions;

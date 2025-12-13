@@ -7,6 +7,7 @@ import {
   INVENTORY_ROWS,
   INVENTORY_COLS,
 } from '../../state/gameStateSlice';
+import { isRaceCompatible } from '../../data/potions/loadPotions';
 import { getAssetPath } from '../../utils/assets';
 import './MacroModal.css';
 
@@ -18,6 +19,7 @@ export interface MacroModalProps {
   maxHp: number;
   currentHp: number;
   playerLevel: number;
+  playerRace: string;
   onUpdateMacro: (updates: Partial<MacroState>) => void;
 }
 
@@ -28,6 +30,8 @@ interface AvailablePotion {
   name: string;
   quantity: number;
   healAmount: number;
+  potionType?: string;
+  race?: string;
   levelRequirement?: number;
   image?: string;
 }
@@ -56,6 +60,7 @@ export default function MacroModal({
   maxHp,
   currentHp,
   playerLevel,
+  playerRace,
   onUpdateMacro,
 }: MacroModalProps) {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -89,24 +94,29 @@ export default function MacroModal({
         const item = inventoryGrid[row][col];
         if (item) {
           const itemData = getItemById(item.itemId);
-          if (itemData && itemData.type === ITEM_TYPE.CONSUMABLE && itemData.healAmount) {
-            potions.push({
-              row,
-              col,
-              itemId: item.itemId,
-              name: itemData.name,
-              quantity: item.quantity ?? 1,
-              healAmount: itemData.healAmount,
-              levelRequirement: itemData.levelRequirement,
-              image: itemData.image,
-            });
+          if (itemData && itemData.type === ITEM_TYPE.CONSUMABLE && itemData.amount) {
+            // Check race compatibility
+            if (isRaceCompatible(itemData.race, playerRace)) {
+              potions.push({
+                row,
+                col,
+                itemId: item.itemId,
+                name: itemData.name,
+                quantity: item.quantity ?? 1,
+                healAmount: itemData.amount,
+                potionType: itemData.potionType,
+                race: itemData.race,
+                levelRequirement: itemData.levelRequirement,
+                image: itemData.image,
+              });
+            }
           }
         }
       }
     }
     
     return potions;
-  }, [inventoryGrid]);
+  }, [inventoryGrid, playerRace]);
 
   // Get the currently assigned potion info
   const getAssignedPotion = useCallback(() => {
@@ -122,7 +132,9 @@ export default function MacroModal({
     return {
       name: itemData.name,
       quantity: item.quantity ?? 1,
-      healAmount: itemData.healAmount ?? 0,
+      healAmount: itemData.amount ?? 0,
+      potionType: itemData.potionType,
+      race: itemData.race,
       levelRequirement: itemData.levelRequirement,
       image: itemData.image,
     };
@@ -191,7 +203,7 @@ export default function MacroModal({
     if (!item) return;
     
     const itemData = getItemById(item.itemId);
-    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
       return;
     }
 
@@ -282,7 +294,7 @@ export default function MacroModal({
             </div>
             {assignedPotion && (
               <div style={{ textAlign: 'center', fontSize: '11px', color: '#a0d0ff' }}>
-                {assignedPotion.name} (+{assignedPotion.healAmount} HP)
+                {assignedPotion.name} (+{assignedPotion.healAmount} {assignedPotion.potionType || 'HP'})
                 {assignedPotion.levelRequirement && (
                   <span style={{ 
                     marginLeft: '6px',
@@ -345,7 +357,7 @@ export default function MacroModal({
                     onDragStart={(e) => handleDragStart(e, potion.row, potion.col)}
                     onDragEnd={handleDragEnd}
                     onClick={() => handlePotionClick(potion.row, potion.col)}
-                    title={`${potion.name}: +${potion.healAmount} HP (x${potion.quantity})${potion.levelRequirement ? ` - Requires Lv.${potion.levelRequirement}` : ''}`}
+                    title={`${potion.name}: +${potion.healAmount} ${potion.potionType || 'HP'} (x${potion.quantity})${potion.levelRequirement ? ` - Requires Lv.${potion.levelRequirement}` : ''}`}
                   >
                     {potion.image ? (
                       <img 

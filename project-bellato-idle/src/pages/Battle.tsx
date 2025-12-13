@@ -168,7 +168,7 @@ export default function Battle() {
     }
 
     const itemData = getItemById(item.itemId);
-    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
       return { newHp: currentHp, message: null };
     }
 
