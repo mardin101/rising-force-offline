@@ -670,7 +670,7 @@ export default function Battle() {
         },
       }));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- gameState.character is already in dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- We track gameState.character specifically, not the entire gameState object
   }, [battleState.pendingPtExp, gameState.character, updateCharacter]);
 
   // Handle battle victory - grant experience
