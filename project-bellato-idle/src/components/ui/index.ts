@@ -23,4 +23,10 @@ export type { ShopProps } from './Shop';
 export { default as ShopModal } from './ShopModal';
 export type { ShopModalProps } from './ShopModal';
 
+export { default as EquipmentShop } from './EquipmentShop';
+export type { EquipmentShopProps } from './EquipmentShop';
+
+export { default as EquipmentShopModal } from './EquipmentShopModal';
+export type { EquipmentShopModalProps } from './EquipmentShopModal';
+
 export { default as ExperienceBar } from './ExperienceBar';

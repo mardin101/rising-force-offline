@@ -1,9 +1,9 @@
 import { QuestMaster, QuestProgress } from '../components/game';
-import { Shop } from '../components/ui';
+import { Shop, EquipmentShop } from '../components/ui';
 import { useGameState } from '../state/GameStateContext';
 
 export default function Town() {
-  const { gameState, purchasePotion } = useGameState();
+  const { gameState, purchasePotion, purchaseEquipment } = useGameState();
   const playerGold = gameState.character?.gold ?? 0;
   const playerLevel = gameState.character?.level ?? 1;
   const playerRace = gameState.character?.generalInfo.race ?? 'Bellato';
@@ -17,9 +17,14 @@ export default function Town() {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Shop Section */}
+        {/* Potion Shop Section */}
         <div>
           <Shop playerGold={playerGold} playerLevel={playerLevel} playerRace={playerRace} onPurchase={purchasePotion} />
+        </div>
+
+        {/* Equipment Shop Section */}
+        <div>
+          <EquipmentShop playerGold={playerGold} playerLevel={playerLevel} playerRace={playerRace} onPurchase={purchaseEquipment} />
         </div>
 
         {/* Quest Progress Section */}

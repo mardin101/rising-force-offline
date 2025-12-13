@@ -24,6 +24,7 @@ import {
   POTION_PRICES,
 } from './gameStateSlice';
 import { isRaceCompatible } from '../data/potions/loadPotions';
+import { getEquipmentPrices } from '../data/equipment/loadEquipment';
 
 export interface GameStateContextValue {
   gameState: GameState;
@@ -61,6 +62,7 @@ export interface GameStateContextValue {
     newValue: number;
   }) => void;
   purchasePotion: (potionId: string, quantity: number) => { success: boolean; message: string };
+  purchaseEquipment: (itemId: string, quantity: number) => { success: boolean; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
   updateMaterials: (materials: Record<string, number>) => void;
@@ -625,6 +627,91 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     return result;
   }, []);
 
+  // Purchase equipment from the shop
+  const purchaseEquipment = useCallback((itemId: string, quantity: number): { success: boolean; message: string } => {
+    let result = { success: false, message: '' };
+
+    setGameState((prev) => {
+      // Validate quantity
+      if (quantity <= 0) {
+        result = { success: false, message: 'Invalid quantity' };
+        return prev;
+      }
+
+      // Check if character exists
+      if (!prev.character) {
+        result = { success: false, message: 'No character found' };
+        return prev;
+      }
+
+      // Check if item is valid
+      const itemData = getItemById(itemId);
+      if (!itemData) {
+        result = { success: false, message: 'Invalid item' };
+        return prev;
+      }
+
+      // Get equipment prices
+      const equipmentPrices = getEquipmentPrices();
+      const pricePerItem = equipmentPrices[itemId];
+      if (pricePerItem === undefined) {
+        result = { success: false, message: 'Item not for sale' };
+        return prev;
+      }
+
+      const totalCost = pricePerItem * quantity;
+
+      // Check if player has enough gold
+      if (prev.character.gold < totalCost) {
+        result = { success: false, message: 'Not enough gold' };
+        return prev;
+      }
+
+      // Find empty slot (equipment is not stackable)
+      let targetRow = -1;
+      let targetCol = -1;
+
+      for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
+        for (let col = 0; col < INVENTORY_COLS; col++) {
+          if (!prev.inventoryGrid[row][col]) {
+            targetRow = row;
+            targetCol = col;
+            break;
+          }
+        }
+      }
+
+      // If no slot available, fail
+      if (targetRow === -1) {
+        result = { success: false, message: 'No inventory space available' };
+        return prev;
+      }
+
+      // Update inventory (equipment is not stackable, so quantity is always 1)
+      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      newGrid[targetRow][targetCol] = {
+        itemId: itemId,
+        quantity: 1,
+      };
+
+      // Deduct gold
+      const newGold = prev.character.gold - totalCost;
+
+      result = { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
+
+      return {
+        ...prev,
+        character: {
+          ...prev.character,
+          gold: newGold,
+        },
+        inventoryGrid: newGrid,
+      };
+    });
+
+    return result;
+  }, []);
+
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
       ...prev,
@@ -667,6 +754,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     applyMacroInventoryUpdate,
     applyMacroStatUpdate,
     purchasePotion,
+    purchaseEquipment,
     updateActiveQuest,
     updateCompletedQuestIds,
     updateMaterials,
