@@ -632,9 +632,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     let result = { success: false, message: '' };
 
     setGameState((prev) => {
-      // Validate quantity
+      // Validate quantity - equipment is not stackable
       if (quantity <= 0) {
         result = { success: false, message: 'Invalid quantity' };
+        return prev;
+      }
+      
+      if (quantity > 1) {
+        result = { success: false, message: 'Equipment is not stackable. Purchase one at a time.' };
         return prev;
       }
 
