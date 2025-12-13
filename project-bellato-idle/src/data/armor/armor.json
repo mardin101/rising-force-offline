@@ -13,7 +13,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/helmet/Helm_BW_04_TrainingCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_training_caphelmet__raises_defense_ability._1.gif"
+    "localImagePath": "images/armor/armor_helmet_training_caphelmet__raises_defense_ability._1.gif"
   },
   {
     "id": "armor_upper_training_shirtshirt__raises_defense_ability._2",
@@ -29,7 +29,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/chest/Upper_BW_04_TrainingShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_training_shirtshirt__raises_defense_ability._2.gif"
+    "localImagePath": "images/armor/armor_upper_training_shirtshirt__raises_defense_ability._2.gif"
   },
   {
     "id": "armor_gloves_training_glovesgloves__raises_defense_ability._3",
@@ -45,7 +45,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/glove/Gauntlet_BW_04_TrainingGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_training_glovesgloves__raises_defense_ability._3.gif"
+    "localImagePath": "images/armor/armor_gloves_training_glovesgloves__raises_defense_ability._3.gif"
   },
   {
     "id": "armor_lower_training_pantspants__raises_defense_ability._4",
@@ -61,7 +61,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/legs/Lower_BW_04_TrainingPants.gif",
-    "localImagePath": "../images/armor/armor_lower_training_pantspants__raises_defense_ability._4.gif"
+    "localImagePath": "images/armor/armor_lower_training_pantspants__raises_defense_ability._4.gif"
   },
   {
     "id": "armor_shoes_training_shoesshoes__raises_defense_ability._5",
@@ -77,7 +77,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/boot/Shoe_BW_04_TrainingShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_training_shoesshoes__raises_defense_ability._5.gif"
+    "localImagePath": "images/armor/armor_shoes_training_shoesshoes__raises_defense_ability._5.gif"
   },
   {
     "id": "armor_helmet_rag_caphelmet__raises_defense_ability._6",
@@ -93,7 +93,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/helmet/Helm_BW_07_RagCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_rag_caphelmet__raises_defense_ability._6.gif"
+    "localImagePath": "images/armor/armor_helmet_rag_caphelmet__raises_defense_ability._6.gif"
   },
   {
     "id": "armor_upper_rag_shirtshirt__raises_defense_ability._7",
@@ -109,7 +109,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/chest/Upper_BW_07_RagShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_rag_shirtshirt__raises_defense_ability._7.gif"
+    "localImagePath": "images/armor/armor_upper_rag_shirtshirt__raises_defense_ability._7.gif"
   },
   {
     "id": "armor_gloves_rag_glovesgloves__raises_defense_ability._8",
@@ -125,7 +125,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/glove/Gauntlet_BW_07_RagGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_rag_glovesgloves__raises_defense_ability._8.gif"
+    "localImagePath": "images/armor/armor_gloves_rag_glovesgloves__raises_defense_ability._8.gif"
   },
   {
     "id": "armor_lower_rag_pantspants__raises_defense_ability._9",
@@ -141,7 +141,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/legs/Lower_BW_07_RagPants.gif",
-    "localImagePath": "../images/armor/armor_lower_rag_pantspants__raises_defense_ability._9.gif"
+    "localImagePath": "images/armor/armor_lower_rag_pantspants__raises_defense_ability._9.gif"
   },
   {
     "id": "armor_shoes_rag_shoesshoes__raises_defense_ability._10",
@@ -157,7 +157,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/boot/Shoe_BW_07_RagShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_rag_shoesshoes__raises_defense_ability._10.gif"
+    "localImagePath": "images/armor/armor_shoes_rag_shoesshoes__raises_defense_ability._10.gif"
   },
   {
     "id": "armor_helmet_leather_caphelmet__raises_defense_ability._11",
@@ -173,7 +173,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/helmet/Helm_BW_10_LeatherCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_leather_caphelmet__raises_defense_ability._11.gif"
+    "localImagePath": "images/armor/armor_helmet_leather_caphelmet__raises_defense_ability._11.gif"
   },
   {
     "id": "armor_upper_leather_shirtshirt__raises_defense_ability._12",
@@ -189,7 +189,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/chest/Upper_BW_10_LeatherShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_leather_shirtshirt__raises_defense_ability._12.gif"
+    "localImagePath": "images/armor/armor_upper_leather_shirtshirt__raises_defense_ability._12.gif"
   },
   {
     "id": "armor_gloves_leather_glovesgloves__raises_defense_ability._13",
@@ -205,7 +205,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/glove/Gauntlet_BW_10_LeatherGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_leather_glovesgloves__raises_defense_ability._13.gif"
+    "localImagePath": "images/armor/armor_gloves_leather_glovesgloves__raises_defense_ability._13.gif"
   },
   {
     "id": "armor_lower_leather_pantspants__raises_defense_ability._14",
@@ -221,7 +221,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/legs/Lower_BW_10_LeatherPants.gif",
-    "localImagePath": "../images/armor/armor_lower_leather_pantspants__raises_defense_ability._14.gif"
+    "localImagePath": "images/armor/armor_lower_leather_pantspants__raises_defense_ability._14.gif"
   },
   {
     "id": "armor_shoes_leather_shoesshoes__raises_defense_ability._15",
@@ -237,7 +237,7 @@
     "class": "ALL",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_all/boot/Shoe_BW_10_LeatherShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_leather_shoesshoes__raises_defense_ability._15.gif"
+    "localImagePath": "images/armor/armor_shoes_leather_shoesshoes__raises_defense_ability._15.gif"
   },
   {
     "id": "armor_helmet_normal_parshal_circlethelmet__raises_defense_ability._16",
@@ -253,7 +253,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_13_NormalParshalCirclet.gif",
-    "localImagePath": "../images/armor/armor_helmet_normal_parshal_circlethelmet__raises_defense_ability._16.gif"
+    "localImagePath": "images/armor/armor_helmet_normal_parshal_circlethelmet__raises_defense_ability._16.gif"
   },
   {
     "id": "armor_upper_normal_parshal_jacketshirt__raises_defense_ability._17",
@@ -269,7 +269,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_13_NormalParshalJacket.gif",
-    "localImagePath": "../images/armor/armor_upper_normal_parshal_jacketshirt__raises_defense_ability._17.gif"
+    "localImagePath": "images/armor/armor_upper_normal_parshal_jacketshirt__raises_defense_ability._17.gif"
   },
   {
     "id": "armor_gloves_normal_parshal_banglegloves__raises_defense_ability._18",
@@ -285,7 +285,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_13_NormalParshalBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_normal_parshal_banglegloves__raises_defense_ability._18.gif"
+    "localImagePath": "images/armor/armor_gloves_normal_parshal_banglegloves__raises_defense_ability._18.gif"
   },
   {
     "id": "armor_lower_normal_parshal_brichzpants__raises_defense_ability._19",
@@ -301,7 +301,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_13_NormalParshalBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_normal_parshal_brichzpants__raises_defense_ability._19.gif"
+    "localImagePath": "images/armor/armor_lower_normal_parshal_brichzpants__raises_defense_ability._19.gif"
   },
   {
     "id": "armor_shoes_normal_parshal_galoshshoes__raises_defense_ability._20",
@@ -317,7 +317,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_13_NormalParshalGalosh.gif",
-    "localImagePath": "../images/armor/armor_shoes_normal_parshal_galoshshoes__raises_defense_ability._20.gif"
+    "localImagePath": "images/armor/armor_shoes_normal_parshal_galoshshoes__raises_defense_ability._20.gif"
   },
   {
     "id": "armor_helmet_coles_leather_caphelmet__raises_stamina._21",
@@ -333,7 +333,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_13_ColesRatherCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_coles_leather_caphelmet__raises_stamina._21.gif"
+    "localImagePath": "images/armor/armor_helmet_coles_leather_caphelmet__raises_stamina._21.gif"
   },
   {
     "id": "armor_upper_coles_leather_shirtshirt__raises_stamina._22",
@@ -349,7 +349,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_13_ColesRatherShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_coles_leather_shirtshirt__raises_stamina._22.gif"
+    "localImagePath": "images/armor/armor_upper_coles_leather_shirtshirt__raises_stamina._22.gif"
   },
   {
     "id": "armor_gloves_coles_leather_glovesgloves__raises_stamina._23",
@@ -365,7 +365,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_13_ColesRatherGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_coles_leather_glovesgloves__raises_stamina._23.gif"
+    "localImagePath": "images/armor/armor_gloves_coles_leather_glovesgloves__raises_stamina._23.gif"
   },
   {
     "id": "armor_lower_coles_leather_pantspants__raises_stamina._24",
@@ -381,7 +381,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_13_ColesLeatherPants.gif",
-    "localImagePath": "../images/armor/armor_lower_coles_leather_pantspants__raises_stamina._24.gif"
+    "localImagePath": "images/armor/armor_lower_coles_leather_pantspants__raises_stamina._24.gif"
   },
   {
     "id": "armor_shoes_coles_leather_shoesshoes__raises_stamina._25",
@@ -397,7 +397,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_13_ColesRatherShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_coles_leather_shoesshoes__raises_stamina._25.gif"
+    "localImagePath": "images/armor/armor_shoes_coles_leather_shoesshoes__raises_stamina._25.gif"
   },
   {
     "id": "armor_helmet_silk_caphelmet__raises_force_ability._26",
@@ -413,7 +413,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_13_SilkCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_silk_caphelmet__raises_force_ability._26.gif"
+    "localImagePath": "images/armor/armor_helmet_silk_caphelmet__raises_force_ability._26.gif"
   },
   {
     "id": "armor_upper_silk_schmittshirt__raises_force_ability._27",
@@ -429,7 +429,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_13_SilkSchmitt.gif",
-    "localImagePath": "../images/armor/armor_upper_silk_schmittshirt__raises_force_ability._27.gif"
+    "localImagePath": "images/armor/armor_upper_silk_schmittshirt__raises_force_ability._27.gif"
   },
   {
     "id": "armor_gloves_silk_glovesgloves__raises_force_ability._28",
@@ -445,7 +445,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_13_SilkGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_silk_glovesgloves__raises_force_ability._28.gif"
+    "localImagePath": "images/armor/armor_gloves_silk_glovesgloves__raises_force_ability._28.gif"
   },
   {
     "id": "armor_lower_silk_brichzpants__raises_force_ability._29",
@@ -461,7 +461,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_13_SilkBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_silk_brichzpants__raises_force_ability._29.gif"
+    "localImagePath": "images/armor/armor_lower_silk_brichzpants__raises_force_ability._29.gif"
   },
   {
     "id": "armor_shoes_silk_shoesshoes__raises_force_ability._30",
@@ -477,7 +477,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_13_SilkShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_silk_shoesshoes__raises_force_ability._30.gif"
+    "localImagePath": "images/armor/armor_shoes_silk_shoesshoes__raises_force_ability._30.gif"
   },
   {
     "id": "armor_helmet_parshal_circlethelmet__raises_defense_ability._31",
@@ -493,7 +493,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_16_ParshalCirclet.gif",
-    "localImagePath": "../images/armor/armor_helmet_parshal_circlethelmet__raises_defense_ability._31.gif"
+    "localImagePath": "images/armor/armor_helmet_parshal_circlethelmet__raises_defense_ability._31.gif"
   },
   {
     "id": "armor_upper_parshal_jacketshirt__raises_defense_ability._32",
@@ -509,7 +509,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_16_ParshalJacket.gif",
-    "localImagePath": "../images/armor/armor_upper_parshal_jacketshirt__raises_defense_ability._32.gif"
+    "localImagePath": "images/armor/armor_upper_parshal_jacketshirt__raises_defense_ability._32.gif"
   },
   {
     "id": "armor_gloves_parshal_banglesgloves__raises_defense_ability._33",
@@ -525,7 +525,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_16_ParshalBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_parshal_banglesgloves__raises_defense_ability._33.gif"
+    "localImagePath": "images/armor/armor_gloves_parshal_banglesgloves__raises_defense_ability._33.gif"
   },
   {
     "id": "armor_lower_parshal_brichzpants__raises_defense_ability._34",
@@ -541,7 +541,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_16_ParshalBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_parshal_brichzpants__raises_defense_ability._34.gif"
+    "localImagePath": "images/armor/armor_lower_parshal_brichzpants__raises_defense_ability._34.gif"
   },
   {
     "id": "armor_shoes_parshal_galoshshoes__raises_defense_ability._35",
@@ -557,7 +557,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_16_ParshalGalosh.gif",
-    "localImagePath": "../images/armor/armor_shoes_parshal_galoshshoes__raises_defense_ability._35.gif"
+    "localImagePath": "images/armor/armor_shoes_parshal_galoshshoes__raises_defense_ability._35.gif"
   },
   {
     "id": "armor_helmet_tender_leather_caphelmet__raises_stamina._36",
@@ -573,7 +573,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_16_TenderRatherCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_tender_leather_caphelmet__raises_stamina._36.gif"
+    "localImagePath": "images/armor/armor_helmet_tender_leather_caphelmet__raises_stamina._36.gif"
   },
   {
     "id": "armor_upper_tender_leather_shirtshirt__raises_stamina._37",
@@ -589,7 +589,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_16_TenderRatherShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_tender_leather_shirtshirt__raises_stamina._37.gif"
+    "localImagePath": "images/armor/armor_upper_tender_leather_shirtshirt__raises_stamina._37.gif"
   },
   {
     "id": "armor_gloves_tender_leather_glovesgloves__raises_stamina._38",
@@ -605,7 +605,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_16_TenderRatherGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_tender_leather_glovesgloves__raises_stamina._38.gif"
+    "localImagePath": "images/armor/armor_gloves_tender_leather_glovesgloves__raises_stamina._38.gif"
   },
   {
     "id": "armor_lower_tender_leather_pantspants__raises_stamina._39",
@@ -621,7 +621,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_16_TenderRatherPants.gif",
-    "localImagePath": "../images/armor/armor_lower_tender_leather_pantspants__raises_stamina._39.gif"
+    "localImagePath": "images/armor/armor_lower_tender_leather_pantspants__raises_stamina._39.gif"
   },
   {
     "id": "armor_shoes_tender_leather_shoesshoes__raises_stamina._40",
@@ -637,7 +637,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_16_TenderRatherShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_tender_leather_shoesshoes__raises_stamina._40.gif"
+    "localImagePath": "images/armor/armor_shoes_tender_leather_shoesshoes__raises_stamina._40.gif"
   },
   {
     "id": "armor_helmet_hora_silk_caphelmet__raises_force_ability._41",
@@ -653,7 +653,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_16_HoraSilkCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_hora_silk_caphelmet__raises_force_ability._41.gif"
+    "localImagePath": "images/armor/armor_helmet_hora_silk_caphelmet__raises_force_ability._41.gif"
   },
   {
     "id": "armor_upper_hora_silk_schmittshirt__raises_force_ability._42",
@@ -669,7 +669,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_16_HoraSilkSchmitt.gif",
-    "localImagePath": "../images/armor/armor_upper_hora_silk_schmittshirt__raises_force_ability._42.gif"
+    "localImagePath": "images/armor/armor_upper_hora_silk_schmittshirt__raises_force_ability._42.gif"
   },
   {
     "id": "armor_gloves_hora_silk_glovesgloves__raises_force_ability._43",
@@ -685,7 +685,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_16_HoraSilkGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_hora_silk_glovesgloves__raises_force_ability._43.gif"
+    "localImagePath": "images/armor/armor_gloves_hora_silk_glovesgloves__raises_force_ability._43.gif"
   },
   {
     "id": "armor_lower_hora_silk_brichzpants__raises_force_ability._44",
@@ -701,7 +701,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_16_HoraSilkBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_hora_silk_brichzpants__raises_force_ability._44.gif"
+    "localImagePath": "images/armor/armor_lower_hora_silk_brichzpants__raises_force_ability._44.gif"
   },
   {
     "id": "armor_shoes_hora_silk_shoesshoes__raises_force_ability._45",
@@ -717,7 +717,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_16_HoraSilkShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_hora_silk_shoesshoes__raises_force_ability._45.gif"
+    "localImagePath": "images/armor/armor_shoes_hora_silk_shoesshoes__raises_force_ability._45.gif"
   },
   {
     "id": "armor_helmet_light_enamel_circlethelmet__raises_defense_ability._46",
@@ -733,7 +733,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_19_LightEnamelCirclet.gif",
-    "localImagePath": "../images/armor/armor_helmet_light_enamel_circlethelmet__raises_defense_ability._46.gif"
+    "localImagePath": "images/armor/armor_helmet_light_enamel_circlethelmet__raises_defense_ability._46.gif"
   },
   {
     "id": "armor_upper_light_enamel_jacketshirt__raises_defense_ability._47",
@@ -749,7 +749,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_19_LightEnamelJacket.gif",
-    "localImagePath": "../images/armor/armor_upper_light_enamel_jacketshirt__raises_defense_ability._47.gif"
+    "localImagePath": "images/armor/armor_upper_light_enamel_jacketshirt__raises_defense_ability._47.gif"
   },
   {
     "id": "armor_lower_light_enamel_brichzpants__raises_defense_ability._48",
@@ -765,7 +765,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_19_LightEnamelBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_light_enamel_brichzpants__raises_defense_ability._48.gif"
+    "localImagePath": "images/armor/armor_lower_light_enamel_brichzpants__raises_defense_ability._48.gif"
   },
   {
     "id": "armor_gloves_light_enamel_banglegloves__raises_defense_ability._49",
@@ -781,7 +781,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_19_LightEnamelBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_light_enamel_banglegloves__raises_defense_ability._49.gif"
+    "localImagePath": "images/armor/armor_gloves_light_enamel_banglegloves__raises_defense_ability._49.gif"
   },
   {
     "id": "armor_shoes_light_enamel_galoshesshoes__raises_defense_ability._50",
@@ -797,7 +797,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_19_LightEnamelGalosh.gif",
-    "localImagePath": "../images/armor/armor_shoes_light_enamel_galoshesshoes__raises_defense_ability._50.gif"
+    "localImagePath": "images/armor/armor_shoes_light_enamel_galoshesshoes__raises_defense_ability._50.gif"
   },
   {
     "id": "armor_helmet_chip_please_caphelmet__raises_stamina._51",
@@ -813,7 +813,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_19_ChipPleaseGap.gif",
-    "localImagePath": "../images/armor/armor_helmet_chip_please_caphelmet__raises_stamina._51.gif"
+    "localImagePath": "images/armor/armor_helmet_chip_please_caphelmet__raises_stamina._51.gif"
   },
   {
     "id": "armor_upper_chip_please_shirtshirt__raises_stamina._52",
@@ -829,7 +829,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_19_ChipPleaseShirt.gif",
-    "localImagePath": "../images/armor/armor_upper_chip_please_shirtshirt__raises_stamina._52.gif"
+    "localImagePath": "images/armor/armor_upper_chip_please_shirtshirt__raises_stamina._52.gif"
   },
   {
     "id": "armor_gloves_chip_please_glovesgloves__raises_stamina._53",
@@ -845,7 +845,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_19_ChipPleaseGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_chip_please_glovesgloves__raises_stamina._53.gif"
+    "localImagePath": "images/armor/armor_gloves_chip_please_glovesgloves__raises_stamina._53.gif"
   },
   {
     "id": "armor_lower_chip_please_pantspants__raises_stamina._54",
@@ -861,7 +861,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_19_ChipPleasePants.gif",
-    "localImagePath": "../images/armor/armor_lower_chip_please_pantspants__raises_stamina._54.gif"
+    "localImagePath": "images/armor/armor_lower_chip_please_pantspants__raises_stamina._54.gif"
   },
   {
     "id": "armor_shoes_chip_please_shoesshoes__raises_stamina._55",
@@ -877,7 +877,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_19_ChipPleaseShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_chip_please_shoesshoes__raises_stamina._55.gif"
+    "localImagePath": "images/armor/armor_shoes_chip_please_shoesshoes__raises_stamina._55.gif"
   },
   {
     "id": "armor_helmet_supple_leather_caphelmet__raises_force_ability._56",
@@ -893,7 +893,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_19_SuppleLeatherCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_supple_leather_caphelmet__raises_force_ability._56.gif"
+    "localImagePath": "images/armor/armor_helmet_supple_leather_caphelmet__raises_force_ability._56.gif"
   },
   {
     "id": "armor_upper_supple_leather_schmittshirt__raises_force_ability._57",
@@ -909,7 +909,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_19_SuppleLeatherSchmitt.gif",
-    "localImagePath": "../images/armor/armor_upper_supple_leather_schmittshirt__raises_force_ability._57.gif"
+    "localImagePath": "images/armor/armor_upper_supple_leather_schmittshirt__raises_force_ability._57.gif"
   },
   {
     "id": "armor_gloves_supple_leather_glovegloves__raises_force_ability._58",
@@ -925,7 +925,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_19_SuppleLeatherGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_supple_leather_glovegloves__raises_force_ability._58.gif"
+    "localImagePath": "images/armor/armor_gloves_supple_leather_glovegloves__raises_force_ability._58.gif"
   },
   {
     "id": "armor_lower_supple_leather_brichzpants__raises_force_ability._59",
@@ -941,7 +941,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_19_SuppleLeatherBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_supple_leather_brichzpants__raises_force_ability._59.gif"
+    "localImagePath": "images/armor/armor_lower_supple_leather_brichzpants__raises_force_ability._59.gif"
   },
   {
     "id": "armor_shoes_supple_leather_shoesshoes__raises_force_ability._60",
@@ -957,7 +957,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_19_SuppleLeatherShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_supple_leather_shoesshoes__raises_force_ability._60.gif"
+    "localImagePath": "images/armor/armor_shoes_supple_leather_shoesshoes__raises_force_ability._60.gif"
   },
   {
     "id": "armor_helmet_enamel_helmethelmet__raises_defense_ability._61",
@@ -973,7 +973,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_21_EnamelHelmet.gif",
-    "localImagePath": "../images/armor/armor_helmet_enamel_helmethelmet__raises_defense_ability._61.gif"
+    "localImagePath": "images/armor/armor_helmet_enamel_helmethelmet__raises_defense_ability._61.gif"
   },
   {
     "id": "armor_upper_enamel_armorshirt__raises_defense_ability._62",
@@ -989,7 +989,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_21_EnamelArmor.gif",
-    "localImagePath": "../images/armor/armor_upper_enamel_armorshirt__raises_defense_ability._62.gif"
+    "localImagePath": "images/armor/armor_upper_enamel_armorshirt__raises_defense_ability._62.gif"
   },
   {
     "id": "armor_lower_enamel_drawerspants__raises_defense_ability._63",
@@ -1005,7 +1005,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_21_EnamelBrichz.gif",
-    "localImagePath": "../images/armor/armor_lower_enamel_drawerspants__raises_defense_ability._63.gif"
+    "localImagePath": "images/armor/armor_lower_enamel_drawerspants__raises_defense_ability._63.gif"
   },
   {
     "id": "armor_gloves_enamel_bracersgloves__raises_defense_ability._64",
@@ -1021,7 +1021,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_21_EnamelBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_enamel_bracersgloves__raises_defense_ability._64.gif"
+    "localImagePath": "images/armor/armor_gloves_enamel_bracersgloves__raises_defense_ability._64.gif"
   },
   {
     "id": "armor_shoes_enamel_galoshesshoes__raises_defense_ability._65",
@@ -1037,7 +1037,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_21_EnamelGalosh.gif",
-    "localImagePath": "../images/armor/armor_shoes_enamel_galoshesshoes__raises_defense_ability._65.gif"
+    "localImagePath": "images/armor/armor_shoes_enamel_galoshesshoes__raises_defense_ability._65.gif"
   },
   {
     "id": "armor_helmet_hora_caphelmet__raises_stamina._66",
@@ -1053,7 +1053,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_21_HoraCapGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_hora_caphelmet__raises_stamina._66.gif"
+    "localImagePath": "images/armor/armor_helmet_hora_caphelmet__raises_stamina._66.gif"
   },
   {
     "id": "armor_upper_hora_tunicshirt__raises_stamina._67",
@@ -1069,7 +1069,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_21_HoraTunic.gif",
-    "localImagePath": "../images/armor/armor_upper_hora_tunicshirt__raises_stamina._67.gif"
+    "localImagePath": "images/armor/armor_upper_hora_tunicshirt__raises_stamina._67.gif"
   },
   {
     "id": "armor_gloves_hora_banglegloves__raises_stamina._68",
@@ -1085,7 +1085,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_21_HoraBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_hora_banglegloves__raises_stamina._68.gif"
+    "localImagePath": "images/armor/armor_gloves_hora_banglegloves__raises_stamina._68.gif"
   },
   {
     "id": "armor_lower_hora_pantspants__raises_stamina._69",
@@ -1101,7 +1101,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_21_HoraPants.gif",
-    "localImagePath": "../images/armor/armor_lower_hora_pantspants__raises_stamina._69.gif"
+    "localImagePath": "images/armor/armor_lower_hora_pantspants__raises_stamina._69.gif"
   },
   {
     "id": "armor_shoes_hora_bootsshoes__raises_stamina._70",
@@ -1117,7 +1117,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_21_HoraBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_hora_bootsshoes__raises_stamina._70.gif"
+    "localImagePath": "images/armor/armor_shoes_hora_bootsshoes__raises_stamina._70.gif"
   },
   {
     "id": "armor_helmet_studded_leather_caphelmet__raises_force_ability._71",
@@ -1133,7 +1133,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_21_StuddedLeatherCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_studded_leather_caphelmet__raises_force_ability._71.gif"
+    "localImagePath": "images/armor/armor_helmet_studded_leather_caphelmet__raises_force_ability._71.gif"
   },
   {
     "id": "armor_upper_studded_leather_cloakshirt__raises_force_ability._72",
@@ -1149,7 +1149,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_21_StuddedLeatherCloak.gif",
-    "localImagePath": "../images/armor/armor_upper_studded_leather_cloakshirt__raises_force_ability._72.gif"
+    "localImagePath": "images/armor/armor_upper_studded_leather_cloakshirt__raises_force_ability._72.gif"
   },
   {
     "id": "armor_gloves_studded_leather_glovegloves__raises_force_ability._73",
@@ -1165,7 +1165,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_21_StuddedLeatherGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_studded_leather_glovegloves__raises_force_ability._73.gif"
+    "localImagePath": "images/armor/armor_gloves_studded_leather_glovegloves__raises_force_ability._73.gif"
   },
   {
     "id": "armor_lower_studded_leather_drawerspants__raises_force_ability._74",
@@ -1181,7 +1181,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_21_StuddedLeatherDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_studded_leather_drawerspants__raises_force_ability._74.gif"
+    "localImagePath": "images/armor/armor_lower_studded_leather_drawerspants__raises_force_ability._74.gif"
   },
   {
     "id": "armor_shoes_studded_leather_shoesshoes__raises_force_ability._75",
@@ -1197,7 +1197,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_21_StuddedLeatherShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_studded_leather_shoesshoes__raises_force_ability._75.gif"
+    "localImagePath": "images/armor/armor_shoes_studded_leather_shoesshoes__raises_force_ability._75.gif"
   },
   {
     "id": "armor_helmet_rust_duple_helmethelmet__raises_defense_ability._76",
@@ -1213,7 +1213,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_23_RustDupleHelmet.gif",
-    "localImagePath": "../images/armor/armor_helmet_rust_duple_helmethelmet__raises_defense_ability._76.gif"
+    "localImagePath": "images/armor/armor_helmet_rust_duple_helmethelmet__raises_defense_ability._76.gif"
   },
   {
     "id": "armor_upper_rust_duple_armorshirt__raises_defense_ability._77",
@@ -1229,7 +1229,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_23_RustDupleArmor.gif",
-    "localImagePath": "../images/armor/armor_upper_rust_duple_armorshirt__raises_defense_ability._77.gif"
+    "localImagePath": "images/armor/armor_upper_rust_duple_armorshirt__raises_defense_ability._77.gif"
   },
   {
     "id": "armor_lower_rust_duple_drawerspants__raises_defense_ability._78",
@@ -1245,7 +1245,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_23_RustDupleDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_rust_duple_drawerspants__raises_defense_ability._78.gif"
+    "localImagePath": "images/armor/armor_lower_rust_duple_drawerspants__raises_defense_ability._78.gif"
   },
   {
     "id": "armor_gloves_rust_duple_bracersgloves__raises_defense_ability._79",
@@ -1261,7 +1261,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_23_RustDupleBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_rust_duple_bracersgloves__raises_defense_ability._79.gif"
+    "localImagePath": "images/armor/armor_gloves_rust_duple_bracersgloves__raises_defense_ability._79.gif"
   },
   {
     "id": "armor_shoes_rust_duple_foot_gearshoes__raises_defense_ability._80",
@@ -1277,7 +1277,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_23_RustDupleFootGear.gif",
-    "localImagePath": "../images/armor/armor_shoes_rust_duple_foot_gearshoes__raises_defense_ability._80.gif"
+    "localImagePath": "images/armor/armor_shoes_rust_duple_foot_gearshoes__raises_defense_ability._80.gif"
   },
   {
     "id": "armor_helmet_hersk_caphelmet__raises_stamina._81",
@@ -1293,7 +1293,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_23_HerskCapGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_hersk_caphelmet__raises_stamina._81.gif"
+    "localImagePath": "images/armor/armor_helmet_hersk_caphelmet__raises_stamina._81.gif"
   },
   {
     "id": "armor_upper_hersk_tunicshirt__raises_stamina._82",
@@ -1309,7 +1309,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_23_HerskTunic.gif",
-    "localImagePath": "../images/armor/armor_upper_hersk_tunicshirt__raises_stamina._82.gif"
+    "localImagePath": "images/armor/armor_upper_hersk_tunicshirt__raises_stamina._82.gif"
   },
   {
     "id": "armor_gloves_hersk_banglegloves__raises_stamina._83",
@@ -1325,7 +1325,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_23_HerskBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_hersk_banglegloves__raises_stamina._83.gif"
+    "localImagePath": "images/armor/armor_gloves_hersk_banglegloves__raises_stamina._83.gif"
   },
   {
     "id": "armor_lower_hersk_pantspants__raises_stamina._84",
@@ -1341,7 +1341,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_23_HerskPants.gif",
-    "localImagePath": "../images/armor/armor_lower_hersk_pantspants__raises_stamina._84.gif"
+    "localImagePath": "images/armor/armor_lower_hersk_pantspants__raises_stamina._84.gif"
   },
   {
     "id": "armor_shoes_hersk_bootsshoes__raises_stamina._85",
@@ -1357,7 +1357,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_23_HerskBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_hersk_bootsshoes__raises_stamina._85.gif"
+    "localImagePath": "images/armor/armor_shoes_hersk_bootsshoes__raises_stamina._85.gif"
   },
   {
     "id": "armor_helmet_long_sprits_caphelmet__raises_force_ability._86",
@@ -1373,7 +1373,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_23_LongSpritsCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_long_sprits_caphelmet__raises_force_ability._86.gif"
+    "localImagePath": "images/armor/armor_helmet_long_sprits_caphelmet__raises_force_ability._86.gif"
   },
   {
     "id": "armor_upper_long_sprits_cloakshirt__raises_force_ability._87",
@@ -1389,7 +1389,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_23_LongSpritsCloak.gif",
-    "localImagePath": "../images/armor/armor_upper_long_sprits_cloakshirt__raises_force_ability._87.gif"
+    "localImagePath": "images/armor/armor_upper_long_sprits_cloakshirt__raises_force_ability._87.gif"
   },
   {
     "id": "armor_gloves_long_sprits_glovegloves__raises_force_ability._88",
@@ -1405,7 +1405,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_23_LongSpritsGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_long_sprits_glovegloves__raises_force_ability._88.gif"
+    "localImagePath": "images/armor/armor_gloves_long_sprits_glovegloves__raises_force_ability._88.gif"
   },
   {
     "id": "armor_lower_long_sprits_drawerspants__raises_force_ability._89",
@@ -1421,7 +1421,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_23_LongSpritsDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_long_sprits_drawerspants__raises_force_ability._89.gif"
+    "localImagePath": "images/armor/armor_lower_long_sprits_drawerspants__raises_force_ability._89.gif"
   },
   {
     "id": "armor_shoes_long_sprits_shoesshoes__raises_force_ability._90",
@@ -1437,7 +1437,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_23_LongSpritsShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_long_sprits_shoesshoes__raises_force_ability._90.gif"
+    "localImagePath": "images/armor/armor_shoes_long_sprits_shoesshoes__raises_force_ability._90.gif"
   },
   {
     "id": "armor_helmet_duple_helmethelmet__raises_defense_ability._91",
@@ -1453,7 +1453,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_25_DupleHelmet.gif",
-    "localImagePath": "../images/armor/armor_helmet_duple_helmethelmet__raises_defense_ability._91.gif"
+    "localImagePath": "images/armor/armor_helmet_duple_helmethelmet__raises_defense_ability._91.gif"
   },
   {
     "id": "armor_upper_duple_armorshirt__raises_defense_ability._92",
@@ -1469,7 +1469,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_25_DupleArmor.gif",
-    "localImagePath": "../images/armor/armor_upper_duple_armorshirt__raises_defense_ability._92.gif"
+    "localImagePath": "images/armor/armor_upper_duple_armorshirt__raises_defense_ability._92.gif"
   },
   {
     "id": "armor_lower_duple_drawerspants__raises_defense_ability._93",
@@ -1485,7 +1485,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_25_DupleDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_duple_drawerspants__raises_defense_ability._93.gif"
+    "localImagePath": "images/armor/armor_lower_duple_drawerspants__raises_defense_ability._93.gif"
   },
   {
     "id": "armor_gloves_duple_bracersgloves__raises_defense_ability._94",
@@ -1501,7 +1501,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_25_DupleBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_duple_bracersgloves__raises_defense_ability._94.gif"
+    "localImagePath": "images/armor/armor_gloves_duple_bracersgloves__raises_defense_ability._94.gif"
   },
   {
     "id": "armor_shoes_duple_foot_gearshoes__raises_defense_ability._95",
@@ -1517,7 +1517,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_25_DupleFootGear.gif",
-    "localImagePath": "../images/armor/armor_shoes_duple_foot_gearshoes__raises_defense_ability._95.gif"
+    "localImagePath": "images/armor/armor_shoes_duple_foot_gearshoes__raises_defense_ability._95.gif"
   },
   {
     "id": "armor_helmet_hard_hersk_caphelmet__raises_stamina._96",
@@ -1533,7 +1533,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_25_HardHerskCapGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_hard_hersk_caphelmet__raises_stamina._96.gif"
+    "localImagePath": "images/armor/armor_helmet_hard_hersk_caphelmet__raises_stamina._96.gif"
   },
   {
     "id": "armor_upper_hard_hersk_tunicshirt__raises_stamina._97",
@@ -1549,7 +1549,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_25_HardHerskTunic.gif",
-    "localImagePath": "../images/armor/armor_upper_hard_hersk_tunicshirt__raises_stamina._97.gif"
+    "localImagePath": "images/armor/armor_upper_hard_hersk_tunicshirt__raises_stamina._97.gif"
   },
   {
     "id": "armor_gloves_hard_hersk_banglegloves__raises_stamina._98",
@@ -1565,7 +1565,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_25_HardHerskBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_hard_hersk_banglegloves__raises_stamina._98.gif"
+    "localImagePath": "images/armor/armor_gloves_hard_hersk_banglegloves__raises_stamina._98.gif"
   },
   {
     "id": "armor_lower_hard_hersk_pantspants__raises_stamina._99",
@@ -1581,7 +1581,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_25_HardHerskPants.gif",
-    "localImagePath": "../images/armor/armor_lower_hard_hersk_pantspants__raises_stamina._99.gif"
+    "localImagePath": "images/armor/armor_lower_hard_hersk_pantspants__raises_stamina._99.gif"
   },
   {
     "id": "armor_shoes_hard_hersk_bootsshoes__raises_stamina._100",
@@ -1597,7 +1597,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_25_HardHerskBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_hard_hersk_bootsshoes__raises_stamina._100.gif"
+    "localImagePath": "images/armor/armor_shoes_hard_hersk_bootsshoes__raises_stamina._100.gif"
   },
   {
     "id": "armor_helmet_sprits_caphelmet__raises_force_ability._101",
@@ -1613,7 +1613,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_25_SpritsCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_sprits_caphelmet__raises_force_ability._101.gif"
+    "localImagePath": "images/armor/armor_helmet_sprits_caphelmet__raises_force_ability._101.gif"
   },
   {
     "id": "armor_upper_sprits_cloakshirt__raises_force_ability._102",
@@ -1629,7 +1629,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_25_SpritsCloak.gif",
-    "localImagePath": "../images/armor/armor_upper_sprits_cloakshirt__raises_force_ability._102.gif"
+    "localImagePath": "images/armor/armor_upper_sprits_cloakshirt__raises_force_ability._102.gif"
   },
   {
     "id": "armor_gloves_sprits_glovegloves__raises_force_ability._103",
@@ -1645,7 +1645,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_25_SpritsGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_sprits_glovegloves__raises_force_ability._103.gif"
+    "localImagePath": "images/armor/armor_gloves_sprits_glovegloves__raises_force_ability._103.gif"
   },
   {
     "id": "armor_lower_sprits_drawerspants__raises_force_ability._104",
@@ -1661,7 +1661,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_25_SpritsDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_sprits_drawerspants__raises_force_ability._104.gif"
+    "localImagePath": "images/armor/armor_lower_sprits_drawerspants__raises_force_ability._104.gif"
   },
   {
     "id": "armor_shoes_sprits_shoesshoes__raises_force_ability._105",
@@ -1677,7 +1677,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_25_SpritsShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_sprits_shoesshoes__raises_force_ability._105.gif"
+    "localImagePath": "images/armor/armor_shoes_sprits_shoesshoes__raises_force_ability._105.gif"
   },
   {
     "id": "armor_helmet_soul_helmethelmet__raises_defense_ability._106",
@@ -1693,7 +1693,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_27_SoulHelmet.gif",
-    "localImagePath": "../images/armor/armor_helmet_soul_helmethelmet__raises_defense_ability._106.gif"
+    "localImagePath": "images/armor/armor_helmet_soul_helmethelmet__raises_defense_ability._106.gif"
   },
   {
     "id": "armor_upper_soul_armorshirt__raises_defense_ability._107",
@@ -1709,7 +1709,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_27_SoulArmor.gif",
-    "localImagePath": "../images/armor/armor_upper_soul_armorshirt__raises_defense_ability._107.gif"
+    "localImagePath": "images/armor/armor_upper_soul_armorshirt__raises_defense_ability._107.gif"
   },
   {
     "id": "armor_lower_soul_drawerspants__raises_defense_ability._108",
@@ -1725,7 +1725,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_27_SoulDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_soul_drawerspants__raises_defense_ability._108.gif"
+    "localImagePath": "images/armor/armor_lower_soul_drawerspants__raises_defense_ability._108.gif"
   },
   {
     "id": "armor_gloves_soul_bracersgloves__raises_defense_ability._109",
@@ -1741,7 +1741,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_27_SoulBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_soul_bracersgloves__raises_defense_ability._109.gif"
+    "localImagePath": "images/armor/armor_gloves_soul_bracersgloves__raises_defense_ability._109.gif"
   },
   {
     "id": "armor_shoes_soul_foot_gearshoes__raises_defense_ability._110",
@@ -1757,7 +1757,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_27_SoulFootGear.gif",
-    "localImagePath": "../images/armor/armor_shoes_soul_foot_gearshoes__raises_defense_ability._110.gif"
+    "localImagePath": "images/armor/armor_shoes_soul_foot_gearshoes__raises_defense_ability._110.gif"
   },
   {
     "id": "armor_helmet_low_rapid_caphelmet__raises_stamina._111",
@@ -1773,7 +1773,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_27_LowRapidCapGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_low_rapid_caphelmet__raises_stamina._111.gif"
+    "localImagePath": "images/armor/armor_helmet_low_rapid_caphelmet__raises_stamina._111.gif"
   },
   {
     "id": "armor_upper_low_rapid_tunicshirt__raises_stamina._112",
@@ -1789,7 +1789,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_27_LowRapidTunic.gif",
-    "localImagePath": "../images/armor/armor_upper_low_rapid_tunicshirt__raises_stamina._112.gif"
+    "localImagePath": "images/armor/armor_upper_low_rapid_tunicshirt__raises_stamina._112.gif"
   },
   {
     "id": "armor_gloves_low_rapid_banglegloves__raises_stamina._113",
@@ -1805,7 +1805,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_27_LowRapidBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_low_rapid_banglegloves__raises_stamina._113.gif"
+    "localImagePath": "images/armor/armor_gloves_low_rapid_banglegloves__raises_stamina._113.gif"
   },
   {
     "id": "armor_lower_low_rapid_pantspants__raises_stamina._114",
@@ -1821,7 +1821,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_27_LowRapidPants.gif",
-    "localImagePath": "../images/armor/armor_lower_low_rapid_pantspants__raises_stamina._114.gif"
+    "localImagePath": "images/armor/armor_lower_low_rapid_pantspants__raises_stamina._114.gif"
   },
   {
     "id": "armor_shoes_low_rapid_bootsshoes__raises_stamina._115",
@@ -1837,7 +1837,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_27_LowRapidBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_low_rapid_bootsshoes__raises_stamina._115.gif"
+    "localImagePath": "images/armor/armor_shoes_low_rapid_bootsshoes__raises_stamina._115.gif"
   },
   {
     "id": "armor_helmet_wizard_caphelmet__raises_force_ability._116",
@@ -1853,7 +1853,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_27_WizardCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_wizard_caphelmet__raises_force_ability._116.gif"
+    "localImagePath": "images/armor/armor_helmet_wizard_caphelmet__raises_force_ability._116.gif"
   },
   {
     "id": "armor_upper_wizard_cloakshirt__raises_force_ability._117",
@@ -1869,7 +1869,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_27_WizardCloak.gif",
-    "localImagePath": "../images/armor/armor_upper_wizard_cloakshirt__raises_force_ability._117.gif"
+    "localImagePath": "images/armor/armor_upper_wizard_cloakshirt__raises_force_ability._117.gif"
   },
   {
     "id": "armor_gloves_wizard_glovegloves__raises_force_ability._118",
@@ -1885,7 +1885,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_27_WizardGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_wizard_glovegloves__raises_force_ability._118.gif"
+    "localImagePath": "images/armor/armor_gloves_wizard_glovegloves__raises_force_ability._118.gif"
   },
   {
     "id": "armor_lower_wizard_drawerspants__raises_force_ability._119",
@@ -1901,7 +1901,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_27_WizardDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_wizard_drawerspants__raises_force_ability._119.gif"
+    "localImagePath": "images/armor/armor_lower_wizard_drawerspants__raises_force_ability._119.gif"
   },
   {
     "id": "armor_shoes_wizard_shoesshoes__raises_force_ability._120",
@@ -1917,7 +1917,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_27_WizardShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_wizard_shoesshoes__raises_force_ability._120.gif"
+    "localImagePath": "images/armor/armor_shoes_wizard_shoesshoes__raises_force_ability._120.gif"
   },
   {
     "id": "armor_helmet_glim_helmethelmet__raises_defense_ability._121",
@@ -1933,7 +1933,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_29_GlimHelmet.gif",
-    "localImagePath": "../images/armor/armor_helmet_glim_helmethelmet__raises_defense_ability._121.gif"
+    "localImagePath": "images/armor/armor_helmet_glim_helmethelmet__raises_defense_ability._121.gif"
   },
   {
     "id": "armor_upper_glim_armorshirt__raises_defense_ability._122",
@@ -1949,7 +1949,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_29_GlimArmor.gif",
-    "localImagePath": "../images/armor/armor_upper_glim_armorshirt__raises_defense_ability._122.gif"
+    "localImagePath": "images/armor/armor_upper_glim_armorshirt__raises_defense_ability._122.gif"
   },
   {
     "id": "armor_lower_glim_drawerspants__raises_defense_ability._123",
@@ -1965,7 +1965,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_29_GlimDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_glim_drawerspants__raises_defense_ability._123.gif"
+    "localImagePath": "images/armor/armor_lower_glim_drawerspants__raises_defense_ability._123.gif"
   },
   {
     "id": "armor_gloves_glim_bracersgloves__raises_defense_ability._124",
@@ -1981,7 +1981,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_29_GlimBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_glim_bracersgloves__raises_defense_ability._124.gif"
+    "localImagePath": "images/armor/armor_gloves_glim_bracersgloves__raises_defense_ability._124.gif"
   },
   {
     "id": "armor_shoes_glim_foot_gearshoes__raises_defense_ability._125",
@@ -1997,7 +1997,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_29_GlimFootGear.gif",
-    "localImagePath": "../images/armor/armor_shoes_glim_foot_gearshoes__raises_defense_ability._125.gif"
+    "localImagePath": "images/armor/armor_shoes_glim_foot_gearshoes__raises_defense_ability._125.gif"
   },
   {
     "id": "armor_helmet_rapid_caphelmet__raises_stamina._126",
@@ -2013,7 +2013,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_29_RapidCapGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_rapid_caphelmet__raises_stamina._126.gif"
+    "localImagePath": "images/armor/armor_helmet_rapid_caphelmet__raises_stamina._126.gif"
   },
   {
     "id": "armor_upper_rapid_tunicshirt__raises_stamina._127",
@@ -2029,7 +2029,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_29_RapidTunic.gif",
-    "localImagePath": "../images/armor/armor_upper_rapid_tunicshirt__raises_stamina._127.gif"
+    "localImagePath": "images/armor/armor_upper_rapid_tunicshirt__raises_stamina._127.gif"
   },
   {
     "id": "armor_gloves_rapid_banglegloves__raises_stamina._128",
@@ -2045,7 +2045,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_29_RapidBangle.gif",
-    "localImagePath": "../images/armor/armor_gloves_rapid_banglegloves__raises_stamina._128.gif"
+    "localImagePath": "images/armor/armor_gloves_rapid_banglegloves__raises_stamina._128.gif"
   },
   {
     "id": "armor_lower_rapid_pantspants__raises_stamina._129",
@@ -2061,7 +2061,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_29_RapidPants.gif",
-    "localImagePath": "../images/armor/armor_lower_rapid_pantspants__raises_stamina._129.gif"
+    "localImagePath": "images/armor/armor_lower_rapid_pantspants__raises_stamina._129.gif"
   },
   {
     "id": "armor_shoes_rapid_bootsshoes__raises_stamina._130",
@@ -2077,7 +2077,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_29_RapidBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_rapid_bootsshoes__raises_stamina._130.gif"
+    "localImagePath": "images/armor/armor_shoes_rapid_bootsshoes__raises_stamina._130.gif"
   },
   {
     "id": "armor_helmet_mage_caphelmet__raises_force_ability._131",
@@ -2093,7 +2093,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_29_MageCap.gif",
-    "localImagePath": "../images/armor/armor_helmet_mage_caphelmet__raises_force_ability._131.gif"
+    "localImagePath": "images/armor/armor_helmet_mage_caphelmet__raises_force_ability._131.gif"
   },
   {
     "id": "armor_upper_mage_cloakshirt__raises_force_ability._132",
@@ -2109,7 +2109,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_29_MageCloak.gif",
-    "localImagePath": "../images/armor/armor_upper_mage_cloakshirt__raises_force_ability._132.gif"
+    "localImagePath": "images/armor/armor_upper_mage_cloakshirt__raises_force_ability._132.gif"
   },
   {
     "id": "armor_gloves_mage_glovegloves__raises_force_ability._133",
@@ -2125,7 +2125,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_29_MageGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_mage_glovegloves__raises_force_ability._133.gif"
+    "localImagePath": "images/armor/armor_gloves_mage_glovegloves__raises_force_ability._133.gif"
   },
   {
     "id": "armor_lower_mage_drawerspants__raises_force_ability._134",
@@ -2141,7 +2141,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_29_MageDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_mage_drawerspants__raises_force_ability._134.gif"
+    "localImagePath": "images/armor/armor_lower_mage_drawerspants__raises_force_ability._134.gif"
   },
   {
     "id": "armor_shoes_mage_shoesshoes__raises_force_ability._135",
@@ -2157,7 +2157,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_29_MageShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_mage_shoesshoes__raises_force_ability._135.gif"
+    "localImagePath": "images/armor/armor_shoes_mage_shoesshoes__raises_force_ability._135.gif"
   },
   {
     "id": "armor_helmet_soul_render_headgearhelmet__rasies_defense_ability_136",
@@ -2173,7 +2173,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_31_SpleRenderHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_soul_render_headgearhelmet__rasies_defense_ability_136.gif"
+    "localImagePath": "images/armor/armor_helmet_soul_render_headgearhelmet__rasies_defense_ability_136.gif"
   },
   {
     "id": "armor_helmet_rust_spring_headgearhelmet__rasies_stamina_137",
@@ -2189,7 +2189,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_31_RustSpringHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_rust_spring_headgearhelmet__rasies_stamina_137.gif"
+    "localImagePath": "images/armor/armor_helmet_rust_spring_headgearhelmet__rasies_stamina_137.gif"
   },
   {
     "id": "armor_helmet_priest_headtiehelmet__rasies_force_ability_138",
@@ -2205,7 +2205,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_31_PriestHeadTie.gif",
-    "localImagePath": "../images/armor/armor_helmet_priest_headtiehelmet__rasies_force_ability_138.gif"
+    "localImagePath": "images/armor/armor_helmet_priest_headtiehelmet__rasies_force_ability_138.gif"
   },
   {
     "id": "armor_upper_soul_render_mailshirt__raises_defense_ability._139",
@@ -2221,7 +2221,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_31_SpleRenderMail.gif",
-    "localImagePath": "../images/armor/armor_upper_soul_render_mailshirt__raises_defense_ability._139.gif"
+    "localImagePath": "images/armor/armor_upper_soul_render_mailshirt__raises_defense_ability._139.gif"
   },
   {
     "id": "armor_upper_rust_spring_coatshirt__raises_stamina._140",
@@ -2237,7 +2237,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_31_RustSpringCoat.gif",
-    "localImagePath": "../images/armor/armor_upper_rust_spring_coatshirt__raises_stamina._140.gif"
+    "localImagePath": "images/armor/armor_upper_rust_spring_coatshirt__raises_stamina._140.gif"
   },
   {
     "id": "armor_upper_priest_togashirt__raises_force_ability._141",
@@ -2253,7 +2253,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_31_PriestToga.gif",
-    "localImagePath": "../images/armor/armor_upper_priest_togashirt__raises_force_ability._141.gif"
+    "localImagePath": "images/armor/armor_upper_priest_togashirt__raises_force_ability._141.gif"
   },
   {
     "id": "armor_lower_soul_render_slackspants__raises_defense_ability._142",
@@ -2269,7 +2269,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_31_SpleRenderSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_soul_render_slackspants__raises_defense_ability._142.gif"
+    "localImagePath": "images/armor/armor_lower_soul_render_slackspants__raises_defense_ability._142.gif"
   },
   {
     "id": "armor_lower_rust_spring_drawerspants__raise_stamina_143",
@@ -2285,7 +2285,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_31_RustSpringDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_rust_spring_drawerspants__raise_stamina_143.gif"
+    "localImagePath": "images/armor/armor_lower_rust_spring_drawerspants__raise_stamina_143.gif"
   },
   {
     "id": "armor_lower_priest_slackspants__raise_force_ability_144",
@@ -2301,7 +2301,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_31_PriestSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_priest_slackspants__raise_force_ability_144.gif"
+    "localImagePath": "images/armor/armor_lower_priest_slackspants__raise_force_ability_144.gif"
   },
   {
     "id": "armor_gloves_soul_render_armletgloves__raise_defense_ability_145",
@@ -2317,7 +2317,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_31_SpleRenderArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_soul_render_armletgloves__raise_defense_ability_145.gif"
+    "localImagePath": "images/armor/armor_gloves_soul_render_armletgloves__raise_defense_ability_145.gif"
   },
   {
     "id": "armor_gloves_rust_spring_bracersgloves__raise_stamina_146",
@@ -2333,7 +2333,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_31_RustSpringBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_rust_spring_bracersgloves__raise_stamina_146.gif"
+    "localImagePath": "images/armor/armor_gloves_rust_spring_bracersgloves__raise_stamina_146.gif"
   },
   {
     "id": "armor_gloves_priest_mittensgloves__raise_force_ability_147",
@@ -2349,7 +2349,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_31_PriestMitten.gif",
-    "localImagePath": "../images/armor/armor_gloves_priest_mittensgloves__raise_force_ability_147.gif"
+    "localImagePath": "images/armor/armor_gloves_priest_mittensgloves__raise_force_ability_147.gif"
   },
   {
     "id": "armor_shoes_soul_render_bootsshoes__raise_defense_ability_148",
@@ -2365,7 +2365,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_31_SpleRenderBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_soul_render_bootsshoes__raise_defense_ability_148.gif"
+    "localImagePath": "images/armor/armor_shoes_soul_render_bootsshoes__raise_defense_ability_148.gif"
   },
   {
     "id": "armor_shoes_rust_spring_bootsshoes__raise_stamina_149",
@@ -2381,7 +2381,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_31_RustSpringBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_rust_spring_bootsshoes__raise_stamina_149.gif"
+    "localImagePath": "images/armor/armor_shoes_rust_spring_bootsshoes__raise_stamina_149.gif"
   },
   {
     "id": "armor_shoes_priest_bootsshoes__raise_force_ability_150",
@@ -2397,7 +2397,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_31_PriestBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_priest_bootsshoes__raise_force_ability_150.gif"
+    "localImagePath": "images/armor/armor_shoes_priest_bootsshoes__raise_force_ability_150.gif"
   },
   {
     "id": "armor_helmet_bright_headgearhelmet__rasies_defense_ability_151",
@@ -2413,7 +2413,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_33_BrightHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_bright_headgearhelmet__rasies_defense_ability_151.gif"
+    "localImagePath": "images/armor/armor_helmet_bright_headgearhelmet__rasies_defense_ability_151.gif"
   },
   {
     "id": "armor_helmet_spring_headgearhelmet__raises_stamina._152",
@@ -2429,7 +2429,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_33_SpringHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_spring_headgearhelmet__raises_stamina._152.gif"
+    "localImagePath": "images/armor/armor_helmet_spring_headgearhelmet__raises_stamina._152.gif"
   },
   {
     "id": "armor_helmet_mind_headtiehelmet__raises_force_ability._153",
@@ -2445,7 +2445,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_33_MindHeadTie.gif",
-    "localImagePath": "../images/armor/armor_helmet_mind_headtiehelmet__raises_force_ability._153.gif"
+    "localImagePath": "images/armor/armor_helmet_mind_headtiehelmet__raises_force_ability._153.gif"
   },
   {
     "id": "armor_upper_bright_mailshirt__raises_defense_ability._154",
@@ -2461,7 +2461,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_33_BrightMail.gif",
-    "localImagePath": "../images/armor/armor_upper_bright_mailshirt__raises_defense_ability._154.gif"
+    "localImagePath": "images/armor/armor_upper_bright_mailshirt__raises_defense_ability._154.gif"
   },
   {
     "id": "armor_upper_spring_coatshirt__raises_stamina._155",
@@ -2477,7 +2477,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_33_SpringCoat.gif",
-    "localImagePath": "../images/armor/armor_upper_spring_coatshirt__raises_stamina._155.gif"
+    "localImagePath": "images/armor/armor_upper_spring_coatshirt__raises_stamina._155.gif"
   },
   {
     "id": "armor_upper_mind_togashirt__raises_force_ability._156",
@@ -2493,7 +2493,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_33_MindToga.gif",
-    "localImagePath": "../images/armor/armor_upper_mind_togashirt__raises_force_ability._156.gif"
+    "localImagePath": "images/armor/armor_upper_mind_togashirt__raises_force_ability._156.gif"
   },
   {
     "id": "armor_lower_bright_slackspants__raises_defense_ability._157",
@@ -2509,7 +2509,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_33_BrightSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_bright_slackspants__raises_defense_ability._157.gif"
+    "localImagePath": "images/armor/armor_lower_bright_slackspants__raises_defense_ability._157.gif"
   },
   {
     "id": "armor_lower_spring_drawerspants__raise_stamina_158",
@@ -2525,7 +2525,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_33_SpringDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_spring_drawerspants__raise_stamina_158.gif"
+    "localImagePath": "images/armor/armor_lower_spring_drawerspants__raise_stamina_158.gif"
   },
   {
     "id": "armor_lower_mind_slackspants__raise_force_ability_159",
@@ -2541,7 +2541,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_33_MindSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_mind_slackspants__raise_force_ability_159.gif"
+    "localImagePath": "images/armor/armor_lower_mind_slackspants__raise_force_ability_159.gif"
   },
   {
     "id": "armor_gloves_bright_armletgloves__raise_defense_ability_160",
@@ -2557,7 +2557,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_33_BrightArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_bright_armletgloves__raise_defense_ability_160.gif"
+    "localImagePath": "images/armor/armor_gloves_bright_armletgloves__raise_defense_ability_160.gif"
   },
   {
     "id": "armor_gloves_spring_bracersgloves__raise_stamina_161",
@@ -2573,7 +2573,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_33_SpringBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_spring_bracersgloves__raise_stamina_161.gif"
+    "localImagePath": "images/armor/armor_gloves_spring_bracersgloves__raise_stamina_161.gif"
   },
   {
     "id": "armor_gloves_mind_mittensgloves__raise_force_ability_162",
@@ -2589,7 +2589,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_33_MindMitten.gif",
-    "localImagePath": "../images/armor/armor_gloves_mind_mittensgloves__raise_force_ability_162.gif"
+    "localImagePath": "images/armor/armor_gloves_mind_mittensgloves__raise_force_ability_162.gif"
   },
   {
     "id": "armor_shoes_bright_bootsshoes__raise_defense_ability_163",
@@ -2605,7 +2605,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_33_BrightBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_bright_bootsshoes__raise_defense_ability_163.gif"
+    "localImagePath": "images/armor/armor_shoes_bright_bootsshoes__raise_defense_ability_163.gif"
   },
   {
     "id": "armor_shoes_spring_bootsshoes__raise_stamina_164",
@@ -2621,7 +2621,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_33_SpringBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_spring_bootsshoes__raise_stamina_164.gif"
+    "localImagePath": "images/armor/armor_shoes_spring_bootsshoes__raise_stamina_164.gif"
   },
   {
     "id": "armor_shoes_mind_bootsshoes__raise_force_ability_165",
@@ -2637,7 +2637,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_33_MindBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_mind_bootsshoes__raise_force_ability_165.gif"
+    "localImagePath": "images/armor/armor_shoes_mind_bootsshoes__raise_force_ability_165.gif"
   },
   {
     "id": "armor_helmet_normal_siege_headgearhelmet__raises_defense_ability._166",
@@ -2653,7 +2653,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_35_NormalSiegeHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_normal_siege_headgearhelmet__raises_defense_ability._166.gif"
+    "localImagePath": "images/armor/armor_helmet_normal_siege_headgearhelmet__raises_defense_ability._166.gif"
   },
   {
     "id": "armor_helmet_hunter_headgearhelmet__raises_stamina._167",
@@ -2669,7 +2669,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_35_HunterHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_hunter_headgearhelmet__raises_stamina._167.gif"
+    "localImagePath": "images/armor/armor_helmet_hunter_headgearhelmet__raises_stamina._167.gif"
   },
   {
     "id": "armor_helmet_warlock_headtiehelmet__raises_force_ability._168",
@@ -2685,7 +2685,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_35_WarlockHeadTie.gif",
-    "localImagePath": "../images/armor/armor_helmet_warlock_headtiehelmet__raises_force_ability._168.gif"
+    "localImagePath": "images/armor/armor_helmet_warlock_headtiehelmet__raises_force_ability._168.gif"
   },
   {
     "id": "armor_upper_normal_siege_mailshirt__raises_defense_ability._169",
@@ -2701,7 +2701,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_35_NormalSeigeMail.gif",
-    "localImagePath": "../images/armor/armor_upper_normal_siege_mailshirt__raises_defense_ability._169.gif"
+    "localImagePath": "images/armor/armor_upper_normal_siege_mailshirt__raises_defense_ability._169.gif"
   },
   {
     "id": "armor_upper_hunter_coatshirt__raises_stamina._170",
@@ -2717,7 +2717,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_35_HunterCoat.gif",
-    "localImagePath": "../images/armor/armor_upper_hunter_coatshirt__raises_stamina._170.gif"
+    "localImagePath": "images/armor/armor_upper_hunter_coatshirt__raises_stamina._170.gif"
   },
   {
     "id": "armor_upper_warlock_togashirt__raises_force_ability._171",
@@ -2733,7 +2733,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_35_WarlockToga.gif",
-    "localImagePath": "../images/armor/armor_upper_warlock_togashirt__raises_force_ability._171.gif"
+    "localImagePath": "images/armor/armor_upper_warlock_togashirt__raises_force_ability._171.gif"
   },
   {
     "id": "armor_gloves_normal_siege_armletgloves__raises_defense_ability._172",
@@ -2749,7 +2749,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_35_NormalSeigeArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_normal_siege_armletgloves__raises_defense_ability._172.gif"
+    "localImagePath": "images/armor/armor_gloves_normal_siege_armletgloves__raises_defense_ability._172.gif"
   },
   {
     "id": "armor_gloves_hunter_bracersgloves__raises_stamina._173",
@@ -2765,7 +2765,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_35_HunterBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_hunter_bracersgloves__raises_stamina._173.gif"
+    "localImagePath": "images/armor/armor_gloves_hunter_bracersgloves__raises_stamina._173.gif"
   },
   {
     "id": "armor_gloves_warlock_mittensgloves__raises_force_ability._174",
@@ -2781,7 +2781,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_35_WarlockMitten.gif",
-    "localImagePath": "../images/armor/armor_gloves_warlock_mittensgloves__raises_force_ability._174.gif"
+    "localImagePath": "images/armor/armor_gloves_warlock_mittensgloves__raises_force_ability._174.gif"
   },
   {
     "id": "armor_lower_normal_siege_slackspants__raise_defense_ability_175",
@@ -2797,7 +2797,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_35_NormalSeigeSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_normal_siege_slackspants__raise_defense_ability_175.gif"
+    "localImagePath": "images/armor/armor_lower_normal_siege_slackspants__raise_defense_ability_175.gif"
   },
   {
     "id": "armor_lower_hunter_drawerspants__raises_stamina._176",
@@ -2813,7 +2813,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_35_HunterDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_hunter_drawerspants__raises_stamina._176.gif"
+    "localImagePath": "images/armor/armor_lower_hunter_drawerspants__raises_stamina._176.gif"
   },
   {
     "id": "armor_lower_warlock_slackspants__raises_force_ability._177",
@@ -2829,7 +2829,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_35_WarlockSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_warlock_slackspants__raises_force_ability._177.gif"
+    "localImagePath": "images/armor/armor_lower_warlock_slackspants__raises_force_ability._177.gif"
   },
   {
     "id": "armor_shoes_normal_siege_bootsshoes__raises_defense_ability._178",
@@ -2845,7 +2845,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_35_NormalSeigeBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_normal_siege_bootsshoes__raises_defense_ability._178.gif"
+    "localImagePath": "images/armor/armor_shoes_normal_siege_bootsshoes__raises_defense_ability._178.gif"
   },
   {
     "id": "armor_shoes_hunter_bootsshoes__raises_stamina._179",
@@ -2861,7 +2861,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_35_HunterBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_hunter_bootsshoes__raises_stamina._179.gif"
+    "localImagePath": "images/armor/armor_shoes_hunter_bootsshoes__raises_stamina._179.gif"
   },
   {
     "id": "armor_shoes_warlock_bootsshoes__raises_force_ability._180",
@@ -2877,7 +2877,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_35_WarlockBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_warlock_bootsshoes__raises_force_ability._180.gif"
+    "localImagePath": "images/armor/armor_shoes_warlock_bootsshoes__raises_force_ability._180.gif"
   },
   {
     "id": "armor_helmet_siege_headgearhelmet__raises_defense_ability._181",
@@ -2893,7 +2893,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_37_SeigeHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_siege_headgearhelmet__raises_defense_ability._181.gif"
+    "localImagePath": "images/armor/armor_helmet_siege_headgearhelmet__raises_defense_ability._181.gif"
   },
   {
     "id": "armor_helmet_chief_hunter_headgearhelmet__raises_stamina._182",
@@ -2909,7 +2909,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_37_ChiefHunterHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_chief_hunter_headgearhelmet__raises_stamina._182.gif"
+    "localImagePath": "images/armor/armor_helmet_chief_hunter_headgearhelmet__raises_stamina._182.gif"
   },
   {
     "id": "armor_helmet_field_warlock_headtiehelmet__raises_force_ability._183",
@@ -2925,7 +2925,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_37_FieldWarlockHeadTie.gif",
-    "localImagePath": "../images/armor/armor_helmet_field_warlock_headtiehelmet__raises_force_ability._183.gif"
+    "localImagePath": "images/armor/armor_helmet_field_warlock_headtiehelmet__raises_force_ability._183.gif"
   },
   {
     "id": "armor_upper_siege_mailshirt__raises_defense_ability._184",
@@ -2941,7 +2941,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_37_SeigeMail.gif",
-    "localImagePath": "../images/armor/armor_upper_siege_mailshirt__raises_defense_ability._184.gif"
+    "localImagePath": "images/armor/armor_upper_siege_mailshirt__raises_defense_ability._184.gif"
   },
   {
     "id": "armor_upper_chief_hunter_coatshirt__raises_stamina._185",
@@ -2957,7 +2957,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_37_ChiefHunterCoat.gif",
-    "localImagePath": "../images/armor/armor_upper_chief_hunter_coatshirt__raises_stamina._185.gif"
+    "localImagePath": "images/armor/armor_upper_chief_hunter_coatshirt__raises_stamina._185.gif"
   },
   {
     "id": "armor_upper_field_warlock_togashirt__raises_force_ability._186",
@@ -2973,7 +2973,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_37_FieldWarlockToga.gif",
-    "localImagePath": "../images/armor/armor_upper_field_warlock_togashirt__raises_force_ability._186.gif"
+    "localImagePath": "images/armor/armor_upper_field_warlock_togashirt__raises_force_ability._186.gif"
   },
   {
     "id": "armor_gloves_siege_armletgloves__raises_defense_ability._187",
@@ -2989,7 +2989,7 @@
     "class": "WARRRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_37_SeigeArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_siege_armletgloves__raises_defense_ability._187.gif"
+    "localImagePath": "images/armor/armor_gloves_siege_armletgloves__raises_defense_ability._187.gif"
   },
   {
     "id": "armor_gloves_chief_hunter_bracersgloves__raises_stamina._188",
@@ -3005,7 +3005,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_37_ChiefHunterBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_chief_hunter_bracersgloves__raises_stamina._188.gif"
+    "localImagePath": "images/armor/armor_gloves_chief_hunter_bracersgloves__raises_stamina._188.gif"
   },
   {
     "id": "armor_gloves_field_warlock_mittensgloves__raises_force_ability._189",
@@ -3021,7 +3021,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_37_FieldWarlockMitten.gif",
-    "localImagePath": "../images/armor/armor_gloves_field_warlock_mittensgloves__raises_force_ability._189.gif"
+    "localImagePath": "images/armor/armor_gloves_field_warlock_mittensgloves__raises_force_ability._189.gif"
   },
   {
     "id": "armor_lower_siege_slackspants__raise_defense_ability_190",
@@ -3037,7 +3037,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_37_SeigeSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_siege_slackspants__raise_defense_ability_190.gif"
+    "localImagePath": "images/armor/armor_lower_siege_slackspants__raise_defense_ability_190.gif"
   },
   {
     "id": "armor_lower_chief_hunter_drawerspants__raises_stamina._191",
@@ -3053,7 +3053,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_37_ChiefHunterDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_chief_hunter_drawerspants__raises_stamina._191.gif"
+    "localImagePath": "images/armor/armor_lower_chief_hunter_drawerspants__raises_stamina._191.gif"
   },
   {
     "id": "armor_lower_field_warlock_slackspants__raises_force_ability._192",
@@ -3069,7 +3069,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_37_FieldWarlockSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_field_warlock_slackspants__raises_force_ability._192.gif"
+    "localImagePath": "images/armor/armor_lower_field_warlock_slackspants__raises_force_ability._192.gif"
   },
   {
     "id": "armor_shoes_siege_bootsshoes__raises_defense_ability._193",
@@ -3085,7 +3085,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_37_SeigeBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_siege_bootsshoes__raises_defense_ability._193.gif"
+    "localImagePath": "images/armor/armor_shoes_siege_bootsshoes__raises_defense_ability._193.gif"
   },
   {
     "id": "armor_shoes_chief_hunter_bootsshoes__raises_stamina._194",
@@ -3101,7 +3101,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_37_ChiefHunterBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_chief_hunter_bootsshoes__raises_stamina._194.gif"
+    "localImagePath": "images/armor/armor_shoes_chief_hunter_bootsshoes__raises_stamina._194.gif"
   },
   {
     "id": "armor_shoes_field_warlock_bootsshoes__raises_force_ability._195",
@@ -3117,7 +3117,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_37_FieldWarlockBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_field_warlock_bootsshoes__raises_force_ability._195.gif"
+    "localImagePath": "images/armor/armor_shoes_field_warlock_bootsshoes__raises_force_ability._195.gif"
   },
   {
     "id": "armor_helmet_core_headgearhelmet__raises_defense_ability._196",
@@ -3133,7 +3133,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_39_CoreHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_core_headgearhelmet__raises_defense_ability._196.gif"
+    "localImagePath": "images/armor/armor_helmet_core_headgearhelmet__raises_defense_ability._196.gif"
   },
   {
     "id": "armor_helmet_tiny_ell_headgearhelmet__raises_stamina._197",
@@ -3149,7 +3149,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_39_TinyEllHeadGear.gif",
-    "localImagePath": "../images/armor/armor_helmet_tiny_ell_headgearhelmet__raises_stamina._197.gif"
+    "localImagePath": "images/armor/armor_helmet_tiny_ell_headgearhelmet__raises_stamina._197.gif"
   },
   {
     "id": "armor_helmet_battle_headtiehelmet__increases_force_ability_198",
@@ -3165,7 +3165,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_39_BattleHeadTie.gif",
-    "localImagePath": "../images/armor/armor_helmet_battle_headtiehelmet__increases_force_ability_198.gif"
+    "localImagePath": "images/armor/armor_helmet_battle_headtiehelmet__increases_force_ability_198.gif"
   },
   {
     "id": "armor_upper_core_mailshirt__raises_defense_ability._199",
@@ -3181,7 +3181,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_39_CoreMail.gif",
-    "localImagePath": "../images/armor/armor_upper_core_mailshirt__raises_defense_ability._199.gif"
+    "localImagePath": "images/armor/armor_upper_core_mailshirt__raises_defense_ability._199.gif"
   },
   {
     "id": "armor_upper_tiny_ell_coatshirt__raises_stamina._200",
@@ -3197,7 +3197,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_39_TinyEllCoat.gif",
-    "localImagePath": "../images/armor/armor_upper_tiny_ell_coatshirt__raises_stamina._200.gif"
+    "localImagePath": "images/armor/armor_upper_tiny_ell_coatshirt__raises_stamina._200.gif"
   },
   {
     "id": "armor_upper_battle_togashirt__raises_force_ability._201",
@@ -3213,7 +3213,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_39_BattleToga.gif",
-    "localImagePath": "../images/armor/armor_upper_battle_togashirt__raises_force_ability._201.gif"
+    "localImagePath": "images/armor/armor_upper_battle_togashirt__raises_force_ability._201.gif"
   },
   {
     "id": "armor_gloves_core_armletgloves__raises_defense_ability._202",
@@ -3229,7 +3229,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_39_CoreArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_core_armletgloves__raises_defense_ability._202.gif"
+    "localImagePath": "images/armor/armor_gloves_core_armletgloves__raises_defense_ability._202.gif"
   },
   {
     "id": "armor_gloves_tiny_ell_bracersgloves__raises_stamina._203",
@@ -3245,7 +3245,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_39_TinyEllBracelet.gif",
-    "localImagePath": "../images/armor/armor_gloves_tiny_ell_bracersgloves__raises_stamina._203.gif"
+    "localImagePath": "images/armor/armor_gloves_tiny_ell_bracersgloves__raises_stamina._203.gif"
   },
   {
     "id": "armor_gloves_battle_mittensgloves__raises_force_ability._204",
@@ -3261,7 +3261,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_39_BattleMitten.gif",
-    "localImagePath": "../images/armor/armor_gloves_battle_mittensgloves__raises_force_ability._204.gif"
+    "localImagePath": "images/armor/armor_gloves_battle_mittensgloves__raises_force_ability._204.gif"
   },
   {
     "id": "armor_lower_core_slackspants__raise_defense_ability_205",
@@ -3277,7 +3277,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_39_CoreSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_core_slackspants__raise_defense_ability_205.gif"
+    "localImagePath": "images/armor/armor_lower_core_slackspants__raise_defense_ability_205.gif"
   },
   {
     "id": "armor_lower_tiny_ell_drawerspants__raises_stamina._206",
@@ -3293,7 +3293,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_39_TinyEllDrawers.gif",
-    "localImagePath": "../images/armor/armor_lower_tiny_ell_drawerspants__raises_stamina._206.gif"
+    "localImagePath": "images/armor/armor_lower_tiny_ell_drawerspants__raises_stamina._206.gif"
   },
   {
     "id": "armor_lower_battle_slackspants__raises_force_ability._207",
@@ -3309,7 +3309,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_39_BattleSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_battle_slackspants__raises_force_ability._207.gif"
+    "localImagePath": "images/armor/armor_lower_battle_slackspants__raises_force_ability._207.gif"
   },
   {
     "id": "armor_shoes_core_bootsshoes__raises_defense_ability._208",
@@ -3325,7 +3325,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_39_CoreBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_core_bootsshoes__raises_defense_ability._208.gif"
+    "localImagePath": "images/armor/armor_shoes_core_bootsshoes__raises_defense_ability._208.gif"
   },
   {
     "id": "armor_shoes_tiny_ell_bootsshoes__raises_stamina._209",
@@ -3341,7 +3341,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_39_TinyEllBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_tiny_ell_bootsshoes__raises_stamina._209.gif"
+    "localImagePath": "images/armor/armor_shoes_tiny_ell_bootsshoes__raises_stamina._209.gif"
   },
   {
     "id": "armor_shoes_battle_bootsshoes__raises_force_ability._210",
@@ -3357,7 +3357,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_39_BattleBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_battle_bootsshoes__raises_force_ability._210.gif"
+    "localImagePath": "images/armor/armor_shoes_battle_bootsshoes__raises_force_ability._210.gif"
   },
   {
     "id": "armor_helmet_double_core_full_helmhelmet__raises_defense_ability._211",
@@ -3373,7 +3373,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_41_DoubleCoreFullHelm.gif",
-    "localImagePath": "../images/armor/armor_helmet_double_core_full_helmhelmet__raises_defense_ability._211.gif"
+    "localImagePath": "images/armor/armor_helmet_double_core_full_helmhelmet__raises_defense_ability._211.gif"
   },
   {
     "id": "armor_helmet_ell_headgearhelmet__raises_stamina._212",
@@ -3389,7 +3389,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_41_EllHeadGearGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_ell_headgearhelmet__raises_stamina._212.gif"
+    "localImagePath": "images/armor/armor_helmet_ell_headgearhelmet__raises_stamina._212.gif"
   },
   {
     "id": "armor_helmet_bless_amicehelmet__raises_force_ability._213",
@@ -3405,7 +3405,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_41_BlessAmice.gif",
-    "localImagePath": "../images/armor/armor_helmet_bless_amicehelmet__raises_force_ability._213.gif"
+    "localImagePath": "images/armor/armor_helmet_bless_amicehelmet__raises_force_ability._213.gif"
   },
   {
     "id": "armor_upper_double_core_full_placeshirt__raises_defense_ability._214",
@@ -3421,7 +3421,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_41_DoubleCoreFullPlate.gif",
-    "localImagePath": "../images/armor/armor_upper_double_core_full_placeshirt__raises_defense_ability._214.gif"
+    "localImagePath": "images/armor/armor_upper_double_core_full_placeshirt__raises_defense_ability._214.gif"
   },
   {
     "id": "armor_upper_ell_suitshirt__raises_stamina._215",
@@ -3437,7 +3437,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_41_EllSuite.gif",
-    "localImagePath": "../images/armor/armor_upper_ell_suitshirt__raises_stamina._215.gif"
+    "localImagePath": "images/armor/armor_upper_ell_suitshirt__raises_stamina._215.gif"
   },
   {
     "id": "armor_upper_bless_robeshirt__raises_force_ability._216",
@@ -3453,7 +3453,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_41_BlessRobe.gif",
-    "localImagePath": "../images/armor/armor_upper_bless_robeshirt__raises_force_ability._216.gif"
+    "localImagePath": "images/armor/armor_upper_bless_robeshirt__raises_force_ability._216.gif"
   },
   {
     "id": "armor_gloves_double_core_gauntletgloves__raises_defense_ability._217",
@@ -3469,7 +3469,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_41_DoubleCoreGauntlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_double_core_gauntletgloves__raises_defense_ability._217.gif"
+    "localImagePath": "images/armor/armor_gloves_double_core_gauntletgloves__raises_defense_ability._217.gif"
   },
   {
     "id": "armor_gloves_ell_armletgloves__raises_stamina._218",
@@ -3485,7 +3485,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_41_EllArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_ell_armletgloves__raises_stamina._218.gif"
+    "localImagePath": "images/armor/armor_gloves_ell_armletgloves__raises_stamina._218.gif"
   },
   {
     "id": "armor_gloves_bless_glovesgloves__raises_force_ability._219",
@@ -3501,7 +3501,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_41_BlessGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_bless_glovesgloves__raises_force_ability._219.gif"
+    "localImagePath": "images/armor/armor_gloves_bless_glovesgloves__raises_force_ability._219.gif"
   },
   {
     "id": "armor_lower_double_core_trouserspants__raise_defense_ability_220",
@@ -3517,7 +3517,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_41_DoubleCoreTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_double_core_trouserspants__raise_defense_ability_220.gif"
+    "localImagePath": "images/armor/armor_lower_double_core_trouserspants__raise_defense_ability_220.gif"
   },
   {
     "id": "armor_lower_ell_slackspants__raises_stamina._221",
@@ -3533,7 +3533,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_41_EllSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_ell_slackspants__raises_stamina._221.gif"
+    "localImagePath": "images/armor/armor_lower_ell_slackspants__raises_stamina._221.gif"
   },
   {
     "id": "armor_lower_bless_trouserspants__raises_force_ability._222",
@@ -3549,7 +3549,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_41_BlessTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_bless_trouserspants__raises_force_ability._222.gif"
+    "localImagePath": "images/armor/armor_lower_bless_trouserspants__raises_force_ability._222.gif"
   },
   {
     "id": "armor_shoes_double_core_greavesshoes__raises_defense_ability._223",
@@ -3565,7 +3565,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_41_DoubleCoreGreave.gif",
-    "localImagePath": "../images/armor/armor_shoes_double_core_greavesshoes__raises_defense_ability._223.gif"
+    "localImagePath": "images/armor/armor_shoes_double_core_greavesshoes__raises_defense_ability._223.gif"
   },
   {
     "id": "armor_shoes_ell_bootsshoes__raises_stamina._224",
@@ -3581,7 +3581,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_41_EllBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_ell_bootsshoes__raises_stamina._224.gif"
+    "localImagePath": "images/armor/armor_shoes_ell_bootsshoes__raises_stamina._224.gif"
   },
   {
     "id": "armor_shoes_bless_shoesshoes__raises_force_ability._225",
@@ -3597,7 +3597,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_41_BlessShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_bless_shoesshoes__raises_force_ability._225.gif"
+    "localImagePath": "images/armor/armor_shoes_bless_shoesshoes__raises_force_ability._225.gif"
   },
   {
     "id": "armor_helmet_chip_magnetic_full_helmhelmet__raises_defense_ability._226",
@@ -3613,7 +3613,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_43_ChipMagneticFullHelm.gif",
-    "localImagePath": "../images/armor/armor_helmet_chip_magnetic_full_helmhelmet__raises_defense_ability._226.gif"
+    "localImagePath": "images/armor/armor_helmet_chip_magnetic_full_helmhelmet__raises_defense_ability._226.gif"
   },
   {
     "id": "armor_helmet_feather_headgearhelmet__raises_stamina._227",
@@ -3629,7 +3629,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_43_FeatherHeadGearGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_feather_headgearhelmet__raises_stamina._227.gif"
+    "localImagePath": "images/armor/armor_helmet_feather_headgearhelmet__raises_stamina._227.gif"
   },
   {
     "id": "armor_helmet_simple_baal_amicehelmet__raises_force_ability._228",
@@ -3645,7 +3645,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_43_SimpleBaalAmice.gif",
-    "localImagePath": "../images/armor/armor_helmet_simple_baal_amicehelmet__raises_force_ability._228.gif"
+    "localImagePath": "images/armor/armor_helmet_simple_baal_amicehelmet__raises_force_ability._228.gif"
   },
   {
     "id": "armor_upper_chip_magnetic_full_placeshirt__raises_defense_ability._229",
@@ -3661,7 +3661,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_43_ChipMagneticFullPlate.gif",
-    "localImagePath": "../images/armor/armor_upper_chip_magnetic_full_placeshirt__raises_defense_ability._229.gif"
+    "localImagePath": "images/armor/armor_upper_chip_magnetic_full_placeshirt__raises_defense_ability._229.gif"
   },
   {
     "id": "armor_upper_feather_suitshirt__raises_stamina._230",
@@ -3677,7 +3677,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_43_FeatherSuit.gif",
-    "localImagePath": "../images/armor/armor_upper_feather_suitshirt__raises_stamina._230.gif"
+    "localImagePath": "images/armor/armor_upper_feather_suitshirt__raises_stamina._230.gif"
   },
   {
     "id": "armor_upper_simple_baal_robeshirt__raises_force_ability._231",
@@ -3693,7 +3693,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_43_SimpleBaalRobe.gif",
-    "localImagePath": "../images/armor/armor_upper_simple_baal_robeshirt__raises_force_ability._231.gif"
+    "localImagePath": "images/armor/armor_upper_simple_baal_robeshirt__raises_force_ability._231.gif"
   },
   {
     "id": "armor_gloves_chip_magnetic_gauntletgloves__raises_defense_ability._232",
@@ -3709,7 +3709,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_43_ChipMagneticGauntlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_chip_magnetic_gauntletgloves__raises_defense_ability._232.gif"
+    "localImagePath": "images/armor/armor_gloves_chip_magnetic_gauntletgloves__raises_defense_ability._232.gif"
   },
   {
     "id": "armor_gloves_feather_armletgloves__raises_stamina._233",
@@ -3725,7 +3725,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_43_FeatherArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_feather_armletgloves__raises_stamina._233.gif"
+    "localImagePath": "images/armor/armor_gloves_feather_armletgloves__raises_stamina._233.gif"
   },
   {
     "id": "armor_gloves_simple_baal_glovesgloves__raises_force_ability._234",
@@ -3741,7 +3741,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_43_SimpleBaalGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_simple_baal_glovesgloves__raises_force_ability._234.gif"
+    "localImagePath": "images/armor/armor_gloves_simple_baal_glovesgloves__raises_force_ability._234.gif"
   },
   {
     "id": "armor_lower_chip_magnetic_trouserspants__raise_defense_ability_235",
@@ -3757,7 +3757,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_43_ChipMagneticTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_chip_magnetic_trouserspants__raise_defense_ability_235.gif"
+    "localImagePath": "images/armor/armor_lower_chip_magnetic_trouserspants__raise_defense_ability_235.gif"
   },
   {
     "id": "armor_lower_feather_slackspants__raises_stamina._236",
@@ -3773,7 +3773,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_43_FeatherSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_feather_slackspants__raises_stamina._236.gif"
+    "localImagePath": "images/armor/armor_lower_feather_slackspants__raises_stamina._236.gif"
   },
   {
     "id": "armor_lower_simple_baal_trouserspants__raises_force_ability._237",
@@ -3789,7 +3789,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_43_SimpleBaalTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_simple_baal_trouserspants__raises_force_ability._237.gif"
+    "localImagePath": "images/armor/armor_lower_simple_baal_trouserspants__raises_force_ability._237.gif"
   },
   {
     "id": "armor_shoes_chip_magnetic_greavesshoes__raises_defense_ability._238",
@@ -3805,7 +3805,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_43_ChipMagneticGreave.gif",
-    "localImagePath": "../images/armor/armor_shoes_chip_magnetic_greavesshoes__raises_defense_ability._238.gif"
+    "localImagePath": "images/armor/armor_shoes_chip_magnetic_greavesshoes__raises_defense_ability._238.gif"
   },
   {
     "id": "armor_shoes_feather_bootsshoes__raises_stamina._239",
@@ -3821,7 +3821,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_43_FeatherBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_feather_bootsshoes__raises_stamina._239.gif"
+    "localImagePath": "images/armor/armor_shoes_feather_bootsshoes__raises_stamina._239.gif"
   },
   {
     "id": "armor_shoes_simple_baal_shoesshoes__raises_force_ability._240",
@@ -3837,7 +3837,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_43_SimpleBaalShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_simple_baal_shoesshoes__raises_force_ability._240.gif"
+    "localImagePath": "images/armor/armor_shoes_simple_baal_shoesshoes__raises_force_ability._240.gif"
   },
   {
     "id": "armor_helmet_magnetic_full_helmhelmet__raises_defense_ability._241",
@@ -3853,7 +3853,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_45_MagneticFullHelm.gif",
-    "localImagePath": "../images/armor/armor_helmet_magnetic_full_helmhelmet__raises_defense_ability._241.gif"
+    "localImagePath": "images/armor/armor_helmet_magnetic_full_helmhelmet__raises_defense_ability._241.gif"
   },
   {
     "id": "armor_helmet_dragon_feather_headgearhelmet__raises_stamina._242",
@@ -3869,7 +3869,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_45_DragonFeatherHeadGearGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_dragon_feather_headgearhelmet__raises_stamina._242.gif"
+    "localImagePath": "images/armor/armor_helmet_dragon_feather_headgearhelmet__raises_stamina._242.gif"
   },
   {
     "id": "armor_helmet_baal_amicehelmet__raises_force_ability._243",
@@ -3885,7 +3885,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_45_BaalAmice.gif",
-    "localImagePath": "../images/armor/armor_helmet_baal_amicehelmet__raises_force_ability._243.gif"
+    "localImagePath": "images/armor/armor_helmet_baal_amicehelmet__raises_force_ability._243.gif"
   },
   {
     "id": "armor_upper_magnetic_full_plateshirt__raises_defense_ability._244",
@@ -3901,7 +3901,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_45_MagneticFullPlate.gif",
-    "localImagePath": "../images/armor/armor_upper_magnetic_full_plateshirt__raises_defense_ability._244.gif"
+    "localImagePath": "images/armor/armor_upper_magnetic_full_plateshirt__raises_defense_ability._244.gif"
   },
   {
     "id": "armor_upper_dragon_feather_suitshirt__raises_stamina._245",
@@ -3917,7 +3917,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_45_DragonFeatherSuit.gif",
-    "localImagePath": "../images/armor/armor_upper_dragon_feather_suitshirt__raises_stamina._245.gif"
+    "localImagePath": "images/armor/armor_upper_dragon_feather_suitshirt__raises_stamina._245.gif"
   },
   {
     "id": "armor_upper_baal_robeshirt__raises_force_ability._246",
@@ -3933,7 +3933,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_45_BaalRobe.gif",
-    "localImagePath": "../images/armor/armor_upper_baal_robeshirt__raises_force_ability._246.gif"
+    "localImagePath": "images/armor/armor_upper_baal_robeshirt__raises_force_ability._246.gif"
   },
   {
     "id": "armor_gloves_magnetic_gauntletgloves__raises_defense_ability._247",
@@ -3949,7 +3949,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_45_MagneticGauntlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_magnetic_gauntletgloves__raises_defense_ability._247.gif"
+    "localImagePath": "images/armor/armor_gloves_magnetic_gauntletgloves__raises_defense_ability._247.gif"
   },
   {
     "id": "armor_gloves_dragon_feather_armletgloves__raises_stamina._248",
@@ -3965,7 +3965,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_45_DragonFeatherArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_dragon_feather_armletgloves__raises_stamina._248.gif"
+    "localImagePath": "images/armor/armor_gloves_dragon_feather_armletgloves__raises_stamina._248.gif"
   },
   {
     "id": "armor_gloves_baal_glovesgloves__raises_force_ability._249",
@@ -3981,7 +3981,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_45_BaalGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_baal_glovesgloves__raises_force_ability._249.gif"
+    "localImagePath": "images/armor/armor_gloves_baal_glovesgloves__raises_force_ability._249.gif"
   },
   {
     "id": "armor_lower_magnetic_trouserspants__raise_defense_ability_250",
@@ -3997,7 +3997,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_45_MagneticTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_magnetic_trouserspants__raise_defense_ability_250.gif"
+    "localImagePath": "images/armor/armor_lower_magnetic_trouserspants__raise_defense_ability_250.gif"
   },
   {
     "id": "armor_lower_dragon_feather_slackspants__raises_stamina._251",
@@ -4013,7 +4013,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_45_DragonFeatherSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_dragon_feather_slackspants__raises_stamina._251.gif"
+    "localImagePath": "images/armor/armor_lower_dragon_feather_slackspants__raises_stamina._251.gif"
   },
   {
     "id": "armor_lower_baal_trouserspants__raises_force_ability._252",
@@ -4029,7 +4029,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_45_BaalTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_baal_trouserspants__raises_force_ability._252.gif"
+    "localImagePath": "images/armor/armor_lower_baal_trouserspants__raises_force_ability._252.gif"
   },
   {
     "id": "armor_shoes_magnetic_greavesshoes__raises_defense_ability._253",
@@ -4045,7 +4045,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_45_MagneticGreave.gif",
-    "localImagePath": "../images/armor/armor_shoes_magnetic_greavesshoes__raises_defense_ability._253.gif"
+    "localImagePath": "images/armor/armor_shoes_magnetic_greavesshoes__raises_defense_ability._253.gif"
   },
   {
     "id": "armor_shoes_dragon_feather_bootsshoes__raises_stamina._254",
@@ -4061,7 +4061,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_45_DragonFeatherBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_dragon_feather_bootsshoes__raises_stamina._254.gif"
+    "localImagePath": "images/armor/armor_shoes_dragon_feather_bootsshoes__raises_stamina._254.gif"
   },
   {
     "id": "armor_shoes_baal_shoesshoes__raises_force_ability._255",
@@ -4077,7 +4077,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_45_BaalShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_baal_shoesshoes__raises_force_ability._255.gif"
+    "localImagePath": "images/armor/armor_shoes_baal_shoesshoes__raises_force_ability._255.gif"
   },
   {
     "id": "armor_helmet_berserker_full_helmhelmet__raises_defense_ability._256",
@@ -4093,7 +4093,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_47_BerserkerFullHelm.gif",
-    "localImagePath": "../images/armor/armor_helmet_berserker_full_helmhelmet__raises_defense_ability._256.gif"
+    "localImagePath": "images/armor/armor_helmet_berserker_full_helmhelmet__raises_defense_ability._256.gif"
   },
   {
     "id": "armor_helmet_small_hora_headgearhelmet__raises_stamina._257",
@@ -4109,7 +4109,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_47_SmallHoraHeadGearGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_small_hora_headgearhelmet__raises_stamina._257.gif"
+    "localImagePath": "images/armor/armor_helmet_small_hora_headgearhelmet__raises_stamina._257.gif"
   },
   {
     "id": "armor_helmet_noble_amicehelmet__raises_force_ability._258",
@@ -4125,7 +4125,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_47_NobleAmice.gif",
-    "localImagePath": "../images/armor/armor_helmet_noble_amicehelmet__raises_force_ability._258.gif"
+    "localImagePath": "images/armor/armor_helmet_noble_amicehelmet__raises_force_ability._258.gif"
   },
   {
     "id": "armor_upper_berserker_full_plateshirt__raises_defense_ability._259",
@@ -4141,7 +4141,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_47_BerserkerFullPlate.gif",
-    "localImagePath": "../images/armor/armor_upper_berserker_full_plateshirt__raises_defense_ability._259.gif"
+    "localImagePath": "images/armor/armor_upper_berserker_full_plateshirt__raises_defense_ability._259.gif"
   },
   {
     "id": "armor_upper_small_hora_suitshirt__raises_stamina._260",
@@ -4157,7 +4157,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_47_SmallHoraSuit.gif",
-    "localImagePath": "../images/armor/armor_upper_small_hora_suitshirt__raises_stamina._260.gif"
+    "localImagePath": "images/armor/armor_upper_small_hora_suitshirt__raises_stamina._260.gif"
   },
   {
     "id": "armor_upper_noble_robeshirt__raises_force_ability._261",
@@ -4173,7 +4173,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_47_NobleRobe.gif",
-    "localImagePath": "../images/armor/armor_upper_noble_robeshirt__raises_force_ability._261.gif"
+    "localImagePath": "images/armor/armor_upper_noble_robeshirt__raises_force_ability._261.gif"
   },
   {
     "id": "armor_gloves_berserker_gauntletgloves__raises_defense_ability._262",
@@ -4189,7 +4189,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_47_BerserkerGauntlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_berserker_gauntletgloves__raises_defense_ability._262.gif"
+    "localImagePath": "images/armor/armor_gloves_berserker_gauntletgloves__raises_defense_ability._262.gif"
   },
   {
     "id": "armor_gloves_small_hora_armletgloves__raises_stamina._263",
@@ -4205,7 +4205,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_47_SmallHoraArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_small_hora_armletgloves__raises_stamina._263.gif"
+    "localImagePath": "images/armor/armor_gloves_small_hora_armletgloves__raises_stamina._263.gif"
   },
   {
     "id": "armor_gloves_noble_glovesgloves__raises_force_ability._264",
@@ -4221,7 +4221,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_47_NobleGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_noble_glovesgloves__raises_force_ability._264.gif"
+    "localImagePath": "images/armor/armor_gloves_noble_glovesgloves__raises_force_ability._264.gif"
   },
   {
     "id": "armor_lower_berserker_trouserspants__raise_defense_ability_265",
@@ -4237,7 +4237,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_47_BerserkerTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_berserker_trouserspants__raise_defense_ability_265.gif"
+    "localImagePath": "images/armor/armor_lower_berserker_trouserspants__raise_defense_ability_265.gif"
   },
   {
     "id": "armor_lower_small_hora_slackspants__raises_stamina._266",
@@ -4253,7 +4253,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_47_SmallHoraSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_small_hora_slackspants__raises_stamina._266.gif"
+    "localImagePath": "images/armor/armor_lower_small_hora_slackspants__raises_stamina._266.gif"
   },
   {
     "id": "armor_lower_noble_trouserspants__raises_force_ability._267",
@@ -4269,7 +4269,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_47_NobleTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_noble_trouserspants__raises_force_ability._267.gif"
+    "localImagePath": "images/armor/armor_lower_noble_trouserspants__raises_force_ability._267.gif"
   },
   {
     "id": "armor_shoes_berserker_greavesshoes__raises_defense_ability._268",
@@ -4285,7 +4285,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_47_BerserkerGreave.gif",
-    "localImagePath": "../images/armor/armor_shoes_berserker_greavesshoes__raises_defense_ability._268.gif"
+    "localImagePath": "images/armor/armor_shoes_berserker_greavesshoes__raises_defense_ability._268.gif"
   },
   {
     "id": "armor_shoes_small_hora_bootsshoes__raises_stamina._269",
@@ -4301,7 +4301,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_47_SmallHoraBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_small_hora_bootsshoes__raises_stamina._269.gif"
+    "localImagePath": "images/armor/armor_shoes_small_hora_bootsshoes__raises_stamina._269.gif"
   },
   {
     "id": "armor_shoes_noble_shoesshoes__raises_force_ability._270",
@@ -4317,7 +4317,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_47_NobleShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_noble_shoesshoes__raises_force_ability._270.gif"
+    "localImagePath": "images/armor/armor_shoes_noble_shoesshoes__raises_force_ability._270.gif"
   },
   {
     "id": "armor_helmet_golden_full_helmhelmet__raises_defense_ability._271",
@@ -4333,7 +4333,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/helmet/Helm_BW_50_GoldenFullHelm.gif",
-    "localImagePath": "../images/armor/armor_helmet_golden_full_helmhelmet__raises_defense_ability._271.gif"
+    "localImagePath": "images/armor/armor_helmet_golden_full_helmhelmet__raises_defense_ability._271.gif"
   },
   {
     "id": "armor_helmet_engage_headgearhelmet__raises_stamina._272",
@@ -4349,7 +4349,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/helmet/Helm_BR_50_PleaseHeadGearGoggle.gif",
-    "localImagePath": "../images/armor/armor_helmet_engage_headgearhelmet__raises_stamina._272.gif"
+    "localImagePath": "images/armor/armor_helmet_engage_headgearhelmet__raises_stamina._272.gif"
   },
   {
     "id": "armor_helmet_noble_hora_amicehelmet__raises_force_ability._273",
@@ -4365,7 +4365,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/helmet/Helm_BF_50_NobleHoraAmice.gif",
-    "localImagePath": "../images/armor/armor_helmet_noble_hora_amicehelmet__raises_force_ability._273.gif"
+    "localImagePath": "images/armor/armor_helmet_noble_hora_amicehelmet__raises_force_ability._273.gif"
   },
   {
     "id": "armor_upper_golden_full_plateshirt__raises_defense_ability._274",
@@ -4381,7 +4381,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/chest/Upper_BW_50_GoldenFullPlate.gif",
-    "localImagePath": "../images/armor/armor_upper_golden_full_plateshirt__raises_defense_ability._274.gif"
+    "localImagePath": "images/armor/armor_upper_golden_full_plateshirt__raises_defense_ability._274.gif"
   },
   {
     "id": "armor_upper_engage_suitshirt__raises_stamina._275",
@@ -4397,7 +4397,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/chest/Upper_BR_50_PleaseSuit.gif",
-    "localImagePath": "../images/armor/armor_upper_engage_suitshirt__raises_stamina._275.gif"
+    "localImagePath": "images/armor/armor_upper_engage_suitshirt__raises_stamina._275.gif"
   },
   {
     "id": "armor_upper_noble_hora_robeshirt__raises_force_ability._276",
@@ -4413,7 +4413,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/chest/Upper_BF_50_NobleHoraRobe.gif",
-    "localImagePath": "../images/armor/armor_upper_noble_hora_robeshirt__raises_force_ability._276.gif"
+    "localImagePath": "images/armor/armor_upper_noble_hora_robeshirt__raises_force_ability._276.gif"
   },
   {
     "id": "armor_gloves_golden_gauntletgloves__raises_defense_ability._277",
@@ -4429,7 +4429,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/glove/Gauntlet_BW_50_GoldenGauntlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_golden_gauntletgloves__raises_defense_ability._277.gif"
+    "localImagePath": "images/armor/armor_gloves_golden_gauntletgloves__raises_defense_ability._277.gif"
   },
   {
     "id": "armor_gloves_engage_armletgloves__raises_stamina._278",
@@ -4445,7 +4445,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/glove/Gauntlet_BR_50_PleaseArmlet.gif",
-    "localImagePath": "../images/armor/armor_gloves_engage_armletgloves__raises_stamina._278.gif"
+    "localImagePath": "images/armor/armor_gloves_engage_armletgloves__raises_stamina._278.gif"
   },
   {
     "id": "armor_gloves_noble_hora_glovesgloves__raises_force_ability._279",
@@ -4461,7 +4461,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/glove/Gauntlet_BF_50_NobleHoraGlove.gif",
-    "localImagePath": "../images/armor/armor_gloves_noble_hora_glovesgloves__raises_force_ability._279.gif"
+    "localImagePath": "images/armor/armor_gloves_noble_hora_glovesgloves__raises_force_ability._279.gif"
   },
   {
     "id": "armor_lower_golden_trouserspants__raise_defense_ability_280",
@@ -4477,7 +4477,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/legs/Lower_BW_50_GoldenTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_golden_trouserspants__raise_defense_ability_280.gif"
+    "localImagePath": "images/armor/armor_lower_golden_trouserspants__raise_defense_ability_280.gif"
   },
   {
     "id": "armor_lower_engage_slackspants__raises_stamina._281",
@@ -4493,7 +4493,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/legs/Lower_BR_50_PleaseSlacks.gif",
-    "localImagePath": "../images/armor/armor_lower_engage_slackspants__raises_stamina._281.gif"
+    "localImagePath": "images/armor/armor_lower_engage_slackspants__raises_stamina._281.gif"
   },
   {
     "id": "armor_lower_noble_hora_trouserspants__raises_force_ability._282",
@@ -4509,7 +4509,7 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/legs/Lower_BF_50_NobleHoraTrouser.gif",
-    "localImagePath": "../images/armor/armor_lower_noble_hora_trouserspants__raises_force_ability._282.gif"
+    "localImagePath": "images/armor/armor_lower_noble_hora_trouserspants__raises_force_ability._282.gif"
   },
   {
     "id": "armor_shoes_golden_greavesshoes__raises_defense_ability._283",
@@ -4525,7 +4525,7 @@
     "class": "WARRIOR",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_warrior/boot/Shoe_BW_50_GoldenGreave.gif",
-    "localImagePath": "../images/armor/armor_shoes_golden_greavesshoes__raises_defense_ability._283.gif"
+    "localImagePath": "images/armor/armor_shoes_golden_greavesshoes__raises_defense_ability._283.gif"
   },
   {
     "id": "armor_shoes_engage_bootsshoes__raises_stamina._284",
@@ -4541,7 +4541,7 @@
     "class": "RANGER",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_ranger/boot/Shoe_BR_50_PleaseBoots.gif",
-    "localImagePath": "../images/armor/armor_shoes_engage_bootsshoes__raises_stamina._284.gif"
+    "localImagePath": "images/armor/armor_shoes_engage_bootsshoes__raises_stamina._284.gif"
   },
   {
     "id": "armor_shoes_noble_hora_shoesshoes__raises_force_ability._285",
@@ -4557,6 +4557,6 @@
     "class": "FORCE",
     "trainingCap": "",
     "imageUrl": "images/armor_bellato_force/boot/Shoe_BF_50_NobleHoraShoes.gif",
-    "localImagePath": "../images/armor/armor_shoes_noble_hora_shoesshoes__raises_force_ability._285.gif"
+    "localImagePath": "images/armor/armor_shoes_noble_hora_shoesshoes__raises_force_ability._285.gif"
   }
 ]

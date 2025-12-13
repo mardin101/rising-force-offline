@@ -14,7 +14,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Dagger.gif",
-    "localImagePath": "../images/weapons/weapon_1.gif"
+    "localImagePath": "images/weapons/weapon_1.gif"
   },
   {
     "id": "weapon_2",
@@ -31,7 +31,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Hanger.gif",
-    "localImagePath": "../images/weapons/weapon_2.gif"
+    "localImagePath": "images/weapons/weapon_2.gif"
   },
   {
     "id": "weapon_3",
@@ -48,7 +48,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Kukri.gif",
-    "localImagePath": "../images/weapons/weapon_3.gif"
+    "localImagePath": "images/weapons/weapon_3.gif"
   },
   {
     "id": "weapon_4",
@@ -65,7 +65,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_StickKnife.gif",
-    "localImagePath": "../images/weapons/weapon_4.gif"
+    "localImagePath": "images/weapons/weapon_4.gif"
   },
   {
     "id": "weapon_5",
@@ -82,7 +82,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Blade.gif",
-    "localImagePath": "../images/weapons/weapon_5.gif"
+    "localImagePath": "images/weapons/weapon_5.gif"
   },
   {
     "id": "weapon_6",
@@ -99,7 +99,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Saber.gif",
-    "localImagePath": "../images/weapons/weapon_6.gif"
+    "localImagePath": "images/weapons/weapon_6.gif"
   },
   {
     "id": "weapon_7",
@@ -116,7 +116,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Shamshire.gif",
-    "localImagePath": "../images/weapons/weapon_7.gif"
+    "localImagePath": "images/weapons/weapon_7.gif"
   },
   {
     "id": "weapon_8",
@@ -133,7 +133,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_HuntingKnife.gif",
-    "localImagePath": "../images/weapons/weapon_8.gif"
+    "localImagePath": "images/weapons/weapon_8.gif"
   },
   {
     "id": "weapon_9",
@@ -150,7 +150,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_SosunPatta.gif",
-    "localImagePath": "../images/weapons/weapon_9.gif"
+    "localImagePath": "images/weapons/weapon_9.gif"
   },
   {
     "id": "weapon_10",
@@ -167,7 +167,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Falchion.gif",
-    "localImagePath": "../images/weapons/weapon_10.gif"
+    "localImagePath": "images/weapons/weapon_10.gif"
   },
   {
     "id": "weapon_11",
@@ -184,7 +184,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Katana.gif",
-    "localImagePath": "../images/weapons/weapon_11.gif"
+    "localImagePath": "images/weapons/weapon_11.gif"
   },
   {
     "id": "weapon_12",
@@ -201,7 +201,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_Shotel.gif",
-    "localImagePath": "../images/weapons/weapon_12.gif"
+    "localImagePath": "images/weapons/weapon_12.gif"
   },
   {
     "id": "weapon_13",
@@ -218,7 +218,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_DefenderSaber.gif",
-    "localImagePath": "../images/weapons/weapon_13.gif"
+    "localImagePath": "images/weapons/weapon_13.gif"
   },
   {
     "id": "weapon_14",
@@ -235,7 +235,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_BeamSaber.gif",
-    "localImagePath": "../images/weapons/weapon_14.gif"
+    "localImagePath": "images/weapons/weapon_14.gif"
   },
   {
     "id": "weapon_15",
@@ -252,7 +252,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_BoneKnife.gif",
-    "localImagePath": "../images/weapons/weapon_15.gif"
+    "localImagePath": "images/weapons/weapon_15.gif"
   },
   {
     "id": "weapon_16",
@@ -269,7 +269,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_GunBlade.gif",
-    "localImagePath": "../images/weapons/weapon_16.gif"
+    "localImagePath": "images/weapons/weapon_16.gif"
   },
   {
     "id": "weapon_17",
@@ -286,7 +286,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_SickleKnife.gif",
-    "localImagePath": "../images/weapons/weapon_17.gif"
+    "localImagePath": "images/weapons/weapon_17.gif"
   },
   {
     "id": "weapon_18",
@@ -303,7 +303,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_knife/Knife_HoraKnife.gif",
-    "localImagePath": "../images/weapons/weapon_18.gif"
+    "localImagePath": "images/weapons/weapon_18.gif"
   },
   {
     "id": "weapon_23",
@@ -320,7 +320,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Sword.gif",
-    "localImagePath": "../images/weapons/weapon_23.gif"
+    "localImagePath": "images/weapons/weapon_23.gif"
   },
   {
     "id": "weapon_24",
@@ -337,7 +337,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_NovaSword.gif",
-    "localImagePath": "../images/weapons/weapon_24.gif"
+    "localImagePath": "images/weapons/weapon_24.gif"
   },
   {
     "id": "weapon_25",
@@ -354,7 +354,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_LongSword.gif",
-    "localImagePath": "../images/weapons/weapon_25.gif"
+    "localImagePath": "images/weapons/weapon_25.gif"
   },
   {
     "id": "weapon_26",
@@ -371,7 +371,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_SwordBreaker.gif",
-    "localImagePath": "../images/weapons/weapon_26.gif"
+    "localImagePath": "images/weapons/weapon_26.gif"
   },
   {
     "id": "weapon_27",
@@ -388,7 +388,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Katzbalger.gif",
-    "localImagePath": "../images/weapons/weapon_27.gif"
+    "localImagePath": "images/weapons/weapon_27.gif"
   },
   {
     "id": "weapon_28",
@@ -405,7 +405,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_BroadSword.gif",
-    "localImagePath": "../images/weapons/weapon_28.gif"
+    "localImagePath": "images/weapons/weapon_28.gif"
   },
   {
     "id": "weapon_29",
@@ -422,7 +422,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_ValkyrieSword.gif",
-    "localImagePath": "../images/weapons/weapon_29.gif"
+    "localImagePath": "images/weapons/weapon_29.gif"
   },
   {
     "id": "weapon_30",
@@ -439,7 +439,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_ButcherSword.gif",
-    "localImagePath": "../images/weapons/weapon_30.gif"
+    "localImagePath": "images/weapons/weapon_30.gif"
   },
   {
     "id": "weapon_31",
@@ -456,7 +456,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_TwoHandSword.gif",
-    "localImagePath": "../images/weapons/weapon_31.gif"
+    "localImagePath": "images/weapons/weapon_31.gif"
   },
   {
     "id": "weapon_32",
@@ -473,7 +473,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Zweihander.gif",
-    "localImagePath": "../images/weapons/weapon_32.gif"
+    "localImagePath": "images/weapons/weapon_32.gif"
   },
   {
     "id": "weapon_33",
@@ -490,7 +490,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_BastardSword.gif",
-    "localImagePath": "../images/weapons/weapon_33.gif"
+    "localImagePath": "images/weapons/weapon_33.gif"
   },
   {
     "id": "weapon_34",
@@ -507,7 +507,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Claymore.gif",
-    "localImagePath": "../images/weapons/weapon_34.gif"
+    "localImagePath": "images/weapons/weapon_34.gif"
   },
   {
     "id": "weapon_35",
@@ -524,7 +524,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_BigSwordBreaker.gif",
-    "localImagePath": "../images/weapons/weapon_35.gif"
+    "localImagePath": "images/weapons/weapon_35.gif"
   },
   {
     "id": "weapon_36",
@@ -541,7 +541,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_BeamSword.gif",
-    "localImagePath": "../images/weapons/weapon_36.gif"
+    "localImagePath": "images/weapons/weapon_36.gif"
   },
   {
     "id": "weapon_37",
@@ -558,7 +558,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_ScaleSword.gif",
-    "localImagePath": "../images/weapons/weapon_37.gif"
+    "localImagePath": "images/weapons/weapon_37.gif"
   },
   {
     "id": "weapon_38",
@@ -575,7 +575,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Estoc.gif",
-    "localImagePath": "../images/weapons/weapon_38.gif"
+    "localImagePath": "images/weapons/weapon_38.gif"
   },
   {
     "id": "weapon_39",
@@ -592,7 +592,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_Spadona.gif",
-    "localImagePath": "../images/weapons/weapon_39.gif"
+    "localImagePath": "images/weapons/weapon_39.gif"
   },
   {
     "id": "weapon_40",
@@ -609,7 +609,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_sword/Sword_HoraSword.gif",
-    "localImagePath": "../images/weapons/weapon_40.gif"
+    "localImagePath": "images/weapons/weapon_40.gif"
   },
   {
     "id": "weapon_41",
@@ -626,7 +626,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_HandAxe.gif",
-    "localImagePath": "../images/weapons/weapon_41.gif"
+    "localImagePath": "images/weapons/weapon_41.gif"
   },
   {
     "id": "weapon_42",
@@ -643,7 +643,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_BroadAxe.gif",
-    "localImagePath": "../images/weapons/weapon_42.gif"
+    "localImagePath": "images/weapons/weapon_42.gif"
   },
   {
     "id": "weapon_43",
@@ -660,7 +660,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_TwinAxe.gif",
-    "localImagePath": "../images/weapons/weapon_43.gif"
+    "localImagePath": "images/weapons/weapon_43.gif"
   },
   {
     "id": "weapon_44",
@@ -677,7 +677,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_GreatAxe.gif",
-    "localImagePath": "../images/weapons/weapon_44.gif"
+    "localImagePath": "images/weapons/weapon_44.gif"
   },
   {
     "id": "weapon_46",
@@ -694,7 +694,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_TwinGreatAxe.gif",
-    "localImagePath": "../images/weapons/weapon_46.gif"
+    "localImagePath": "images/weapons/weapon_46.gif"
   },
   {
     "id": "weapon_47",
@@ -711,7 +711,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_ButcherAxe.gif",
-    "localImagePath": "../images/weapons/weapon_47.gif"
+    "localImagePath": "images/weapons/weapon_47.gif"
   },
   {
     "id": "weapon_48",
@@ -728,7 +728,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_PoleAxe.gif",
-    "localImagePath": "../images/weapons/weapon_48.gif"
+    "localImagePath": "images/weapons/weapon_48.gif"
   },
   {
     "id": "weapon_49",
@@ -745,7 +745,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_Kraika.gif",
-    "localImagePath": "../images/weapons/weapon_49.gif"
+    "localImagePath": "images/weapons/weapon_49.gif"
   },
   {
     "id": "weapon_50",
@@ -762,7 +762,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_BeamAxe.gif",
-    "localImagePath": "../images/weapons/weapon_50.gif"
+    "localImagePath": "images/weapons/weapon_50.gif"
   },
   {
     "id": "weapon_51",
@@ -779,7 +779,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_TwinBeamAxe.gif",
-    "localImagePath": "../images/weapons/weapon_51.gif"
+    "localImagePath": "images/weapons/weapon_51.gif"
   },
   {
     "id": "weapon_52",
@@ -796,7 +796,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_TwoHandBeamAxe.gif",
-    "localImagePath": "../images/weapons/weapon_52.gif"
+    "localImagePath": "images/weapons/weapon_52.gif"
   },
   {
     "id": "weapon_53",
@@ -813,7 +813,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_DoubleAxe.gif",
-    "localImagePath": "../images/weapons/weapon_53.gif"
+    "localImagePath": "images/weapons/weapon_53.gif"
   },
   {
     "id": "weapon_54",
@@ -830,7 +830,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_BattleAxe.gif",
-    "localImagePath": "../images/weapons/weapon_54.gif"
+    "localImagePath": "images/weapons/weapon_54.gif"
   },
   {
     "id": "weapon_55",
@@ -847,7 +847,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_BattleBeamAxe.gif",
-    "localImagePath": "../images/weapons/weapon_55.gif"
+    "localImagePath": "images/weapons/weapon_55.gif"
   },
   {
     "id": "weapon_56",
@@ -864,7 +864,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_GreatBeamAxe.gif",
-    "localImagePath": "../images/weapons/weapon_56.gif"
+    "localImagePath": "images/weapons/weapon_56.gif"
   },
   {
     "id": "weapon_57",
@@ -881,7 +881,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_Bullova.gif",
-    "localImagePath": "../images/weapons/weapon_57.gif"
+    "localImagePath": "images/weapons/weapon_57.gif"
   },
   {
     "id": "weapon_58",
@@ -898,7 +898,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_TowerAxe.gif",
-    "localImagePath": "../images/weapons/weapon_58.gif"
+    "localImagePath": "images/weapons/weapon_58.gif"
   },
   {
     "id": "weapon_59",
@@ -915,7 +915,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_axe/Axe_HoraAxe.gif",
-    "localImagePath": "../images/weapons/weapon_59.gif"
+    "localImagePath": "images/weapons/weapon_59.gif"
   },
   {
     "id": "weapon_60",
@@ -932,7 +932,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Club.gif",
-    "localImagePath": "../images/weapons/weapon_60.gif"
+    "localImagePath": "images/weapons/weapon_60.gif"
   },
   {
     "id": "weapon_61",
@@ -949,7 +949,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_SmallHammer.gif",
-    "localImagePath": "../images/weapons/weapon_61.gif"
+    "localImagePath": "images/weapons/weapon_61.gif"
   },
   {
     "id": "weapon_62",
@@ -966,7 +966,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Mace.gif",
-    "localImagePath": "../images/weapons/weapon_62.gif"
+    "localImagePath": "images/weapons/weapon_62.gif"
   },
   {
     "id": "weapon_63",
@@ -983,7 +983,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Hammer.gif",
-    "localImagePath": "../images/weapons/weapon_63.gif"
+    "localImagePath": "images/weapons/weapon_63.gif"
   },
   {
     "id": "weapon_64",
@@ -1000,7 +1000,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_SpikedClub.gif",
-    "localImagePath": "../images/weapons/weapon_64.gif"
+    "localImagePath": "images/weapons/weapon_64.gif"
   },
   {
     "id": "weapon_65",
@@ -1017,7 +1017,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Frenge.gif",
-    "localImagePath": "../images/weapons/weapon_65.gif"
+    "localImagePath": "images/weapons/weapon_65.gif"
   },
   {
     "id": "weapon_66",
@@ -1034,7 +1034,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_SlaughterPiker.gif",
-    "localImagePath": "../images/weapons/weapon_66.gif"
+    "localImagePath": "images/weapons/weapon_66.gif"
   },
   {
     "id": "weapon_67",
@@ -1051,7 +1051,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Gurz.gif",
-    "localImagePath": "../images/weapons/weapon_67.gif"
+    "localImagePath": "images/weapons/weapon_67.gif"
   },
   {
     "id": "weapon_68",
@@ -1068,7 +1068,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_Blackjack.gif",
-    "localImagePath": "../images/weapons/weapon_68.gif"
+    "localImagePath": "images/weapons/weapon_68.gif"
   },
   {
     "id": "weapon_69",
@@ -1085,7 +1085,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_BeamMace.gif",
-    "localImagePath": "../images/weapons/weapon_69.gif"
+    "localImagePath": "images/weapons/weapon_69.gif"
   },
   {
     "id": "weapon_70",
@@ -1102,7 +1102,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_WarPiker.gif",
-    "localImagePath": "../images/weapons/weapon_70.gif"
+    "localImagePath": "images/weapons/weapon_70.gif"
   },
   {
     "id": "weapon_71",
@@ -1119,7 +1119,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_WarHammer.gif",
-    "localImagePath": "../images/weapons/weapon_71.gif"
+    "localImagePath": "images/weapons/weapon_71.gif"
   },
   {
     "id": "weapon_72",
@@ -1136,7 +1136,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_IronHammer.gif",
-    "localImagePath": "../images/weapons/weapon_72.gif"
+    "localImagePath": "images/weapons/weapon_72.gif"
   },
   {
     "id": "weapon_73",
@@ -1153,7 +1153,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_BeamHammer.gif",
-    "localImagePath": "../images/weapons/weapon_73.gif"
+    "localImagePath": "images/weapons/weapon_73.gif"
   },
   {
     "id": "weapon_74",
@@ -1170,7 +1170,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_GreatMaul.gif",
-    "localImagePath": "../images/weapons/weapon_74.gif"
+    "localImagePath": "images/weapons/weapon_74.gif"
   },
   {
     "id": "weapon_75",
@@ -1187,7 +1187,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_BeamGreatHammer.gif",
-    "localImagePath": "../images/weapons/weapon_75.gif"
+    "localImagePath": "images/weapons/weapon_75.gif"
   },
   {
     "id": "weapon_76",
@@ -1204,7 +1204,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_BeamGreatMaul.gif",
-    "localImagePath": "../images/weapons/weapon_76.gif"
+    "localImagePath": "images/weapons/weapon_76.gif"
   },
   {
     "id": "weapon_77",
@@ -1221,7 +1221,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_mace/Mace_HoraHammer.gif",
-    "localImagePath": "../images/weapons/weapon_77.gif"
+    "localImagePath": "images/weapons/weapon_77.gif"
   },
   {
     "id": "weapon_78",
@@ -1238,7 +1238,7 @@
       "force": "12 - 18"
     },
     "imageUrl": "images/weapon_staff/Staff_ShortStaff.gif",
-    "localImagePath": "../images/weapons/weapon_78.gif"
+    "localImagePath": "images/weapons/weapon_78.gif"
   },
   {
     "id": "weapon_79",
@@ -1255,7 +1255,7 @@
       "force": "12 - 18"
     },
     "imageUrl": "images/weapon_staff/Staff_LongStaff.gif",
-    "localImagePath": "../images/weapons/weapon_79.gif"
+    "localImagePath": "images/weapons/weapon_79.gif"
   },
   {
     "id": "weapon_80",
@@ -1272,7 +1272,7 @@
       "force": "20 - 30"
     },
     "imageUrl": "images/weapon_staff/Staff_Wand.gif",
-    "localImagePath": "../images/weapons/weapon_80.gif"
+    "localImagePath": "images/weapons/weapon_80.gif"
   },
   {
     "id": "weapon_81",
@@ -1289,7 +1289,7 @@
       "force": "29 - 43"
     },
     "imageUrl": "images/weapon_staff/Staff_Bead.gif",
-    "localImagePath": "../images/weapons/weapon_81.gif"
+    "localImagePath": "images/weapons/weapon_81.gif"
   },
   {
     "id": "weapon_82",
@@ -1306,7 +1306,7 @@
       "force": "41 - 61"
     },
     "imageUrl": "images/weapon_staff/Staff_StickBead.gif",
-    "localImagePath": "../images/weapons/weapon_82.gif"
+    "localImagePath": "images/weapons/weapon_82.gif"
   },
   {
     "id": "weapon_83",
@@ -1323,7 +1323,7 @@
       "force": "65 - 97"
     },
     "imageUrl": "images/weapon_staff/Staff_BattleStaff.gif",
-    "localImagePath": "../images/weapons/weapon_83.gif"
+    "localImagePath": "images/weapons/weapon_83.gif"
   },
   {
     "id": "weapon_84",
@@ -1340,7 +1340,7 @@
       "force": "85 - 127"
     },
     "imageUrl": "images/weapon_staff/Staff_RedWand.gif",
-    "localImagePath": "../images/weapons/weapon_84.gif"
+    "localImagePath": "images/weapons/weapon_84.gif"
   },
   {
     "id": "weapon_85",
@@ -1357,7 +1357,7 @@
       "force": "121 - 181"
     },
     "imageUrl": "images/weapon_staff/Staff_WarStaff.gif",
-    "localImagePath": "../images/weapons/weapon_85.gif"
+    "localImagePath": "images/weapons/weapon_85.gif"
   },
   {
     "id": "weapon_86",
@@ -1374,7 +1374,7 @@
       "force": "164 - 264"
     },
     "imageUrl": "images/weapon_staff/Staff_WarWand.gif",
-    "localImagePath": "../images/weapons/weapon_86.gif"
+    "localImagePath": "images/weapons/weapon_86.gif"
   },
   {
     "id": "weapon_87",
@@ -1391,7 +1391,7 @@
       "force": "197 - 295"
     },
     "imageUrl": "images/weapon_staff/Staff_RedBead.gif",
-    "localImagePath": "../images/weapons/weapon_87.gif"
+    "localImagePath": "images/weapons/weapon_87.gif"
   },
   {
     "id": "weapon_88",
@@ -1408,7 +1408,7 @@
       "force": "233 - 349"
     },
     "imageUrl": "images/weapon_staff/Staff_BlackWand.gif",
-    "localImagePath": "../images/weapons/weapon_88.gif"
+    "localImagePath": "images/weapons/weapon_88.gif"
   },
   {
     "id": "weapon_89",
@@ -1425,7 +1425,7 @@
       "force": "293 - 439"
     },
     "imageUrl": "images/weapon_staff/Staff_FieldStaff.gif",
-    "localImagePath": "../images/weapons/weapon_89.gif"
+    "localImagePath": "images/weapons/weapon_89.gif"
   },
   {
     "id": "weapon_90",
@@ -1442,7 +1442,7 @@
       "force": "360 - 540"
     },
     "imageUrl": "images/weapon_staff/Staff_BeamBead.gif",
-    "localImagePath": "../images/weapons/weapon_90.gif"
+    "localImagePath": "images/weapons/weapon_90.gif"
   },
   {
     "id": "weapon_91",
@@ -1459,7 +1459,7 @@
       "force": "410 - 616"
     },
     "imageUrl": "images/weapon_staff/Staff_DualWand.gif",
-    "localImagePath": "../images/weapons/weapon_91.gif"
+    "localImagePath": "images/weapons/weapon_91.gif"
   },
   {
     "id": "weapon_92",
@@ -1476,7 +1476,7 @@
       "force": "550 - 826"
     },
     "imageUrl": "images/weapon_staff/Staff_BlueWand.gif",
-    "localImagePath": "../images/weapons/weapon_92.gif"
+    "localImagePath": "images/weapons/weapon_92.gif"
   },
   {
     "id": "weapon_93",
@@ -1493,7 +1493,7 @@
       "force": "710 - 1066"
     },
     "imageUrl": "images/weapon_staff/Staff_BlackStickBead.gif",
-    "localImagePath": "../images/weapons/weapon_93.gif"
+    "localImagePath": "images/weapons/weapon_93.gif"
   },
   {
     "id": "weapon_94",
@@ -1510,7 +1510,7 @@
       "force": "890 - 1336"
     },
     "imageUrl": "images/weapon_staff/Staff_SickleStaff.gif",
-    "localImagePath": "../images/weapons/weapon_94.gif"
+    "localImagePath": "images/weapons/weapon_94.gif"
   },
   {
     "id": "weapon_95",
@@ -1527,7 +1527,7 @@
       "force": "1248 - 1872"
     },
     "imageUrl": "images/weapon_staff/Staff_HoraStaff.gif",
-    "localImagePath": "../images/weapons/weapon_95.gif"
+    "localImagePath": "images/weapons/weapon_95.gif"
   },
   {
     "id": "weapon_96",
@@ -1544,7 +1544,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_ShortSpear.gif",
-    "localImagePath": "../images/weapons/weapon_96.gif"
+    "localImagePath": "images/weapons/weapon_96.gif"
   },
   {
     "id": "weapon_97",
@@ -1561,7 +1561,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_LongSpear.gif",
-    "localImagePath": "../images/weapons/weapon_97.gif"
+    "localImagePath": "images/weapons/weapon_97.gif"
   },
   {
     "id": "weapon_98",
@@ -1578,7 +1578,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Pike.gif",
-    "localImagePath": "../images/weapons/weapon_98.gif"
+    "localImagePath": "images/weapons/weapon_98.gif"
   },
   {
     "id": "weapon_99",
@@ -1595,7 +1595,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Harpoon.gif",
-    "localImagePath": "../images/weapons/weapon_99.gif"
+    "localImagePath": "images/weapons/weapon_99.gif"
   },
   {
     "id": "weapon_100",
@@ -1612,7 +1612,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Trident.gif",
-    "localImagePath": "../images/weapons/weapon_100.gif"
+    "localImagePath": "images/weapons/weapon_100.gif"
   },
   {
     "id": "weapon_101",
@@ -1629,7 +1629,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Glaive.gif",
-    "localImagePath": "../images/weapons/weapon_101.gif"
+    "localImagePath": "images/weapons/weapon_101.gif"
   },
   {
     "id": "weapon_102",
@@ -1646,7 +1646,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Ahlspiess.gif",
-    "localImagePath": "../images/weapons/weapon_102.gif"
+    "localImagePath": "images/weapons/weapon_102.gif"
   },
   {
     "id": "weapon_103",
@@ -1663,7 +1663,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Corsesca.gif",
-    "localImagePath": "../images/weapons/weapon_103.gif"
+    "localImagePath": "images/weapons/weapon_103.gif"
   },
   {
     "id": "weapon_104",
@@ -1680,7 +1680,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Elastic.gif",
-    "localImagePath": "../images/weapons/weapon_104.gif"
+    "localImagePath": "images/weapons/weapon_104.gif"
   },
   {
     "id": "weapon_105",
@@ -1697,7 +1697,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Vouge.gif",
-    "localImagePath": "../images/weapons/weapon_105.gif"
+    "localImagePath": "images/weapons/weapon_105.gif"
   },
   {
     "id": "weapon_106",
@@ -1714,7 +1714,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Halbert.gif",
-    "localImagePath": "../images/weapons/weapon_106.gif"
+    "localImagePath": "images/weapons/weapon_106.gif"
   },
   {
     "id": "weapon_107",
@@ -1731,7 +1731,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_WingedSpear.gif",
-    "localImagePath": "../images/weapons/weapon_107.gif"
+    "localImagePath": "images/weapons/weapon_107.gif"
   },
   {
     "id": "weapon_108",
@@ -1748,7 +1748,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_BeamSpear.gif",
-    "localImagePath": "../images/weapons/weapon_108.gif"
+    "localImagePath": "images/weapons/weapon_108.gif"
   },
   {
     "id": "weapon_109",
@@ -1765,7 +1765,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_BeamPike.gif",
-    "localImagePath": "../images/weapons/weapon_109.gif"
+    "localImagePath": "images/weapons/weapon_109.gif"
   },
   {
     "id": "weapon_110",
@@ -1782,7 +1782,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_BeamwingedSpear.gif",
-    "localImagePath": "../images/weapons/weapon_110.gif"
+    "localImagePath": "images/weapons/weapon_110.gif"
   },
   {
     "id": "weapon_111",
@@ -1799,7 +1799,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Lance.gif",
-    "localImagePath": "../images/weapons/weapon_111.gif"
+    "localImagePath": "images/weapons/weapon_111.gif"
   },
   {
     "id": "weapon_112",
@@ -1816,7 +1816,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_Fieldlance.gif",
-    "localImagePath": "../images/weapons/weapon_112.gif"
+    "localImagePath": "images/weapons/weapon_112.gif"
   },
   {
     "id": "weapon_113",
@@ -1833,7 +1833,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_spear/Spear_HoraSpear.gif",
-    "localImagePath": "../images/weapons/weapon_113.gif"
+    "localImagePath": "images/weapons/weapon_113.gif"
   },
   {
     "id": "weapon_114",
@@ -1850,7 +1850,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_ShortBow.gif",
-    "localImagePath": "../images/weapons/weapon_114.gif"
+    "localImagePath": "images/weapons/weapon_114.gif"
   },
   {
     "id": "weapon_115",
@@ -1867,7 +1867,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_LongBow.gif",
-    "localImagePath": "../images/weapons/weapon_115.gif"
+    "localImagePath": "images/weapons/weapon_115.gif"
   },
   {
     "id": "weapon_116",
@@ -1884,7 +1884,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BattleBow.gif",
-    "localImagePath": "../images/weapons/weapon_116.gif"
+    "localImagePath": "images/weapons/weapon_116.gif"
   },
   {
     "id": "weapon_117",
@@ -1901,7 +1901,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_AssembleBow.gif",
-    "localImagePath": "../images/weapons/weapon_117.gif"
+    "localImagePath": "images/weapons/weapon_117.gif"
   },
   {
     "id": "weapon_118",
@@ -1918,7 +1918,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_AssembleLongBow.gif",
-    "localImagePath": "../images/weapons/weapon_118.gif"
+    "localImagePath": "images/weapons/weapon_118.gif"
   },
   {
     "id": "weapon_119",
@@ -1935,7 +1935,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_Cross-Bow.gif",
-    "localImagePath": "../images/weapons/weapon_119.gif"
+    "localImagePath": "images/weapons/weapon_119.gif"
   },
   {
     "id": "weapon_120",
@@ -1952,7 +1952,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_CompositeBow.gif",
-    "localImagePath": "../images/weapons/weapon_120.gif"
+    "localImagePath": "images/weapons/weapon_120.gif"
   },
   {
     "id": "weapon_121",
@@ -1969,7 +1969,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_AssembleCross-Bow.gif",
-    "localImagePath": "../images/weapons/weapon_121.gif"
+    "localImagePath": "images/weapons/weapon_121.gif"
   },
   {
     "id": "weapon_122",
@@ -1986,7 +1986,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_TowerBow.gif",
-    "localImagePath": "../images/weapons/weapon_122.gif"
+    "localImagePath": "images/weapons/weapon_122.gif"
   },
   {
     "id": "weapon_123",
@@ -2003,7 +2003,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamBow.gif",
-    "localImagePath": "../images/weapons/weapon_123.gif"
+    "localImagePath": "images/weapons/weapon_123.gif"
   },
   {
     "id": "weapon_124",
@@ -2020,7 +2020,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamCross-Bow.gif",
-    "localImagePath": "../images/weapons/weapon_124.gif"
+    "localImagePath": "images/weapons/weapon_124.gif"
   },
   {
     "id": "weapon_125",
@@ -2037,7 +2037,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamAssembleLongBow.gif",
-    "localImagePath": "../images/weapons/weapon_125.gif"
+    "localImagePath": "images/weapons/weapon_125.gif"
   },
   {
     "id": "weapon_126",
@@ -2054,7 +2054,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamAssembleCross-Bow.gif",
-    "localImagePath": "../images/weapons/weapon_126.gif"
+    "localImagePath": "images/weapons/weapon_126.gif"
   },
   {
     "id": "weapon_127",
@@ -2071,7 +2071,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_SiegeBow.gif",
-    "localImagePath": "../images/weapons/weapon_127.gif"
+    "localImagePath": "images/weapons/weapon_127.gif"
   },
   {
     "id": "weapon_128",
@@ -2088,7 +2088,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_GunBow.gif",
-    "localImagePath": "../images/weapons/weapon_128.gif"
+    "localImagePath": "images/weapons/weapon_128.gif"
   },
   {
     "id": "weapon_129",
@@ -2105,7 +2105,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamSiegeBow.gif",
-    "localImagePath": "../images/weapons/weapon_129.gif"
+    "localImagePath": "images/weapons/weapon_129.gif"
   },
   {
     "id": "weapon_130",
@@ -2122,7 +2122,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_BeamGun-Bow.gif",
-    "localImagePath": "../images/weapons/weapon_130.gif"
+    "localImagePath": "images/weapons/weapon_130.gif"
   },
   {
     "id": "weapon_131",
@@ -2139,7 +2139,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_bow/Bow_HoraBow.gif",
-    "localImagePath": "../images/weapons/weapon_131.gif"
+    "localImagePath": "images/weapons/weapon_131.gif"
   },
   {
     "id": "weapon_132",
@@ -2156,7 +2156,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_HandGun.gif",
-    "localImagePath": "../images/weapons/weapon_132.gif"
+    "localImagePath": "images/weapons/weapon_132.gif"
   },
   {
     "id": "weapon_133",
@@ -2173,7 +2173,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_MachineGun.gif",
-    "localImagePath": "../images/weapons/weapon_133.gif"
+    "localImagePath": "images/weapons/weapon_133.gif"
   },
   {
     "id": "weapon_134",
@@ -2190,7 +2190,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_Enforcer.gif",
-    "localImagePath": "../images/weapons/weapon_134.gif"
+    "localImagePath": "images/weapons/weapon_134.gif"
   },
   {
     "id": "weapon_135",
@@ -2207,7 +2207,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_RattleGun.gif",
-    "localImagePath": "../images/weapons/weapon_135.gif"
+    "localImagePath": "images/weapons/weapon_135.gif"
   },
   {
     "id": "weapon_136",
@@ -2224,7 +2224,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_ShotGun.gif",
-    "localImagePath": "../images/weapons/weapon_136.gif"
+    "localImagePath": "images/weapons/weapon_136.gif"
   },
   {
     "id": "weapon_137",
@@ -2241,7 +2241,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_BeamGun.gif",
-    "localImagePath": "../images/weapons/weapon_137.gif"
+    "localImagePath": "images/weapons/weapon_137.gif"
   },
   {
     "id": "weapon_138",
@@ -2258,7 +2258,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_StoutGun.gif",
-    "localImagePath": "../images/weapons/weapon_138.gif"
+    "localImagePath": "images/weapons/weapon_138.gif"
   },
   {
     "id": "weapon_139",
@@ -2275,7 +2275,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_Rifle.gif",
-    "localImagePath": "../images/weapons/weapon_139.gif"
+    "localImagePath": "images/weapons/weapon_139.gif"
   },
   {
     "id": "weapon_140",
@@ -2292,7 +2292,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_AssultRifle.gif",
-    "localImagePath": "../images/weapons/weapon_140.gif"
+    "localImagePath": "images/weapons/weapon_140.gif"
   },
   {
     "id": "weapon_141",
@@ -2309,7 +2309,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_Uzi.gif",
-    "localImagePath": "../images/weapons/weapon_141.gif"
+    "localImagePath": "images/weapons/weapon_141.gif"
   },
   {
     "id": "weapon_142",
@@ -2326,7 +2326,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_RailGun.gif",
-    "localImagePath": "../images/weapons/weapon_142.gif"
+    "localImagePath": "images/weapons/weapon_142.gif"
   },
   {
     "id": "weapon_143",
@@ -2343,7 +2343,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_PlasmaGun.gif",
-    "localImagePath": "../images/weapons/weapon_143.gif"
+    "localImagePath": "images/weapons/weapon_143.gif"
   },
   {
     "id": "weapon_144",
@@ -2360,7 +2360,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_LaserGun.gif",
-    "localImagePath": "../images/weapons/weapon_144.gif"
+    "localImagePath": "images/weapons/weapon_144.gif"
   },
   {
     "id": "weapon_145",
@@ -2377,7 +2377,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_LightningGun.gif",
-    "localImagePath": "../images/weapons/weapon_145.gif"
+    "localImagePath": "images/weapons/weapon_145.gif"
   },
   {
     "id": "weapon_146",
@@ -2394,7 +2394,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_GatlingGun.gif",
-    "localImagePath": "../images/weapons/weapon_146.gif"
+    "localImagePath": "images/weapons/weapon_146.gif"
   },
   {
     "id": "weapon_147",
@@ -2411,7 +2411,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_BoltRifle.gif",
-    "localImagePath": "../images/weapons/weapon_147.gif"
+    "localImagePath": "images/weapons/weapon_147.gif"
   },
   {
     "id": "weapon_148",
@@ -2428,7 +2428,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_Vulcan.gif",
-    "localImagePath": "../images/weapons/weapon_148.gif"
+    "localImagePath": "images/weapons/weapon_148.gif"
   },
   {
     "id": "weapon_149",
@@ -2445,7 +2445,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_firearm/FireArm_Horavulcan.gif",
-    "localImagePath": "../images/weapons/weapon_149.gif"
+    "localImagePath": "images/weapons/weapon_149.gif"
   },
   {
     "id": "weapon_150",
@@ -2462,7 +2462,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_ThrowingKnife.gif",
-    "localImagePath": "../images/weapons/weapon_150.gif"
+    "localImagePath": "images/weapons/weapon_150.gif"
   },
   {
     "id": "weapon_151",
@@ -2479,7 +2479,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_ThrowingCutter.gif",
-    "localImagePath": "../images/weapons/weapon_151.gif"
+    "localImagePath": "images/weapons/weapon_151.gif"
   },
   {
     "id": "weapon_152",
@@ -2496,7 +2496,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_RoundlyKnife.gif",
-    "localImagePath": "../images/weapons/weapon_152.gif"
+    "localImagePath": "images/weapons/weapon_152.gif"
   },
   {
     "id": "weapon_153",
@@ -2513,7 +2513,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_Seeker.gif",
-    "localImagePath": "../images/weapons/weapon_153.gif"
+    "localImagePath": "images/weapons/weapon_153.gif"
   },
   {
     "id": "weapon_154",
@@ -2530,7 +2530,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_Harpe.gif",
-    "localImagePath": "../images/weapons/weapon_154.gif"
+    "localImagePath": "images/weapons/weapon_154.gif"
   },
   {
     "id": "weapon_155",
@@ -2547,7 +2547,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_BeamSeeker.gif",
-    "localImagePath": "../images/weapons/weapon_155.gif"
+    "localImagePath": "images/weapons/weapon_155.gif"
   },
   {
     "id": "weapon_156",
@@ -2564,7 +2564,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_ThrowingBreaker.gif",
-    "localImagePath": "../images/weapons/weapon_156.gif"
+    "localImagePath": "images/weapons/weapon_156.gif"
   },
   {
     "id": "weapon_157",
@@ -2581,7 +2581,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_ThrowingBeamCutter.gif",
-    "localImagePath": "../images/weapons/weapon_157.gif"
+    "localImagePath": "images/weapons/weapon_157.gif"
   },
   {
     "id": "weapon_158",
@@ -2598,7 +2598,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_BeamHarpe.gif",
-    "localImagePath": "../images/weapons/weapon_158.gif"
+    "localImagePath": "images/weapons/weapon_158.gif"
   },
   {
     "id": "weapon_159",
@@ -2615,7 +2615,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_throwing/Throw_ThrowingHoraKnife.gif",
-    "localImagePath": "../images/weapons/weapon_159.gif"
+    "localImagePath": "images/weapons/weapon_159.gif"
   },
   {
     "id": "weapon_160",
@@ -2632,7 +2632,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_MiniRocketLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_160.gif"
+    "localImagePath": "images/weapons/weapon_160.gif"
   },
   {
     "id": "weapon_161",
@@ -2649,7 +2649,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_RocketLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_161.gif"
+    "localImagePath": "images/weapons/weapon_161.gif"
   },
   {
     "id": "weapon_162",
@@ -2666,7 +2666,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_Redeemer.gif",
-    "localImagePath": "../images/weapons/weapon_162.gif"
+    "localImagePath": "images/weapons/weapon_162.gif"
   },
   {
     "id": "weapon_163",
@@ -2683,7 +2683,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_MiniFlameThrower.gif",
-    "localImagePath": "../images/weapons/weapon_163.gif"
+    "localImagePath": "images/weapons/weapon_163.gif"
   },
   {
     "id": "weapon_164",
@@ -2700,7 +2700,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_RoburiteShooter.gif",
-    "localImagePath": "../images/weapons/weapon_164.gif"
+    "localImagePath": "images/weapons/weapon_164.gif"
   },
   {
     "id": "weapon_165",
@@ -2717,7 +2717,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_MiniFaust.gif",
-    "localImagePath": "../images/weapons/weapon_165.gif"
+    "localImagePath": "images/weapons/weapon_165.gif"
   },
   {
     "id": "weapon_166",
@@ -2734,7 +2734,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_Cannon.gif",
-    "localImagePath": "../images/weapons/weapon_166.gif"
+    "localImagePath": "images/weapons/weapon_166.gif"
   },
   {
     "id": "weapon_167",
@@ -2751,7 +2751,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_Bazooka.gif",
-    "localImagePath": "../images/weapons/weapon_167.gif"
+    "localImagePath": "images/weapons/weapon_167.gif"
   },
   {
     "id": "weapon_168",
@@ -2768,7 +2768,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_FlameThrower.gif",
-    "localImagePath": "../images/weapons/weapon_168.gif"
+    "localImagePath": "images/weapons/weapon_168.gif"
   },
   {
     "id": "weapon_169",
@@ -2785,7 +2785,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_MissileLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_169.gif"
+    "localImagePath": "images/weapons/weapon_169.gif"
   },
   {
     "id": "weapon_170",
@@ -2802,7 +2802,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_HoraFaust.gif",
-    "localImagePath": "../images/weapons/weapon_170.gif"
+    "localImagePath": "images/weapons/weapon_170.gif"
   },
   {
     "id": "weapon_171",
@@ -2819,7 +2819,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_NormalGrenadeLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_171.gif"
+    "localImagePath": "images/weapons/weapon_171.gif"
   },
   {
     "id": "weapon_172",
@@ -2836,7 +2836,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_GrenadeLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_172.gif"
+    "localImagePath": "images/weapons/weapon_172.gif"
   },
   {
     "id": "weapon_173",
@@ -2853,7 +2853,7 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_AdvancedGrenadeLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_173.gif"
+    "localImagePath": "images/weapons/weapon_173.gif"
   },
   {
     "id": "weapon_174",
@@ -2870,6 +2870,6 @@
       "force": "-"
     },
     "imageUrl": "images/weapon_Launcher/Launcher_HoraGrenadeLauncher.gif",
-    "localImagePath": "../images/weapons/weapon_174.gif"
+    "localImagePath": "images/weapons/weapon_174.gif"
   }
 ]

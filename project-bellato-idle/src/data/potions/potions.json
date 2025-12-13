@@ -8,7 +8,7 @@
     "healingAmount": "+20% atk -10% def",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Adrenaline.gif",
-    "localImagePath": "../images/potions/potion_66.gif",
+    "localImagePath": "images/items/item_66.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -22,7 +22,7 @@
     "healingAmount": "+20% atk",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_AdvancedAdrenaline.gif",
-    "localImagePath": "../images/potions/potion_67.gif",
+    "localImagePath": "images/items/item_67.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -36,7 +36,7 @@
     "healingAmount": "-50% debuff timer",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Cure.gif",
-    "localImagePath": "../images/potions/potion_68.gif",
+    "localImagePath": "images/items/item_68.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -50,7 +50,7 @@
     "healingAmount": "+50% atk",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Burst.gif",
-    "localImagePath": "../images/potions/potion_69.gif",
+    "localImagePath": "images/items/item_69.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -64,7 +64,7 @@
     "healingAmount": "+50% defense increase.",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Protection.gif",
-    "localImagePath": "../images/potions/potion_70.gif",
+    "localImagePath": "images/items/item_70.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -78,7 +78,7 @@
     "healingAmount": "+30% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Composed.gif",
-    "localImagePath": "../images/potions/potion_71.gif",
+    "localImagePath": "images/items/item_71.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -92,7 +92,7 @@
     "healingAmount": "+40% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_AdvancedComposed.gif",
-    "localImagePath": "../images/potions/potion_72.gif",
+    "localImagePath": "images/items/item_72.gif",
     "race": "Bellato",
     "potionType": null,
     "amount": null
@@ -106,7 +106,7 @@
     "healingAmount": "+50 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP0050.gif",
-    "localImagePath": "../images/potions/potion_73.gif",
+    "localImagePath": "images/items/item_73.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 50
@@ -120,7 +120,7 @@
     "healingAmount": "+125 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP0125.gif",
-    "localImagePath": "../images/potions/potion_74.gif",
+    "localImagePath": "images/items/item_74.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 125
@@ -134,7 +134,7 @@
     "healingAmount": "+250 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP0250.gif",
-    "localImagePath": "../images/potions/potion_75.gif",
+    "localImagePath": "images/items/item_75.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 250
@@ -148,7 +148,7 @@
     "healingAmount": "+500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP0500.gif",
-    "localImagePath": "../images/potions/potion_76.gif",
+    "localImagePath": "images/items/item_76.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 500
@@ -162,7 +162,7 @@
     "healingAmount": "+1000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP1000.gif",
-    "localImagePath": "../images/potions/potion_77.gif",
+    "localImagePath": "images/items/item_77.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 1000
@@ -176,7 +176,7 @@
     "healingAmount": "+1500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP1500.gif",
-    "localImagePath": "../images/potions/potion_78.gif",
+    "localImagePath": "images/items/item_78.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 1500
@@ -190,7 +190,7 @@
     "healingAmount": "+2000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Aid_FP2000.gif",
-    "localImagePath": "../images/potions/potion_79.gif",
+    "localImagePath": "images/items/item_79.gif",
     "race": "Bellato",
     "potionType": "FP",
     "amount": 2000
@@ -204,7 +204,7 @@
     "healingAmount": "+100 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP0100.gif",
-    "localImagePath": "../images/potions/potion_80.gif",
+    "localImagePath": "images/items/item_80.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 100
@@ -218,7 +218,7 @@
     "healingAmount": "+250 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP0250.gif",
-    "localImagePath": "../images/potions/potion_81.gif",
+    "localImagePath": "images/items/item_81.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 250
@@ -232,7 +232,7 @@
     "healingAmount": "+500 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP0500.gif",
-    "localImagePath": "../images/potions/potion_82.gif",
+    "localImagePath": "images/items/item_82.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 500
@@ -246,7 +246,7 @@
     "healingAmount": "+1000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP1000.gif",
-    "localImagePath": "../images/potions/potion_83.gif",
+    "localImagePath": "images/items/item_83.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 1000
@@ -260,7 +260,7 @@
     "healingAmount": "+2000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP2000.gif",
-    "localImagePath": "../images/potions/potion_84.gif",
+    "localImagePath": "images/items/item_84.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 2000
@@ -274,7 +274,7 @@
     "healingAmount": "+3000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP3000.gif",
-    "localImagePath": "../images/potions/potion_85.gif",
+    "localImagePath": "images/items/item_85.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 3000
@@ -288,7 +288,7 @@
     "healingAmount": "+4000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP4000.gif",
-    "localImagePath": "../images/potions/potion_86.gif",
+    "localImagePath": "images/items/item_86.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 4000
@@ -302,7 +302,7 @@
     "healingAmount": "+4000 HP (Timer is reduced to 1k Potion Timer)",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Bless_HP4000a.gif",
-    "localImagePath": "../images/potions/potion_87.gif",
+    "localImagePath": "images/items/item_87.gif",
     "race": "Bellato",
     "potionType": "HP",
     "amount": 4000
@@ -316,7 +316,7 @@
     "healingAmount": "+100 SP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Care_SP0100.gif",
-    "localImagePath": "../images/potions/potion_88.gif",
+    "localImagePath": "images/items/item_88.gif",
     "race": "Bellato",
     "potionType": "SP",
     "amount": 100
@@ -330,7 +330,7 @@
     "healingAmount": "+200 SP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Care_SP0200.gif",
-    "localImagePath": "../images/potions/potion_89.gif",
+    "localImagePath": "images/items/item_89.gif",
     "race": "Bellato",
     "potionType": "SP",
     "amount": 200
@@ -344,7 +344,7 @@
     "healingAmount": "+400 SP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Care_SP0400.gif",
-    "localImagePath": "../images/potions/potion_90.gif",
+    "localImagePath": "images/items/item_90.gif",
     "race": "Bellato",
     "potionType": "SP",
     "amount": 400
@@ -358,7 +358,7 @@
     "healingAmount": "+800 SP",
     "class": "P",
     "imageUrl": "images/item_potion_bellato/Potion_Bel_Care_SP0800.gif",
-    "localImagePath": "../images/potions/potion_91.gif",
+    "localImagePath": "images/items/item_91.gif",
     "race": "Bellato",
     "potionType": "SP",
     "amount": 800
@@ -372,7 +372,7 @@
     "healingAmount": "+20% atk -10% def",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Adrenaline.gif",
-    "localImagePath": "../images/potions/potion_92.gif",
+    "localImagePath": "images/items/item_92.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -386,7 +386,7 @@
     "healingAmount": "+20% atk",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_AdvancedAdrenaline.gif",
-    "localImagePath": "../images/potions/potion_93.gif",
+    "localImagePath": "images/items/item_93.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -400,7 +400,7 @@
     "healingAmount": "-50% debuff timer",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Cure.gif",
-    "localImagePath": "../images/potions/potion_94.gif",
+    "localImagePath": "images/items/item_94.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -414,7 +414,7 @@
     "healingAmount": "+50% atk",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Burst.gif",
-    "localImagePath": "../images/potions/potion_95.gif",
+    "localImagePath": "images/items/item_95.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -428,7 +428,7 @@
     "healingAmount": "+50% defense increase.",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Protection.gif",
-    "localImagePath": "../images/potions/potion_96.gif",
+    "localImagePath": "images/items/item_96.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -442,7 +442,7 @@
     "healingAmount": "+30% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Composed.gif",
-    "localImagePath": "../images/potions/potion_97.gif",
+    "localImagePath": "images/items/item_97.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -456,7 +456,7 @@
     "healingAmount": "+40% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_AdvancedComposed.gif",
-    "localImagePath": "../images/potions/potion_98.gif",
+    "localImagePath": "images/items/item_98.gif",
     "race": "Cora",
     "potionType": null,
     "amount": null
@@ -470,7 +470,7 @@
     "healingAmount": "+50 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP0050.gif",
-    "localImagePath": "../images/potions/potion_99.gif",
+    "localImagePath": "images/items/item_99.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 50
@@ -484,7 +484,7 @@
     "healingAmount": "+125 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP0125.gif",
-    "localImagePath": "../images/potions/potion_100.gif",
+    "localImagePath": "images/items/item_100.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 125
@@ -498,7 +498,7 @@
     "healingAmount": "+250 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP0250.gif",
-    "localImagePath": "../images/potions/potion_101.gif",
+    "localImagePath": "images/items/item_101.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 250
@@ -512,7 +512,7 @@
     "healingAmount": "+500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP0500.gif",
-    "localImagePath": "../images/potions/potion_102.gif",
+    "localImagePath": "images/items/item_102.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 500
@@ -526,7 +526,7 @@
     "healingAmount": "+1000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP1000.gif",
-    "localImagePath": "../images/potions/potion_103.gif",
+    "localImagePath": "images/items/item_103.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 1000
@@ -540,7 +540,7 @@
     "healingAmount": "+1500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP1500.gif",
-    "localImagePath": "../images/potions/potion_104.gif",
+    "localImagePath": "images/items/item_104.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 1500
@@ -554,7 +554,7 @@
     "healingAmount": "+2000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Priest_FP2000.gif",
-    "localImagePath": "../images/potions/potion_105.gif",
+    "localImagePath": "images/items/item_105.gif",
     "race": "Cora",
     "potionType": "FP",
     "amount": 2000
@@ -568,7 +568,7 @@
     "healingAmount": "+100 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP0100.gif",
-    "localImagePath": "../images/potions/potion_106.gif",
+    "localImagePath": "images/items/item_106.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 100
@@ -582,7 +582,7 @@
     "healingAmount": "+250 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP0250.gif",
-    "localImagePath": "../images/potions/potion_107.gif",
+    "localImagePath": "images/items/item_107.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 250
@@ -596,7 +596,7 @@
     "healingAmount": "+500 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP0500.gif",
-    "localImagePath": "../images/potions/potion_108.gif",
+    "localImagePath": "images/items/item_108.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 500
@@ -610,7 +610,7 @@
     "healingAmount": "+1000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP1000.gif",
-    "localImagePath": "../images/potions/potion_109.gif",
+    "localImagePath": "images/items/item_109.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 1000
@@ -624,7 +624,7 @@
     "healingAmount": "+2000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP2000.gif",
-    "localImagePath": "../images/potions/potion_110.gif",
+    "localImagePath": "images/items/item_110.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 2000
@@ -638,7 +638,7 @@
     "healingAmount": "+3000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP3000.gif",
-    "localImagePath": "../images/potions/potion_111.gif",
+    "localImagePath": "images/items/item_111.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 3000
@@ -652,7 +652,7 @@
     "healingAmount": "+4000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP4000.gif",
-    "localImagePath": "../images/potions/potion_112.gif",
+    "localImagePath": "images/items/item_112.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 4000
@@ -666,7 +666,7 @@
     "healingAmount": "+4000 HP (Timer is reduced to 1k Potion Timer)",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Popp_HP4000a.gif",
-    "localImagePath": "../images/potions/potion_113.gif",
+    "localImagePath": "images/items/item_113.gif",
     "race": "Cora",
     "potionType": "HP",
     "amount": 4000
@@ -680,7 +680,7 @@
     "healingAmount": "+100 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Bishop_SP0100.gif",
-    "localImagePath": "../images/potions/potion_114.gif",
+    "localImagePath": "images/items/item_114.gif",
     "race": "Cora",
     "potionType": "SP",
     "amount": 100
@@ -694,7 +694,7 @@
     "healingAmount": "+200 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Bishop_SP0200.gif",
-    "localImagePath": "../images/potions/potion_115.gif",
+    "localImagePath": "images/items/item_115.gif",
     "race": "Cora",
     "potionType": "SP",
     "amount": 200
@@ -708,7 +708,7 @@
     "healingAmount": "+400 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Bishop_SP0400.gif",
-    "localImagePath": "../images/potions/potion_116.gif",
+    "localImagePath": "images/items/item_116.gif",
     "race": "Cora",
     "potionType": "SP",
     "amount": 400
@@ -722,7 +722,7 @@
     "healingAmount": "+800 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Cora/Potion_Cora_Bishop_SP0800.gif",
-    "localImagePath": "../images/potions/potion_117.gif",
+    "localImagePath": "images/items/item_117.gif",
     "race": "Cora",
     "potionType": "SP",
     "amount": 800
@@ -736,7 +736,7 @@
     "healingAmount": "+20% atk -10% def",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_OverDrive.gif",
-    "localImagePath": "../images/potions/potion_118.gif",
+    "localImagePath": "images/items/item_118.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -750,7 +750,7 @@
     "healingAmount": "+20% atk",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_AdvancedOverDrive.gif",
-    "localImagePath": "../images/potions/potion_119.gif",
+    "localImagePath": "images/items/item_119.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -764,7 +764,7 @@
     "healingAmount": "-50% debuff timer",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Cure.gif",
-    "localImagePath": "../images/potions/potion_120.gif",
+    "localImagePath": "images/items/item_120.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -778,7 +778,7 @@
     "healingAmount": "+50% atk",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Offence.gif",
-    "localImagePath": "../images/potions/potion_121.gif",
+    "localImagePath": "images/items/item_121.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -792,7 +792,7 @@
     "healingAmount": "+50% defense increase.",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Defense.gif",
-    "localImagePath": "../images/potions/potion_122.gif",
+    "localImagePath": "images/items/item_122.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -806,7 +806,7 @@
     "healingAmount": "+30% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Composed.gif",
-    "localImagePath": "../images/potions/potion_123.gif",
+    "localImagePath": "images/items/item_123.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -820,7 +820,7 @@
     "healingAmount": "+40% Critical rate",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Composed.gif",
-    "localImagePath": "../images/potions/potion_124.gif",
+    "localImagePath": "images/items/item_124.gif",
     "race": "Accreation",
     "potionType": null,
     "amount": null
@@ -834,7 +834,7 @@
     "healingAmount": "+50 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP0050.gif",
-    "localImagePath": "../images/potions/potion_125.gif",
+    "localImagePath": "images/items/item_125.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 50
@@ -848,7 +848,7 @@
     "healingAmount": "+125 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP0125.gif",
-    "localImagePath": "../images/potions/potion_126.gif",
+    "localImagePath": "images/items/item_126.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 125
@@ -862,7 +862,7 @@
     "healingAmount": "+250 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP0250.gif",
-    "localImagePath": "../images/potions/potion_127.gif",
+    "localImagePath": "images/items/item_127.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 250
@@ -876,7 +876,7 @@
     "healingAmount": "+500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP0500.gif",
-    "localImagePath": "../images/potions/potion_128.gif",
+    "localImagePath": "images/items/item_128.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 500
@@ -890,7 +890,7 @@
     "healingAmount": "+1000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP1000.gif",
-    "localImagePath": "../images/potions/potion_129.gif",
+    "localImagePath": "images/items/item_129.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 1000
@@ -904,7 +904,7 @@
     "healingAmount": "+1500 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP1500.gif",
-    "localImagePath": "../images/potions/potion_130.gif",
+    "localImagePath": "images/items/item_130.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 1500
@@ -918,7 +918,7 @@
     "healingAmount": "+2000 FP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Myria_FP2000.gif",
-    "localImagePath": "../images/potions/potion_131.gif",
+    "localImagePath": "images/items/item_131.gif",
     "race": "Accreation",
     "potionType": "FP",
     "amount": 2000
@@ -932,7 +932,7 @@
     "healingAmount": "+100 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP0100.gif",
-    "localImagePath": "../images/potions/potion_132.gif",
+    "localImagePath": "images/items/item_132.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 100
@@ -946,7 +946,7 @@
     "healingAmount": "+250 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP0250.gif",
-    "localImagePath": "../images/potions/potion_133.gif",
+    "localImagePath": "images/items/item_133.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 250
@@ -960,7 +960,7 @@
     "healingAmount": "+500 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP0500.gif",
-    "localImagePath": "../images/potions/potion_134.gif",
+    "localImagePath": "images/items/item_134.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 500
@@ -974,7 +974,7 @@
     "healingAmount": "+1000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP1000.gif",
-    "localImagePath": "../images/potions/potion_135.gif",
+    "localImagePath": "images/items/item_135.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 1000
@@ -988,7 +988,7 @@
     "healingAmount": "+2000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP2000.gif",
-    "localImagePath": "../images/potions/potion_136.gif",
+    "localImagePath": "images/items/item_136.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 2000
@@ -1002,7 +1002,7 @@
     "healingAmount": "+3000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP3000.gif",
-    "localImagePath": "../images/potions/potion_137.gif",
+    "localImagePath": "images/items/item_137.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 3000
@@ -1016,7 +1016,7 @@
     "healingAmount": "+4000 HP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP4000.gif",
-    "localImagePath": "../images/potions/potion_138.gif",
+    "localImagePath": "images/items/item_138.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 4000
@@ -1030,7 +1030,7 @@
     "healingAmount": "+4000 HP (Timer is reduced to 1k Potion Timer)",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Aid_HP4000a.gif",
-    "localImagePath": "../images/potions/potion_139.gif",
+    "localImagePath": "images/items/item_139.gif",
     "race": "Accreation",
     "potionType": "HP",
     "amount": 4000
@@ -1044,7 +1044,7 @@
     "healingAmount": "+100 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Optimousse_SP0100.gif",
-    "localImagePath": "../images/potions/potion_140.gif",
+    "localImagePath": "images/items/item_140.gif",
     "race": "Accreation",
     "potionType": "SP",
     "amount": 100
@@ -1058,7 +1058,7 @@
     "healingAmount": "+200 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Optimousse_SP0200.gif",
-    "localImagePath": "../images/potions/potion_141.gif",
+    "localImagePath": "images/items/item_141.gif",
     "race": "Accreation",
     "potionType": "SP",
     "amount": 200
@@ -1072,7 +1072,7 @@
     "healingAmount": "+400 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Optimousse_SP0400.gif",
-    "localImagePath": "../images/potions/potion_142.gif",
+    "localImagePath": "images/items/item_142.gif",
     "race": "Accreation",
     "potionType": "SP",
     "amount": 400
@@ -1086,7 +1086,7 @@
     "healingAmount": "+800 SP",
     "class": "P",
     "imageUrl": "images/item_potion_Acc/Potion_Acc_Optimousse_SP0800.gif",
-    "localImagePath": "../images/potions/potion_143.gif",
+    "localImagePath": "images/items/item_143.gif",
     "race": "Accreation",
     "potionType": "SP",
     "amount": 800

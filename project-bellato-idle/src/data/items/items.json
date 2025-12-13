@@ -7,7 +7,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Beam.gif",
-    "localImagePath": "../images/items/item_1.gif"
+    "localImagePath": "images/items/item_1.gif"
   },
   {
     "id": "item_2",
@@ -17,7 +17,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_BliDend.gif",
-    "localImagePath": "../images/items/item_2.gif"
+    "localImagePath": "images/items/item_2.gif"
   },
   {
     "id": "item_3",
@@ -27,7 +27,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_CellWeef.gif",
-    "localImagePath": "../images/items/item_3.gif"
+    "localImagePath": "images/items/item_3.gif"
   },
   {
     "id": "item_4",
@@ -37,7 +37,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Cling.gif",
-    "localImagePath": "../images/items/item_4.gif"
+    "localImagePath": "images/items/item_4.gif"
   },
   {
     "id": "item_5",
@@ -47,7 +47,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Gli.gif",
-    "localImagePath": "../images/items/item_5.gif"
+    "localImagePath": "images/items/item_5.gif"
   },
   {
     "id": "item_6",
@@ -57,7 +57,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Greaf.gif",
-    "localImagePath": "../images/items/item_6.gif"
+    "localImagePath": "images/items/item_6.gif"
   },
   {
     "id": "item_7",
@@ -67,7 +67,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Haren.gif",
-    "localImagePath": "../images/items/item_7.gif"
+    "localImagePath": "images/items/item_7.gif"
   },
   {
     "id": "item_8",
@@ -77,7 +77,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_HighZid.gif",
-    "localImagePath": "../images/items/item_8.gif"
+    "localImagePath": "images/items/item_8.gif"
   },
   {
     "id": "item_9",
@@ -87,7 +87,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_JemRiar.gif",
-    "localImagePath": "../images/items/item_9.gif"
+    "localImagePath": "images/items/item_9.gif"
   },
   {
     "id": "item_10",
@@ -97,7 +97,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_JemzRiar.gif",
-    "localImagePath": "../images/items/item_10.gif"
+    "localImagePath": "images/items/item_10.gif"
   },
   {
     "id": "item_11",
@@ -107,7 +107,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Jim.gif",
-    "localImagePath": "../images/items/item_11.gif"
+    "localImagePath": "images/items/item_11.gif"
   },
   {
     "id": "item_12",
@@ -117,7 +117,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Lake.gif",
-    "localImagePath": "../images/items/item_12.gif"
+    "localImagePath": "images/items/item_12.gif"
   },
   {
     "id": "item_13",
@@ -127,7 +127,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_LouisMika.gif",
-    "localImagePath": "../images/items/item_13.gif"
+    "localImagePath": "images/items/item_13.gif"
   },
   {
     "id": "item_14",
@@ -137,7 +137,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_MidMika.gif",
-    "localImagePath": "../images/items/item_14.gif"
+    "localImagePath": "images/items/item_14.gif"
   },
   {
     "id": "item_15",
@@ -147,7 +147,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Mika.gif",
-    "localImagePath": "../images/items/item_15.gif"
+    "localImagePath": "images/items/item_15.gif"
   },
   {
     "id": "item_16",
@@ -157,7 +157,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_PlyBliDend.gif",
-    "localImagePath": "../images/items/item_16.gif"
+    "localImagePath": "images/items/item_16.gif"
   },
   {
     "id": "item_17",
@@ -167,7 +167,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Rian.gif",
-    "localImagePath": "../images/items/item_17.gif"
+    "localImagePath": "images/items/item_17.gif"
   },
   {
     "id": "item_18",
@@ -177,7 +177,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Riar.gif",
-    "localImagePath": "../images/items/item_18.gif"
+    "localImagePath": "images/items/item_18.gif"
   },
   {
     "id": "item_19",
@@ -187,7 +187,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_SiarBliDend.gif",
-    "localImagePath": "../images/items/item_19.gif"
+    "localImagePath": "images/items/item_19.gif"
   },
   {
     "id": "item_20",
@@ -197,7 +197,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_SolZid.gif",
-    "localImagePath": "../images/items/item_20.gif"
+    "localImagePath": "images/items/item_20.gif"
   },
   {
     "id": "item_21",
@@ -207,7 +207,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_WardWeef.gif",
-    "localImagePath": "../images/items/item_21.gif"
+    "localImagePath": "images/items/item_21.gif"
   },
   {
     "id": "item_22",
@@ -217,7 +217,7 @@
     "soldAtNpc": "N",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Warm.gif",
-    "localImagePath": "../images/items/item_22.gif"
+    "localImagePath": "images/items/item_22.gif"
   },
   {
     "id": "item_23",
@@ -227,7 +227,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Weef.gif",
-    "localImagePath": "../images/items/item_23.gif"
+    "localImagePath": "images/items/item_23.gif"
   },
   {
     "id": "item_24",
@@ -237,7 +237,7 @@
     "soldAtNpc": "Y",
     "class": "M",
     "imageUrl": "images/item_booty/Booty_Zid.gif",
-    "localImagePath": "../images/items/item_24.gif"
+    "localImagePath": "images/items/item_24.gif"
   },
   {
     "id": "item_170",
@@ -247,7 +247,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Ruby_1.gif",
-    "localImagePath": "../images/items/item_170.gif"
+    "localImagePath": "images/items/item_170.gif"
   },
   {
     "id": "item_171",
@@ -257,7 +257,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Ruby_2_Light.gif",
-    "localImagePath": "../images/items/item_171.gif"
+    "localImagePath": "images/items/item_171.gif"
   },
   {
     "id": "item_172",
@@ -267,7 +267,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Ruby_3_Fire.gif",
-    "localImagePath": "../images/items/item_172.gif"
+    "localImagePath": "images/items/item_172.gif"
   },
   {
     "id": "item_173",
@@ -277,7 +277,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Ruby_4_Salamander.gif",
-    "localImagePath": "../images/items/item_173.gif"
+    "localImagePath": "images/items/item_173.gif"
   },
   {
     "id": "item_174",
@@ -287,7 +287,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Crystal_1.gif",
-    "localImagePath": "../images/items/item_174.gif"
+    "localImagePath": "images/items/item_174.gif"
   },
   {
     "id": "item_175",
@@ -297,7 +297,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Crystal_2_Water.gif",
-    "localImagePath": "../images/items/item_175.gif"
+    "localImagePath": "images/items/item_175.gif"
   },
   {
     "id": "item_176",
@@ -307,7 +307,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Crystal_3_Ice.gif",
-    "localImagePath": "../images/items/item_176.gif"
+    "localImagePath": "images/items/item_176.gif"
   },
   {
     "id": "item_177",
@@ -317,7 +317,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Crystal_4_Angel.gif",
-    "localImagePath": "../images/items/item_177.gif"
+    "localImagePath": "images/items/item_177.gif"
   },
   {
     "id": "item_178",
@@ -327,7 +327,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Obsidian_1.gif",
-    "localImagePath": "../images/items/item_178.gif"
+    "localImagePath": "images/items/item_178.gif"
   },
   {
     "id": "item_179",
@@ -337,7 +337,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Obsidian_2_Lightning.gif",
-    "localImagePath": "../images/items/item_179.gif"
+    "localImagePath": "images/items/item_179.gif"
   },
   {
     "id": "item_180",
@@ -347,7 +347,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Obsidian_3_Wind.gif",
-    "localImagePath": "../images/items/item_180.gif"
+    "localImagePath": "images/items/item_180.gif"
   },
   {
     "id": "item_181",
@@ -357,7 +357,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Obsidian_4_Truth.gif",
-    "localImagePath": "../images/items/item_181.gif"
+    "localImagePath": "images/items/item_181.gif"
   },
   {
     "id": "item_182",
@@ -367,7 +367,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Topaz_1.gif",
-    "localImagePath": "../images/items/item_182.gif"
+    "localImagePath": "images/items/item_182.gif"
   },
   {
     "id": "item_183",
@@ -377,7 +377,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Topaz_2_Terra.gif",
-    "localImagePath": "../images/items/item_183.gif"
+    "localImagePath": "images/items/item_183.gif"
   },
   {
     "id": "item_184",
@@ -387,7 +387,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Topaz_3_Poision.gif",
-    "localImagePath": "../images/items/item_184.gif"
+    "localImagePath": "images/items/item_184.gif"
   },
   {
     "id": "item_185",
@@ -397,7 +397,7 @@
     "soldAtNpc": "N",
     "class": "G",
     "imageUrl": "images/item_gems/Jewel_Topaz_4_Earth.gif",
-    "localImagePath": "../images/items/item_185.gif"
+    "localImagePath": "images/items/item_185.gif"
   },
   {
     "id": "item_61",
@@ -407,7 +407,7 @@
     "soldAtNpc": "N",
     "class": "J",
     "imageUrl": "images/item_jade/Jade_Lucky.gif",
-    "localImagePath": "../images/items/item_61.gif"
+    "localImagePath": "images/items/item_61.gif"
   },
   {
     "id": "item_62",
@@ -417,7 +417,7 @@
     "soldAtNpc": "N",
     "class": "J",
     "imageUrl": "images/item_jade/Jade_Promise.gif",
-    "localImagePath": "../images/items/item_62.gif"
+    "localImagePath": "images/items/item_62.gif"
   },
   {
     "id": "item_63",
@@ -427,7 +427,7 @@
     "soldAtNpc": "N",
     "class": "J",
     "imageUrl": "images/item_jade/Jade_Separation.gif",
-    "localImagePath": "../images/items/item_63.gif"
+    "localImagePath": "images/items/item_63.gif"
   },
   {
     "id": "item_64",
@@ -437,7 +437,7 @@
     "soldAtNpc": "N",
     "class": "J",
     "imageUrl": "images/item_jade/Jade_Talk.gif",
-    "localImagePath": "../images/items/item_64.gif"
+    "localImagePath": "images/items/item_64.gif"
   },
   {
     "id": "item_65",
@@ -447,7 +447,7 @@
     "soldAtNpc": "N",
     "class": "J",
     "imageUrl": "images/item_jade/Jade_Wealth.gif",
-    "localImagePath": "../images/items/item_65.gif"
+    "localImagePath": "images/items/item_65.gif"
   },
   {
     "id": "item_186",
@@ -457,7 +457,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Magazine.gif",
-    "localImagePath": "../images/items/item_186.gif"
+    "localImagePath": "images/items/item_186.gif"
   },
   {
     "id": "item_187",
@@ -467,7 +467,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingMagazine.gif",
-    "localImagePath": "../images/items/item_187.gif"
+    "localImagePath": "images/items/item_187.gif"
   },
   {
     "id": "item_188",
@@ -477,7 +477,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceMagazine.gif",
-    "localImagePath": "../images/items/item_188.gif"
+    "localImagePath": "images/items/item_188.gif"
   },
   {
     "id": "item_189",
@@ -487,7 +487,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomMagazine.gif",
-    "localImagePath": "../images/items/item_189.gif"
+    "localImagePath": "images/items/item_189.gif"
   },
   {
     "id": "item_190",
@@ -497,7 +497,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralMagazine.gif",
-    "localImagePath": "../images/items/item_190.gif"
+    "localImagePath": "images/items/item_190.gif"
   },
   {
     "id": "item_191",
@@ -507,7 +507,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_LaserMagazine.gif",
-    "localImagePath": "../images/items/item_191.gif"
+    "localImagePath": "images/items/item_191.gif"
   },
   {
     "id": "item_192",
@@ -517,7 +517,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_EnergyMagazine.gif",
-    "localImagePath": "../images/items/item_192.gif"
+    "localImagePath": "images/items/item_192.gif"
   },
   {
     "id": "item_193",
@@ -527,7 +527,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VulcanMagazine.gif",
-    "localImagePath": "../images/items/item_193.gif"
+    "localImagePath": "images/items/item_193.gif"
   },
   {
     "id": "item_194",
@@ -537,7 +537,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingVulcanMagazine.gif",
-    "localImagePath": "../images/items/item_194.gif"
+    "localImagePath": "images/items/item_194.gif"
   },
   {
     "id": "item_195",
@@ -547,7 +547,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Magazine.gif",
-    "localImagePath": "../images/items/item_195.gif"
+    "localImagePath": "images/items/item_195.gif"
   },
   {
     "id": "item_196",
@@ -557,7 +557,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingMagazine.gif",
-    "localImagePath": "../images/items/item_196.gif"
+    "localImagePath": "images/items/item_196.gif"
   },
   {
     "id": "item_197",
@@ -567,7 +567,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceMagazine.gif",
-    "localImagePath": "../images/items/item_197.gif"
+    "localImagePath": "images/items/item_197.gif"
   },
   {
     "id": "item_198",
@@ -577,7 +577,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomMagazine.gif",
-    "localImagePath": "../images/items/item_198.gif"
+    "localImagePath": "images/items/item_198.gif"
   },
   {
     "id": "item_199",
@@ -587,7 +587,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralMagazine.gif",
-    "localImagePath": "../images/items/item_199.gif"
+    "localImagePath": "images/items/item_199.gif"
   },
   {
     "id": "item_200",
@@ -597,7 +597,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_LaserMagazine.gif",
-    "localImagePath": "../images/items/item_200.gif"
+    "localImagePath": "images/items/item_200.gif"
   },
   {
     "id": "item_201",
@@ -607,7 +607,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_EnergyMagazine.gif",
-    "localImagePath": "../images/items/item_201.gif"
+    "localImagePath": "images/items/item_201.gif"
   },
   {
     "id": "item_202",
@@ -617,7 +617,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VulcanMagazine.gif",
-    "localImagePath": "../images/items/item_202.gif"
+    "localImagePath": "images/items/item_202.gif"
   },
   {
     "id": "item_203",
@@ -627,7 +627,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingVulcanMagazine.gif",
-    "localImagePath": "../images/items/item_203.gif"
+    "localImagePath": "images/items/item_203.gif"
   },
   {
     "id": "item_204",
@@ -637,7 +637,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Magazine.gif",
-    "localImagePath": "../images/items/item_204.gif"
+    "localImagePath": "images/items/item_204.gif"
   },
   {
     "id": "item_205",
@@ -647,7 +647,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingMagazine.gif",
-    "localImagePath": "../images/items/item_205.gif"
+    "localImagePath": "images/items/item_205.gif"
   },
   {
     "id": "item_206",
@@ -657,7 +657,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceMagazine.gif",
-    "localImagePath": "../images/items/item_206.gif"
+    "localImagePath": "images/items/item_206.gif"
   },
   {
     "id": "item_207",
@@ -667,7 +667,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomMagazine.gif",
-    "localImagePath": "../images/items/item_207.gif"
+    "localImagePath": "images/items/item_207.gif"
   },
   {
     "id": "item_208",
@@ -677,7 +677,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralMagazine.gif",
-    "localImagePath": "../images/items/item_208.gif"
+    "localImagePath": "images/items/item_208.gif"
   },
   {
     "id": "item_209",
@@ -687,7 +687,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_LaserMagazine.gif",
-    "localImagePath": "../images/items/item_209.gif"
+    "localImagePath": "images/items/item_209.gif"
   },
   {
     "id": "item_210",
@@ -697,7 +697,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_EnergyMagazine.gif",
-    "localImagePath": "../images/items/item_210.gif"
+    "localImagePath": "images/items/item_210.gif"
   },
   {
     "id": "item_211",
@@ -707,7 +707,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VulcanMagazine.gif",
-    "localImagePath": "../images/items/item_211.gif"
+    "localImagePath": "images/items/item_211.gif"
   },
   {
     "id": "item_212",
@@ -717,7 +717,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ExplodingVulcanMagazine.gif",
-    "localImagePath": "../images/items/item_212.gif"
+    "localImagePath": "images/items/item_212.gif"
   },
   {
     "id": "item_213",
@@ -727,7 +727,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Arrow.gif",
-    "localImagePath": "../images/items/item_213.gif"
+    "localImagePath": "images/items/item_213.gif"
   },
   {
     "id": "item_214",
@@ -737,7 +737,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireArrow.gif",
-    "localImagePath": "../images/items/item_214.gif"
+    "localImagePath": "images/items/item_214.gif"
   },
   {
     "id": "item_215",
@@ -747,7 +747,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceArrow.gif",
-    "localImagePath": "../images/items/item_215.gif"
+    "localImagePath": "images/items/item_215.gif"
   },
   {
     "id": "item_216",
@@ -757,7 +757,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonArrow.gif",
-    "localImagePath": "../images/items/item_216.gif"
+    "localImagePath": "images/items/item_216.gif"
   },
   {
     "id": "item_217",
@@ -767,7 +767,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralArrow.gif",
-    "localImagePath": "../images/items/item_217.gif"
+    "localImagePath": "images/items/item_217.gif"
   },
   {
     "id": "item_218",
@@ -777,7 +777,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Bolt.gif",
-    "localImagePath": "../images/items/item_218.gif"
+    "localImagePath": "images/items/item_218.gif"
   },
   {
     "id": "item_219",
@@ -787,7 +787,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireBolt.gif",
-    "localImagePath": "../images/items/item_219.gif"
+    "localImagePath": "images/items/item_219.gif"
   },
   {
     "id": "item_220",
@@ -797,7 +797,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceBolt.gif",
-    "localImagePath": "../images/items/item_220.gif"
+    "localImagePath": "images/items/item_220.gif"
   },
   {
     "id": "item_221",
@@ -807,7 +807,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonBolt.gif",
-    "localImagePath": "../images/items/item_221.gif"
+    "localImagePath": "images/items/item_221.gif"
   },
   {
     "id": "item_222",
@@ -817,7 +817,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralBolt.gif",
-    "localImagePath": "../images/items/item_222.gif"
+    "localImagePath": "images/items/item_222.gif"
   },
   {
     "id": "item_223",
@@ -827,7 +827,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Arrow.gif",
-    "localImagePath": "../images/items/item_223.gif"
+    "localImagePath": "images/items/item_223.gif"
   },
   {
     "id": "item_224",
@@ -837,7 +837,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireArrow.gif",
-    "localImagePath": "../images/items/item_224.gif"
+    "localImagePath": "images/items/item_224.gif"
   },
   {
     "id": "item_225",
@@ -847,7 +847,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceArrow.gif",
-    "localImagePath": "../images/items/item_225.gif"
+    "localImagePath": "images/items/item_225.gif"
   },
   {
     "id": "item_226",
@@ -857,7 +857,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonArrow.gif",
-    "localImagePath": "../images/items/item_226.gif"
+    "localImagePath": "images/items/item_226.gif"
   },
   {
     "id": "item_227",
@@ -867,7 +867,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralArrow.gif",
-    "localImagePath": "../images/items/item_227.gif"
+    "localImagePath": "images/items/item_227.gif"
   },
   {
     "id": "item_228",
@@ -877,7 +877,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Bolt.gif",
-    "localImagePath": "../images/items/item_228.gif"
+    "localImagePath": "images/items/item_228.gif"
   },
   {
     "id": "item_229",
@@ -887,7 +887,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireBolt.gif",
-    "localImagePath": "../images/items/item_229.gif"
+    "localImagePath": "images/items/item_229.gif"
   },
   {
     "id": "item_230",
@@ -897,7 +897,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceBolt.gif",
-    "localImagePath": "../images/items/item_230.gif"
+    "localImagePath": "images/items/item_230.gif"
   },
   {
     "id": "item_231",
@@ -907,7 +907,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonBolt.gif",
-    "localImagePath": "../images/items/item_231.gif"
+    "localImagePath": "images/items/item_231.gif"
   },
   {
     "id": "item_232",
@@ -917,7 +917,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralBolt.gif",
-    "localImagePath": "../images/items/item_232.gif"
+    "localImagePath": "images/items/item_232.gif"
   },
   {
     "id": "item_233",
@@ -927,7 +927,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Arrow.gif",
-    "localImagePath": "../images/items/item_233.gif"
+    "localImagePath": "images/items/item_233.gif"
   },
   {
     "id": "item_234",
@@ -937,7 +937,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireArrow.gif",
-    "localImagePath": "../images/items/item_234.gif"
+    "localImagePath": "images/items/item_234.gif"
   },
   {
     "id": "item_235",
@@ -947,7 +947,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceArrow.gif",
-    "localImagePath": "../images/items/item_235.gif"
+    "localImagePath": "images/items/item_235.gif"
   },
   {
     "id": "item_236",
@@ -957,7 +957,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonArrow.gif",
-    "localImagePath": "../images/items/item_236.gif"
+    "localImagePath": "images/items/item_236.gif"
   },
   {
     "id": "item_237",
@@ -967,7 +967,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralArrow.gif",
-    "localImagePath": "../images/items/item_237.gif"
+    "localImagePath": "images/items/item_237.gif"
   },
   {
     "id": "item_238",
@@ -977,7 +977,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_Bolt.gif",
-    "localImagePath": "../images/items/item_238.gif"
+    "localImagePath": "images/items/item_238.gif"
   },
   {
     "id": "item_239",
@@ -987,7 +987,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireBolt.gif",
-    "localImagePath": "../images/items/item_239.gif"
+    "localImagePath": "images/items/item_239.gif"
   },
   {
     "id": "item_240",
@@ -997,7 +997,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceBolt.gif",
-    "localImagePath": "../images/items/item_240.gif"
+    "localImagePath": "images/items/item_240.gif"
   },
   {
     "id": "item_241",
@@ -1007,7 +1007,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonBolt.gif",
-    "localImagePath": "../images/items/item_241.gif"
+    "localImagePath": "images/items/item_241.gif"
   },
   {
     "id": "item_242",
@@ -1017,7 +1017,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralBolt.gif",
-    "localImagePath": "../images/items/item_242.gif"
+    "localImagePath": "images/items/item_242.gif"
   },
   {
     "id": "item_243",
@@ -1027,7 +1027,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_BeamCell.gif",
-    "localImagePath": "../images/items/item_243.gif"
+    "localImagePath": "images/items/item_243.gif"
   },
   {
     "id": "item_244",
@@ -1037,7 +1037,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_AdvancedBeamCell.gif",
-    "localImagePath": "../images/items/item_244.gif"
+    "localImagePath": "images/items/item_244.gif"
   },
   {
     "id": "item_245",
@@ -1047,7 +1047,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_BeamCell.gif",
-    "localImagePath": "../images/items/item_245.gif"
+    "localImagePath": "images/items/item_245.gif"
   },
   {
     "id": "item_246",
@@ -1057,7 +1057,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_AdvancedBeamCell.gif",
-    "localImagePath": "../images/items/item_246.gif"
+    "localImagePath": "images/items/item_246.gif"
   },
   {
     "id": "item_247",
@@ -1067,7 +1067,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_BeamCell.gif",
-    "localImagePath": "../images/items/item_247.gif"
+    "localImagePath": "images/items/item_247.gif"
   },
   {
     "id": "item_248",
@@ -1077,7 +1077,7 @@
     "soldAtNpc": "N",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_AdvancedBeamCell.gif",
-    "localImagePath": "../images/items/item_248.gif"
+    "localImagePath": "images/items/item_248.gif"
   },
   {
     "id": "item_249",
@@ -1087,7 +1087,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NuclearRocket.gif",
-    "localImagePath": "../images/items/item_249.gif"
+    "localImagePath": "images/items/item_249.gif"
   },
   {
     "id": "item_250",
@@ -1097,7 +1097,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ElectricRocket.gif",
-    "localImagePath": "../images/items/item_250.gif"
+    "localImagePath": "images/items/item_250.gif"
   },
   {
     "id": "item_251",
@@ -1107,7 +1107,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CrossRocket.gif",
-    "localImagePath": "../images/items/item_251.gif"
+    "localImagePath": "images/items/item_251.gif"
   },
   {
     "id": "item_252",
@@ -1117,7 +1117,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomRocket.gif",
-    "localImagePath": "../images/items/item_252.gif"
+    "localImagePath": "images/items/item_252.gif"
   },
   {
     "id": "item_253",
@@ -1127,7 +1127,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CycloneRocket.gif",
-    "localImagePath": "../images/items/item_253.gif"
+    "localImagePath": "images/items/item_253.gif"
   },
   {
     "id": "item_254",
@@ -1137,7 +1137,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FlashRocket.gif",
-    "localImagePath": "../images/items/item_254.gif"
+    "localImagePath": "images/items/item_254.gif"
   },
   {
     "id": "item_255",
@@ -1147,7 +1147,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PointRocket.gif",
-    "localImagePath": "../images/items/item_255.gif"
+    "localImagePath": "images/items/item_255.gif"
   },
   {
     "id": "item_256",
@@ -1157,7 +1157,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NonElementRocket.gif",
-    "localImagePath": "../images/items/item_256.gif"
+    "localImagePath": "images/items/item_256.gif"
   },
   {
     "id": "item_257",
@@ -1167,7 +1167,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireLiquidFuel.gif",
-    "localImagePath": "../images/items/item_257.gif"
+    "localImagePath": "images/items/item_257.gif"
   },
   {
     "id": "item_258",
@@ -1177,7 +1177,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceLiquidFuel.gif",
-    "localImagePath": "../images/items/item_258.gif"
+    "localImagePath": "images/items/item_258.gif"
   },
   {
     "id": "item_259",
@@ -1187,7 +1187,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonLiquidFuel.gif",
-    "localImagePath": "../images/items/item_259.gif"
+    "localImagePath": "images/items/item_259.gif"
   },
   {
     "id": "item_260",
@@ -1197,7 +1197,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralLiquidFuel.gif",
-    "localImagePath": "../images/items/item_260.gif"
+    "localImagePath": "images/items/item_260.gif"
   },
   {
     "id": "item_261",
@@ -1207,7 +1207,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NuclearRocket.gif",
-    "localImagePath": "../images/items/item_261.gif"
+    "localImagePath": "images/items/item_261.gif"
   },
   {
     "id": "item_262",
@@ -1217,7 +1217,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ElectricRocket.gif",
-    "localImagePath": "../images/items/item_262.gif"
+    "localImagePath": "images/items/item_262.gif"
   },
   {
     "id": "item_263",
@@ -1227,7 +1227,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CrossRocket.gif",
-    "localImagePath": "../images/items/item_263.gif"
+    "localImagePath": "images/items/item_263.gif"
   },
   {
     "id": "item_264",
@@ -1237,7 +1237,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomRocket.gif",
-    "localImagePath": "../images/items/item_264.gif"
+    "localImagePath": "images/items/item_264.gif"
   },
   {
     "id": "item_265",
@@ -1247,7 +1247,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CycloneRocket.gif",
-    "localImagePath": "../images/items/item_265.gif"
+    "localImagePath": "images/items/item_265.gif"
   },
   {
     "id": "item_266",
@@ -1257,7 +1257,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FlashRocket.gif",
-    "localImagePath": "../images/items/item_266.gif"
+    "localImagePath": "images/items/item_266.gif"
   },
   {
     "id": "item_267",
@@ -1267,7 +1267,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PointRocket.gif",
-    "localImagePath": "../images/items/item_267.gif"
+    "localImagePath": "images/items/item_267.gif"
   },
   {
     "id": "item_268",
@@ -1277,7 +1277,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NonElementRocket.gif",
-    "localImagePath": "../images/items/item_268.gif"
+    "localImagePath": "images/items/item_268.gif"
   },
   {
     "id": "item_269",
@@ -1287,7 +1287,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireLiquidFuel.gif",
-    "localImagePath": "../images/items/item_269.gif"
+    "localImagePath": "images/items/item_269.gif"
   },
   {
     "id": "item_270",
@@ -1297,7 +1297,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceLiquidFuel.gif",
-    "localImagePath": "../images/items/item_270.gif"
+    "localImagePath": "images/items/item_270.gif"
   },
   {
     "id": "item_271",
@@ -1307,7 +1307,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonLiquidFuel.gif",
-    "localImagePath": "../images/items/item_271.gif"
+    "localImagePath": "images/items/item_271.gif"
   },
   {
     "id": "item_272",
@@ -1317,7 +1317,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralLiquidFuel.gif",
-    "localImagePath": "../images/items/item_272.gif"
+    "localImagePath": "images/items/item_272.gif"
   },
   {
     "id": "item_273",
@@ -1327,7 +1327,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NuclearRocket.gif",
-    "localImagePath": "../images/items/item_273.gif"
+    "localImagePath": "images/items/item_273.gif"
   },
   {
     "id": "item_274",
@@ -1337,7 +1337,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ElectricRocket.gif",
-    "localImagePath": "../images/items/item_274.gif"
+    "localImagePath": "images/items/item_274.gif"
   },
   {
     "id": "item_275",
@@ -1347,7 +1347,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CrossRocket.gif",
-    "localImagePath": "../images/items/item_275.gif"
+    "localImagePath": "images/items/item_275.gif"
   },
   {
     "id": "item_276",
@@ -1357,7 +1357,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VenomRocket.gif",
-    "localImagePath": "../images/items/item_276.gif"
+    "localImagePath": "images/items/item_276.gif"
   },
   {
     "id": "item_277",
@@ -1367,7 +1367,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_CycloneRocket.gif",
-    "localImagePath": "../images/items/item_277.gif"
+    "localImagePath": "images/items/item_277.gif"
   },
   {
     "id": "item_278",
@@ -1377,7 +1377,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FlashRocket.gif",
-    "localImagePath": "../images/items/item_278.gif"
+    "localImagePath": "images/items/item_278.gif"
   },
   {
     "id": "item_279",
@@ -1387,7 +1387,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PointRocket.gif",
-    "localImagePath": "../images/items/item_279.gif"
+    "localImagePath": "images/items/item_279.gif"
   },
   {
     "id": "item_280",
@@ -1397,7 +1397,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_NonElementRocket.gif",
-    "localImagePath": "../images/items/item_280.gif"
+    "localImagePath": "images/items/item_280.gif"
   },
   {
     "id": "item_281",
@@ -1407,7 +1407,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FireLiquidFuel.gif",
-    "localImagePath": "../images/items/item_281.gif"
+    "localImagePath": "images/items/item_281.gif"
   },
   {
     "id": "item_282",
@@ -1417,7 +1417,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_IceLiquidFuel.gif",
-    "localImagePath": "../images/items/item_282.gif"
+    "localImagePath": "images/items/item_282.gif"
   },
   {
     "id": "item_283",
@@ -1427,7 +1427,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PoisonLiquidFuel.gif",
-    "localImagePath": "../images/items/item_283.gif"
+    "localImagePath": "images/items/item_283.gif"
   },
   {
     "id": "item_284",
@@ -1437,7 +1437,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MineralLiquidFuel.gif",
-    "localImagePath": "../images/items/item_284.gif"
+    "localImagePath": "images/items/item_284.gif"
   },
   {
     "id": "item_285",
@@ -1447,7 +1447,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MentalBrake.gif",
-    "localImagePath": "../images/items/item_285.gif"
+    "localImagePath": "images/items/item_285.gif"
   },
   {
     "id": "item_286",
@@ -1457,7 +1457,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_SternGrenade.gif",
-    "localImagePath": "../images/items/item_286.gif"
+    "localImagePath": "images/items/item_286.gif"
   },
   {
     "id": "item_287",
@@ -1467,7 +1467,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_AcidShower.gif",
-    "localImagePath": "../images/items/item_287.gif"
+    "localImagePath": "images/items/item_287.gif"
   },
   {
     "id": "item_288",
@@ -1477,7 +1477,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_BrakingStrength.gif",
-    "localImagePath": "../images/items/item_288.gif"
+    "localImagePath": "images/items/item_288.gif"
   },
   {
     "id": "item_289",
@@ -1487,7 +1487,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MicromGas.gif",
-    "localImagePath": "../images/items/item_289.gif"
+    "localImagePath": "images/items/item_289.gif"
   },
   {
     "id": "item_290",
@@ -1497,7 +1497,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_RegistBrake.gif",
-    "localImagePath": "../images/items/item_290.gif"
+    "localImagePath": "images/items/item_290.gif"
   },
   {
     "id": "item_291",
@@ -1507,7 +1507,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_LimitedForce.gif",
-    "localImagePath": "../images/items/item_291.gif"
+    "localImagePath": "images/items/item_291.gif"
   },
   {
     "id": "item_292",
@@ -1517,7 +1517,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ImpactExplosion.gif",
-    "localImagePath": "../images/items/item_292.gif"
+    "localImagePath": "images/items/item_292.gif"
   },
   {
     "id": "item_293",
@@ -1527,7 +1527,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_FlashWave.gif",
-    "localImagePath": "../images/items/item_293.gif"
+    "localImagePath": "images/items/item_293.gif"
   },
   {
     "id": "item_294",
@@ -1537,7 +1537,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_HoldingWeb.gif",
-    "localImagePath": "../images/items/item_294.gif"
+    "localImagePath": "images/items/item_294.gif"
   },
   {
     "id": "item_295",
@@ -1547,7 +1547,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_VirusInject.gif",
-    "localImagePath": "../images/items/item_295.gif"
+    "localImagePath": "images/items/item_295.gif"
   },
   {
     "id": "item_296",
@@ -1557,7 +1557,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_MindControl.gif",
-    "localImagePath": "../images/items/item_296.gif"
+    "localImagePath": "images/items/item_296.gif"
   },
   {
     "id": "item_409",
@@ -1567,7 +1567,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_AcidGrenade.gif",
-    "localImagePath": "../images/items/item_409.gif"
+    "localImagePath": "images/items/item_409.gif"
   },
   {
     "id": "item_410",
@@ -1577,7 +1577,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_PicrinGrenade.gif",
-    "localImagePath": "../images/items/item_410.gif"
+    "localImagePath": "images/items/item_410.gif"
   },
   {
     "id": "item_411",
@@ -1587,7 +1587,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_SmogGrenade.gif",
-    "localImagePath": "../images/items/item_411.gif"
+    "localImagePath": "images/items/item_411.gif"
   },
   {
     "id": "item_412",
@@ -1597,7 +1597,7 @@
     "soldAtNpc": "Y",
     "class": "A",
     "imageUrl": "images/item_ammo/Bullet_ShockWave.gif",
-    "localImagePath": "../images/items/item_412.gif"
+    "localImagePath": "images/items/item_412.gif"
   },
   {
     "id": "item_158",
@@ -1607,7 +1607,7 @@
     "soldAtNpc": "N",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Training.gif",
-    "localImagePath": "../images/items/item_158.gif"
+    "localImagePath": "images/items/item_158.gif"
   },
   {
     "id": "item_159",
@@ -1617,7 +1617,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Small.gif",
-    "localImagePath": "../images/items/item_159.gif"
+    "localImagePath": "images/items/item_159.gif"
   },
   {
     "id": "item_160",
@@ -1627,7 +1627,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Medium.gif",
-    "localImagePath": "../images/items/item_160.gif"
+    "localImagePath": "images/items/item_160.gif"
   },
   {
     "id": "item_161",
@@ -1637,7 +1637,7 @@
     "soldAtNpc": "N",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Big.gif",
-    "localImagePath": "../images/items/item_161.gif"
+    "localImagePath": "images/items/item_161.gif"
   },
   {
     "id": "item_162",
@@ -1647,7 +1647,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Accretia.gif",
-    "localImagePath": "../images/items/item_162.gif"
+    "localImagePath": "images/items/item_162.gif"
   },
   {
     "id": "item_163",
@@ -1657,7 +1657,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Bellato.gif",
-    "localImagePath": "../images/items/item_163.gif"
+    "localImagePath": "images/items/item_163.gif"
   },
   {
     "id": "item_164",
@@ -1667,7 +1667,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Cora.gif",
-    "localImagePath": "../images/items/item_164.gif"
+    "localImagePath": "images/items/item_164.gif"
   },
   {
     "id": "item_165",
@@ -1677,7 +1677,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Auto_A.gif",
-    "localImagePath": "../images/items/item_165.gif"
+    "localImagePath": "images/items/item_165.gif"
   },
   {
     "id": "item_166",
@@ -1687,7 +1687,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Auto_B.gif",
-    "localImagePath": "../images/items/item_166.gif"
+    "localImagePath": "images/items/item_166.gif"
   },
   {
     "id": "item_167",
@@ -1697,7 +1697,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_MiningTool_Auto_C.gif",
-    "localImagePath": "../images/items/item_167.gif"
+    "localImagePath": "images/items/item_167.gif"
   },
   {
     "id": "item_168",
@@ -1707,7 +1707,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Auto_Small.gif",
-    "localImagePath": "../images/items/item_168.gif"
+    "localImagePath": "images/items/item_168.gif"
   },
   {
     "id": "item_169",
@@ -1717,7 +1717,7 @@
     "soldAtNpc": "Y",
     "class": "B",
     "imageUrl": "images/item_battery/Goods_Battery_Auto_Medium.gif",
-    "localImagePath": "../images/items/item_169.gif"
+    "localImagePath": "images/items/item_169.gif"
   },
   {
     "id": "item_26",
@@ -1727,7 +1727,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Black_Firstalium.gif",
-    "localImagePath": "../images/items/item_26.gif"
+    "localImagePath": "images/items/item_26.gif"
   },
   {
     "id": "item_27",
@@ -1737,7 +1737,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Black_Utalrio.gif",
-    "localImagePath": "../images/items/item_27.gif"
+    "localImagePath": "images/items/item_27.gif"
   },
   {
     "id": "item_28",
@@ -1747,7 +1747,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Black_Protalrous.gif",
-    "localImagePath": "../images/items/item_28.gif"
+    "localImagePath": "images/items/item_28.gif"
   },
   {
     "id": "item_29",
@@ -1757,7 +1757,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Black_Newtalian.gif",
-    "localImagePath": "../images/items/item_29.gif"
+    "localImagePath": "images/items/item_29.gif"
   },
   {
     "id": "item_30",
@@ -1767,7 +1767,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Blue_Fetalium.gif",
-    "localImagePath": "../images/items/item_30.gif"
+    "localImagePath": "images/items/item_30.gif"
   },
   {
     "id": "item_31",
@@ -1777,7 +1777,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Blue_Cotalrio.gif",
-    "localImagePath": "../images/items/item_31.gif"
+    "localImagePath": "images/items/item_31.gif"
   },
   {
     "id": "item_32",
@@ -1787,7 +1787,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Blue_Baytalrous.gif",
-    "localImagePath": "../images/items/item_32.gif"
+    "localImagePath": "images/items/item_32.gif"
   },
   {
     "id": "item_33",
@@ -1797,7 +1797,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Blue_Crotalian.gif",
-    "localImagePath": "../images/items/item_33.gif"
+    "localImagePath": "images/items/item_33.gif"
   },
   {
     "id": "item_34",
@@ -1807,7 +1807,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Red_Lutalium.gif",
-    "localImagePath": "../images/items/item_34.gif"
+    "localImagePath": "images/items/item_34.gif"
   },
   {
     "id": "item_35",
@@ -1817,7 +1817,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Red_Lotalrio.gif",
-    "localImagePath": "../images/items/item_35.gif"
+    "localImagePath": "images/items/item_35.gif"
   },
   {
     "id": "item_36",
@@ -1827,7 +1827,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Red_Niotalrous.gif",
-    "localImagePath": "../images/items/item_36.gif"
+    "localImagePath": "images/items/item_36.gif"
   },
   {
     "id": "item_37",
@@ -1837,7 +1837,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Red_Motalian.gif",
-    "localImagePath": "../images/items/item_37.gif"
+    "localImagePath": "images/items/item_37.gif"
   },
   {
     "id": "item_38",
@@ -1847,7 +1847,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Yellow_Ostalium.gif",
-    "localImagePath": "../images/items/item_38.gif"
+    "localImagePath": "images/items/item_38.gif"
   },
   {
     "id": "item_39",
@@ -1857,7 +1857,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Yellow_Iritalrio.gif",
-    "localImagePath": "../images/items/item_39.gif"
+    "localImagePath": "images/items/item_39.gif"
   },
   {
     "id": "item_40",
@@ -1867,7 +1867,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Yellow_Teitalrous.gif",
-    "localImagePath": "../images/items/item_40.gif"
+    "localImagePath": "images/items/item_40.gif"
   },
   {
     "id": "item_41",
@@ -1877,7 +1877,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Yellow_Tutalian.gif",
-    "localImagePath": "../images/items/item_41.gif"
+    "localImagePath": "images/items/item_41.gif"
   },
   {
     "id": "item_42",
@@ -1887,7 +1887,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Green_Haitalium.gif",
-    "localImagePath": "../images/items/item_42.gif"
+    "localImagePath": "images/items/item_42.gif"
   },
   {
     "id": "item_43",
@@ -1897,7 +1897,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Green_Metalrio.gif",
-    "localImagePath": "../images/items/item_43.gif"
+    "localImagePath": "images/items/item_43.gif"
   },
   {
     "id": "item_44",
@@ -1907,7 +1907,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Green_Dutalrous.gif",
-    "localImagePath": "../images/items/item_44.gif"
+    "localImagePath": "images/items/item_44.gif"
   },
   {
     "id": "item_45",
@@ -1917,7 +1917,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_processed_ore/Ore_Green_Setalian.gif",
-    "localImagePath": "../images/items/item_45.gif"
+    "localImagePath": "images/items/item_45.gif"
   },
   {
     "id": "item_46",
@@ -1927,7 +1927,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Black_Ore1.gif",
-    "localImagePath": "../images/items/item_46.gif"
+    "localImagePath": "images/items/item_46.gif"
   },
   {
     "id": "item_47",
@@ -1937,7 +1937,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Black_Ore2.gif",
-    "localImagePath": "../images/items/item_47.gif"
+    "localImagePath": "images/items/item_47.gif"
   },
   {
     "id": "item_48",
@@ -1947,7 +1947,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Black_Ore3.gif",
-    "localImagePath": "../images/items/item_48.gif"
+    "localImagePath": "images/items/item_48.gif"
   },
   {
     "id": "item_49",
@@ -1957,7 +1957,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Blue_Ore1.gif",
-    "localImagePath": "../images/items/item_49.gif"
+    "localImagePath": "images/items/item_49.gif"
   },
   {
     "id": "item_50",
@@ -1967,7 +1967,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Blue_Ore2.gif",
-    "localImagePath": "../images/items/item_50.gif"
+    "localImagePath": "images/items/item_50.gif"
   },
   {
     "id": "item_51",
@@ -1977,7 +1977,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Blue_Ore3.gif",
-    "localImagePath": "../images/items/item_51.gif"
+    "localImagePath": "images/items/item_51.gif"
   },
   {
     "id": "item_52",
@@ -1987,7 +1987,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Green_Ore1.gif",
-    "localImagePath": "../images/items/item_52.gif"
+    "localImagePath": "images/items/item_52.gif"
   },
   {
     "id": "item_53",
@@ -1997,7 +1997,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Green_Ore2.gif",
-    "localImagePath": "../images/items/item_53.gif"
+    "localImagePath": "images/items/item_53.gif"
   },
   {
     "id": "item_54",
@@ -2007,7 +2007,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Green_Ore3.gif",
-    "localImagePath": "../images/items/item_54.gif"
+    "localImagePath": "images/items/item_54.gif"
   },
   {
     "id": "item_55",
@@ -2017,7 +2017,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Red_Ore1.gif",
-    "localImagePath": "../images/items/item_55.gif"
+    "localImagePath": "images/items/item_55.gif"
   },
   {
     "id": "item_56",
@@ -2027,7 +2027,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Red_Ore2.gif",
-    "localImagePath": "../images/items/item_56.gif"
+    "localImagePath": "images/items/item_56.gif"
   },
   {
     "id": "item_57",
@@ -2037,7 +2037,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Red_Ore3.gif",
-    "localImagePath": "../images/items/item_57.gif"
+    "localImagePath": "images/items/item_57.gif"
   },
   {
     "id": "item_58",
@@ -2047,7 +2047,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Yellow_Ore1.gif",
-    "localImagePath": "../images/items/item_58.gif"
+    "localImagePath": "images/items/item_58.gif"
   },
   {
     "id": "item_59",
@@ -2057,7 +2057,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Yellow_Ore2.gif",
-    "localImagePath": "../images/items/item_59.gif"
+    "localImagePath": "images/items/item_59.gif"
   },
   {
     "id": "item_60",
@@ -2067,7 +2067,7 @@
     "soldAtNpc": "N",
     "class": "O",
     "imageUrl": "images/item_ore/Ore_Yellow_Ore3.gif",
-    "localImagePath": "../images/items/item_60.gif"
+    "localImagePath": "images/items/item_60.gif"
   },
   {
     "id": "item_144",
@@ -2077,7 +2077,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Ignorant.gif",
-    "localImagePath": "../images/items/item_144.gif"
+    "localImagePath": "images/items/item_144.gif"
   },
   {
     "id": "item_145",
@@ -2087,7 +2087,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Belief.gif",
-    "localImagePath": "../images/items/item_145.gif"
+    "localImagePath": "images/items/item_145.gif"
   },
   {
     "id": "item_146",
@@ -2097,7 +2097,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Chaos.gif",
-    "localImagePath": "../images/items/item_146.gif"
+    "localImagePath": "images/items/item_146.gif"
   },
   {
     "id": "item_147",
@@ -2107,7 +2107,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Darkness.gif",
-    "localImagePath": "../images/items/item_147.gif"
+    "localImagePath": "images/items/item_147.gif"
   },
   {
     "id": "item_148",
@@ -2117,7 +2117,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Destruction.gif",
-    "localImagePath": "../images/items/item_148.gif"
+    "localImagePath": "images/items/item_148.gif"
   },
   {
     "id": "item_149",
@@ -2127,7 +2127,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Favor.gif",
-    "localImagePath": "../images/items/item_149.gif"
+    "localImagePath": "images/items/item_149.gif"
   },
   {
     "id": "item_150",
@@ -2137,7 +2137,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Glory.gif",
-    "localImagePath": "../images/items/item_150.gif"
+    "localImagePath": "images/items/item_150.gif"
   },
   {
     "id": "item_151",
@@ -2147,7 +2147,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Grace.gif",
-    "localImagePath": "../images/items/item_151.gif"
+    "localImagePath": "images/items/item_151.gif"
   },
   {
     "id": "item_152",
@@ -2157,7 +2157,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Guard.gif",
-    "localImagePath": "../images/items/item_152.gif"
+    "localImagePath": "images/items/item_152.gif"
   },
   {
     "id": "item_153",
@@ -2167,7 +2167,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Hatred.gif",
-    "localImagePath": "../images/items/item_153.gif"
+    "localImagePath": "images/items/item_153.gif"
   },
   {
     "id": "item_154",
@@ -2177,7 +2177,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Mercy.gif",
-    "localImagePath": "../images/items/item_154.gif"
+    "localImagePath": "images/items/item_154.gif"
   },
   {
     "id": "item_155",
@@ -2187,7 +2187,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Rebirth.gif",
-    "localImagePath": "../images/items/item_155.gif"
+    "localImagePath": "images/items/item_155.gif"
   },
   {
     "id": "item_156",
@@ -2197,7 +2197,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_SacredFire.gif",
-    "localImagePath": "../images/items/item_156.gif"
+    "localImagePath": "images/items/item_156.gif"
   },
   {
     "id": "item_157",
@@ -2207,7 +2207,7 @@
     "soldAtNpc": "N",
     "class": "T",
     "imageUrl": "images/item_talic/Talic_Wisdom.gif",
-    "localImagePath": "../images/items/item_157.gif"
+    "localImagePath": "images/items/item_157.gif"
   },
   {
     "id": "item_298",
@@ -2217,7 +2217,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Silver.gif",
-    "localImagePath": "../images/items/item_298.gif"
+    "localImagePath": "images/items/item_298.gif"
   },
   {
     "id": "item_299",
@@ -2227,7 +2227,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Gold.gif",
-    "localImagePath": "../images/items/item_299.gif"
+    "localImagePath": "images/items/item_299.gif"
   },
   {
     "id": "item_413",
@@ -2237,7 +2237,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Hammer.gif",
-    "localImagePath": "../images/items/item_413.gif"
+    "localImagePath": "images/items/item_413.gif"
   },
   {
     "id": "item_414",
@@ -2247,7 +2247,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Extractor.gif",
-    "localImagePath": "../images/items/item_414.gif"
+    "localImagePath": "images/items/item_414.gif"
   },
   {
     "id": "item_415",
@@ -2257,7 +2257,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Combiner.gif",
-    "localImagePath": "../images/items/item_415.gif"
+    "localImagePath": "images/items/item_415.gif"
   },
   {
     "id": "item_416",
@@ -2267,7 +2267,7 @@
     "soldAtNpc": "Y",
     "class": "C",
     "imageUrl": "images/item_catalyst/Catalyst_Combiner.gif",
-    "localImagePath": "../images/items/item_416.gif"
+    "localImagePath": "images/items/item_416.gif"
   },
   {
     "id": "item_excelsior_piece__black__1",
@@ -2277,7 +2277,7 @@
     "soldAtNpc": "Piece",
     "class": "Black",
     "imageUrl": "images/item_excelsior/Excelsior_Black_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__black__1.gif"
+    "localImagePath": "images/items/item_excelsior_piece__black__1.gif"
   },
   {
     "id": "item_excelsior_piece__blue__2",
@@ -2287,7 +2287,7 @@
     "soldAtNpc": "Piece",
     "class": "Blue",
     "imageUrl": "images/item_excelsior/Excelsior_Blue_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__blue__2.gif"
+    "localImagePath": "images/items/item_excelsior_piece__blue__2.gif"
   },
   {
     "id": "item_excelsior_piece__brown__3",
@@ -2297,7 +2297,7 @@
     "soldAtNpc": "Piece",
     "class": "Brown",
     "imageUrl": "images/item_excelsior/Excelsior_Brown_Pirce.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__brown__3.gif"
+    "localImagePath": "images/items/item_excelsior_piece__brown__3.gif"
   },
   {
     "id": "item_excelsior_piece__green__4",
@@ -2307,7 +2307,7 @@
     "soldAtNpc": "Piece",
     "class": "Green",
     "imageUrl": "images/item_excelsior/Excelsior_Green_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__green__4.gif"
+    "localImagePath": "images/items/item_excelsior_piece__green__4.gif"
   },
   {
     "id": "item_excelsior_piece__navy__5",
@@ -2317,7 +2317,7 @@
     "soldAtNpc": "Piece",
     "class": "Navy",
     "imageUrl": "images/item_excelsior/Excelsior_Navy_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__navy__5.gif"
+    "localImagePath": "images/items/item_excelsior_piece__navy__5.gif"
   },
   {
     "id": "item_excelsior_piece__olive__6",
@@ -2327,7 +2327,7 @@
     "soldAtNpc": "Piece",
     "class": "Olive",
     "imageUrl": "images/item_excelsior/Excelsior_Olive_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__olive__6.gif"
+    "localImagePath": "images/items/item_excelsior_piece__olive__6.gif"
   },
   {
     "id": "item_excelsior_piece__purple__7",
@@ -2337,7 +2337,7 @@
     "soldAtNpc": "Piece",
     "class": "Purple",
     "imageUrl": "images/item_excelsior/Excelsior_Purple_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__purple__7.gif"
+    "localImagePath": "images/items/item_excelsior_piece__purple__7.gif"
   },
   {
     "id": "item_excelsior_piece__red__8",
@@ -2347,7 +2347,7 @@
     "soldAtNpc": "Piece",
     "class": "Red",
     "imageUrl": "images/item_excelsior/Excelsior_Red_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__red__8.gif"
+    "localImagePath": "images/items/item_excelsior_piece__red__8.gif"
   },
   {
     "id": "item_excelsior_piece__white__9",
@@ -2357,7 +2357,7 @@
     "soldAtNpc": "Piece",
     "class": "White",
     "imageUrl": "images/item_excelsior/Excelsior_White_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__white__9.gif"
+    "localImagePath": "images/items/item_excelsior_piece__white__9.gif"
   },
   {
     "id": "item_excelsior_piece__yellow__10",
@@ -2367,7 +2367,7 @@
     "soldAtNpc": "Piece",
     "class": "Yellow",
     "imageUrl": "images/item_excelsior/Excelsior_Yellow_Piece.gif",
-    "localImagePath": "../images/items/item_excelsior_piece__yellow__10.gif"
+    "localImagePath": "images/items/item_excelsior_piece__yellow__10.gif"
   },
   {
     "id": "item_excelsior_grade_a__black__11",
@@ -2377,7 +2377,7 @@
     "soldAtNpc": "A",
     "class": "Black",
     "imageUrl": "images/item_excelsior/Excelsior_Black_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__black__11.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__black__11.gif"
   },
   {
     "id": "item_excelsior_grade_b__black__12",
@@ -2387,7 +2387,7 @@
     "soldAtNpc": "B",
     "class": "Black",
     "imageUrl": "images/item_excelsior/Excelsior_Black_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__black__12.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__black__12.gif"
   },
   {
     "id": "item_excelsior_grade_c__black__13",
@@ -2397,7 +2397,7 @@
     "soldAtNpc": "C",
     "class": "Black",
     "imageUrl": "images/item_excelsior/Excelsior_Black_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__black__13.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__black__13.gif"
   },
   {
     "id": "item_excelsior_grade_a__blue__14",
@@ -2407,7 +2407,7 @@
     "soldAtNpc": "A",
     "class": "Blue",
     "imageUrl": "images/item_excelsior/Excelsior_Blue_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__blue__14.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__blue__14.gif"
   },
   {
     "id": "item_excelsior_grade_b__blue__15",
@@ -2417,7 +2417,7 @@
     "soldAtNpc": "B",
     "class": "Blue",
     "imageUrl": "images/item_excelsior/Excelsior_Blue_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__blue__15.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__blue__15.gif"
   },
   {
     "id": "item_excelsior_grade_c__blue__16",
@@ -2427,7 +2427,7 @@
     "soldAtNpc": "C",
     "class": "Blue",
     "imageUrl": "images/item_excelsior/Excelsior_Blue_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__blue__16.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__blue__16.gif"
   },
   {
     "id": "item_excelsior_grade_a__brown__17",
@@ -2437,7 +2437,7 @@
     "soldAtNpc": "A",
     "class": "Brown",
     "imageUrl": "images/item_excelsior/Excelsior_Brown_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__brown__17.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__brown__17.gif"
   },
   {
     "id": "item_excelsior_grade_b__brown__18",
@@ -2447,7 +2447,7 @@
     "soldAtNpc": "B",
     "class": "Brown",
     "imageUrl": "images/item_excelsior/Excelsior_Brown_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__brown__18.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__brown__18.gif"
   },
   {
     "id": "item_excelsior_grade_c__brown__19",
@@ -2457,7 +2457,7 @@
     "soldAtNpc": "C",
     "class": "Brown",
     "imageUrl": "images/item_excelsior/Excelsior_Brown_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__brown__19.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__brown__19.gif"
   },
   {
     "id": "item_excelsior_grade_a__green__20",
@@ -2467,7 +2467,7 @@
     "soldAtNpc": "A",
     "class": "Green",
     "imageUrl": "images/item_excelsior/Excelsior_Green_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__green__20.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__green__20.gif"
   },
   {
     "id": "item_excelsior_grade_b__green__21",
@@ -2477,7 +2477,7 @@
     "soldAtNpc": "B",
     "class": "Green",
     "imageUrl": "images/item_excelsior/Excelsior_Green_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__green__21.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__green__21.gif"
   },
   {
     "id": "item_excelsior_grade_c__green__22",
@@ -2487,7 +2487,7 @@
     "soldAtNpc": "C",
     "class": "Green",
     "imageUrl": "images/item_excelsior/Excelsior_Green_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__green__22.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__green__22.gif"
   },
   {
     "id": "item_excelsior_grade_a__navy__23",
@@ -2497,7 +2497,7 @@
     "soldAtNpc": "A",
     "class": "Navy",
     "imageUrl": "images/item_excelsior/Excelsior_Navy_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__navy__23.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__navy__23.gif"
   },
   {
     "id": "item_excelsior_grade_b__navy__24",
@@ -2507,7 +2507,7 @@
     "soldAtNpc": "B",
     "class": "Navy",
     "imageUrl": "images/item_excelsior/Excelsior_Navy_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__navy__24.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__navy__24.gif"
   },
   {
     "id": "item_excelsior_grade_c__navy__25",
@@ -2517,7 +2517,7 @@
     "soldAtNpc": "C",
     "class": "Navy",
     "imageUrl": "images/item_excelsior/Excelsior_Navy_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__navy__25.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__navy__25.gif"
   },
   {
     "id": "item_excelsior_grade_a__olive__26",
@@ -2527,7 +2527,7 @@
     "soldAtNpc": "A",
     "class": "Olive",
     "imageUrl": "images/item_excelsior/Excelsior_Olive_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__olive__26.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__olive__26.gif"
   },
   {
     "id": "item_excelsior_grade_b__olive__27",
@@ -2537,7 +2537,7 @@
     "soldAtNpc": "B",
     "class": "Olive",
     "imageUrl": "images/item_excelsior/Excelsior_Olive_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__olive__27.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__olive__27.gif"
   },
   {
     "id": "item_excelsior_grade_c__olive__28",
@@ -2547,7 +2547,7 @@
     "soldAtNpc": "C",
     "class": "Olive",
     "imageUrl": "images/item_excelsior/Excelsior_Olive_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__olive__28.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__olive__28.gif"
   },
   {
     "id": "item_excelsior_grade_a__purple__29",
@@ -2557,7 +2557,7 @@
     "soldAtNpc": "A",
     "class": "Purple",
     "imageUrl": "images/item_excelsior/Excelsior_Purple_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__purple__29.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__purple__29.gif"
   },
   {
     "id": "item_excelsior_grade_b__purple__30",
@@ -2567,7 +2567,7 @@
     "soldAtNpc": "B",
     "class": "Purple",
     "imageUrl": "images/item_excelsior/Excelsior_Purple_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__purple__30.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__purple__30.gif"
   },
   {
     "id": "item_excelsior_grade_c__purple__31",
@@ -2577,7 +2577,7 @@
     "soldAtNpc": "C",
     "class": "Purple",
     "imageUrl": "images/item_excelsior/Excelsior_Purple_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__purple__31.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__purple__31.gif"
   },
   {
     "id": "item_excelsior_grade_a__red__32",
@@ -2587,7 +2587,7 @@
     "soldAtNpc": "A",
     "class": "Red",
     "imageUrl": "images/item_excelsior/Excelsior_Red_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__red__32.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__red__32.gif"
   },
   {
     "id": "item_excelsior_grade_b__red__33",
@@ -2597,7 +2597,7 @@
     "soldAtNpc": "B",
     "class": "Red",
     "imageUrl": "images/item_excelsior/Excelsior_Red_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__red__33.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__red__33.gif"
   },
   {
     "id": "item_excelsior_grade_c__red__34",
@@ -2607,7 +2607,7 @@
     "soldAtNpc": "C",
     "class": "Red",
     "imageUrl": "images/item_excelsior/Excelsior_Red_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__red__34.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__red__34.gif"
   },
   {
     "id": "item_excelsior_grade_a__white__35",
@@ -2617,7 +2617,7 @@
     "soldAtNpc": "A",
     "class": "White",
     "imageUrl": "images/item_excelsior/Excelsior_White_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__white__35.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__white__35.gif"
   },
   {
     "id": "item_excelsior_grade_b__white__36",
@@ -2627,7 +2627,7 @@
     "soldAtNpc": "B",
     "class": "White",
     "imageUrl": "images/item_excelsior/Excelsior_White_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__white__36.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__white__36.gif"
   },
   {
     "id": "item_excelsior_grade_c__white__37",
@@ -2637,7 +2637,7 @@
     "soldAtNpc": "C",
     "class": "White",
     "imageUrl": "images/item_excelsior/Excelsior_White_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__white__37.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__white__37.gif"
   },
   {
     "id": "item_excelsior_grade_a__yellow__38",
@@ -2647,7 +2647,7 @@
     "soldAtNpc": "A",
     "class": "Yellow",
     "imageUrl": "images/item_excelsior/Excelsior_Yellow_A.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_a__yellow__38.gif"
+    "localImagePath": "images/items/item_excelsior_grade_a__yellow__38.gif"
   },
   {
     "id": "item_excelsior_grade_b__yellow__39",
@@ -2657,7 +2657,7 @@
     "soldAtNpc": "B",
     "class": "Yellow",
     "imageUrl": "images/item_excelsior/Excelsior_Yellow_B.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_b__yellow__39.gif"
+    "localImagePath": "images/items/item_excelsior_grade_b__yellow__39.gif"
   },
   {
     "id": "item_excelsior_grade_c__yellow__40",
@@ -2667,7 +2667,7 @@
     "soldAtNpc": "C",
     "class": "Yellow",
     "imageUrl": "images/item_excelsior/Excelsior_Yellow_C.gif",
-    "localImagePath": "../images/items/item_excelsior_grade_c__yellow__40.gif"
+    "localImagePath": "images/items/item_excelsior_grade_c__yellow__40.gif"
   },
   {
     "id": "item_406",
@@ -2677,7 +2677,7 @@
     "soldAtNpc": "Y",
     "class": "BD",
     "imageUrl": "images/item_battledungeons/Goods_BattleDungeon_Shop.gif",
-    "localImagePath": "../images/items/item_406.gif"
+    "localImagePath": "images/items/item_406.gif"
   },
   {
     "id": "item_407",
@@ -2687,7 +2687,7 @@
     "soldAtNpc": "N",
     "class": "BD",
     "imageUrl": "images/item_battledungeons/Goods_BattleDungeon_Drop.gif",
-    "localImagePath": "../images/items/item_407.gif"
+    "localImagePath": "images/items/item_407.gif"
   },
   {
     "id": "item_408",
@@ -2697,6 +2697,6 @@
     "soldAtNpc": "N",
     "class": "BD",
     "imageUrl": "images/item_battledungeons/Goods_BattleDungeon_Darkhole.gif",
-    "localImagePath": "../images/items/item_408.gif"
+    "localImagePath": "images/items/item_408.gif"
   }
 ]
