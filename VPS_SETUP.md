@@ -242,7 +242,7 @@ Add the following three secrets:
 
 | Secret Name | Value | Description |
 |-------------|-------|-------------|
-| `VPS_IP` | Your VPS IP address | Example: `123.45.67.89` |
+| `VPS_HOST` | Your VPS hostname or IP address | Example: `123.45.67.89` or `vps.example.com` |
 | `VPS_USERNAME` | SSH username | Example: `deployer` or `root` |
 | `VPS_PASSWORD` | SSH password | Your VPS user password |
 
@@ -441,11 +441,11 @@ docker compose up -d --build
 **Solution:**
 
 1. **Verify GitHub Secrets:**
-   - Check that VPS_IP, VPS_USERNAME, and VPS_PASSWORD are correctly set
+   - Check that VPS_HOST, VPS_USERNAME, and VPS_PASSWORD are correctly set
 
 2. **Test SSH connection manually:**
    ```bash
-   ssh VPS_USERNAME@VPS_IP
+   ssh VPS_USERNAME@VPS_HOST
    ```
 
 3. **Check SSH is running on VPS:**
@@ -515,7 +515,7 @@ This is handled automatically by using `webfactory/ssh-agent` action. Update you
 
 - name: Deploy to VPS
   run: |
-    ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} << 'EOF'
+    ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
       cd /opt/rising-force-offline
       git pull origin main
       docker compose down
@@ -532,7 +532,7 @@ This is handled automatically by using `webfactory/ssh-agent` action. Update you
 ssh-keygen -t ed25519 -C "github-actions" -f ~/.ssh/github_actions_key
 
 # Copy the public key to your VPS
-ssh-copy-id -i ~/.ssh/github_actions_key.pub VPS_USERNAME@VPS_IP
+ssh-copy-id -i ~/.ssh/github_actions_key.pub VPS_USERNAME@VPS_HOST
 
 # Add the private key to GitHub Secrets as SSH_PRIVATE_KEY
 cat ~/.ssh/github_actions_key

@@ -38,8 +38,8 @@ jobs:
             # Stop existing containers
             docker compose down
             
-            # Rebuild Docker images from source
-            docker compose build
+            # Rebuild Docker images from source (without cache to ensure latest changes)
+            docker compose build --no-cache
             
             # Start containers in detached mode
             docker compose up -d

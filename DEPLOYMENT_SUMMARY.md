@@ -54,7 +54,7 @@ Add these three secrets to your GitHub repository:
 1. Go to: `Settings` → `Secrets and variables` → `Actions` → `New repository secret`
 
 2. Add:
-   - **`VPS_IP`**: Your VPS IP address (e.g., `123.45.67.89`)
+   - **`VPS_HOST`**: Your VPS hostname or IP address (e.g., `123.45.67.89` or `vps.example.com`)
    - **`VPS_USERNAME`**: Your SSH username (e.g., `deployer` or `root`)
    - **`VPS_PASSWORD`**: Your SSH password
 
@@ -84,7 +84,7 @@ Once your VPS is set up and GitHub secrets are configured:
                      ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  Workflow connects to VPS via SSH                           │
-│  (using VPS_IP, VPS_USERNAME, VPS_PASSWORD from secrets)    │
+│  (using VPS_HOST, VPS_USERNAME, VPS_PASSWORD from secrets)  │
 └────────────────────┬────────────────────────────────────────┘
                      │
                      ▼
@@ -111,7 +111,7 @@ Once your VPS is set up and GitHub secrets are configured:
 
 | Secret Name | Description | Example |
 |-------------|-------------|---------|
-| `VPS_IP` | Your VPS IP address | `123.45.67.89` |
+| `VPS_HOST` | Your VPS hostname or IP address | `123.45.67.89` or `vps.example.com` |
 | `VPS_USERNAME` | SSH username | `deployer` |
 | `VPS_PASSWORD` | SSH password | `your-secure-password` |
 
@@ -132,7 +132,7 @@ Before your first automated deployment:
 - [ ] `.env` file is configured with your domain and email
 - [ ] Firewall allows ports 80, 443, and 22
 - [ ] DNS points your domain to VPS IP address
-- [ ] GitHub secrets are configured (VPS_IP, VPS_USERNAME, VPS_PASSWORD)
+- [ ] GitHub secrets are configured (VPS_HOST, VPS_USERNAME, VPS_PASSWORD)
 - [ ] Initial manual deployment successful (`docker compose up -d`)
 - [ ] Application accessible at your domain
 
@@ -150,7 +150,7 @@ Once complete, every push to `main` will automatically deploy! 🚀
 
 **Solution:**
 1. Verify SSH is running: `sudo systemctl status ssh`
-2. Test connection manually: `ssh VPS_USERNAME@VPS_IP`
+2. Test connection manually: `ssh VPS_USERNAME@VPS_HOST`
 3. Check firewall allows port 22: `sudo ufw status`
 
 ### Application not updating after deployment
