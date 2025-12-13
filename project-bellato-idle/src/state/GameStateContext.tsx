@@ -331,10 +331,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
   const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
     let result = { success: false, healAmount: 0, message: '' };
     
+    console.log('[MACRO DEBUG] consumeMacroPotion called with currentBattleHp:', currentBattleHp);
+    
     setGameState((prev) => {
+      console.log('[MACRO DEBUG] Inside setGameState callback');
       // Check if macro is enabled and has a valid potion slot
       if (!prev.macroState.enabled || !prev.macroState.potionSlot) {
         result = { success: false, healAmount: 0, message: 'Macro not configured' };
+        console.log('[MACRO DEBUG] Macro not configured');
         return prev;
       }
 
@@ -417,6 +421,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       const restoreAmount = itemData.amount ?? 0;
       const newStat = Math.min(currentStat + restoreAmount, maxStat);
       const healedAmount = newStat - currentStat;
+      
+      console.log('[MACRO DEBUG] Calculation - currentStat:', currentStat, 'restoreAmount:', restoreAmount, 'maxStat:', maxStat);
+      console.log('[MACRO DEBUG] newStat:', newStat, 'healedAmount:', healedAmount);
 
       // Update inventory: reduce quantity or remove item
       const newGrid = prev.inventoryGrid.map(r => [...r]);
@@ -433,6 +440,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
 
       result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
+      
+      console.log('[MACRO DEBUG] Setting result:', JSON.stringify(result));
 
       // Update inventory and macro state
       // Note: For HP potions during battle, we do NOT update character.statusInfo.hp here
@@ -452,6 +461,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           break;
       }
       
+      console.log('[MACRO DEBUG] Returning updated state with inventory changes');
       return {
         ...prev,
         inventoryGrid: newGrid,
@@ -466,6 +476,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
+    console.log('[MACRO DEBUG] consumeMacroPotion returning result:', JSON.stringify(result));
     return result;
   }, []);
 
