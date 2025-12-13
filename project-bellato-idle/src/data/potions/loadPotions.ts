@@ -58,10 +58,10 @@ function getPotionPrice(healAmount: number): number {
  */
 export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
   // Use the new amount property if available, otherwise fall back to parsing healingAmount
-  const healAmount = rawPotion.amount !== null ? rawPotion.amount : parseHealAmount(rawPotion.healingAmount);
+  const healAmount = rawPotion.amount ?? parseHealAmount(rawPotion.healingAmount);
   
   // Use the new potionType property if available, otherwise determine from healingAmount
-  const potionType = rawPotion.potionType !== null ? rawPotion.potionType : (isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined);
+  const potionType = rawPotion.potionType ?? (isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined);
   
   return {
     id: rawPotion.id,

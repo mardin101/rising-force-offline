@@ -440,12 +440,11 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
 
       // Update inventory, macro state, AND character stats
-      // For HP potions in battle, also update battle HP
       const updatedStatusInfo = { ...prev.character!.statusInfo };
       
       switch (potionType) {
         case 'HP':
-          updatedStatusInfo.hp = Math.min(currentBattleHp + healedAmount, maxStat);
+          updatedStatusInfo.hp = newStat;
           break;
         case 'FP':
           updatedStatusInfo.fp = newStat;
