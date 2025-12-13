@@ -2,6 +2,8 @@ import type { ItemData } from '../items';
 import weaponsJson from '../weapons/weapons.json';
 import armorJson from '../armor/armor.json';
 import shieldsJson from '../shields/shields.json';
+import { ITEM_TYPE } from '../constants';
+import { CHARACTER_RACES } from '../../state/gameStateSlice';
 
 // Raw weapon data structure from JSON
 interface RawWeaponData {
@@ -65,13 +67,13 @@ function getRaceFromImageUrl(imageUrl: string): string | undefined {
   const lowerUrl = imageUrl.toLowerCase();
   
   if (lowerUrl.includes('bellato')) {
-    return 'Bellato';
+    return CHARACTER_RACES.BELLATO;
   }
   if (lowerUrl.includes('cora')) {
-    return 'Cora';
+    return CHARACTER_RACES.CORA;
   }
   if (lowerUrl.includes('accretia')) {
-    return 'Accretia';
+    return CHARACTER_RACES.ACCRETIA;
   }
   
   return undefined; // All races
@@ -114,7 +116,7 @@ export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
     code2: rawWeapon.type,
     imageUrl: rawWeapon.imageUrl,
     localImagePath: rawWeapon.localImagePath,
-    type: 'weapon',
+    type: ITEM_TYPE.WEAPON,
     race: rawWeapon.race,
     levelRequirement: rawWeapon.requiredLevel,
     image: rawWeapon.localImagePath,
@@ -137,7 +139,7 @@ export function transformArmorToItem(rawArmor: RawArmorData): ItemData {
     code2: rawArmor.type,
     imageUrl: rawArmor.imageUrl,
     localImagePath: rawArmor.localImagePath,
-    type: 'armor',
+    type: ITEM_TYPE.ARMOR,
     defense: rawArmor.avgDefPower,
     race: race,
     levelRequirement: rawArmor.requiredLevel,
@@ -158,7 +160,7 @@ export function transformShieldToItem(rawShield: RawShieldData): ItemData {
     code2: 'Shield',
     imageUrl: rawShield.imageUrl,
     localImagePath: rawShield.localImagePath,
-    type: 'armor', // Shields are armor type
+    type: ITEM_TYPE.ARMOR, // Shields are armor type
     defense: rawShield.avgDefPower,
     race: rawShield.race,
     levelRequirement: rawShield.requiredLevel,
