@@ -37,6 +37,80 @@ export const CHARACTER_CLASSES = {
 
 export type CharacterClass = typeof CHARACTER_CLASSES[keyof typeof CHARACTER_CLASSES];
 
+// Level 30 Subclass constants
+export const SUBCLASS_LEVEL_30 = {
+  // Warrior subclasses
+  MILLER: 'Miller',
+  COMMANDO: 'Commando',
+  // Ranger subclasses
+  DESPERADO: 'Desperado',
+  SNIPER: 'Sniper',
+  // Spiritualist subclasses
+  PSYPER: 'Psyper',
+  CHANDRA: 'Chandra',
+  // Specialist subclasses
+  CRAFTSMAN: 'Craftsman',
+  DRIVER: 'Driver',
+} as const;
+
+export type SubclassLevel30 = typeof SUBCLASS_LEVEL_30[keyof typeof SUBCLASS_LEVEL_30];
+
+// Level 40 Subclass constants
+export const SUBCLASS_LEVEL_40 = {
+  // Warrior subclasses
+  SHIELD_MILLER: 'Shield Miller',
+  ARMSMAN: 'Armsman',
+  BERSERKER: 'Berserker',
+  // Ranger subclasses
+  HIDDEN_SOLDIER: 'Hidden Soldier',
+  SENTINEL: 'Sentinel',
+  INFILTRATOR: 'Infiltrator',
+  // Spiritualist subclasses
+  ASTRALIST: 'Astralist',
+  WIZARD: 'Wizard',
+  HOLY_CHANDRA: 'Holy Chandra',
+  // Specialist subclasses
+  MENTAL_SMITH: 'Mental Smith',
+  ARMORED_RIDER: 'Armored Rider',
+} as const;
+
+export type SubclassLevel40 = typeof SUBCLASS_LEVEL_40[keyof typeof SUBCLASS_LEVEL_40];
+
+// Mapping of base classes to their available level 30 subclasses
+export const CLASS_TO_SUBCLASS_30: Record<CharacterClass, SubclassLevel30[]> = {
+  [CHARACTER_CLASSES.WARRIOR]: [SUBCLASS_LEVEL_30.MILLER, SUBCLASS_LEVEL_30.COMMANDO],
+  [CHARACTER_CLASSES.RANGER]: [SUBCLASS_LEVEL_30.DESPERADO, SUBCLASS_LEVEL_30.SNIPER],
+  [CHARACTER_CLASSES.SPIRITUALIST]: [SUBCLASS_LEVEL_30.PSYPER, SUBCLASS_LEVEL_30.CHANDRA],
+  [CHARACTER_CLASSES.SPECIALIST]: [SUBCLASS_LEVEL_30.CRAFTSMAN, SUBCLASS_LEVEL_30.DRIVER],
+};
+
+// Mapping of base classes to their available level 40 subclasses
+export const CLASS_TO_SUBCLASS_40: Record<CharacterClass, SubclassLevel40[]> = {
+  [CHARACTER_CLASSES.WARRIOR]: [
+    SUBCLASS_LEVEL_40.SHIELD_MILLER,
+    SUBCLASS_LEVEL_40.ARMSMAN,
+    SUBCLASS_LEVEL_40.BERSERKER,
+  ],
+  [CHARACTER_CLASSES.RANGER]: [
+    SUBCLASS_LEVEL_40.HIDDEN_SOLDIER,
+    SUBCLASS_LEVEL_40.SENTINEL,
+    SUBCLASS_LEVEL_40.INFILTRATOR,
+  ],
+  [CHARACTER_CLASSES.SPIRITUALIST]: [
+    SUBCLASS_LEVEL_40.ASTRALIST,
+    SUBCLASS_LEVEL_40.WIZARD,
+    SUBCLASS_LEVEL_40.HOLY_CHANDRA,
+  ],
+  [CHARACTER_CLASSES.SPECIALIST]: [
+    SUBCLASS_LEVEL_40.MENTAL_SMITH,
+    SUBCLASS_LEVEL_40.ARMORED_RIDER,
+  ],
+};
+
+// Subclass unlock levels
+export const SUBCLASS_LEVEL_30_REQUIREMENT = 30;
+export const SUBCLASS_LEVEL_40_REQUIREMENT = 40;
+
 // Character creation constants
 export const CHARACTER_NAME_MIN_LENGTH = 2;
 export const CHARACTER_NAME_MAX_LENGTH = 20;
@@ -385,6 +459,8 @@ export interface GeneralInfo {
   classPropensity: string;  // e.g., "Melee DPS", "Tank", "Support"
   grade: CharacterGrade;
   cp: number;  // Combat Power
+  subclass30?: SubclassLevel30;  // Level 30 subclass (unlocked at level 30)
+  subclass40?: SubclassLevel40;  // Level 40 subclass (unlocked at level 40)
 }
 
 export interface Character {
