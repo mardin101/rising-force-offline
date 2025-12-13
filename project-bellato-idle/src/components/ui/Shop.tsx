@@ -10,6 +10,7 @@ import './Shop.css';
 export interface ShopProps {
   playerGold: number;
   playerLevel: number;
+  playerRace: string;
   onPurchase: (potionId: string, quantity: number) => { success: boolean; message: string };
 }
 
@@ -18,15 +19,16 @@ export interface ShopProps {
  *
  * Features:
  * - Displays all HP potions available for purchase from potions.json
+ * - Filters potions by player race (Bellato, Cora, Accretia)
  * - Click on a potion to open the purchase modal
  * - Shows level requirements for each potion
  */
-export default function Shop({ playerGold, playerLevel, onPurchase }: ShopProps) {
+export default function Shop({ playerGold, playerLevel, playerRace, onPurchase }: ShopProps) {
   const [selectedPotionId, setSelectedPotionId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Get all shop HP potions from the potion system
-  const shopPotions = getShopHPPotions();
+  // Get all shop HP potions for the player's race
+  const shopPotions = getShopHPPotions(playerRace);
 
   const handlePotionClick = (potionId: string) => {
     setSelectedPotionId(potionId);

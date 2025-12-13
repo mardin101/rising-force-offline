@@ -100,23 +100,35 @@ export function getPotionPrices(): Record<string, number> {
 
 /**
  * Get all HP potions sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
  */
-export function getShopHPPotions(): ItemData[] {
+export function getShopHPPotions(race?: string): ItemData[] {
   const allPotions = loadPotions();
   return allPotions
-    .filter(potion => 
-      potion.code1 === 'Y' && // sold at NPC
-      potion.potionType === 'HP' && // HP restoration
-      potion.healAmount && potion.healAmount > 0 // has healing value
-    )
+    .filter(potion => {
+      // Check if sold at NPC and is an HP potion
+      if (potion.code1 !== 'Y' || potion.potionType !== 'HP' || !potion.healAmount || potion.healAmount <= 0) {
+        return false;
+      }
+      
+      // If race is specified, filter by race prefix in potion name
+      if (race) {
+        // Match race prefix in potion name (e.g., "Bellato", "Cora", "Acc" for Accretia)
+        const racePrefix = race === 'Accretia' ? 'Acc' : race;
+        return potion.name.startsWith(racePrefix);
+      }
+      
+      return true;
+    })
     .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
 }
 
 /**
  * Get the lowest grade HP potion (for starter inventory)
+ * Optionally filter by race
  */
-export function getLowestHPPotion(): ItemData | null {
-  const hpPotions = getShopHPPotions();
+export function getLowestHPPotion(race?: string): ItemData | null {
+  const hpPotions = getShopHPPotions(race);
   return hpPotions.length > 0 ? hpPotions[0] : null;
 }
 

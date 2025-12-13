@@ -3,6 +3,7 @@ import {
   type GameState,
   type Character,
   type CharacterClass,
+  type CharacterRace,
   type InventoryGrid,
   type ActiveQuest,
   type EquipmentSlotType,
@@ -10,6 +11,7 @@ import {
   type MacroState,
   initialGameState,
   createCharacter,
+  createStarterInventoryGrid,
   migrateGameState,
   GAME_STATE_STORAGE_KEY,
   isValidGameState,
@@ -24,7 +26,7 @@ import {
 
 export interface GameStateContextValue {
   gameState: GameState;
-  createNewCharacter: (name: string, characterClass: CharacterClass) => void;
+  createNewCharacter: (name: string, characterClass: CharacterClass, race?: CharacterRace) => void;
   updateCharacter: (updater: Partial<Character> | ((currentChar: Character) => Partial<Character>)) => void;
   updateInventoryGrid: (updater: InventoryGrid | ((currentGrid: InventoryGrid) => InventoryGrid)) => void;
   swapInventoryItems: (fromRow: number, fromCol: number, toRow: number, toCol: number) => void;
@@ -102,11 +104,12 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     saveGameState(gameState);
   }, [gameState]);
 
-  const createNewCharacter = useCallback((name: string, characterClass: CharacterClass) => {
-    const newCharacter = createCharacter(name, characterClass);
+  const createNewCharacter = useCallback((name: string, characterClass: CharacterClass, race?: CharacterRace) => {
+    const newCharacter = createCharacter(name, characterClass, race);
     setGameState((prev) => ({
       ...prev,
       character: newCharacter,
+      inventoryGrid: createStarterInventoryGrid(race),
       hasStartedGame: true,
     }));
   }, []);
