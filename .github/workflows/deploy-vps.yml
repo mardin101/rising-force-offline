@@ -15,6 +15,7 @@ jobs:
   deploy:
     name: Deploy to VPS
     runs-on: ubuntu-latest
+    environment: rising-force-offline
     
     steps:
       - name: Checkout repository
