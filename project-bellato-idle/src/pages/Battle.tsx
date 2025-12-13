@@ -145,6 +145,11 @@ export default function Battle() {
     }
   }, [battleState.battleLog]);
 
+  // Debug: Log battleState.playerCurrentHp changes
+  useEffect(() => {
+    console.log('[MACRO DEBUG] battleState.playerCurrentHp changed to:', battleState.playerCurrentHp);
+  }, [battleState.playerCurrentHp]);
+
   // Helper function to check if macro should trigger and consume potion
   const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
     const { macroState, inventoryGrid, character } = gameState;
