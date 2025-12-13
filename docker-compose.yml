@@ -1,7 +1,7 @@
 services:
   # Traefik reverse proxy with HTTPS support
   traefik:
-    image: traefik:v3.2
+    image: traefik:latest
     container_name: traefik
     restart: unless-stopped
     command:
