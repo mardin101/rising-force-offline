@@ -119,11 +119,13 @@ export function getShopHPPotions(race?: string): ItemData[] {
         return false;
       }
       
-      // If race is specified, filter by race prefix in potion name
-      if (race) {
-        // Match race prefix in potion name (e.g., "Bellato", "Cora", "Acc" for Accretia)
-        const racePrefix = race === 'Accretia' ? 'Acc' : race;
-        return potion.name.startsWith(racePrefix);
+      // If race is specified, filter by race using the race property
+      if (race && potion.race) {
+        // Use simplified race matching (handle "Accreation" vs "Accretia")
+        const potionRace = potion.race.toLowerCase();
+        const playerRace = race.toLowerCase();
+        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
+        return isAccretia || potionRace === playerRace;
       }
       
       return true;
@@ -138,6 +140,58 @@ export function getShopHPPotions(race?: string): ItemData[] {
 export function getLowestHPPotion(race?: string): ItemData | null {
   const hpPotions = getShopHPPotions(race);
   return hpPotions.length > 0 ? hpPotions[0] : null;
+}
+
+/**
+ * Get all FP potions sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+export function getShopFPPotions(race?: string): ItemData[] {
+  const allPotions = loadPotions();
+  return allPotions
+    .filter(potion => {
+      // Check if sold at NPC and is an FP potion
+      if (potion.code1 !== 'Y' || potion.potionType !== 'FP' || !potion.healAmount || potion.healAmount <= 0) {
+        return false;
+      }
+      
+      // If race is specified, filter by race using the race property
+      if (race && potion.race) {
+        const potionRace = potion.race.toLowerCase();
+        const playerRace = race.toLowerCase();
+        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
+        return isAccretia || potionRace === playerRace;
+      }
+      
+      return true;
+    })
+    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+}
+
+/**
+ * Get all SP potions sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+export function getShopSPPotions(race?: string): ItemData[] {
+  const allPotions = loadPotions();
+  return allPotions
+    .filter(potion => {
+      // Check if sold at NPC and is an SP potion
+      if (potion.code1 !== 'Y' || potion.potionType !== 'SP' || !potion.healAmount || potion.healAmount <= 0) {
+        return false;
+      }
+      
+      // If race is specified, filter by race using the race property
+      if (race && potion.race) {
+        const potionRace = potion.race.toLowerCase();
+        const playerRace = race.toLowerCase();
+        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
+        return isAccretia || potionRace === playerRace;
+      }
+      
+      return true;
+    })
+    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
 }
 
 export default loadPotions;
