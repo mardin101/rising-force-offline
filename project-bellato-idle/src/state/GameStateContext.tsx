@@ -329,19 +329,15 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
   // Consume a potion from the macro slot (used during battle when HP drops below threshold)
   // currentBattleHp: The current HP in battle (may differ from global state during combat)
   const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
-    console.log('[MACRO DEBUG] consumeMacroPotion called with currentBattleHp:', currentBattleHp);
-    
     // Use a synchronous variable to store the result
     let syncResult = { success: false, healAmount: 0, message: '' };
     
     // Perform all validations and calculations synchronously within setGameState
     // but determine the return value BEFORE exiting the callback
     setGameState((prev) => {
-      console.log('[MACRO DEBUG] Inside setGameState callback - performing validations');
       
       // Check if macro is enabled and has a valid potion slot
       if (!prev.macroState.enabled || !prev.macroState.potionSlot) {
-        console.log('[MACRO DEBUG] Macro not configured');
         syncResult = { success: false, healAmount: 0, message: 'Macro not configured' };
         return prev;
       }
@@ -350,7 +346,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       const inventoryItem = prev.inventoryGrid[row]?.[col];
       
       if (!inventoryItem) {
-        console.log('[MACRO DEBUG] No potion in slot - clearing slot');
         syncResult = { success: false, healAmount: 0, message: 'No potion in macro slot' };
         // Clear the potion slot since item is gone
         return {
@@ -364,14 +359,12 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
       const itemData = getItemById(inventoryItem.itemId);
       if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
-        console.log('[MACRO DEBUG] Invalid potion in macro slot');
         syncResult = { success: false, healAmount: 0, message: 'Invalid potion in macro slot' };
         return prev;
       }
 
       // Check if character exists
       if (!prev.character) {
-        console.log('[MACRO DEBUG] No character found');
         syncResult = { success: false, healAmount: 0, message: 'No character found' };
         return prev;
       }
@@ -381,14 +374,12 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       
       // Check level requirement
       if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
-        console.log('[MACRO DEBUG] Level requirement not met');
         syncResult = { success: false, healAmount: 0, message: `Macro: Requires level ${itemData.levelRequirement}` };
         return prev;
       }
       
       // Check race compatibility
       if (!isRaceCompatible(itemData.race, playerRace)) {
-        console.log('[MACRO DEBUG] Race not compatible');
         syncResult = { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
         return prev;
       }
@@ -416,14 +407,12 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           statName = 'SP';
           break;
         default:
-          console.log('[MACRO DEBUG] Unknown potion type');
           syncResult = { success: false, healAmount: 0, message: 'Unknown potion type' };
           return prev;
       }
       
       // Check if already at full
       if (currentStat >= maxStat) {
-        console.log('[MACRO DEBUG] Already at full', statName);
         syncResult = { success: false, healAmount: 0, message: `Already at full ${statName}` };
         return prev;
       }
@@ -432,13 +421,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       const restoreAmount = itemData.amount ?? 0;
       const newStat = Math.min(currentStat + restoreAmount, maxStat);
       const healedAmount = newStat - currentStat;
-      
-      console.log('[MACRO DEBUG] Calculation - currentStat:', currentStat, 'restoreAmount:', restoreAmount, 'maxStat:', maxStat);
-      console.log('[MACRO DEBUG] newStat:', newStat, 'healedAmount:', healedAmount);
 
       // Set the result that will be returned
       syncResult = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
-      console.log('[MACRO DEBUG] Setting syncResult:', JSON.stringify(syncResult));
 
       // Update inventory: reduce quantity or remove item
       const newGrid = prev.inventoryGrid.map(r => [...r]);
@@ -472,7 +457,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           break;
       }
       
-      console.log('[MACRO DEBUG] Returning updated state with inventory changes');
       return {
         ...prev,
         inventoryGrid: newGrid,
@@ -487,7 +471,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    console.log('[MACRO DEBUG] consumeMacroPotion returning syncResult:', JSON.stringify(syncResult));
     return syncResult;
   }, []);
 

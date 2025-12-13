@@ -145,65 +145,45 @@ export default function Battle() {
     }
   }, [battleState.battleLog]);
 
-  // Debug: Log battleState.playerCurrentHp changes
-  useEffect(() => {
-    console.log('[MACRO DEBUG] battleState.playerCurrentHp changed to:', battleState.playerCurrentHp);
-  }, [battleState.playerCurrentHp]);
-
   // Helper function to check if macro should trigger and consume potion
   const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
     const { macroState, inventoryGrid, character } = gameState;
     
-    console.log('[MACRO DEBUG] checkAndUseMacroPotion called with currentHp:', currentHp);
-    console.log('[MACRO DEBUG] macroState:', JSON.stringify(macroState));
-    
     // Check if macro is enabled and has a valid potion slot
     if (!macroState.enabled || !macroState.potionSlot || !character) {
-      console.log('[MACRO DEBUG] Macro not enabled or no potion slot or no character');
       return { newHp: currentHp, message: null };
     }
 
     // Clamp threshold to current max HP and check if HP is below threshold
     const effectiveThreshold = Math.min(macroState.hpThreshold, character.statusInfo.maxHp);
-    console.log('[MACRO DEBUG] effectiveThreshold:', effectiveThreshold, 'currentHp:', currentHp);
     if (currentHp >= effectiveThreshold) {
-      console.log('[MACRO DEBUG] HP not below threshold - not triggering');
       return { newHp: currentHp, message: null };
     }
 
     // Check if there's a valid potion in the slot
     const { row, col } = macroState.potionSlot;
     const item = inventoryGrid[row]?.[col];
-    console.log('[MACRO DEBUG] Potion slot item:', item);
     if (!item) {
-      console.log('[MACRO DEBUG] No item in potion slot');
       return { newHp: currentHp, message: null };
     }
 
     const itemData = getItemById(item.itemId);
-    console.log('[MACRO DEBUG] Item data:', itemData);
     if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
-      console.log('[MACRO DEBUG] Invalid item data');
       return { newHp: currentHp, message: null };
     }
 
     // Check if already at or above max HP
     if (currentHp >= character.statusInfo.maxHp) {
-      console.log('[MACRO DEBUG] Already at max HP');
       return { newHp: currentHp, message: null };
     }
 
     // Consume the potion via the context, passing current battle HP for accurate calculation
-    console.log('[MACRO DEBUG] Calling consumeMacroPotion with currentHp:', currentHp);
     const result = consumeMacroPotion(currentHp);
-    console.log('[MACRO DEBUG] consumeMacroPotion result:', JSON.stringify(result));
     if (result.success) {
       const newHp = currentHp + result.healAmount;
-      console.log('[MACRO DEBUG] Success! Returning newHp:', newHp, '(currentHp:', currentHp, '+ healAmount:', result.healAmount, ')');
       return { newHp: newHp, message: result.message };
     }
 
-    console.log('[MACRO DEBUG] consumeMacroPotion failed');
     return { newHp: currentHp, message: null };
   }, [gameState, consumeMacroPotion]);
 
@@ -441,16 +421,10 @@ export default function Battle() {
       }
 
       // Check if macro should trigger (HP below threshold)
-      console.log('[MACRO DEBUG] Before macro check - HP:', newPlayerHp);
       const macroResult = checkAndUseMacroPotion(newPlayerHp);
-      console.log('[MACRO DEBUG] Macro result:', JSON.stringify(macroResult));
       if (macroResult.message) {
         newLog.push(macroResult.message);
-        console.log('[MACRO DEBUG] Before HP update - newPlayerHp:', newPlayerHp);
         newPlayerHp = macroResult.newHp;
-        console.log('[MACRO DEBUG] After HP update - newPlayerHp:', newPlayerHp);
-      } else {
-        console.log('[MACRO DEBUG] No macro message - macro did not trigger');
       }
 
       // Check if player is defeated (death event)
@@ -474,7 +448,6 @@ export default function Battle() {
         };
       }
 
-      console.log('[MACRO DEBUG] Returning battle state with playerCurrentHp:', newPlayerHp);
       return {
         ...prev,
         monsterCurrentHp: newMonsterHp,
