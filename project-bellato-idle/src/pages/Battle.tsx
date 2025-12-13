@@ -87,7 +87,7 @@ function calculateDamage(attack: number, defense: number): number {
 }
 
 export default function Battle() {
-  const { gameState, updateCharacter, updateMaterials, updateCurrentZone, consumeMacroPotion } = useGameState();
+  const { gameState, updateCharacter, updateMaterials, updateCurrentZone, consumeMacroPotion, applyMacroInventoryUpdate, applyMacroStatUpdate } = useGameState();
   const { recordMonsterKill } = useQuestContext();
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   // Initialize selectedZone from global state if available
@@ -118,6 +118,20 @@ export default function Battle() {
     },
   });
   
+  // State to track pending macro updates that need to be applied after render
+  const [pendingMacroUpdates, setPendingMacroUpdates] = useState<{
+    inventoryUpdate?: {
+      row: number;
+      col: number;
+      newQuantity: number | null;
+      clearPotionSlot: boolean;
+    };
+    statUpdate?: {
+      potionType: 'FP' | 'SP';
+      newValue: number;
+    };
+  } | null>(null);
+  
   const battleIntervalRef = useRef<number | null>(null);
   const continuousBattleTimeoutRef = useRef<number | null>(null);
   const victoryProcessedRef = useRef<boolean>(false);
@@ -125,6 +139,19 @@ export default function Battle() {
   const processBattleTickRef = useRef<(() => void) | null>(null);
   const continuousCombatRef = useRef<boolean>(false);
   const battleLogRef = useRef<HTMLDivElement>(null);
+  
+  // Apply pending macro updates after render to avoid React warning
+  useEffect(() => {
+    if (pendingMacroUpdates) {
+      if (pendingMacroUpdates.inventoryUpdate) {
+        applyMacroInventoryUpdate(pendingMacroUpdates.inventoryUpdate);
+      }
+      if (pendingMacroUpdates.statUpdate) {
+        applyMacroStatUpdate(pendingMacroUpdates.statUpdate);
+      }
+      setPendingMacroUpdates(null);
+    }
+  }, [pendingMacroUpdates, applyMacroInventoryUpdate, applyMacroStatUpdate]);
   
   // Keep ref in sync with state for use in callbacks
   useEffect(() => {
@@ -146,7 +173,22 @@ export default function Battle() {
   }, [battleState.battleLog]);
 
   // Helper function to check if macro should trigger and consume potion
-  const checkAndUseMacroPotion = useCallback((currentHp: number): { newHp: number; message: string | null } => {
+  const checkAndUseMacroPotion = useCallback((currentHp: number): { 
+    newHp: number; 
+    message: string | null;
+    pendingUpdates?: {
+      inventoryUpdate?: {
+        row: number;
+        col: number;
+        newQuantity: number | null;
+        clearPotionSlot: boolean;
+      };
+      statUpdate?: {
+        potionType: 'FP' | 'SP';
+        newValue: number;
+      };
+    };
+  } => {
     const { macroState, inventoryGrid, character } = gameState;
     
     // Check if macro is enabled and has a valid potion slot
@@ -178,10 +220,18 @@ export default function Battle() {
     }
 
     // Consume the potion via the context, passing current battle HP for accurate calculation
+    // This only calculates the result, doesn't update state
     const result = consumeMacroPotion(currentHp);
     if (result.success) {
       const newHp = currentHp + result.healAmount;
-      return { newHp: newHp, message: result.message };
+      return { 
+        newHp: newHp, 
+        message: result.message,
+        pendingUpdates: {
+          inventoryUpdate: result.inventoryUpdate,
+          statUpdate: result.statUpdate as { potionType: 'FP' | 'SP'; newValue: number } | undefined
+        }
+      };
     }
 
     return { newHp: currentHp, message: null };
@@ -425,6 +475,14 @@ export default function Battle() {
       if (macroResult.message) {
         newLog.push(macroResult.message);
         newPlayerHp = macroResult.newHp;
+        
+        // Queue the macro updates to be applied after render
+        if (macroResult.pendingUpdates) {
+          // Use setTimeout to schedule the update for after the current render completes
+          setTimeout(() => {
+            setPendingMacroUpdates(macroResult.pendingUpdates!);
+          }, 0);
+        }
       }
 
       // Check if player is defeated (death event)
