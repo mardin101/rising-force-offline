@@ -149,7 +149,10 @@ export default function Battle() {
       if (pendingMacroUpdates.statUpdate) {
         applyMacroStatUpdate(pendingMacroUpdates.statUpdate);
       }
-      setPendingMacroUpdates(null);
+      // Schedule the state clear in a microtask to avoid synchronous setState in effect
+      queueMicrotask(() => {
+        setPendingMacroUpdates(null);
+      });
     }
   }, [pendingMacroUpdates, applyMacroInventoryUpdate, applyMacroStatUpdate]);
   
@@ -667,6 +670,7 @@ export default function Battle() {
         },
       }));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- We track gameState.character specifically, not the entire gameState object
   }, [battleState.pendingPtExp, gameState.character, updateCharacter]);
 
   // Handle battle victory - grant experience
