@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@v1.2.4
         with:
           host: ${{ vars.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
