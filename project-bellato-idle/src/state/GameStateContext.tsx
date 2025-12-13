@@ -329,11 +329,10 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
   // Consume a potion from the macro slot (used during battle when HP drops below threshold)
   // currentBattleHp: The current HP in battle (may differ from global state during combat)
   const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
-    // Use a synchronous variable to store the result
+    // Use a synchronous variable to capture the result
+    // React executes setState callbacks synchronously, so syncResult will be set before function returns
     let syncResult = { success: false, healAmount: 0, message: '' };
     
-    // Perform all validations and calculations synchronously within setGameState
-    // but determine the return value BEFORE exiting the callback
     setGameState((prev) => {
       
       // Check if macro is enabled and has a valid potion slot
@@ -439,15 +438,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         newPotionSlot = null;
       }
 
-      // Update character stats (only for FP/SP, not HP)
-      // Note: For HP potions during battle, we do NOT update character.statusInfo.hp here
-      // because the battle system manages HP separately in battleState.playerCurrentHp.
-      // For FP and SP, we update character stats since they're not battle-managed.
+      // Update character stats for FP/SP only
+      // HP is NOT updated here because during battle, the battle system manages HP 
+      // separately in battleState.playerCurrentHp and syncs it back after battle ends
       const updatedStatusInfo = { ...prev.character!.statusInfo };
       
       switch (potionType) {
         case 'HP':
-          // Do not update HP - let battle system handle it via battleState.playerCurrentHp
+          // HP is managed by battle system during combat - don't update character.statusInfo.hp
           break;
         case 'FP':
           updatedStatusInfo.fp = newStat;
