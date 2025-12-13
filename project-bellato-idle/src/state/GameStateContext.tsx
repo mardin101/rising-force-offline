@@ -413,9 +413,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         return prev;
       }
 
-      // Calculate heal amount (capped at max)
-      const healAmount = itemData.amount ?? 0;
-      const newStat = Math.min(currentStat + healAmount, maxStat);
+      // Calculate restore amount (capped at max)
+      const restoreAmount = itemData.amount ?? 0;
+      const newStat = Math.min(currentStat + restoreAmount, maxStat);
       const healedAmount = newStat - currentStat;
 
       // Update inventory: reduce quantity or remove item

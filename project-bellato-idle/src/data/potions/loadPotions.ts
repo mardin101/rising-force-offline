@@ -67,7 +67,7 @@ export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
     imageUrl: rawPotion.imageUrl,
     localImagePath: rawPotion.localImagePath,
     type: 'consumable', // Use string literal instead of ITEM_TYPE.CONSUMABLE to avoid circular dependency
-    amount: rawPotion.amount ?? 0,
+    amount: rawPotion.amount ?? 0, // Buff potions may not have amount
     potionType: rawPotion.potionType ?? undefined,
     race: rawPotion.race ?? undefined,
     image: rawPotion.localImagePath,
@@ -92,7 +92,7 @@ export function getPotionPrices(): Record<string, number> {
   
   rawPotions.forEach(potion => {
     if (potion.soldAtNPC === 'Y') {
-      const amount = potion.amount ?? 0;
+      const amount = potion.amount ?? 0; // Buff potions may not have amount
       prices[potion.id] = getPotionPrice(amount);
     }
   });
