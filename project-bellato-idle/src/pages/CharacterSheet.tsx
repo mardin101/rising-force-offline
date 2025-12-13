@@ -375,6 +375,7 @@ export default function CharacterSheet() {
         maxHp={statusInfo.maxHp}
         currentHp={statusInfo.hp}
         playerLevel={character.level}
+        playerRace={character.generalInfo.race}
         onUpdateMacro={updateMacroState}
       />
     </div>

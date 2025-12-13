@@ -12,6 +12,9 @@ interface RawPotionData {
   class: string;
   imageUrl: string;
   localImagePath: string;
+  race: string | null;
+  potionType: 'HP' | 'FP' | 'SP' | null;
+  amount: number | null;
 }
 
 /**
@@ -54,7 +57,11 @@ function getPotionPrice(healAmount: number): number {
  * Convert raw potion data from JSON to ItemData format
  */
 export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
-  const healAmount = parseHealAmount(rawPotion.healingAmount);
+  // Use the new amount property if available, otherwise fall back to parsing healingAmount
+  const healAmount = rawPotion.amount !== null ? rawPotion.amount : parseHealAmount(rawPotion.healingAmount);
+  
+  // Use the new potionType property if available, otherwise determine from healingAmount
+  const potionType = rawPotion.potionType !== null ? rawPotion.potionType : (isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined);
   
   return {
     id: rawPotion.id,
@@ -67,7 +74,8 @@ export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
     localImagePath: rawPotion.localImagePath,
     type: 'consumable', // Use string literal instead of ITEM_TYPE.CONSUMABLE to avoid circular dependency
     healAmount: healAmount,
-    potionType: isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined,
+    potionType: potionType,
+    race: rawPotion.race ?? undefined,
     image: rawPotion.localImagePath,
     maxQuantity: 99,
   };

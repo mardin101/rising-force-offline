@@ -364,8 +364,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         return prev;
       }
 
-      const maxHp = prev.character.statusInfo.maxHp;
       const playerLevel = prev.character.level;
+      const playerRace = prev.character.generalInfo.race;
       
       // Check level requirement
       if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
@@ -373,15 +373,55 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         return prev;
       }
       
-      // Check if already at full health (using battle HP)
-      if (currentBattleHp >= maxHp) {
-        result = { success: false, healAmount: 0, message: 'Already at full health' };
+      // Check race compatibility - use simplified race matching
+      if (itemData.race) {
+        // Normalize race names for comparison (handle "Accreation" vs "Accretia")
+        const potionRace = itemData.race.toLowerCase();
+        const characterRace = playerRace.toLowerCase();
+        const isAccretia = potionRace.startsWith('accre') && characterRace.startsWith('accre');
+        
+        if (!isAccretia && potionRace !== characterRace) {
+          result = { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
+          return prev;
+        }
+      }
+
+      // Determine potion type and corresponding stat
+      const potionType = itemData.potionType || 'HP';
+      let currentStat: number;
+      let maxStat: number;
+      let statName: string;
+      
+      switch (potionType) {
+        case 'HP':
+          currentStat = currentBattleHp;
+          maxStat = prev.character.statusInfo.maxHp;
+          statName = 'HP';
+          break;
+        case 'FP':
+          currentStat = prev.character.statusInfo.fp;
+          maxStat = prev.character.statusInfo.maxFp;
+          statName = 'FP';
+          break;
+        case 'SP':
+          currentStat = prev.character.statusInfo.sp;
+          maxStat = prev.character.statusInfo.maxSp;
+          statName = 'SP';
+          break;
+        default:
+          result = { success: false, healAmount: 0, message: 'Unknown potion type' };
+          return prev;
+      }
+      
+      // Check if already at full
+      if (currentStat >= maxStat) {
+        result = { success: false, healAmount: 0, message: `Already at full ${statName}` };
         return prev;
       }
 
-      // Calculate heal amount based on current battle HP (capped at maxHp)
-      const newHp = Math.min(currentBattleHp + itemData.healAmount, maxHp);
-      const healedAmount = newHp - currentBattleHp;
+      // Calculate heal amount (capped at max)
+      const newStat = Math.min(currentStat + itemData.healAmount, maxStat);
+      const healedAmount = newStat - currentStat;
 
       // Update inventory: reduce quantity or remove item
       const newGrid = prev.inventoryGrid.map(r => [...r]);
@@ -397,11 +437,23 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         newPotionSlot = null;
       }
 
-      result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} HP` };
+      result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
 
-      // Update inventory, macro state, AND character HP
-      // Battle system will receive updated HP through battle state sync
-      const newCharacterHp = Math.min(currentBattleHp + healedAmount, maxHp);
+      // Update inventory, macro state, AND character stats
+      // For HP potions in battle, also update battle HP
+      const updatedStatusInfo = { ...prev.character!.statusInfo };
+      
+      switch (potionType) {
+        case 'HP':
+          updatedStatusInfo.hp = Math.min(currentBattleHp + healedAmount, maxStat);
+          break;
+        case 'FP':
+          updatedStatusInfo.fp = newStat;
+          break;
+        case 'SP':
+          updatedStatusInfo.sp = newStat;
+          break;
+      }
       
       return {
         ...prev,
@@ -412,10 +464,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         },
         character: {
           ...prev.character!,
-          statusInfo: {
-            ...prev.character!.statusInfo,
-            hp: newCharacterHp,
-          },
+          statusInfo: updatedStatusInfo,
         },
       };
     });
