@@ -18,26 +18,6 @@ interface RawPotionData {
 }
 
 /**
- * Parse healing amount from string format like "+100 HP" or "+50 FP"
- * Returns the numeric value if it's a simple HP restoration, 0 otherwise
- */
-function parseHealAmount(healingAmount: string): number {
-  // Match patterns like "+100 HP", "+250 HP", etc.
-  const hpMatch = healingAmount.match(/\+(\d+)\s*HP/i);
-  if (hpMatch) {
-    return parseInt(hpMatch[1], 10);
-  }
-  return 0;
-}
-
-/**
- * Determine if this is a simple HP restoration potion
- */
-function isHPPotion(healingAmount: string): boolean {
-  return /\+\d+\s*HP/i.test(healingAmount) && !/\(/.test(healingAmount);
-}
-
-/**
  * Get a base price for a potion based on its heal amount
  * Lower tier potions are cheaper
  */
