@@ -435,15 +435,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
 
       // Update inventory and macro state
-      // Note: For HP potions, we do NOT update character.statusInfo.hp here because
-      // during battle, the battle system manages HP separately in battleState.playerCurrentHp
-      // and syncs it back to character state only after battle ends.
-      // For FP and SP, we update them since they're not battle-managed.
+      // Note: For HP potions during battle, we do NOT update character.statusInfo.hp here
+      // because the battle system manages HP separately in battleState.playerCurrentHp.
+      // For FP and SP, we update character stats since they're not battle-managed.
       const updatedStatusInfo = { ...prev.character!.statusInfo };
       
       switch (potionType) {
         case 'HP':
-          // Do not update HP during battle - let battle system handle it
+          // Do not update HP - let battle system handle it via battleState.playerCurrentHp
           break;
         case 'FP':
           updatedStatusInfo.fp = newStat;

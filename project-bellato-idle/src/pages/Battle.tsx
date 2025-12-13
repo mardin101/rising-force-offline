@@ -423,7 +423,7 @@ export default function Battle() {
       const macroResult = checkAndUseMacroPotion(newPlayerHp);
       if (macroResult.message) {
         newLog.push(macroResult.message);
-        newPlayerHp = Math.min(macroResult.newHp, gameState.character!.statusInfo.maxHp);
+        newPlayerHp = macroResult.newHp;
       }
 
       // Check if player is defeated (death event)
