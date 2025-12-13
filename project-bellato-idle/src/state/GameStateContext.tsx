@@ -23,6 +23,7 @@ import {
   ITEM_TYPE,
   POTION_PRICES,
 } from './gameStateSlice';
+import { isRaceCompatible } from '../data/potions/loadPotions';
 
 export interface GameStateContextValue {
   gameState: GameState;
@@ -259,7 +260,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
 
       // Handle health potions
-      if (itemData.healAmount) {
+      if (itemData.amount) {
         const currentHp = prev.character.statusInfo.hp;
         const maxHp = prev.character.statusInfo.maxHp;
         const playerLevel = prev.character.level;
@@ -277,7 +278,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         }
 
         // Calculate new HP (capped at maxHp)
-        const newHp = Math.min(currentHp + itemData.healAmount, maxHp);
+        const newHp = Math.min(currentHp + itemData.amount, maxHp);
         const healedAmount = newHp - currentHp;
 
         // Update inventory: reduce quantity or remove item
@@ -353,7 +354,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
 
       const itemData = getItemById(inventoryItem.itemId);
-      if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+      if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
         result = { success: false, healAmount: 0, message: 'Invalid potion in macro slot' };
         return prev;
       }
@@ -373,17 +374,10 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
         return prev;
       }
       
-      // Check race compatibility - use simplified race matching
-      if (itemData.race) {
-        // Normalize race names for comparison (handle "Accreation" vs "Accretia")
-        const potionRace = itemData.race.toLowerCase();
-        const characterRace = playerRace.toLowerCase();
-        const isAccretia = potionRace.startsWith('accre') && characterRace.startsWith('accre');
-        
-        if (!isAccretia && potionRace !== characterRace) {
-          result = { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
-          return prev;
-        }
+      // Check race compatibility
+      if (!isRaceCompatible(itemData.race, playerRace)) {
+        result = { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
+        return prev;
       }
 
       // Determine potion type and corresponding stat
@@ -420,7 +414,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
 
       // Calculate heal amount (capped at max)
-      const newStat = Math.min(currentStat + itemData.healAmount, maxStat);
+      const healAmount = itemData.amount ?? 0;
+      const newStat = Math.min(currentStat + healAmount, maxStat);
       const healedAmount = newStat - currentStat;
 
       // Update inventory: reduce quantity or remove item

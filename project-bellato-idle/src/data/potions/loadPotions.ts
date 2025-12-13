@@ -57,12 +57,6 @@ function getPotionPrice(healAmount: number): number {
  * Convert raw potion data from JSON to ItemData format
  */
 export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
-  // Use the new amount property if available, otherwise fall back to parsing healingAmount
-  const healAmount = rawPotion.amount ?? parseHealAmount(rawPotion.healingAmount);
-  
-  // Use the new potionType property if available, otherwise determine from healingAmount
-  const potionType = rawPotion.potionType ?? (isHPPotion(rawPotion.healingAmount) ? 'HP' : undefined);
-  
   return {
     id: rawPotion.id,
     itemId: rawPotion.potionId,
@@ -73,8 +67,8 @@ export function transformPotionToItem(rawPotion: RawPotionData): ItemData {
     imageUrl: rawPotion.imageUrl,
     localImagePath: rawPotion.localImagePath,
     type: 'consumable', // Use string literal instead of ITEM_TYPE.CONSUMABLE to avoid circular dependency
-    healAmount: healAmount,
-    potionType: potionType,
+    amount: rawPotion.amount ?? 0,
+    potionType: rawPotion.potionType ?? undefined,
     race: rawPotion.race ?? undefined,
     image: rawPotion.localImagePath,
     maxQuantity: 99,
@@ -98,8 +92,8 @@ export function getPotionPrices(): Record<string, number> {
   
   rawPotions.forEach(potion => {
     if (potion.soldAtNPC === 'Y') {
-      const healAmount = parseHealAmount(potion.healingAmount);
-      prices[potion.id] = getPotionPrice(healAmount);
+      const amount = potion.amount ?? 0;
+      prices[potion.id] = getPotionPrice(amount);
     }
   });
   
@@ -108,19 +102,14 @@ export function getPotionPrices(): Record<string, number> {
 
 /**
  * Check if a potion's race matches the player's race
- * Handles "Accreation" vs "Accretia" variants
+ * Strict matching - no exceptions
  */
-function isRaceCompatible(potionRace: string | undefined, playerRace: string | undefined): boolean {
+export function isRaceCompatible(potionRace: string | undefined, playerRace: string | undefined): boolean {
   if (!playerRace || !potionRace) {
     return true; // No race restriction
   }
   
-  const potionRaceLower = potionRace.toLowerCase();
-  const playerRaceLower = playerRace.toLowerCase();
-  
-  // Handle Accretia variants
-  const isAccretia = potionRaceLower.startsWith('accre') && playerRaceLower.startsWith('accre');
-  return isAccretia || potionRaceLower === playerRaceLower;
+  return potionRace.toLowerCase() === playerRace.toLowerCase();
 }
 
 /**
@@ -132,14 +121,14 @@ function getShopPotionsByType(potionType: 'HP' | 'FP' | 'SP', race?: string): It
   return allPotions
     .filter(potion => {
       // Check if sold at NPC and is the specified potion type
-      if (potion.code1 !== 'Y' || potion.potionType !== potionType || !potion.healAmount || potion.healAmount <= 0) {
+      if (potion.code1 !== 'Y' || potion.potionType !== potionType) {
         return false;
       }
       
       // Filter by race if specified
       return isRaceCompatible(potion.race, race);
     })
-    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+    .sort((a, b) => (a.amount || 0) - (b.amount || 0));
 }
 
 /**

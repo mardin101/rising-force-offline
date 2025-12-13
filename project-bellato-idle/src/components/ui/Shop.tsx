@@ -72,7 +72,7 @@ export default function Shop({ playerGold, playerLevel, playerRace, onPurchase }
                 <span className="shop-item-icon">🧪</span>
               )}
               <span className="shop-item-name">{potionData.name}</span>
-              <span className="shop-item-heal">+{potionData.healAmount} HP</span>
+              <span className="shop-item-heal">+{potionData.amount} {potionData.potionType || 'HP'}</span>
               <span className="shop-item-price">
                 <span className="shop-item-price-value">{price}</span> gold
               </span>

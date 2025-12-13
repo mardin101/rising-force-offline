@@ -7,6 +7,7 @@ import {
   INVENTORY_ROWS,
   INVENTORY_COLS,
 } from '../../state/gameStateSlice';
+import { isRaceCompatible } from '../../data/potions/loadPotions';
 import { getAssetPath } from '../../utils/assets';
 import './MacroModal.css';
 
@@ -93,25 +94,16 @@ export default function MacroModal({
         const item = inventoryGrid[row][col];
         if (item) {
           const itemData = getItemById(item.itemId);
-          if (itemData && itemData.type === ITEM_TYPE.CONSUMABLE && itemData.healAmount) {
-            // Check race compatibility - use simplified race matching
-            let isRaceCompatible = true;
-            if (itemData.race) {
-              const potionRace = itemData.race.toLowerCase();
-              const characterRace = playerRace.toLowerCase();
-              const isAccretia = potionRace.startsWith('accre') && characterRace.startsWith('accre');
-              isRaceCompatible = isAccretia || potionRace === characterRace;
-            }
-            
-            // Only show potions compatible with player's race
-            if (isRaceCompatible) {
+          if (itemData && itemData.type === ITEM_TYPE.CONSUMABLE && itemData.amount) {
+            // Check race compatibility
+            if (isRaceCompatible(itemData.race, playerRace)) {
               potions.push({
                 row,
                 col,
                 itemId: item.itemId,
                 name: itemData.name,
                 quantity: item.quantity ?? 1,
-                healAmount: itemData.healAmount,
+                healAmount: itemData.amount,
                 potionType: itemData.potionType,
                 race: itemData.race,
                 levelRequirement: itemData.levelRequirement,
@@ -140,7 +132,7 @@ export default function MacroModal({
     return {
       name: itemData.name,
       quantity: item.quantity ?? 1,
-      healAmount: itemData.healAmount ?? 0,
+      healAmount: itemData.amount ?? 0,
       potionType: itemData.potionType,
       race: itemData.race,
       levelRequirement: itemData.levelRequirement,
@@ -211,7 +203,7 @@ export default function MacroModal({
     if (!item) return;
     
     const itemData = getItemById(item.itemId);
-    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.healAmount) {
+    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
       return;
     }
 
