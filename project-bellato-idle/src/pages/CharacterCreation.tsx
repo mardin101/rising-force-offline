@@ -2,10 +2,12 @@ import { useState, type FormEvent } from 'react';
 import { useGameState } from '../state/GameStateContext';
 import {
   CHARACTER_CLASSES,
+  CHARACTER_RACES,
   CLASS_BASE_STATS,
   CHARACTER_NAME_MAX_LENGTH,
   validateCharacterName,
   type CharacterClass,
+  type CharacterRace,
 } from '../state/gameStateSlice';
 
 const CLASS_DESCRIPTIONS: Record<CharacterClass, string> = {
@@ -19,6 +21,7 @@ export default function CharacterCreation() {
   const { createNewCharacter } = useGameState();
   const [name, setName] = useState('');
   const [selectedClass, setSelectedClass] = useState<CharacterClass>(CHARACTER_CLASSES.WARRIOR);
+  const [selectedRace, setSelectedRace] = useState<CharacterRace>(CHARACTER_RACES.BELLATO);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
@@ -31,10 +34,11 @@ export default function CharacterCreation() {
       return;
     }
 
-    createNewCharacter(trimmedName, selectedClass);
+    createNewCharacter(trimmedName, selectedClass, selectedRace);
   };
 
   const classOptions = Object.values(CHARACTER_CLASSES);
+  const raceOptions = Object.values(CHARACTER_RACES);
   const selectedStats = CLASS_BASE_STATS[selectedClass];
 
   return (
@@ -45,7 +49,7 @@ export default function CharacterCreation() {
             Create Your Character
           </h1>
           <p className="text-gray-400">
-            Begin your journey in the Bellato Federation
+            Choose your race and begin your journey
           </p>
         </div>
 
@@ -70,6 +74,29 @@ export default function CharacterCreation() {
             {error && (
               <p className="mt-2 text-sm text-red-400">{error}</p>
             )}
+          </div>
+
+          {/* Race Selection */}
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-3">
+              Choose Your Race
+            </label>
+            <div className="grid grid-cols-3 gap-3">
+              {raceOptions.map((race) => (
+                <button
+                  key={race}
+                  type="button"
+                  onClick={() => setSelectedRace(race)}
+                  className={`p-3 rounded-lg border-2 transition-all ${
+                    selectedRace === race
+                      ? 'border-amber-500 bg-amber-500/20 text-amber-400'
+                      : 'border-gray-600 bg-gray-700 text-gray-300 hover:border-gray-500'
+                  }`}
+                >
+                  <span className="font-medium">{race}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Class Selection */}
