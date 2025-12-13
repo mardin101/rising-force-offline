@@ -107,30 +107,47 @@ export function getPotionPrices(): Record<string, number> {
 }
 
 /**
+ * Check if a potion's race matches the player's race
+ * Handles "Accreation" vs "Accretia" variants
+ */
+function isRaceCompatible(potionRace: string | undefined, playerRace: string | undefined): boolean {
+  if (!playerRace || !potionRace) {
+    return true; // No race restriction
+  }
+  
+  const potionRaceLower = potionRace.toLowerCase();
+  const playerRaceLower = playerRace.toLowerCase();
+  
+  // Handle Accretia variants
+  const isAccretia = potionRaceLower.startsWith('accre') && playerRaceLower.startsWith('accre');
+  return isAccretia || potionRaceLower === playerRaceLower;
+}
+
+/**
+ * Get all potions of a specific type sold at NPC, sorted by heal amount (lowest first)
+ * Optionally filter by race (Bellato, Cora, or Accretia)
+ */
+function getShopPotionsByType(potionType: 'HP' | 'FP' | 'SP', race?: string): ItemData[] {
+  const allPotions = loadPotions();
+  return allPotions
+    .filter(potion => {
+      // Check if sold at NPC and is the specified potion type
+      if (potion.code1 !== 'Y' || potion.potionType !== potionType || !potion.healAmount || potion.healAmount <= 0) {
+        return false;
+      }
+      
+      // Filter by race if specified
+      return isRaceCompatible(potion.race, race);
+    })
+    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+}
+
+/**
  * Get all HP potions sold at NPC, sorted by heal amount (lowest first)
  * Optionally filter by race (Bellato, Cora, or Accretia)
  */
 export function getShopHPPotions(race?: string): ItemData[] {
-  const allPotions = loadPotions();
-  return allPotions
-    .filter(potion => {
-      // Check if sold at NPC and is an HP potion
-      if (potion.code1 !== 'Y' || potion.potionType !== 'HP' || !potion.healAmount || potion.healAmount <= 0) {
-        return false;
-      }
-      
-      // If race is specified, filter by race using the race property
-      if (race && potion.race) {
-        // Use simplified race matching (handle "Accreation" vs "Accretia")
-        const potionRace = potion.race.toLowerCase();
-        const playerRace = race.toLowerCase();
-        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
-        return isAccretia || potionRace === playerRace;
-      }
-      
-      return true;
-    })
-    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+  return getShopPotionsByType('HP', race);
 }
 
 /**
@@ -147,25 +164,7 @@ export function getLowestHPPotion(race?: string): ItemData | null {
  * Optionally filter by race (Bellato, Cora, or Accretia)
  */
 export function getShopFPPotions(race?: string): ItemData[] {
-  const allPotions = loadPotions();
-  return allPotions
-    .filter(potion => {
-      // Check if sold at NPC and is an FP potion
-      if (potion.code1 !== 'Y' || potion.potionType !== 'FP' || !potion.healAmount || potion.healAmount <= 0) {
-        return false;
-      }
-      
-      // If race is specified, filter by race using the race property
-      if (race && potion.race) {
-        const potionRace = potion.race.toLowerCase();
-        const playerRace = race.toLowerCase();
-        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
-        return isAccretia || potionRace === playerRace;
-      }
-      
-      return true;
-    })
-    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+  return getShopPotionsByType('FP', race);
 }
 
 /**
@@ -173,25 +172,7 @@ export function getShopFPPotions(race?: string): ItemData[] {
  * Optionally filter by race (Bellato, Cora, or Accretia)
  */
 export function getShopSPPotions(race?: string): ItemData[] {
-  const allPotions = loadPotions();
-  return allPotions
-    .filter(potion => {
-      // Check if sold at NPC and is an SP potion
-      if (potion.code1 !== 'Y' || potion.potionType !== 'SP' || !potion.healAmount || potion.healAmount <= 0) {
-        return false;
-      }
-      
-      // If race is specified, filter by race using the race property
-      if (race && potion.race) {
-        const potionRace = potion.race.toLowerCase();
-        const playerRace = race.toLowerCase();
-        const isAccretia = potionRace.startsWith('accre') && playerRace.startsWith('accre');
-        return isAccretia || potionRace === playerRace;
-      }
-      
-      return true;
-    })
-    .sort((a, b) => (a.healAmount || 0) - (b.healAmount || 0));
+  return getShopPotionsByType('SP', race);
 }
 
 export default loadPotions;
