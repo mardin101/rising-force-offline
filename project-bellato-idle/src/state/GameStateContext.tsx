@@ -35,7 +35,31 @@ export interface GameStateContextValue {
   unequipItem: (slot: EquipmentSlotType) => void;
   useItem: (row: number, col: number) => { success: boolean; message: string };
   updateMacroState: (updater: Partial<MacroState>) => void;
-  consumeMacroPotion: (currentBattleHp: number) => { success: boolean; healAmount: number; message: string };
+  consumeMacroPotion: (currentBattleHp: number) => { 
+    success: boolean; 
+    healAmount: number; 
+    message: string;
+    inventoryUpdate?: {
+      row: number;
+      col: number;
+      newQuantity: number | null;
+      clearPotionSlot: boolean;
+    };
+    statUpdate?: {
+      potionType: 'HP' | 'FP' | 'SP';
+      newValue: number;
+    };
+  };
+  applyMacroInventoryUpdate: (update: {
+    row: number;
+    col: number;
+    newQuantity: number | null;
+    clearPotionSlot: boolean;
+  }) => void;
+  applyMacroStatUpdate: (update: {
+    potionType: 'FP' | 'SP';
+    newValue: number;
+  }) => void;
   purchasePotion: (potionId: string, quantity: number) => { success: boolean; message: string };
   updateActiveQuest: (quest: ActiveQuest | null) => void;
   updateCompletedQuestIds: (ids: string[]) => void;
@@ -328,142 +352,176 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
   // Consume a potion from the macro slot (used during battle when HP drops below threshold)
   // currentBattleHp: The current HP in battle (may differ from global state during combat)
-  const consumeMacroPotion = useCallback((currentBattleHp: number): { success: boolean; healAmount: number; message: string } => {
-    let result = { success: false, healAmount: 0, message: '' };
+  const consumeMacroPotion = useCallback((currentBattleHp: number): { 
+    success: boolean; 
+    healAmount: number; 
+    message: string;
+    inventoryUpdate?: {
+      row: number;
+      col: number;
+      newQuantity: number | null; // null means remove item
+      clearPotionSlot: boolean;
+    };
+    statUpdate?: {
+      potionType: 'HP' | 'FP' | 'SP';
+      newValue: number;
+    };
+  } => {
+    // Perform all validations and calculations WITHOUT calling setGameState
+    // Return the data needed for the caller to update state
     
+    const currentState = gameState;
+    
+    // Check if macro is enabled and has a valid potion slot
+    if (!currentState.macroState.enabled || !currentState.macroState.potionSlot) {
+      return { success: false, healAmount: 0, message: 'Macro not configured' };
+    }
+
+    const { row, col } = currentState.macroState.potionSlot;
+    const inventoryItem = currentState.inventoryGrid[row]?.[col];
+    
+    if (!inventoryItem) {
+      return { success: false, healAmount: 0, message: 'No potion in macro slot' };
+    }
+
+    const itemData = getItemById(inventoryItem.itemId);
+    if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
+      return { success: false, healAmount: 0, message: 'Invalid potion in macro slot' };
+    }
+
+    // Check if character exists
+    if (!currentState.character) {
+      return { success: false, healAmount: 0, message: 'No character found' };
+    }
+
+    const playerLevel = currentState.character.level;
+    const playerRace = currentState.character.generalInfo.race;
+    
+    // Check level requirement
+    if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
+      return { success: false, healAmount: 0, message: `Macro: Requires level ${itemData.levelRequirement}` };
+    }
+    
+    // Check race compatibility
+    if (!isRaceCompatible(itemData.race, playerRace)) {
+      return { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
+    }
+
+    // Determine potion type and corresponding stat
+    const potionType = itemData.potionType || 'HP';
+    let currentStat: number;
+    let maxStat: number;
+    let statName: string;
+    
+    switch (potionType) {
+      case 'HP':
+        currentStat = currentBattleHp;
+        maxStat = currentState.character.statusInfo.maxHp;
+        statName = 'HP';
+        break;
+      case 'FP':
+        currentStat = currentState.character.statusInfo.fp;
+        maxStat = currentState.character.statusInfo.maxFp;
+        statName = 'FP';
+        break;
+      case 'SP':
+        currentStat = currentState.character.statusInfo.sp;
+        maxStat = currentState.character.statusInfo.maxSp;
+        statName = 'SP';
+        break;
+      default:
+        return { success: false, healAmount: 0, message: 'Unknown potion type' };
+    }
+    
+    // Check if already at full
+    if (currentStat >= maxStat) {
+      return { success: false, healAmount: 0, message: `Already at full ${statName}` };
+    }
+
+    // Calculate restore amount (capped at max)
+    const restoreAmount = itemData.amount ?? 0;
+    const newStat = Math.min(currentStat + restoreAmount, maxStat);
+    const healedAmount = newStat - currentStat;
+
+    // Calculate inventory update
+    const currentQuantity = inventoryItem.quantity ?? 1;
+    const newQuantity = currentQuantity > 1 ? currentQuantity - 1 : null;
+    const clearPotionSlot = newQuantity === null;
+
+    // Return success with all the data needed to update state
+    return { 
+      success: true, 
+      healAmount: healedAmount, 
+      message: `Macro: Restored ${healedAmount} ${statName}`,
+      inventoryUpdate: {
+        row,
+        col,
+        newQuantity,
+        clearPotionSlot
+      },
+      statUpdate: potionType !== 'HP' ? {
+        potionType: potionType as 'FP' | 'SP',
+        newValue: newStat
+      } : undefined
+    };
+  }, [gameState]);
+
+  // Apply macro inventory update - called AFTER render to avoid React warning
+  const applyMacroInventoryUpdate = useCallback((update: {
+    row: number;
+    col: number;
+    newQuantity: number | null;
+    clearPotionSlot: boolean;
+  }) => {
     setGameState((prev) => {
-      // Check if macro is enabled and has a valid potion slot
-      if (!prev.macroState.enabled || !prev.macroState.potionSlot) {
-        result = { success: false, healAmount: 0, message: 'Macro not configured' };
-        return prev;
-      }
-
-      const { row, col } = prev.macroState.potionSlot;
-      const inventoryItem = prev.inventoryGrid[row]?.[col];
-      
-      if (!inventoryItem) {
-        result = { success: false, healAmount: 0, message: 'No potion in macro slot' };
-        // Clear the potion slot since item is gone
-        return {
-          ...prev,
-          macroState: {
-            ...prev.macroState,
-            potionSlot: null,
-          },
-        };
-      }
-
-      const itemData = getItemById(inventoryItem.itemId);
-      if (!itemData || itemData.type !== ITEM_TYPE.CONSUMABLE || !itemData.amount) {
-        result = { success: false, healAmount: 0, message: 'Invalid potion in macro slot' };
-        return prev;
-      }
-
-      // Check if character exists
-      if (!prev.character) {
-        result = { success: false, healAmount: 0, message: 'No character found' };
-        return prev;
-      }
-
-      const playerLevel = prev.character.level;
-      const playerRace = prev.character.generalInfo.race;
-      
-      // Check level requirement
-      if (itemData.levelRequirement && playerLevel < itemData.levelRequirement) {
-        result = { success: false, healAmount: 0, message: `Macro: Requires level ${itemData.levelRequirement}` };
-        return prev;
-      }
-      
-      // Check race compatibility
-      if (!isRaceCompatible(itemData.race, playerRace)) {
-        result = { success: false, healAmount: 0, message: `Macro: ${itemData.name} is for ${itemData.race} only` };
-        return prev;
-      }
-
-      // Determine potion type and corresponding stat
-      const potionType = itemData.potionType || 'HP';
-      let currentStat: number;
-      let maxStat: number;
-      let statName: string;
-      
-      switch (potionType) {
-        case 'HP':
-          currentStat = currentBattleHp;
-          maxStat = prev.character.statusInfo.maxHp;
-          statName = 'HP';
-          break;
-        case 'FP':
-          currentStat = prev.character.statusInfo.fp;
-          maxStat = prev.character.statusInfo.maxFp;
-          statName = 'FP';
-          break;
-        case 'SP':
-          currentStat = prev.character.statusInfo.sp;
-          maxStat = prev.character.statusInfo.maxSp;
-          statName = 'SP';
-          break;
-        default:
-          result = { success: false, healAmount: 0, message: 'Unknown potion type' };
-          return prev;
-      }
-      
-      // Check if already at full
-      if (currentStat >= maxStat) {
-        result = { success: false, healAmount: 0, message: `Already at full ${statName}` };
-        return prev;
-      }
-
-      // Calculate restore amount (capped at max)
-      const restoreAmount = itemData.amount ?? 0;
-      const newStat = Math.min(currentStat + restoreAmount, maxStat);
-      const healedAmount = newStat - currentStat;
-
-      // Update inventory: reduce quantity or remove item
       const newGrid = prev.inventoryGrid.map(r => [...r]);
-      const currentQuantity = inventoryItem.quantity ?? 1;
+      const inventoryItem = prev.inventoryGrid[update.row]?.[update.col];
       
-      let newPotionSlot: { row: number; col: number } | null = prev.macroState.potionSlot;
-      if (currentQuantity > 1) {
-        // Reduce quantity by 1
-        newGrid[row][col] = { ...inventoryItem, quantity: currentQuantity - 1 };
+      if (!inventoryItem) return prev;
+      
+      if (update.newQuantity !== null) {
+        // Reduce quantity
+        newGrid[update.row][update.col] = { ...inventoryItem, quantity: update.newQuantity };
       } else {
-        // Remove item from inventory and clear potion slot
-        newGrid[row][col] = null;
-        newPotionSlot = null;
-      }
-
-      result = { success: true, healAmount: healedAmount, message: `Macro: Restored ${healedAmount} ${statName}` };
-
-      // Update inventory, macro state, AND character stats
-      const updatedStatusInfo = { ...prev.character!.statusInfo };
-      
-      switch (potionType) {
-        case 'HP':
-          updatedStatusInfo.hp = newStat;
-          break;
-        case 'FP':
-          updatedStatusInfo.fp = newStat;
-          break;
-        case 'SP':
-          updatedStatusInfo.sp = newStat;
-          break;
+        // Remove item
+        newGrid[update.row][update.col] = null;
       }
       
       return {
         ...prev,
         inventoryGrid: newGrid,
-        macroState: {
+        macroState: update.clearPotionSlot ? {
           ...prev.macroState,
-          potionSlot: newPotionSlot,
-        },
+          potionSlot: null,
+        } : prev.macroState,
+      };
+    });
+  }, []);
+
+  // Apply macro stat update (FP/SP only) - called AFTER render
+  const applyMacroStatUpdate = useCallback((update: {
+    potionType: 'FP' | 'SP';
+    newValue: number;
+  }) => {
+    setGameState((prev) => {
+      if (!prev.character) return prev;
+      
+      const updatedStatusInfo = { ...prev.character.statusInfo };
+      
+      if (update.potionType === 'FP') {
+        updatedStatusInfo.fp = update.newValue;
+      } else if (update.potionType === 'SP') {
+        updatedStatusInfo.sp = update.newValue;
+      }
+      
+      return {
+        ...prev,
         character: {
-          ...prev.character!,
+          ...prev.character,
           statusInfo: updatedStatusInfo,
         },
       };
     });
-
-    return result;
   }, []);
 
   // Purchase potions from the shop
@@ -606,6 +664,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     useItem,
     updateMacroState,
     consumeMacroPotion,
+    applyMacroInventoryUpdate,
+    applyMacroStatUpdate,
     purchasePotion,
     updateActiveQuest,
     updateCompletedQuestIds,
