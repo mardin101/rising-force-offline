@@ -455,11 +455,12 @@ export function createEmptyInventoryGrid(): InventoryGrid {
 }
 
 // Create an inventory grid with starter items
-export function createStarterInventoryGrid(): InventoryGrid {
+// Optionally specify race to get race-appropriate starter potions
+export function createStarterInventoryGrid(race?: string): InventoryGrid {
   const grid = createEmptyInventoryGrid();
   
-  // Get the lowest grade HP potion for starter inventory
-  const lowestPotion = getLowestHPPotion();
+  // Get the lowest grade HP potion for starter inventory (race-appropriate if race specified)
+  const lowestPotion = getLowestHPPotion(race);
   const starterPotionId = lowestPotion ? lowestPotion.id : 'potion_80'; // fallback to Bellato HP Bless 100
   
   // Add some starter items for demonstration using item IDs

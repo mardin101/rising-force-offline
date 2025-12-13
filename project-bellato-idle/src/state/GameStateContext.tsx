@@ -11,6 +11,7 @@ import {
   type MacroState,
   initialGameState,
   createCharacter,
+  createStarterInventoryGrid,
   migrateGameState,
   GAME_STATE_STORAGE_KEY,
   isValidGameState,
@@ -108,6 +109,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     setGameState((prev) => ({
       ...prev,
       character: newCharacter,
+      inventoryGrid: createStarterInventoryGrid(race),
       hasStartedGame: true,
     }));
   }, []);

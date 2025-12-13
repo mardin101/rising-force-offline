@@ -125,9 +125,10 @@ export function getShopHPPotions(race?: string): ItemData[] {
 
 /**
  * Get the lowest grade HP potion (for starter inventory)
+ * Optionally filter by race
  */
-export function getLowestHPPotion(): ItemData | null {
-  const hpPotions = getShopHPPotions();
+export function getLowestHPPotion(race?: string): ItemData | null {
+  const hpPotions = getShopHPPotions(race);
   return hpPotions.length > 0 ? hpPotions[0] : null;
 }
 
