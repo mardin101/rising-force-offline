@@ -1,6 +1,7 @@
 import type { ItemType, EquipmentSlotType, WeaponType } from './constants';
 import itemsJsonRaw from './items/items.json';
 import { loadPotions } from './potions/loadPotions';
+import { loadWeapons, loadArmor, loadShields } from './equipment/loadEquipment';
 
 // Potion-specific type for HP potions
 export type PotionType = 'HP' | 'FP' | 'SP';
@@ -67,7 +68,12 @@ const baseItems: ItemData[] = (itemsJsonRaw as RawItemData[]).map(transformRawIt
 // Load potions from potions.json
 const potionItems: ItemData[] = loadPotions();
 
-// Combine base items and potions
-const itemsData: ItemData[] = [...baseItems, ...potionItems];
+// Load equipment (weapons, armor, shields) from equipment JSON files
+const weaponItems: ItemData[] = loadWeapons();
+const armorItems: ItemData[] = loadArmor();
+const shieldItems: ItemData[] = loadShields();
+
+// Combine all items
+const itemsData: ItemData[] = [...baseItems, ...potionItems, ...weaponItems, ...armorItems, ...shieldItems];
 
 export default itemsData;
