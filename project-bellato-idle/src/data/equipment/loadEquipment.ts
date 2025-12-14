@@ -2,7 +2,7 @@ import type { ItemData } from '../types';
 import weaponsJson from '../weapons/weapons.json';
 import armorJson from '../armor/armor.json';
 import shieldsJson from '../shields/shields.json';
-import { ITEM_TYPE, CHARACTER_RACES } from '../constants';
+import { ITEM_TYPE, CHARACTER_RACES, EQUIPMENT_SLOT, type EquipmentSlotType } from '../constants';
 
 // Raw weapon data structure from JSON
 interface RawWeaponData {
@@ -79,6 +79,35 @@ function getRaceFromImageUrl(imageUrl: string): string | undefined {
 }
 
 /**
+ * Map armor type from JSON to equipment slot constant
+ */
+function getEquipmentSlotFromArmorType(armorType: string): EquipmentSlotType {
+  const normalizedType = armorType.toLowerCase();
+  
+  if (normalizedType === 'helmet') {
+    return EQUIPMENT_SLOT.HELMET;
+  }
+  if (normalizedType === 'upper') {
+    return EQUIPMENT_SLOT.UPPER_BODY;
+  }
+  if (normalizedType === 'lower') {
+    return EQUIPMENT_SLOT.LOWER_BODY;
+  }
+  if (normalizedType === 'gloves') {
+    return EQUIPMENT_SLOT.GLOVES;
+  }
+  if (normalizedType === 'shoes') {
+    return EQUIPMENT_SLOT.SHOES;
+  }
+  if (normalizedType === 'cape') {
+    return EQUIPMENT_SLOT.CAPE;
+  }
+  
+  // Default to helmet if unknown type
+  return EQUIPMENT_SLOT.HELMET;
+}
+
+/**
  * Check if an item's race matches the player's race
  */
 export function isEquipmentRaceCompatible(itemRace: string | undefined, playerRace: string | undefined): boolean {
@@ -116,6 +145,7 @@ export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
     imageUrl: rawWeapon.imageUrl,
     localImagePath: rawWeapon.localImagePath,
     type: ITEM_TYPE.WEAPON,
+    equipSlot: EQUIPMENT_SLOT.WEAPON,
     race: rawWeapon.race,
     levelRequirement: rawWeapon.requiredLevel,
     image: rawWeapon.localImagePath,
@@ -129,6 +159,9 @@ export function transformArmorToItem(rawArmor: RawArmorData): ItemData {
   // Get race from imageUrl since armor doesn't have explicit race field
   const race = getRaceFromImageUrl(rawArmor.imageUrl);
   
+  // Map armor type to equipment slot
+  const equipSlot = getEquipmentSlotFromArmorType(rawArmor.type);
+  
   return {
     id: rawArmor.id,
     itemId: rawArmor.id, // armor doesn't have separate numeric ID
@@ -139,6 +172,7 @@ export function transformArmorToItem(rawArmor: RawArmorData): ItemData {
     imageUrl: rawArmor.imageUrl,
     localImagePath: rawArmor.localImagePath,
     type: ITEM_TYPE.ARMOR,
+    equipSlot: equipSlot,
     defense: rawArmor.avgDefPower,
     race: race,
     levelRequirement: rawArmor.requiredLevel,
