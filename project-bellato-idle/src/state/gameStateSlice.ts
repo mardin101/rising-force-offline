@@ -516,18 +516,19 @@ export function createStarterInventoryGrid(race?: string): InventoryGrid {
   const lowestPotion = getLowestHPPotion(race);
   const starterPotionId = lowestPotion ? lowestPotion.id : 'potion_80'; // fallback to Bellato HP Bless 100
   
-  // Add some starter items for demonstration using item IDs
+  // Add starter items organized consecutively from top-left
+  // Row 0
   grid[0][0] = { itemId: 'sword_basic' };
-  grid[0][1] = { itemId: starterPotionId, quantity: 20 }; // 20 of the lowest grade HP potion
-  grid[1][0] = { itemId: 'leather_armor' };
-  grid[2][3] = { itemId: 'iron_ore' };
+  grid[0][1] = { itemId: 'leather_armor' };
+  grid[0][2] = { itemId: 'leather_helmet' };
+  grid[0][3] = { itemId: 'leather_pants' };
+  grid[0][4] = { itemId: 'leather_gloves' };
+  grid[0][5] = { itemId: 'leather_boots' };
+  grid[0][6] = { itemId: 'travelers_cape' };
+  grid[0][7] = { itemId: 'iron_ore' };
   
-  // Add equippable starter items
-  grid[0][3] = { itemId: 'leather_helmet' };
-  grid[1][1] = { itemId: 'leather_pants' };
-  grid[1][2] = { itemId: 'leather_gloves' };
-  grid[1][3] = { itemId: 'leather_boots' };
-  grid[2][0] = { itemId: 'travelers_cape' };
+  // Row 1
+  grid[1][0] = { itemId: starterPotionId, quantity: 20 }; // 20 of the lowest grade HP potion
   
   return grid;
 }
