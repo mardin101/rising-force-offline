@@ -152,8 +152,8 @@
 /* Potion Info Section */
 .shop-potion-info {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  align-items: center;
   padding: 12px;
   background: rgba(20, 40, 70, 0.4);
   border-radius: 6px;
@@ -174,7 +174,10 @@
 .shop-potion-details {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 4px;
+  width: 100%;
 }
 
 .shop-potion-name {
