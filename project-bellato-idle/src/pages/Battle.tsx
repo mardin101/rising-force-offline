@@ -22,22 +22,35 @@ interface Zone {
   id: string;
   name: string;
   levelRequirement: number;
-  monsters: string[];
   description: string;
 }
 
 interface Monster {
   id: string;
   name: string;
+  mobId: string;
+  level: number;
+  type: string;
+  location: string;
   hp: number;
   attack: number;
   defense: number;
-  expReward: number;
-  expOnHit: number;
-  goldDrop: number[];
-  levelRange: number[];
-  materialDropId: string;
-  materialDropRate: number;
+  elementalResist: {
+    fire: number;
+    aqua: number;
+    terra: number;
+    wind: number;
+  };
+  drops: unknown[];
+  imageUrl: string;
+  localImagePath: string;
+  // Computed properties for backward compatibility
+  expReward?: number;
+  expOnHit?: number;
+  goldDrop?: number[];
+  levelRange?: number[];
+  materialDropId?: string;
+  materialDropRate?: number;
 }
 
 interface BattleState {
@@ -247,7 +260,34 @@ export default function Battle() {
   };
 
   const getMonstersByZone = (zone: Zone): Monster[] => {
-    return (monsters as Monster[]).filter((monster) => zone.monsters.includes(monster.id));
+    // Load all monsters and filter by location matching zone name
+    const allMonsters = monsters as Monster[];
+    const filteredMonsters = allMonsters.filter((monster) => monster.location === zone.name);
+    
+    // Add computed properties for backward compatibility
+    return filteredMonsters.map((monster) => {
+      // Calculate exp reward based on monster level (0.5% per level as base)
+      const baseExpReward = monster.level * 0.005;
+      const expReward = baseExpReward;
+      const expOnHit = expReward * 0.1; // 10% of full reward per hit
+      
+      // Calculate gold drop based on monster level
+      const baseGold = monster.level * 2;
+      const goldDrop = [Math.floor(baseGold * 0.8), Math.ceil(baseGold * 1.5)];
+      
+      // Use monster level as level range
+      const levelRange = [monster.level, monster.level];
+      
+      return {
+        ...monster,
+        expReward,
+        expOnHit,
+        goldDrop,
+        levelRange,
+        materialDropId: '',
+        materialDropRate: 0,
+      };
+    });
   };
 
   const handleMonsterSelect = (monster: Monster) => {
@@ -380,8 +420,8 @@ export default function Battle() {
       let newPendingExpOnHit = prev.pendingExpOnHit;
       const newPendingPtExp = { ...prev.pendingPtExp };
 
-      // Get monster level (average of level range)
-      const monsterLevel = Math.floor((selectedMonster.levelRange[0] + selectedMonster.levelRange[1]) / 2);
+      // Get monster level (use the level property directly)
+      const monsterLevel = selectedMonster.level;
 
       // Player attacks monster
       const playerDamage = calculateDamage(
@@ -951,7 +991,7 @@ export default function Battle() {
               <div className="bg-gray-800 rounded-lg p-3">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-red-400 font-bold">{selectedMonster.name}</span>
-                  <span className="text-sm text-gray-400">Lv.{selectedMonster.levelRange[0]}-{selectedMonster.levelRange[1]}</span>
+                  <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-4 mb-1">
                   <div
