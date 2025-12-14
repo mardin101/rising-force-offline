@@ -50,7 +50,7 @@ export default function Shop({ playerGold, playerLevel, playerRace, onPurchase }
         </div>
       </div>
 
-      <div className="shop-items-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {shopPotions.map((potionData) => {
           const price = POTION_PRICES[potionData.id] ?? 0;
           const meetsLevelRequirement = !potionData.levelRequirement || playerLevel >= potionData.levelRequirement;
@@ -58,29 +58,35 @@ export default function Shop({ playerGold, playerLevel, playerRace, onPurchase }
           return (
             <button
               key={potionData.id}
-              className={`shop-item ${!meetsLevelRequirement ? 'shop-item-locked' : ''}`}
+              className={`bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-blue-500 hover:bg-gray-700/50 transition-colors text-center ${
+                !meetsLevelRequirement ? 'opacity-60' : ''
+              }`}
               onClick={() => handlePotionClick(potionData.id)}
               title={`${potionData.name}: ${potionData.description}`}
             >
-              {potionData.image ? (
-                <img 
-                  src={getAssetPath(potionData.image)} 
-                  alt={potionData.name} 
-                  className="shop-item-icon shop-item-image"
-                />
-              ) : (
-                <span className="shop-item-icon">🧪</span>
+              {potionData.image && (
+                <div className="flex justify-center mb-3">
+                  <img 
+                    src={getAssetPath(potionData.image)} 
+                    alt={potionData.name} 
+                    className="w-32 h-32 object-contain rounded border border-gray-600 bg-gray-900/50"
+                  />
+                </div>
               )}
-              <span className="shop-item-name">{potionData.name}</span>
-              <span className="shop-item-heal">+{potionData.amount} {potionData.potionType || 'HP'}</span>
-              <span className="shop-item-price">
-                <span className="shop-item-price-value">{price}</span> gold
-              </span>
-              {potionData.levelRequirement && (
-                <span className={`shop-item-level ${meetsLevelRequirement ? 'met' : 'unmet'}`}>
-                  Lv. {potionData.levelRequirement}+
-                </span>
-              )}
+              <div className="mb-3">
+                <h4 className="text-xl font-bold text-blue-400 mb-1">{potionData.name}</h4>
+                <p className="text-sm text-gray-400">+{potionData.amount} {potionData.potionType || 'HP'}</p>
+              </div>
+              <div className="space-y-1 text-sm">
+                <p className="text-yellow-400">
+                  <span className="text-gray-500">Price:</span> {price} gold
+                </p>
+                {potionData.levelRequirement && (
+                  <p className={meetsLevelRequirement ? 'text-green-400' : 'text-red-400'}>
+                    <span className="text-gray-500">Level:</span> {potionData.levelRequirement}+
+                  </p>
+                )}
+              </div>
             </button>
           );
         })}

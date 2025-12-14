@@ -107,17 +107,19 @@ export default function EquipmentShopModal({
 
         {/* Body */}
         <div className="shop-modal-body">
-          {/* Item Info */}
-          <div className="shop-potion-info">
-            {itemData.image ? (
+          {/* Item Image - Center of Attention (matching battle modal) */}
+          {itemData.image && (
+            <div className="flex justify-center mb-4">
               <img 
                 src={getAssetPath(itemData.image)} 
                 alt={itemData.name} 
-                className="shop-potion-icon shop-potion-image"
+                className="w-48 h-48 object-contain rounded-lg border-2 border-blue-500 bg-gray-900/50 shadow-lg shadow-blue-500/50"
               />
-            ) : (
-              <span className="shop-potion-icon">⚔️</span>
-            )}
+            </div>
+          )}
+
+          {/* Item Info */}
+          <div className="shop-potion-info">
             <div className="shop-potion-details">
               <span className="shop-potion-name">{itemData.name}</span>
               <span className="shop-potion-desc">{itemData.description}</span>
