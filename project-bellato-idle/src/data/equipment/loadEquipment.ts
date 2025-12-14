@@ -1,4 +1,4 @@
-import type { ItemData } from '../items';
+import type { ItemData } from '../types';
 import weaponsJson from '../weapons/weapons.json';
 import armorJson from '../armor/armor.json';
 import shieldsJson from '../shields/shields.json';
