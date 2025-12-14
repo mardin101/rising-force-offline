@@ -26,6 +26,15 @@ export type { ShopModalProps } from './ShopModal';
 export { default as EquipmentShop } from './EquipmentShop';
 export type { EquipmentShopProps } from './EquipmentShop';
 
+export { default as WeaponShop } from './WeaponShop';
+export type { WeaponShopProps } from './WeaponShop';
+
+export { default as ArmorShop } from './ArmorShop';
+export type { ArmorShopProps } from './ArmorShop';
+
+export { default as ShieldShop } from './ShieldShop';
+export type { ShieldShopProps } from './ShieldShop';
+
 export { default as EquipmentShopModal } from './EquipmentShopModal';
 export type { EquipmentShopModalProps } from './EquipmentShopModal';
 
