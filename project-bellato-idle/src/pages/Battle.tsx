@@ -432,7 +432,7 @@ export default function Battle() {
       newLog.push(`${gameState.character!.generalInfo.name} hits ${selectedMonster.name} for ${playerDamage} damage!`);
 
       // Grant experience on hit (tiny portion)
-      const expOnHit = selectedMonster.expOnHit;
+      const expOnHit = selectedMonster.expOnHit ?? 0;
       newPendingExpOnHit += expOnHit;
       console.log(`[EXP] Gained ${(expOnHit * 100).toFixed(4)}% experience from attacking ${selectedMonster.name}`);
 
@@ -467,11 +467,13 @@ export default function Battle() {
       if (newMonsterHp <= 0) {
         // Calculate rewards when monster is defeated
         // Apply experience multiplier based on player level for early game boost
-        const baseExpGain = selectedMonster.expReward;
+        const baseExpGain = selectedMonster.expReward ?? 0;
         const expMultiplier = getExperienceMultiplier(gameState.character!.level);
         const expGain = baseExpGain * expMultiplier;
+        const goldMin = selectedMonster.goldDrop?.[0] ?? 0;
+        const goldMax = selectedMonster.goldDrop?.[1] ?? 0;
         const goldGain = Math.floor(
-          Math.random() * (selectedMonster.goldDrop[1] - selectedMonster.goldDrop[0] + 1) + selectedMonster.goldDrop[0]
+          Math.random() * (goldMax - goldMin + 1) + goldMin
         );
         newLog.push(`${selectedMonster.name} has been defeated!`);
         return {
@@ -924,10 +926,10 @@ export default function Battle() {
                     <span className="text-gray-500">DEF:</span> {monster.defense}
                   </p>
                   <p className="text-amber-400">
-                    <span className="text-gray-500">EXP:</span> {(monster.expReward * 100).toFixed(1)}%
+                    <span className="text-gray-500">EXP:</span> {((monster.expReward ?? 0) * 100).toFixed(1)}%
                   </p>
                   <p className="text-yellow-400">
-                    <span className="text-gray-500">Gold:</span> {monster.goldDrop[0]}-{monster.goldDrop[1]}
+                    <span className="text-gray-500">Gold:</span> {monster.goldDrop?.[0] ?? 0}-{monster.goldDrop?.[1] ?? 0}
                   </p>
                 </div>
               </button>
