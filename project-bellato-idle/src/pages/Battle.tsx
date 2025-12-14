@@ -17,6 +17,7 @@ import {
   EQUIPMENT_SLOT,
 } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
+import { getAssetPath } from '../utils/assets';
 
 interface Zone {
   id: string;
@@ -914,7 +915,19 @@ export default function Battle() {
                 onClick={() => handleMonsterSelect(monster)}
                 className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 hover:bg-gray-700/50 transition-colors text-left"
               >
-                <h4 className="text-lg font-bold text-red-400 mb-2">{monster.name}</h4>
+                <div className="flex gap-3 mb-2">
+                  {monster.localImagePath && (
+                    <img
+                      src={getAssetPath(monster.localImagePath)}
+                      alt={monster.name}
+                      className="w-16 h-16 object-contain rounded border border-gray-600"
+                    />
+                  )}
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-red-400 mb-1">{monster.name}</h4>
+                    <p className="text-xs text-gray-400">Level {monster.level}</p>
+                  </div>
+                </div>
                 <div className="space-y-1 text-sm">
                   <p className="text-gray-300">
                     <span className="text-gray-500">HP:</span> {monster.hp}
@@ -991,20 +1004,33 @@ export default function Battle() {
 
               {/* Monster Stats */}
               <div className="bg-gray-800 rounded-lg p-3">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-red-400 font-bold">{selectedMonster.name}</span>
-                  <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-4 mb-1">
-                  <div
-                    className="bg-red-500 h-4 rounded-full transition-all duration-300"
-                    style={{
-                      width: `${(battleState.monsterCurrentHp / selectedMonster.hp) * 100}%`,
-                    }}
-                  />
+                <div className="flex items-center gap-3 mb-2">
+                  {selectedMonster.localImagePath && (
+                    <img
+                      src={getAssetPath(selectedMonster.localImagePath)}
+                      alt={selectedMonster.name}
+                      className="w-20 h-20 object-contain rounded border border-gray-600"
+                    />
+                  )}
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-red-400 font-bold">{selectedMonster.name}</span>
+                      <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-4 mb-1">
+                      <div
+                        className="bg-red-500 h-4 rounded-full transition-all duration-300"
+                        style={{
+                          width: `${(battleState.monsterCurrentHp / selectedMonster.hp) * 100}%`,
+                        }}
+                      />
+                    </div>
+                    <div className="text-xs text-gray-400">
+                      <span>HP: {battleState.monsterCurrentHp} / {selectedMonster.hp}</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-xs text-gray-400 flex justify-between">
-                  <span>HP: {battleState.monsterCurrentHp} / {selectedMonster.hp}</span>
                   <span>ATK: {selectedMonster.attack} | DEF: {selectedMonster.defense}</span>
                 </div>
               </div>
