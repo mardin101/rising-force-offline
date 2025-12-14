@@ -2,8 +2,7 @@ import type { ItemData } from '../types';
 import weaponsJson from '../weapons/weapons.json';
 import armorJson from '../armor/armor.json';
 import shieldsJson from '../shields/shields.json';
-import { ITEM_TYPE } from '../constants';
-import { CHARACTER_RACES } from '../../state/gameStateSlice';
+import { ITEM_TYPE, CHARACTER_RACES } from '../constants';
 
 // Raw weapon data structure from JSON
 interface RawWeaponData {
