@@ -17,6 +17,7 @@ import {
   EQUIPMENT_SLOT,
 } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
+import { getAssetPath } from '../utils/assets';
 
 interface Zone {
   id: string;
@@ -912,9 +913,21 @@ export default function Battle() {
               <button
                 key={monster.id}
                 onClick={() => handleMonsterSelect(monster)}
-                className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 hover:bg-gray-700/50 transition-colors text-left"
+                className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 hover:bg-gray-700/50 transition-colors text-center"
               >
-                <h4 className="text-lg font-bold text-red-400 mb-2">{monster.name}</h4>
+                {monster.localImagePath && (
+                  <div className="flex justify-center mb-3">
+                    <img
+                      src={getAssetPath(monster.localImagePath)}
+                      alt={monster.name}
+                      className="w-32 h-32 object-contain rounded border border-gray-600 bg-gray-900/50"
+                    />
+                  </div>
+                )}
+                <div className="mb-3">
+                  <h4 className="text-xl font-bold text-red-400 mb-1">{monster.name}</h4>
+                  <p className="text-sm text-gray-400">Level {monster.level}</p>
+                </div>
                 <div className="space-y-1 text-sm">
                   <p className="text-gray-300">
                     <span className="text-gray-500">HP:</span> {monster.hp}
@@ -966,6 +979,40 @@ export default function Battle() {
 
             {/* Battle Stats */}
             <div className="p-4 space-y-4 overflow-y-auto flex-1">
+              {/* Monster Image - Center of Attention */}
+              {selectedMonster.localImagePath && (
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={getAssetPath(selectedMonster.localImagePath)}
+                    alt={selectedMonster.name}
+                    className="w-48 h-48 object-contain rounded-lg border-2 border-red-500 bg-gray-900/50 shadow-lg shadow-red-500/50"
+                  />
+                </div>
+              )}
+
+              {/* Monster Info */}
+              <div className="bg-gray-800 rounded-lg p-3 mb-2">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-red-400 font-bold text-lg">{selectedMonster.name}</span>
+                  <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-4 mb-2">
+                  <div
+                    className="bg-red-500 h-4 rounded-full transition-all duration-300"
+                    style={{
+                      width: `${(battleState.monsterCurrentHp / selectedMonster.hp) * 100}%`,
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between text-sm text-gray-400">
+                  <span>HP: {battleState.monsterCurrentHp} / {selectedMonster.hp}</span>
+                  <span>ATK: {selectedMonster.attack} | DEF: {selectedMonster.defense}</span>
+                </div>
+              </div>
+
+              {/* VS Divider */}
+              <div className="text-center text-xl font-bold text-amber-400 my-2">VS</div>
+
               {/* Player Stats */}
               <div className="bg-gray-800 rounded-lg p-3">
                 <div className="flex justify-between items-center mb-2">
@@ -983,29 +1030,6 @@ export default function Battle() {
                 <div className="text-xs text-gray-400 flex justify-between">
                   <span>HP: {battleState.playerCurrentHp} / {gameState.character.statusInfo.maxHp}</span>
                   <span>ATK: {gameState.character.statusInfo.genAttack} | DEF: {gameState.character.statusInfo.avgDefPwr}</span>
-                </div>
-              </div>
-
-              {/* VS Divider */}
-              <div className="text-center text-2xl font-bold text-amber-400">VS</div>
-
-              {/* Monster Stats */}
-              <div className="bg-gray-800 rounded-lg p-3">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-red-400 font-bold">{selectedMonster.name}</span>
-                  <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-4 mb-1">
-                  <div
-                    className="bg-red-500 h-4 rounded-full transition-all duration-300"
-                    style={{
-                      width: `${(battleState.monsterCurrentHp / selectedMonster.hp) * 100}%`,
-                    }}
-                  />
-                </div>
-                <div className="text-xs text-gray-400 flex justify-between">
-                  <span>HP: {battleState.monsterCurrentHp} / {selectedMonster.hp}</span>
-                  <span>ATK: {selectedMonster.attack} | DEF: {selectedMonster.defense}</span>
                 </div>
               </div>
 
