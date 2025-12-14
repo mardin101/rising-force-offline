@@ -84,27 +84,23 @@ function getRaceFromImageUrl(imageUrl: string): string | undefined {
 function getEquipmentSlotFromArmorType(armorType: string): EquipmentSlotType {
   const normalizedType = armorType.toLowerCase();
   
-  if (normalizedType === 'helmet') {
-    return EQUIPMENT_SLOT.HELMET;
+  switch (normalizedType) {
+    case 'helmet':
+      return EQUIPMENT_SLOT.HELMET;
+    case 'upper':
+      return EQUIPMENT_SLOT.UPPER_BODY;
+    case 'lower':
+      return EQUIPMENT_SLOT.LOWER_BODY;
+    case 'gloves':
+      return EQUIPMENT_SLOT.GLOVES;
+    case 'shoes':
+      return EQUIPMENT_SLOT.SHOES;
+    case 'cape':
+      return EQUIPMENT_SLOT.CAPE;
+    default:
+      // Default to helmet if unknown type
+      return EQUIPMENT_SLOT.HELMET;
   }
-  if (normalizedType === 'upper') {
-    return EQUIPMENT_SLOT.UPPER_BODY;
-  }
-  if (normalizedType === 'lower') {
-    return EQUIPMENT_SLOT.LOWER_BODY;
-  }
-  if (normalizedType === 'gloves') {
-    return EQUIPMENT_SLOT.GLOVES;
-  }
-  if (normalizedType === 'shoes') {
-    return EQUIPMENT_SLOT.SHOES;
-  }
-  if (normalizedType === 'cape') {
-    return EQUIPMENT_SLOT.CAPE;
-  }
-  
-  // Default to helmet if unknown type
-  return EQUIPMENT_SLOT.HELMET;
 }
 
 /**
