@@ -41,7 +41,7 @@ export default function ArmorShop({ playerGold, playerLevel, playerRace, onPurch
   return (
     <div className="shop-container">
       <div className="shop-header">
-        <h2 className="shop-title">🛡️ Armor Shop</h2>
+        <h2 className="shop-title">🥋 Armor Shop</h2>
         <div className="shop-gold">
           <span className="shop-gold-label">Gold:</span>
           <span className="shop-gold-value">{playerGold}</span>

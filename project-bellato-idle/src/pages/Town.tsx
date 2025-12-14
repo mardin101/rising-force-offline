@@ -50,7 +50,7 @@ export default function Town() {
               onClick={() => setOpenShop('armor')}
               className="bg-gradient-to-br from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 rounded-lg p-6 border-2 border-blue-500 transition-all hover:scale-105 shadow-lg"
             >
-              <div className="text-4xl mb-2">🛡️</div>
+              <div className="text-4xl mb-2">🥋</div>
               <div className="text-xl font-bold text-white">Armor Shop</div>
               <div className="text-sm text-blue-200 mt-1">Protective Gear</div>
             </button>
