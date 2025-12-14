@@ -518,14 +518,12 @@ export function createStarterInventoryGrid(race?: string): InventoryGrid {
   
   // Add starter items organized consecutively from top-left
   // Row 0
-  grid[0][0] = { itemId: 'sword_basic' };
-  grid[0][1] = { itemId: 'leather_armor' };
-  grid[0][2] = { itemId: 'leather_helmet' };
-  grid[0][3] = { itemId: 'leather_pants' };
-  grid[0][4] = { itemId: 'leather_gloves' };
-  grid[0][5] = { itemId: 'leather_boots' };
-  grid[0][6] = { itemId: 'travelers_cape' };
-  grid[0][7] = { itemId: 'iron_ore' };
+  grid[0][0] = { itemId: 'weapon_1' };
+  grid[0][1] = { itemId: 'armor_helmet_training_caphelmet__raises_defense_ability._1' };
+  grid[0][2] = { itemId: 'armor_upper_training_shirtshirt__raises_defense_ability._2' };
+  grid[0][3] = { itemId: 'armor_gloves_training_glovesgloves__raises_defense_ability._3' };
+  grid[0][4] = { itemId: 'armor_lower_training_pantspants__raises_defense_ability._4' };
+  grid[0][5] = { itemId: 'armor_shoes_training_shoesshoes__raises_defense_ability._5' };
   
   // Row 1
   grid[1][0] = { itemId: starterPotionId, quantity: 20 }; // 20 of the lowest grade HP potion
