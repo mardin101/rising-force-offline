@@ -10,15 +10,22 @@ import materialsData from '../data/materials.json';
 interface MonsterData {
   id: string;
   name: string;
+  mobId: string;
+  level: number;
+  type: string;
+  location: string;
   hp: number;
   attack: number;
   defense: number;
-  expReward: number;
-  expOnHit: number;
-  goldDrop: [number, number];
-  levelRange: [number, number];
-  materialDropId: string;
-  materialDropRate: number;
+  elementalResist: {
+    fire: number;
+    aqua: number;
+    terra: number;
+    wind: number;
+  };
+  drops: unknown[];
+  imageUrl: string;
+  localImagePath: string;
 }
 
 // Type for material data
