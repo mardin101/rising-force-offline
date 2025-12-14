@@ -7,6 +7,14 @@ import {
   EQUIPMENT_SLOT,
   type EquipmentSlotType,
   EQUIPMENT_SLOTS,
+  CHARACTER_CLASSES,
+  type CharacterClass,
+  CHARACTER_RACES,
+  type CharacterRace,
+  CHARACTER_SEX,
+  type CharacterSex,
+  CHARACTER_GRADES,
+  type CharacterGrade,
 } from '../data/constants';
 import { getLowestHPPotion } from '../data/potions/loadPotions';
 
@@ -25,17 +33,15 @@ export {
   SHOP_MAX_PURCHASE_QUANTITY,
   WEAPON_TYPE,
   type WeaponType,
+  CHARACTER_CLASSES,
+  type CharacterClass,
+  CHARACTER_RACES,
+  type CharacterRace,
+  CHARACTER_SEX,
+  type CharacterSex,
+  CHARACTER_GRADES,
+  type CharacterGrade,
 } from '../data/constants';
-
-// Character class constants
-export const CHARACTER_CLASSES = {
-  WARRIOR: 'Warrior',
-  RANGER: 'Ranger',
-  SPIRITUALIST: 'Spiritualist',
-  SPECIALIST: 'Specialist',
-} as const;
-
-export type CharacterClass = typeof CHARACTER_CLASSES[keyof typeof CHARACTER_CLASSES];
 
 // Level 30 Subclass constants
 export const SUBCLASS_LEVEL_30 = {
@@ -141,35 +147,6 @@ export const MID_GAME_EXP_MULTIPLIER = 2.0; // Reduced multiplier for mid-game (
 export const DEATH_EXP_PENALTY = 0.05; // 5% experience penalty on death
 
 // Character race constants
-export const CHARACTER_RACES = {
-  BELLATO: 'Bellato',
-  CORA: 'Cora',
-  ACCRETIA: 'Accretia',
-} as const;
-
-export type CharacterRace = typeof CHARACTER_RACES[keyof typeof CHARACTER_RACES];
-
-// Character sex constants
-export const CHARACTER_SEX = {
-  MALE: 'Male',
-  FEMALE: 'Female',
-} as const;
-
-export type CharacterSex = typeof CHARACTER_SEX[keyof typeof CHARACTER_SEX];
-
-// Character grade constants
-export const CHARACTER_GRADES = {
-  F: 'F',
-  E: 'E',
-  D: 'D',
-  C: 'C',
-  B: 'B',
-  A: 'A',
-  S: 'S',
-} as const;
-
-export type CharacterGrade = typeof CHARACTER_GRADES[keyof typeof CHARACTER_GRADES];
-
 // Calculate max PT for a given level (linear interpolation from level 1 to 55)
 export function getMaxPtForLevel(level: number): number {
   if (level <= 1) return PT_MAX_AT_LEVEL_1;

@@ -1,4 +1,4 @@
-import type { ItemData } from '../items';
+import type { ItemData } from '../types';
 import potionsJson from './potions.json';
 
 // Raw potion data structure from JSON

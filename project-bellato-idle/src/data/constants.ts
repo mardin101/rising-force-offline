@@ -3,6 +3,46 @@
 
 import { getPotionPrices } from './potions/loadPotions';
 
+// Character class constants
+export const CHARACTER_CLASSES = {
+  WARRIOR: 'Warrior',
+  RANGER: 'Ranger',
+  SPIRITUALIST: 'Spiritualist',
+  SPECIALIST: 'Specialist',
+} as const;
+
+export type CharacterClass = typeof CHARACTER_CLASSES[keyof typeof CHARACTER_CLASSES];
+
+// Character race constants
+export const CHARACTER_RACES = {
+  BELLATO: 'Bellato',
+  CORA: 'Cora',
+  ACCRETIA: 'Accretia',
+} as const;
+
+export type CharacterRace = typeof CHARACTER_RACES[keyof typeof CHARACTER_RACES];
+
+// Character sex constants
+export const CHARACTER_SEX = {
+  MALE: 'Male',
+  FEMALE: 'Female',
+} as const;
+
+export type CharacterSex = typeof CHARACTER_SEX[keyof typeof CHARACTER_SEX];
+
+// Character grade constants
+export const CHARACTER_GRADES = {
+  F: 'F',
+  E: 'E',
+  D: 'D',
+  C: 'C',
+  B: 'B',
+  A: 'A',
+  S: 'S',
+} as const;
+
+export type CharacterGrade = typeof CHARACTER_GRADES[keyof typeof CHARACTER_GRADES];
+
 // Quest type constants
 export const QUEST_TYPE = {
   SLAY: 'slay',
