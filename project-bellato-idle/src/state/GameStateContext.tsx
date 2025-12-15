@@ -528,9 +528,11 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
   // Purchase potions from the shop
   const purchasePotion = useCallback((potionId: string, quantity: number): { success: boolean; message: string } => {
+    console.log('[purchasePotion] called with:', { potionId, quantity });
     let result = { success: false, message: '' };
 
     setGameState((prev) => {
+      console.log('[purchasePotion] setGameState callback, current gold:', prev.character?.gold);
       // Validate quantity
       if (quantity <= 0) {
         result = { success: false, message: 'Invalid quantity' };
@@ -613,6 +615,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       const newGold = prev.character.gold - totalCost;
 
       result = { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
+      console.log('[purchasePotion] Purchase successful, result:', result);
 
       return {
         ...prev,
@@ -624,6 +627,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
+    console.log('[purchasePotion] Returning result:', result);
     return result;
   }, []);
 

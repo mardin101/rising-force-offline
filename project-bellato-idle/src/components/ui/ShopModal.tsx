@@ -85,7 +85,9 @@ export default function ShopModal({
   const handlePurchase = () => {
     if (!selectedPotionId || quantity <= 0) return;
 
+    console.log('[ShopModal] handlePurchase called:', { selectedPotionId, quantity });
     const result = onPurchase(selectedPotionId, quantity);
+    console.log('[ShopModal] onPurchase result:', result);
     setPurchaseMessage(result);
 
     if (result.success) {
