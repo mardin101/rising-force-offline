@@ -4,6 +4,13 @@ import { ITEM_TYPE } from '../../state/gameStateSlice';
 import { getAssetPath } from '../../utils/assets';
 import './ItemTooltip.css';
 
+// Constants for tooltip positioning and rarity
+const TOOLTIP_OFFSET = 10; // pixels to offset tooltip from cursor
+const RARITY_LEVEL_LEGENDARY = 40;
+const RARITY_LEVEL_EPIC = 30;
+const RARITY_LEVEL_RARE = 20;
+const RARITY_LEVEL_UNCOMMON = 10;
+
 export interface ItemTooltipProps {
   item: ItemData;
   x: number;
@@ -41,28 +48,27 @@ export default function ItemTooltip({ item, x, y, quantity }: ItemTooltipProps) 
     let adjustedY = y;
 
     // Add offset to avoid covering the item
-    const offset = 10;
-    adjustedX += offset;
-    adjustedY += offset;
+    adjustedX += TOOLTIP_OFFSET;
+    adjustedY += TOOLTIP_OFFSET;
 
     // Check if tooltip goes beyond right edge
     if (dimensions.width > 0 && adjustedX + dimensions.width > viewportWidth) {
-      adjustedX = x - dimensions.width - offset;
+      adjustedX = x - dimensions.width - TOOLTIP_OFFSET;
     }
 
     // Check if tooltip goes beyond bottom edge
     if (dimensions.height > 0 && adjustedY + dimensions.height > viewportHeight) {
-      adjustedY = y - dimensions.height - offset;
+      adjustedY = y - dimensions.height - TOOLTIP_OFFSET;
     }
 
     // Ensure tooltip doesn't go beyond left edge
     if (adjustedX < 0) {
-      adjustedX = offset;
+      adjustedX = TOOLTIP_OFFSET;
     }
 
     // Ensure tooltip doesn't go beyond top edge
     if (adjustedY < 0) {
-      adjustedY = offset;
+      adjustedY = TOOLTIP_OFFSET;
     }
 
     return { x: adjustedX, y: adjustedY };
@@ -73,16 +79,16 @@ export default function ItemTooltip({ item, x, y, quantity }: ItemTooltipProps) 
   // Get rarity class based on item type or other properties
   const getRarityClass = (): string => {
     // Could be enhanced later with actual rarity system
-    if (item.levelRequirement && item.levelRequirement >= 40) {
+    if (item.levelRequirement && item.levelRequirement >= RARITY_LEVEL_LEGENDARY) {
       return 'rarity-legendary';
     }
-    if (item.levelRequirement && item.levelRequirement >= 30) {
+    if (item.levelRequirement && item.levelRequirement >= RARITY_LEVEL_EPIC) {
       return 'rarity-epic';
     }
-    if (item.levelRequirement && item.levelRequirement >= 20) {
+    if (item.levelRequirement && item.levelRequirement >= RARITY_LEVEL_RARE) {
       return 'rarity-rare';
     }
-    if (item.levelRequirement && item.levelRequirement >= 10) {
+    if (item.levelRequirement && item.levelRequirement >= RARITY_LEVEL_UNCOMMON) {
       return 'rarity-uncommon';
     }
     return 'rarity-common';
