@@ -528,94 +528,134 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
   // Purchase potions from the shop
   const purchasePotion = useCallback((potionId: string, quantity: number): { success: boolean; message: string } => {
-    console.log('[purchasePotion] called with:', { potionId, quantity });
-    let result = { success: false, message: '' };
+    // Get current state synchronously
+    const currentState = gameState;
+    
+    // Validate quantity
+    if (quantity <= 0) {
+      return { success: false, message: 'Invalid quantity' };
+    }
 
-    setGameState((prev) => {
-      console.log('[purchasePotion] setGameState callback, current gold:', prev.character?.gold);
-      // Validate quantity
-      if (quantity <= 0) {
-        result = { success: false, message: 'Invalid quantity' };
-        return prev;
+    // Check if character exists
+    if (!currentState.character) {
+      return { success: false, message: 'No character found' };
+    }
+
+    // Check if potion is valid
+    const potionData = getItemById(potionId);
+    if (!potionData || potionData.type !== ITEM_TYPE.CONSUMABLE) {
+      return { success: false, message: 'Invalid potion' };
+    }
+
+    // Check the price
+    const pricePerPotion = POTION_PRICES[potionId];
+    if (pricePerPotion === undefined) {
+      return { success: false, message: 'Potion not for sale' };
+    }
+
+    const totalCost = pricePerPotion * quantity;
+
+    // Check if player has enough gold
+    if (currentState.character.gold < totalCost) {
+      return { success: false, message: 'Not enough gold' };
+    }
+
+    // Check for existing stack of the same potion or find empty slot
+    let targetRow = -1;
+    let targetCol = -1;
+    let existingQuantity = 0;
+
+    // First, look for existing stack
+    for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
+      for (let col = 0; col < INVENTORY_COLS; col++) {
+        const item = currentState.inventoryGrid[row][col];
+        if (item && item.itemId === potionId) {
+          targetRow = row;
+          targetCol = col;
+          existingQuantity = item.quantity ?? 1;
+          break;
+        }
       }
+    }
 
-      // Check if character exists
-      if (!prev.character) {
-        result = { success: false, message: 'No character found' };
-        return prev;
-      }
-
-      // Check if potion is valid
-      const potionData = getItemById(potionId);
-      if (!potionData || potionData.type !== ITEM_TYPE.CONSUMABLE) {
-        result = { success: false, message: 'Invalid potion' };
-        return prev;
-      }
-
-      // Check the price
-      const pricePerPotion = POTION_PRICES[potionId];
-      if (pricePerPotion === undefined) {
-        result = { success: false, message: 'Potion not for sale' };
-        return prev;
-      }
-
-      const totalCost = pricePerPotion * quantity;
-
-      // Check if player has enough gold
-      if (prev.character.gold < totalCost) {
-        result = { success: false, message: 'Not enough gold' };
-        return prev;
-      }
-
-      // Check for existing stack of the same potion or find empty slot
-      let targetRow = -1;
-      let targetCol = -1;
-      let existingQuantity = 0;
-
-      // First, look for existing stack
+    // If no existing stack, find empty slot
+    if (targetRow === -1) {
       for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
         for (let col = 0; col < INVENTORY_COLS; col++) {
-          const item = prev.inventoryGrid[row][col];
-          if (item && item.itemId === potionId) {
+          if (!currentState.inventoryGrid[row][col]) {
             targetRow = row;
             targetCol = col;
-            existingQuantity = item.quantity ?? 1;
             break;
           }
         }
       }
+    }
 
-      // If no existing stack, find empty slot
-      if (targetRow === -1) {
-        for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
-          for (let col = 0; col < INVENTORY_COLS; col++) {
-            if (!prev.inventoryGrid[row][col]) {
-              targetRow = row;
-              targetCol = col;
-              break;
-            }
-          }
-        }
-      }
+    // If no slot available, fail
+    if (targetRow === -1) {
+      return { success: false, message: 'No inventory space available' };
+    }
 
-      // If no slot available, fail
-      if (targetRow === -1) {
-        result = { success: false, message: 'No inventory space available' };
+    // All validations passed - update state
+    setGameState((prev) => {
+      // Re-validate in case state changed between validation and update
+      if (!prev.character || prev.character.gold < totalCost) {
         return prev;
       }
 
       // Update inventory
       const newGrid = prev.inventoryGrid.map(row => [...row]);
-      newGrid[targetRow][targetCol] = {
+      
+      // Recalculate target in case inventory changed
+      let actualTargetRow = targetRow;
+      let actualTargetCol = targetCol;
+      let actualExistingQuantity = existingQuantity;
+      
+      // Recheck for existing stack
+      let foundExisting = false;
+      for (let row = 0; row < INVENTORY_ROWS && !foundExisting; row++) {
+        for (let col = 0; col < INVENTORY_COLS; col++) {
+          const item = prev.inventoryGrid[row][col];
+          if (item && item.itemId === potionId) {
+            actualTargetRow = row;
+            actualTargetCol = col;
+            actualExistingQuantity = item.quantity ?? 1;
+            foundExisting = true;
+            break;
+          }
+        }
+      }
+      
+      // If not found existing, use the original empty slot or find a new one
+      if (!foundExisting) {
+        actualExistingQuantity = 0;
+        if (prev.inventoryGrid[targetRow]?.[targetCol]) {
+          // Original slot is now occupied, find new empty slot
+          let foundEmpty = false;
+          for (let row = 0; row < INVENTORY_ROWS && !foundEmpty; row++) {
+            for (let col = 0; col < INVENTORY_COLS; col++) {
+              if (!prev.inventoryGrid[row][col]) {
+                actualTargetRow = row;
+                actualTargetCol = col;
+                foundEmpty = true;
+                break;
+              }
+            }
+          }
+          if (!foundEmpty) {
+            // No space available now
+            return prev;
+          }
+        }
+      }
+      
+      newGrid[actualTargetRow][actualTargetCol] = {
         itemId: potionId,
-        quantity: existingQuantity + quantity,
+        quantity: actualExistingQuantity + quantity,
       };
 
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
-
-      result = { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
-      console.log('[purchasePotion] Purchase successful, result:', result);
 
       return {
         ...prev,
@@ -627,9 +667,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    console.log('[purchasePotion] Returning result:', result);
-    return result;
-  }, []);
+    return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
+  }, [gameState]);
 
   // Purchase equipment from the shop
   const purchaseEquipment = useCallback((itemId: string, quantity: number): { success: boolean; message: string } => {
