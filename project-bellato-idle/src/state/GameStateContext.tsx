@@ -604,60 +604,51 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       return { success: false, message: 'No inventory space available' };
     }
 
-    // Track whether the purchase actually succeeded
-    let purchaseSucceeded = false;
-
-    // All validations passed - update state
+    // All validations passed - perform the purchase
+    // Update state (this is safe because validations passed)
     setGameState((prev) => {
-      // Re-validate in case state changed between validation and update
+      // Double-check in case of race condition
       if (!prev.character || prev.character.gold < totalCost) {
-        // State changed, purchase failed
         return prev;
       }
 
       // Update inventory
       const newGrid = prev.inventoryGrid.map(row => [...row]);
       
-      // Recalculate target in case inventory changed
+      // Find target slot (prefer existing stack)
       let actualTargetRow = targetRow;
       let actualTargetCol = targetCol;
       let actualExistingQuantity = existingQuantity;
       
-      // Recheck for existing stack
-      let foundExisting = false;
-      for (let row = 0; row < INVENTORY_ROWS && !foundExisting; row++) {
+      // Recheck for existing stack in case it changed
+      for (let row = 0; row < INVENTORY_ROWS; row++) {
         for (let col = 0; col < INVENTORY_COLS; col++) {
           const item = prev.inventoryGrid[row][col];
           if (item && item.itemId === potionId) {
             actualTargetRow = row;
             actualTargetCol = col;
             actualExistingQuantity = item.quantity ?? 1;
-            foundExisting = true;
             break;
           }
         }
       }
       
-      // If not found existing, use the original empty slot or find a new one
-      if (!foundExisting) {
-        actualExistingQuantity = 0;
-        if (prev.inventoryGrid[targetRow]?.[targetCol]) {
-          // Original slot is now occupied, find new empty slot
-          let foundEmpty = false;
-          for (let row = 0; row < INVENTORY_ROWS && !foundEmpty; row++) {
-            for (let col = 0; col < INVENTORY_COLS; col++) {
-              if (!prev.inventoryGrid[row][col]) {
-                actualTargetRow = row;
-                actualTargetCol = col;
-                foundEmpty = true;
-                break;
-              }
+      // If original slot is occupied and we didn't find existing stack, find new empty slot
+      if (actualTargetRow === targetRow && prev.inventoryGrid[targetRow]?.[targetCol] && !prev.inventoryGrid[targetRow][targetCol]?.itemId?.includes(potionId)) {
+        let foundEmpty = false;
+        for (let row = 0; row < INVENTORY_ROWS && !foundEmpty; row++) {
+          for (let col = 0; col < INVENTORY_COLS; col++) {
+            if (!prev.inventoryGrid[row][col]) {
+              actualTargetRow = row;
+              actualTargetCol = col;
+              actualExistingQuantity = 0;
+              foundEmpty = true;
+              break;
             }
           }
-          if (!foundEmpty) {
-            // No space available now - state changed, purchase failed
-            return prev;
-          }
+        }
+        if (!foundEmpty) {
+          return prev;
         }
       }
       
@@ -669,9 +660,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
 
-      // Mark purchase as succeeded
-      purchaseSucceeded = true;
-
       return {
         ...prev,
         character: {
@@ -682,14 +670,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    // Return the result based on whether purchase actually succeeded
-    // Note: Since setGameState is synchronous for the callback execution,
-    // purchaseSucceeded will be set before we return
-    if (purchaseSucceeded) {
-      return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
-    } else {
-      return { success: false, message: 'Purchase failed - state changed during transaction' };
-    }
+    // If we got here, all validations passed, so return success
+    return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
   }, []);
 
   // Purchase equipment from the shop
@@ -750,14 +732,11 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       return { success: false, message: 'No inventory space available' };
     }
 
-    // Track whether the purchase actually succeeded
-    let purchaseSucceeded = false;
-
-    // All validations passed - update state
+    // All validations passed - perform the purchase
+    // Update state (this is safe because validations passed)
     setGameState((prev) => {
-      // Re-validate in case state changed
+      // Double-check in case of race condition
       if (!prev.character || prev.character.gold < totalCost) {
-        // State changed, purchase failed
         return prev;
       }
 
@@ -779,7 +758,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           }
         }
         if (!foundEmpty) {
-          // No space available now - state changed, purchase failed
           return prev;
         }
       }
@@ -794,9 +772,6 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
 
-      // Mark purchase as succeeded
-      purchaseSucceeded = true;
-
       return {
         ...prev,
         character: {
@@ -807,14 +782,8 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    // Return the result based on whether purchase actually succeeded
-    // Note: Since setGameState is synchronous for the callback execution,
-    // purchaseSucceeded will be set before we return
-    if (purchaseSucceeded) {
-      return { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
-    } else {
-      return { success: false, message: 'Purchase failed - state changed during transaction' };
-    }
+    // If we got here, all validations passed, so return success
+    return { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
   }, []);
 
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
