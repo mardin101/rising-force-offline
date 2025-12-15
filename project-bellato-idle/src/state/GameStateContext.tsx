@@ -779,7 +779,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     });
 
     return { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
-  }, [gameState]);
+  }, []);
 
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
     setGameState((prev) => ({
