@@ -109,12 +109,11 @@ export default function EquipmentSlots({
         {itemData ? (
           <div className="equipped-item">
             <div className="equipped-item-icon">
-              {itemData.image || itemData.localImagePath ? (
+              {itemData.image ? (
                 <img 
-                  src={getAssetPath(itemData.image || itemData.localImagePath)} 
+                  src={getAssetPath(itemData.image)} 
                   alt={itemData.name} 
                   className="equipped-item-image"
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
               ) : (
                 config.icon
