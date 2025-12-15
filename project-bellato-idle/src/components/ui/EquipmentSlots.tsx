@@ -7,6 +7,7 @@ import {
   getItemById,
 } from '../../state/gameStateSlice';
 import { getAssetPath } from '../../utils/assets';
+import ItemTooltip from './ItemTooltip';
 import './EquipmentSlots.css';
 
 export interface EquipmentSlotsProps {
@@ -45,6 +46,17 @@ export default function EquipmentSlots({
   canEquipSelectedItem,
 }: EquipmentSlotsProps) {
   const [dragOverSlot, setDragOverSlot] = useState<EquipmentSlotType | null>(null);
+  const [tooltip, setTooltip] = useState<{
+    isVisible: boolean;
+    x: number;
+    y: number;
+    slot: EquipmentSlotType | null;
+  }>({
+    isVisible: false,
+    x: 0,
+    y: 0,
+    slot: null,
+  });
 
   // Handle drag over for equipment slots
   const handleDragOver = useCallback((slot: EquipmentSlotType, e: React.DragEvent) => {
@@ -86,6 +98,38 @@ export default function EquipmentSlots({
     }
   }, [selectedInventorySlot, canEquipSelectedItem, onDropToSlot, equippedItems, onUnequipItem]);
 
+  // Handle mouse enter for tooltip (desktop only)
+  const handleMouseEnter = useCallback((slot: EquipmentSlotType, e: React.MouseEvent) => {
+    const equippedItem = equippedItems[slot];
+    if (!equippedItem) return;
+
+    // Only show tooltip on desktop (not on touch devices)
+    if ('ontouchstart' in window) return;
+
+    setTooltip({
+      isVisible: true,
+      x: e.clientX,
+      y: e.clientY,
+      slot,
+    });
+  }, [equippedItems]);
+
+  // Handle mouse move to update tooltip position
+  const handleMouseMove = useCallback((slot: EquipmentSlotType, e: React.MouseEvent) => {
+    if (!tooltip.isVisible || tooltip.slot !== slot) return;
+
+    setTooltip(prev => ({
+      ...prev,
+      x: e.clientX,
+      y: e.clientY,
+    }));
+  }, [tooltip.isVisible, tooltip.slot]);
+
+  // Handle mouse leave to hide tooltip
+  const handleMouseLeave = useCallback(() => {
+    setTooltip(prev => ({ ...prev, isVisible: false }));
+  }, []);
+
   // Render a single equipment slot
   const renderSlot = (slot: EquipmentSlotType) => {
     const config = SLOT_CONFIG[slot];
@@ -102,6 +146,9 @@ export default function EquipmentSlots({
         onDragLeave={handleDragLeave}
         onDrop={(e) => handleDrop(slot, e)}
         onClick={() => handleSlotClick(slot)}
+        onMouseEnter={(e) => handleMouseEnter(slot, e)}
+        onMouseMove={(e) => handleMouseMove(slot, e)}
+        onMouseLeave={handleMouseLeave}
         role="button"
         aria-label={itemData ? `${config.label}: ${itemData.name} - Click to unequip` : `${config.label}: Empty - Drag item here to equip`}
         tabIndex={0}
@@ -169,6 +216,19 @@ export default function EquipmentSlots({
           Tap an equipment slot to equip the selected item
         </div>
       )}
+      
+      {tooltip.isVisible && tooltip.slot && (() => {
+        const equippedItem = equippedItems[tooltip.slot];
+        const itemData = equippedItem ? getItemById(equippedItem.itemId) : null;
+        return itemData ? (
+          <ItemTooltip
+            item={itemData}
+            x={tooltip.x}
+            y={tooltip.y}
+            quantity={equippedItem?.quantity}
+          />
+        ) : null;
+      })()}
     </div>
   );
 }

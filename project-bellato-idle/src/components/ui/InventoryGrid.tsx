@@ -10,6 +10,7 @@ import {
 } from '../../state/gameStateSlice';
 import { getAssetPath } from '../../utils/assets';
 import ItemContextMenu, { type ContextMenuAction } from './ItemContextMenu';
+import ItemTooltip from './ItemTooltip';
 import './InventoryGrid.css';
 
 // Constants
@@ -33,6 +34,14 @@ interface DragState {
 
 interface ContextMenuState {
   isOpen: boolean;
+  x: number;
+  y: number;
+  row: number;
+  col: number;
+}
+
+interface TooltipState {
+  isVisible: boolean;
   x: number;
   y: number;
   row: number;
@@ -65,6 +74,13 @@ export default function InventoryGrid({
   const [internalSelectedSlot, setInternalSelectedSlot] = useState<{ row: number; col: number } | null>(null);
   const [contextMenu, setContextMenu] = useState<ContextMenuState>({
     isOpen: false,
+    x: 0,
+    y: 0,
+    row: -1,
+    col: -1,
+  });
+  const [tooltip, setTooltip] = useState<TooltipState>({
+    isVisible: false,
     x: 0,
     y: 0,
     row: -1,
@@ -120,6 +136,39 @@ export default function InventoryGrid({
   // Close context menu
   const closeContextMenu = useCallback(() => {
     setContextMenu(prev => ({ ...prev, isOpen: false }));
+  }, []);
+
+  // Handle mouse enter for tooltip (desktop only)
+  const handleMouseEnter = useCallback((row: number, col: number, e: React.MouseEvent) => {
+    const slot = grid[row][col];
+    if (!slot) return;
+
+    // Only show tooltip on desktop (not on touch devices)
+    if ('ontouchstart' in window) return;
+
+    setTooltip({
+      isVisible: true,
+      x: e.clientX,
+      y: e.clientY,
+      row,
+      col,
+    });
+  }, [grid]);
+
+  // Handle mouse move to update tooltip position
+  const handleMouseMove = useCallback((row: number, col: number, e: React.MouseEvent) => {
+    if (!tooltip.isVisible || tooltip.row !== row || tooltip.col !== col) return;
+
+    setTooltip(prev => ({
+      ...prev,
+      x: e.clientX,
+      y: e.clientY,
+    }));
+  }, [tooltip.isVisible, tooltip.row, tooltip.col]);
+
+  // Handle mouse leave to hide tooltip
+  const handleMouseLeave = useCallback(() => {
+    setTooltip(prev => ({ ...prev, isVisible: false }));
   }, []);
 
   // Clear long press timer
@@ -303,6 +352,9 @@ export default function InventoryGrid({
         onDragEnd={handleDragEnd}
         onClick={() => handleSlotClick(row, col)}
         onContextMenu={(e) => handleContextMenu(row, col, e)}
+        onMouseEnter={(e) => handleMouseEnter(row, col, e)}
+        onMouseMove={(e) => handleMouseMove(row, col, e)}
+        onMouseLeave={handleMouseLeave}
         onTouchStart={(e) => handleTouchStart(row, col, e)}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
@@ -363,6 +415,18 @@ export default function InventoryGrid({
           onClose={closeContextMenu}
         />
       )}
+      {tooltip.isVisible && (() => {
+        const slot = grid[tooltip.row]?.[tooltip.col];
+        const itemData = slot ? getItemById(slot.itemId) : null;
+        return itemData ? (
+          <ItemTooltip
+            item={itemData}
+            x={tooltip.x}
+            y={tooltip.y}
+            quantity={slot?.quantity}
+          />
+        ) : null;
+      })()}
     </div>
   );
 }
