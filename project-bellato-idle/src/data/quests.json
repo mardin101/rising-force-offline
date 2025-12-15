@@ -2,10 +2,10 @@
   {
     "id": "quest_1",
     "level": 1,
-    "title": "Slime Hunting",
+    "title": "Young Flem Extermination",
     "type": "slay",
-    "description": "Eliminate the slimes that are terrorizing the village outskirts.",
-    "targetMonster": "slime",
+    "description": "Eliminate the Young Flems that are causing trouble near the HQ.",
+    "targetMonster": "monster_200",
     "targetAmount": 5,
     "rewards": { "gold": 50, "exp": 0.03 }
   },
