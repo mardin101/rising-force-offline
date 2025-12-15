@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import {
   type GameState,
   type Character,
@@ -125,6 +125,14 @@ function updateCharacterStatsFromEquipment(
 export function GameStateProvider({ children }: GameStateProviderProps) {
   // Use lazy initialization to load saved state on first render
   const [gameState, setGameState] = useState<GameState>(loadGameState);
+  
+  // Use a ref to access current state without causing re-renders
+  const gameStateRef = useRef<GameState>(gameState);
+  
+  // Keep ref in sync with state
+  useEffect(() => {
+    gameStateRef.current = gameState;
+  }, [gameState]);
 
   // Save state whenever it changes
   useEffect(() => {
@@ -528,14 +536,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
 
   // Purchase potions from the shop
   const purchasePotion = useCallback((potionId: string, quantity: number): { success: boolean; message: string } => {
-    // Get current state synchronously
-    const currentState = gameState;
-    
     // Validate quantity
     if (quantity <= 0) {
       return { success: false, message: 'Invalid quantity' };
     }
 
+    // Get current state from ref (doesn't cause re-renders)
+    const currentState = gameStateRef.current;
+    
     // Check if character exists
     if (!currentState.character) {
       return { success: false, message: 'No character found' };
@@ -596,10 +604,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       return { success: false, message: 'No inventory space available' };
     }
 
+    // Track whether the purchase actually succeeded
+    let purchaseSucceeded = false;
+
     // All validations passed - update state
     setGameState((prev) => {
       // Re-validate in case state changed between validation and update
       if (!prev.character || prev.character.gold < totalCost) {
+        // State changed, purchase failed
         return prev;
       }
 
@@ -643,7 +655,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
             }
           }
           if (!foundEmpty) {
-            // No space available now
+            // No space available now - state changed, purchase failed
             return prev;
           }
         }
@@ -657,6 +669,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
 
+      // Mark purchase as succeeded
+      purchaseSucceeded = true;
+
       return {
         ...prev,
         character: {
@@ -667,14 +682,18 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
-  }, [getItemById, INVENTORY_ROWS, INVENTORY_COLS, POTION_PRICES]);
+    // Return the result based on whether purchase actually succeeded
+    // Note: Since setGameState is synchronous for the callback execution,
+    // purchaseSucceeded will be set before we return
+    if (purchaseSucceeded) {
+      return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
+    } else {
+      return { success: false, message: 'Purchase failed - state changed during transaction' };
+    }
+  }, []);
 
   // Purchase equipment from the shop
   const purchaseEquipment = useCallback((itemId: string, quantity: number): { success: boolean; message: string} => {
-    // Get current state synchronously
-    const currentState = gameState;
-    
     // Validate quantity - equipment is not stackable
     if (quantity <= 0) {
       return { success: false, message: 'Invalid quantity' };
@@ -683,6 +702,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     if (quantity > 1) {
       return { success: false, message: 'Equipment is not stackable. Purchase one at a time.' };
     }
+
+    // Get current state from ref (doesn't cause re-renders)
+    const currentState = gameStateRef.current;
 
     // Check if character exists
     if (!currentState.character) {
@@ -728,10 +750,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       return { success: false, message: 'No inventory space available' };
     }
 
+    // Track whether the purchase actually succeeded
+    let purchaseSucceeded = false;
+
     // All validations passed - update state
     setGameState((prev) => {
       // Re-validate in case state changed
       if (!prev.character || prev.character.gold < totalCost) {
+        // State changed, purchase failed
         return prev;
       }
 
@@ -753,7 +779,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           }
         }
         if (!foundEmpty) {
-          // No space available now
+          // No space available now - state changed, purchase failed
           return prev;
         }
       }
@@ -768,6 +794,9 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
 
+      // Mark purchase as succeeded
+      purchaseSucceeded = true;
+
       return {
         ...prev,
         character: {
@@ -778,7 +807,14 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       };
     });
 
-    return { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
+    // Return the result based on whether purchase actually succeeded
+    // Note: Since setGameState is synchronous for the callback execution,
+    // purchaseSucceeded will be set before we return
+    if (purchaseSucceeded) {
+      return { success: true, message: `Purchased ${itemData.name} for ${totalCost} gold` };
+    } else {
+      return { success: false, message: 'Purchase failed - state changed during transaction' };
+    }
   }, []);
 
   const updateActiveQuest = useCallback((quest: ActiveQuest | null) => {
