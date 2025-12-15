@@ -668,7 +668,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
     });
 
     return { success: true, message: `Purchased ${quantity}x ${potionData.name} for ${totalCost} gold` };
-  }, [gameState]);
+  }, [getItemById, INVENTORY_ROWS, INVENTORY_COLS, POTION_PRICES]);
 
   // Purchase equipment from the shop
   const purchaseEquipment = useCallback((itemId: string, quantity: number): { success: boolean; message: string} => {
