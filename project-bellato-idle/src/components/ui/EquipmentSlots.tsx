@@ -6,6 +6,7 @@ import {
   EQUIPMENT_SLOT,
   getItemById,
 } from '../../state/gameStateSlice';
+import { getAssetPath } from '../../utils/assets';
 import './EquipmentSlots.css';
 
 export interface EquipmentSlotsProps {
@@ -107,7 +108,18 @@ export default function EquipmentSlots({
       >
         {itemData ? (
           <div className="equipped-item">
-            <div className="equipped-item-icon">{config.icon}</div>
+            <div className="equipped-item-icon">
+              {itemData.image || itemData.localImagePath ? (
+                <img 
+                  src={getAssetPath(itemData.image || itemData.localImagePath)} 
+                  alt={itemData.name} 
+                  className="equipped-item-image"
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
+              ) : (
+                config.icon
+              )}
+            </div>
             <div className="equipped-item-name">{itemData.name}</div>
           </div>
         ) : (
