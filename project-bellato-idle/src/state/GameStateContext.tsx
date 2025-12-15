@@ -634,7 +634,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       }
       
       // If original slot is occupied and we didn't find existing stack, find new empty slot
-      if (actualTargetRow === targetRow && prev.inventoryGrid[targetRow]?.[targetCol] && !prev.inventoryGrid[targetRow][targetCol]?.itemId?.includes(potionId)) {
+      if (actualTargetRow === targetRow && prev.inventoryGrid[targetRow]?.[targetCol] && prev.inventoryGrid[targetRow][targetCol]?.itemId !== potionId) {
         let foundEmpty = false;
         for (let row = 0; row < INVENTORY_ROWS && !foundEmpty; row++) {
           for (let col = 0; col < INVENTORY_COLS; col++) {
