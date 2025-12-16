@@ -18,5 +18,14 @@
   { "id": "troll_blood", "name": "Troll Blood", "description": "Blood with regenerative properties from a troll." },
   { "id": "fire_essence", "name": "Fire Essence", "description": "Pure elemental fire essence." },
   { "id": "stone_heart", "name": "Stone Heart", "description": "The petrified heart of a gargoyle." },
-  { "id": "demon_horn", "name": "Demon Horn", "description": "A cursed horn from a demon." }
+  { "id": "demon_horn", "name": "Demon Horn", "description": "A cursed horn from a demon." },
+  { "id": "wing_membrane", "name": "Wing Membrane", "description": "A thin membrane from a Wing creature." },
+  { "id": "flem_core", "name": "Flem Core", "description": "The core essence of a Flem creature." },
+  { "id": "stinkbug_shell", "name": "Stinkbug Shell", "description": "Hard chitinous shell from a Stinkbug." },
+  { "id": "flem_guard_badge", "name": "Flem Guard Badge", "description": "A badge worn by Flem Guards." },
+  { "id": "demolis_fragment", "name": "Demolis Fragment", "description": "A crystalline fragment from a Demolis." },
+  { "id": "heavy_wing_feather", "name": "Heavy Wing Feather", "description": "A sturdy feather from a Heavy Wing." },
+  { "id": "splinter_shard", "name": "Splinter Shard", "description": "A sharp shard from a Splinter Brat." },
+  { "id": "lunker_tooth", "name": "Lunker Tooth", "description": "A sharp tooth from a Lunker." },
+  { "id": "warbeast_claw", "name": "Warbeast Claw", "description": "A massive claw from a Warbeast." }
 ]
