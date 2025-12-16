@@ -964,7 +964,7 @@ export default function Battle() {
           aria-modal="true"
           aria-label="Battle Arena"
         >
-          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg h-[600px] flex flex-col">
+          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg md:max-w-2xl lg:max-w-3xl h-[600px] md:h-[700px] lg:h-[800px] flex flex-col">
             {/* Modal Header */}
             <div className="p-4 border-b border-gray-700 flex justify-between items-center">
               <h2 className="text-xl font-bold text-red-400">Battle: {selectedMonster.name}</h2>
