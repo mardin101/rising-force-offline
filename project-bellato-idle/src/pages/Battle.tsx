@@ -1033,20 +1033,6 @@ export default function Battle() {
                 </div>
               </div>
 
-              {/* Battle Log */}
-              <div ref={battleLogRef} className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
-                <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
-                {battleState.battleLog.length > 0 ? (
-                  <div className="space-y-1">
-                    {battleState.battleLog.map((log, index) => (
-                      <p key={`${log}-${index}`} className="text-xs text-gray-300">{log}</p>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
-                )}
-              </div>
-
               {/* Battle Result */}
               {battleState.isVictory === true && !continuousCombat && (
                 <div className="bg-green-900/50 border border-green-500 rounded-lg p-3 text-center">
@@ -1132,6 +1118,20 @@ export default function Battle() {
                   >
                     End Combat ({battleState.monstersDefeated} defeated)
                   </button>
+                )}
+              </div>
+
+              {/* Battle Log - Bottom Section */}
+              <div ref={battleLogRef} className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
+                <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
+                {battleState.battleLog.length > 0 ? (
+                  <div className="space-y-1">
+                    {battleState.battleLog.map((log, index) => (
+                      <p key={`${log}-${index}`} className="text-xs text-gray-300">{log}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
                 )}
               </div>
             </div>
