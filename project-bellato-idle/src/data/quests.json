@@ -207,5 +207,194 @@
     "targetMonster": "demon",
     "targetAmount": 5,
     "rewards": { "gold": 1000, "exp": 0.7, "item": "sword_legendary" }
+  },
+  {
+    "id": "quest_21",
+    "level": 2,
+    "title": "Wing Threat",
+    "type": "slay",
+    "description": "Wing creatures are swarming the area. Eliminate them to protect the settlement.",
+    "targetMonster": "monster_201",
+    "targetAmount": 10,
+    "rewards": { "gold": 800, "exp": 0.2 }
+  },
+  {
+    "id": "quest_22",
+    "level": 2,
+    "title": "Wing Membrane Collection",
+    "type": "collect",
+    "description": "The research team needs Wing membranes for their experiments.",
+    "targetMonster": "monster_201",
+    "targetMaterial": "wing_membrane",
+    "targetAmount": 5,
+    "rewards": { "gold": 1000, "exp": 0.26 }
+  },
+  {
+    "id": "quest_23",
+    "level": 3,
+    "title": "Flem Infestation",
+    "type": "slay",
+    "description": "Flem creatures are multiplying rapidly. Thin their numbers.",
+    "targetMonster": "monster_202",
+    "targetAmount": 8,
+    "rewards": { "gold": 1200, "exp": 0.32 }
+  },
+  {
+    "id": "quest_24",
+    "level": 3,
+    "title": "Flem Core Research",
+    "type": "collect",
+    "description": "Scientists need Flem cores to study their unique biology.",
+    "targetMonster": "monster_202",
+    "targetMaterial": "flem_core",
+    "targetAmount": 6,
+    "rewards": { "gold": 1400, "exp": 0.38 }
+  },
+  {
+    "id": "quest_25",
+    "level": 4,
+    "title": "Stinkbug Extermination",
+    "type": "slay",
+    "description": "The foul Stinkbugs are contaminating the area. Destroy them.",
+    "targetMonster": "monster_203",
+    "targetAmount": 12,
+    "rewards": { "gold": 1600, "exp": 0.44 }
+  },
+  {
+    "id": "quest_26",
+    "level": 4,
+    "title": "Stinkbug Shell Collection",
+    "type": "collect",
+    "description": "Collect Stinkbug shells for armor research purposes.",
+    "targetMonster": "monster_203",
+    "targetMaterial": "stinkbug_shell",
+    "targetAmount": 7,
+    "rewards": { "gold": 1800, "exp": 0.5 }
+  },
+  {
+    "id": "quest_27",
+    "level": 5,
+    "title": "Flem Guard Patrol",
+    "type": "slay",
+    "description": "Flem Guards are becoming aggressive. Show them who's in charge.",
+    "targetMonster": "monster_204",
+    "targetAmount": 10,
+    "rewards": { "gold": 2000, "exp": 0.56 }
+  },
+  {
+    "id": "quest_28",
+    "level": 5,
+    "title": "Badge Procurement",
+    "type": "collect",
+    "description": "Retrieve Flem Guard badges as proof of your victories.",
+    "targetMonster": "monster_204",
+    "targetMaterial": "flem_guard_badge",
+    "targetAmount": 5,
+    "rewards": { "gold": 2200, "exp": 0.62 }
+  },
+  {
+    "id": "quest_29",
+    "level": 6,
+    "title": "Demolis Assault",
+    "type": "slay",
+    "description": "Demolis creatures threaten our operations. Eliminate the threat.",
+    "targetMonster": "monster_205",
+    "targetAmount": 9,
+    "rewards": { "gold": 2400, "exp": 0.68 }
+  },
+  {
+    "id": "quest_30",
+    "level": 6,
+    "title": "Demolis Fragment Study",
+    "type": "collect",
+    "description": "Gather Demolis fragments for crystalline research.",
+    "targetMonster": "monster_205",
+    "targetMaterial": "demolis_fragment",
+    "targetAmount": 6,
+    "rewards": { "gold": 2600, "exp": 0.74 }
+  },
+  {
+    "id": "quest_31",
+    "level": 7,
+    "title": "Heavy Wing Hunt",
+    "type": "slay",
+    "description": "Heavy Wings pose a significant threat. Take them down.",
+    "targetMonster": "monster_206",
+    "targetAmount": 8,
+    "rewards": { "gold": 2800, "exp": 0.8 }
+  },
+  {
+    "id": "quest_32",
+    "level": 7,
+    "title": "Heavy Wing Feather Quest",
+    "type": "collect",
+    "description": "Collect Heavy Wing feathers for crafting advanced equipment.",
+    "targetMonster": "monster_206",
+    "targetMaterial": "heavy_wing_feather",
+    "targetAmount": 5,
+    "rewards": { "gold": 3000, "exp": 0.86 }
+  },
+  {
+    "id": "quest_33",
+    "level": 8,
+    "title": "Splinter Brat Suppression",
+    "type": "slay",
+    "description": "Splinter Brats are causing havoc. Suppress their numbers.",
+    "targetMonster": "monster_207",
+    "targetAmount": 11,
+    "rewards": { "gold": 3200, "exp": 0.92 }
+  },
+  {
+    "id": "quest_34",
+    "level": 8,
+    "title": "Splinter Shard Gathering",
+    "type": "collect",
+    "description": "Gather sharp Splinter shards for weapon enhancement.",
+    "targetMonster": "monster_207",
+    "targetMaterial": "splinter_shard",
+    "targetAmount": 7,
+    "rewards": { "gold": 3400, "exp": 0.98 }
+  },
+  {
+    "id": "quest_35",
+    "level": 9,
+    "title": "Lunker Elimination",
+    "type": "slay",
+    "description": "Lunkers are terrorizing travelers. End their reign of terror.",
+    "targetMonster": "monster_208",
+    "targetAmount": 9,
+    "rewards": { "gold": 3600, "exp": 1.04 }
+  },
+  {
+    "id": "quest_36",
+    "level": 9,
+    "title": "Lunker Tooth Collection",
+    "type": "collect",
+    "description": "Collect Lunker teeth for crafting powerful weapons.",
+    "targetMonster": "monster_208",
+    "targetMaterial": "lunker_tooth",
+    "targetAmount": 6,
+    "rewards": { "gold": 3800, "exp": 1.1 }
+  },
+  {
+    "id": "quest_37",
+    "level": 10,
+    "title": "Warbeast Challenge",
+    "type": "slay",
+    "description": "Prove your strength by defeating the formidable Warbeasts.",
+    "targetMonster": "monster_209",
+    "targetAmount": 7,
+    "rewards": { "gold": 4000, "exp": 1.16 }
+  },
+  {
+    "id": "quest_38",
+    "level": 10,
+    "title": "Warbeast Claw Trophy",
+    "type": "collect",
+    "description": "Bring back Warbeast claws as proof of your prowess.",
+    "targetMonster": "monster_209",
+    "targetMaterial": "warbeast_claw",
+    "targetAmount": 5,
+    "rewards": { "gold": 4200, "exp": 1.22 }
   }
 ]
