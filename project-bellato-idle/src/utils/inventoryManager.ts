@@ -9,7 +9,7 @@ import { INVENTORY_ROWS, INVENTORY_COLS, MAX_STACK_SIZE, ITEM_TYPE, getItemById 
 /**
  * Check if an item is stackable based on its type
  * @param itemId The ID of the item to check
- * @returns true if the item can be stacked
+ * @returns true if the item can be stacked, false if non-stackable or item not found
  */
 export function isItemStackable(itemId: string): boolean {
   const itemData = getItemById(itemId);
@@ -66,7 +66,7 @@ export function addItemToInventory(grid: InventoryGrid, itemId: string): {
  * @param grid The current inventory grid
  * @param itemId The ID of the item to add
  * @param quantity The quantity to add (default: 1)
- * @returns New grid with items added and success status
+ * @returns Object with: grid (updated inventory), success (true if ALL items added), added (count of items successfully added)
  */
 export function addItemWithQuantity(
   grid: InventoryGrid, 
