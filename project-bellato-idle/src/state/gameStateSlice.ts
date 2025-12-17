@@ -128,7 +128,7 @@ export const PT_MIN = 0;
 export const PT_MAX_AT_LEVEL_1 = 2;
 export const PT_MAX_AT_MAX_LEVEL = 99;
 export const MAX_CHARACTER_LEVEL = 55;
-export const PT_EXPERIENCE_PER_ACTION = 0.002; // 0.2% experience per action (increased from 0.0005 for early game)
+export const PT_EXPERIENCE_PER_ACTION = 0.010; // 1.0% experience per action (5x increase for better progression tracking)
 
 // Experience constants
 // Experience is expressed as a percentage (0.0 to 1.0 where 1.0 = 100%)
@@ -242,7 +242,7 @@ export const PT_EXPERIENCE_TO_LEVEL = 1.0;
  * @returns PT experience gain amount (0.0 to 1.0)
  * 
  * @description
- * - Base PT exp is PT_EXPERIENCE_PER_ACTION (0.002 = 0.2%, increased for early game)
+ * - Base PT exp is PT_EXPERIENCE_PER_ACTION (0.010 = 1.0%, increased 5x for better progression tracking)
  * - More exp is gained fighting higher level monsters
  * - No exp is gained if monster is more than 5 levels below player
  * - Experience scales with the player's current PT level (diminishing returns at higher PT)
