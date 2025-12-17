@@ -339,6 +339,12 @@ export interface AbilityInfo {
   defenseExp: number;
 }
 
+// Attack Range - Represents min and max attack values
+export interface AttackRange {
+  min: number;
+  max: number;
+}
+
 // Element Resist Info
 export interface ElementResistInfo {
   fire: number;
@@ -358,7 +364,7 @@ export interface StatusInfo {
   defGauge: number;   // Defense Gauge
   maxDefGauge: number;
   expPoints: number;  // Experience Points
-  genAttack: number;  // General Attack
+  genAttack: AttackRange;  // General Attack (min/max range)
   forceAttack: number;// Force Attack
   avgDefPwr: number;  // Average Defense Power
   avgDefRange: number;// Average Defense Range
@@ -375,7 +381,7 @@ export interface ClassBaseStats {
   fp: number;
   sp: number;
   defGauge: number;
-  genAttack: number;
+  genAttack: AttackRange;  // Base attack range (no weapon equipped)
   forceAttack: number;
   avgDefPwr: number;
   avgDefRange: number;
@@ -400,28 +406,28 @@ export interface ClassBaseStats {
 export const CLASS_BASE_STATS: Record<CharacterClass, ClassBaseStats> = {
   [CHARACTER_CLASSES.WARRIOR]: {
     hp: 120, fp: 50, sp: 80, defGauge: 100,
-    genAttack: 12, forceAttack: 3, avgDefPwr: 8, avgDefRange: 5, avgDefRate: 15,
+    genAttack: { min: 12, max: 12 }, forceAttack: 3, avgDefPwr: 8, avgDefRange: 5, avgDefRate: 15,
     attackSpeed: 10, accuracy: 85, dodge: 10,
     melee: 1, range: 0, unit: 0, force: 0, shield: 1, defense: 1,
     fire: 5, aqua: 5, terra: 5, wind: 5,
   },
   [CHARACTER_CLASSES.RANGER]: {
     hp: 90, fp: 40, sp: 100, defGauge: 60,
-    genAttack: 15, forceAttack: 2, avgDefPwr: 5, avgDefRange: 8, avgDefRate: 12,
+    genAttack: { min: 15, max: 15 }, forceAttack: 2, avgDefPwr: 5, avgDefRange: 8, avgDefRate: 12,
     attackSpeed: 15, accuracy: 95, dodge: 20,
     melee: 0, range: 1, unit: 0, force: 0, shield: 0, defense: 0,
     fire: 3, aqua: 3, terra: 3, wind: 3,
   },
   [CHARACTER_CLASSES.SPIRITUALIST]: {
     hp: 80, fp: 120, sp: 60, defGauge: 40,
-    genAttack: 6, forceAttack: 15, avgDefPwr: 4, avgDefRange: 3, avgDefRate: 8,
+    genAttack: { min: 6, max: 6 }, forceAttack: 15, avgDefPwr: 4, avgDefRange: 3, avgDefRate: 8,
     attackSpeed: 8, accuracy: 80, dodge: 15,
     melee: 0, range: 0, unit: 0, force: 1, shield: 0, defense: 0,
     fire: 8, aqua: 8, terra: 8, wind: 8,
   },
   [CHARACTER_CLASSES.SPECIALIST]: {
     hp: 100, fp: 70, sp: 90, defGauge: 80,
-    genAttack: 8, forceAttack: 6, avgDefPwr: 6, avgDefRange: 6, avgDefRate: 10,
+    genAttack: { min: 8, max: 8 }, forceAttack: 6, avgDefPwr: 6, avgDefRange: 6, avgDefRate: 10,
     attackSpeed: 12, accuracy: 90, dodge: 12,
     melee: 0, range: 0, unit: 1, force: 0, shield: 0, defense: 1,
     fire: 5, aqua: 5, terra: 5, wind: 5,
@@ -606,6 +612,24 @@ export function calculateEquippedDefense(equippedItems: EquippedItems): number {
   return totalDefense;
 }
 
+/**
+ * Calculate attack range from equipped weapon.
+ * If no weapon is equipped, returns null.
+ * 
+ * @param equippedItems - The currently equipped items
+ * @returns AttackRange from the equipped weapon, or null if no weapon equipped
+ */
+export function calculateEquippedAttack(equippedItems: EquippedItems): AttackRange | null {
+  const weaponItem = equippedItems[EQUIPMENT_SLOT.WEAPON];
+  if (weaponItem) {
+    const itemData = getItemById(weaponItem.itemId);
+    if (itemData?.attackRange) {
+      return itemData.attackRange;
+    }
+  }
+  return null;
+}
+
 export interface GameState {
   character: Character | null;
   currentZone: string | null;
@@ -664,7 +688,9 @@ export const CLASS_PROPENSITIES: Record<CharacterClass, string> = {
 
 // Calculate Combat Power from stats
 export function calculateCP(statusInfo: StatusInfo, abilityInfo: AbilityInfo): number {
-  const statusCP = statusInfo.genAttack * 10 + statusInfo.forceAttack * 10 +
+  // Use average of attack range for CP calculation
+  const avgAttack = (statusInfo.genAttack.min + statusInfo.genAttack.max) / 2;
+  const statusCP = avgAttack * 10 + statusInfo.forceAttack * 10 +
     statusInfo.avgDefPwr * 5 + statusInfo.attackSpeed * 3 +
     statusInfo.accuracy + statusInfo.dodge;
   const abilityCP = (abilityInfo.melee + abilityInfo.range + abilityInfo.unit +
@@ -777,7 +803,8 @@ export function migrateLegacyCharacter(legacy: LegacyCharacter): Character {
     defGauge: baseStats.defGauge,
     maxDefGauge: baseStats.defGauge,
     expPoints: legacy.experience,
-    genAttack: legacy.attack || baseStats.genAttack,
+    // Convert legacy single attack value to attack range
+    genAttack: legacy.attack ? { min: legacy.attack, max: legacy.attack } : baseStats.genAttack,
     forceAttack: baseStats.forceAttack,
     avgDefPwr: legacy.defense || baseStats.avgDefPwr,
     avgDefRange: baseStats.avgDefRange,

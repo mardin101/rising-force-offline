@@ -3,6 +3,12 @@ import type { ItemType, EquipmentSlotType, WeaponType } from './constants';
 // Potion-specific type for HP potions
 export type PotionType = 'HP' | 'FP' | 'SP';
 
+// Attack Range - Represents min and max attack values
+export interface AttackRange {
+  min: number;
+  max: number;
+}
+
 // Item data interface - Updated to match items.json structure
 export interface ItemData {
   // Required fields from items.json
@@ -17,7 +23,8 @@ export interface ItemData {
   
   // Optional fields for backward compatibility and extended functionality
   type?: ItemType;
-  attack?: number;
+  attack?: number;             // @deprecated - use attackRange instead
+  attackRange?: AttackRange;   // Attack range for weapons (min/max)
   defense?: number;
   healAmount?: number;  // @deprecated - use amount instead
   equipSlot?: EquipmentSlotType;

@@ -176,7 +176,7 @@ export default function CharacterSheet() {
       </div>
       <div className="game-menu-row">
         <span className="game-menu-label">Gen. Attack</span>
-        <span className="game-menu-value text-red-400">{statusInfo.genAttack}</span>
+        <span className="game-menu-value text-red-400">{statusInfo.genAttack.min}-{statusInfo.genAttack.max}</span>
       </div>
       <div className="game-menu-row">
         <span className="game-menu-label">Force Attack</span>
