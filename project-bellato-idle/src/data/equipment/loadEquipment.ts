@@ -141,7 +141,7 @@ function getWeaponTypeFromSkill(requiredSkill: string): WeaponType | undefined {
     return WEAPON_TYPE.MELEE;
   }
   
-  // Ranged Skill, Launcher Skill, Bow = Ranged weapons
+  // Ranged Skill, Launcher Skill = Ranged weapons
   if (normalizedSkill.includes('ranged skill') || 
       normalizedSkill.includes('launcher skill')) {
     return WEAPON_TYPE.RANGED;
@@ -191,7 +191,7 @@ export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
     localImagePath: rawWeapon.localImagePath,
     type: ITEM_TYPE.WEAPON,
     equipSlot: EQUIPMENT_SLOT.WEAPON,
-    weaponType: weaponType, // Set weapon type for PT experience system
+    weaponType, // Set weapon type for PT experience system
     attackRange: physicalAttack || undefined,
     race: rawWeapon.race,
     levelRequirement: rawWeapon.requiredLevel,
