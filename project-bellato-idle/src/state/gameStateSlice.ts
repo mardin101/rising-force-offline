@@ -128,7 +128,7 @@ export const PT_MIN = 0;
 export const PT_MAX_AT_LEVEL_1 = 2;
 export const PT_MAX_AT_MAX_LEVEL = 99;
 export const MAX_CHARACTER_LEVEL = 55;
-export const PT_EXPERIENCE_PER_ACTION = 0.002; // 0.2% experience per action (increased from 0.0005 for early game)
+export const PT_EXPERIENCE_PER_ACTION = 0.010; // 1.0% experience per action (5x increase for better progression tracking)
 
 // Experience constants
 // Experience is expressed as a percentage (0.0 to 1.0 where 1.0 = 100%)
