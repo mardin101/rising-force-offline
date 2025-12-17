@@ -576,9 +576,10 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       if (result.added === 0) {
         return { success: false, message: 'No inventory space available' };
       } else {
+        const potionWord = result.added === 1 ? 'potion' : 'potions';
         return { 
           success: false, 
-          message: `Only ${result.added} of ${quantity} items could fit. Inventory full.` 
+          message: `Inventory full. Only ${result.added} ${potionWord} could be added.` 
         };
       }
     }

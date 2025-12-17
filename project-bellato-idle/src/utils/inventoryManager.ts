@@ -4,7 +4,7 @@
  */
 
 import type { InventoryGrid, InventoryItem } from '../state/gameStateSlice';
-import { INVENTORY_ROWS, INVENTORY_COLS, MAX_STACK_SIZE, getItemById } from '../state/gameStateSlice';
+import { INVENTORY_ROWS, INVENTORY_COLS, MAX_STACK_SIZE, ITEM_TYPE, getItemById } from '../state/gameStateSlice';
 
 /**
  * Check if an item is stackable based on its type
@@ -16,7 +16,7 @@ export function isItemStackable(itemId: string): boolean {
   if (!itemData) return false;
   
   // Consumables and materials are stackable
-  return itemData.type === 'consumable' || itemData.type === 'material';
+  return itemData.type === ITEM_TYPE.CONSUMABLE || itemData.type === ITEM_TYPE.MATERIAL;
 }
 
 /**
