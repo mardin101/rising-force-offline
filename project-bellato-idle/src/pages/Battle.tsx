@@ -15,6 +15,7 @@ import {
   ITEM_TYPE,
   WEAPON_TYPE,
   EQUIPMENT_SLOT,
+  type AttackRange,
 } from '../state/gameStateSlice';
 import { QuestProgress } from '../components/game';
 import { getAssetPath } from '../utils/assets';
@@ -83,16 +84,20 @@ const CONTINUOUS_BATTLE_DELAY_MS = 500; // Delay before starting next battle in 
 /**
  * Calculate damage dealt from an attacker to a defender.
  * 
- * @param attack - The attacker's attack power
+ * @param attackRange - The attacker's attack range (min/max) or single attack value
  * @param defense - The defender's defense power
  * @returns The calculated damage amount (minimum 1)
  * 
  * @description
  * Damage formula: (attack - defense) with ±20% variance.
+ * Attack value is randomly selected from the attackRange (min to max).
  * The base damage is clamped to a minimum of 1 before variance is applied.
  * The final damage is also clamped to a minimum of 1.
  */
-function calculateDamage(attack: number, defense: number): number {
+function calculateDamage(attackRange: AttackRange, defense: number): number {
+  // Pick a random attack value between min and max
+  const attack = Math.floor(Math.random() * (attackRange.max - attackRange.min + 1)) + attackRange.min;
+  
   // Base damage = attack - defense, minimum 1 damage
   const baseDamage = Math.max(1, attack - defense);
   // Add variance (±DAMAGE_VARIANCE, default ±20%)
@@ -491,7 +496,7 @@ export default function Battle() {
 
       // Monster attacks player
       const monsterDamage = calculateDamage(
-        selectedMonster.attack,
+        { min: selectedMonster.attack, max: selectedMonster.attack },
         gameState.character!.statusInfo.avgDefPwr
       );
       newPlayerHp = Math.max(0, newPlayerHp - monsterDamage);
@@ -1029,7 +1034,7 @@ export default function Battle() {
                 </div>
                 <div className="text-xs text-gray-400 flex justify-between">
                   <span>HP: {battleState.playerCurrentHp} / {gameState.character.statusInfo.maxHp}</span>
-                  <span>ATK: {gameState.character.statusInfo.genAttack} | DEF: {gameState.character.statusInfo.avgDefPwr}</span>
+                  <span>ATK: {gameState.character.statusInfo.genAttack.min}-{gameState.character.statusInfo.genAttack.max} | DEF: {gameState.character.statusInfo.avgDefPwr}</span>
                 </div>
               </div>
 

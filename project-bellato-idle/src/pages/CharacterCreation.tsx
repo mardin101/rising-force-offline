@@ -135,7 +135,7 @@ export default function CharacterCreation() {
               </div>
               <div className="text-center">
                 <span className="text-gray-400 block">Gen. Attack</span>
-                <span className="text-red-400 font-medium">{selectedStats.genAttack}</span>
+                <span className="text-red-400 font-medium">{selectedStats.genAttack.min}-{selectedStats.genAttack.max}</span>
               </div>
               <div className="text-center">
                 <span className="text-gray-400 block">Avg. Def.</span>

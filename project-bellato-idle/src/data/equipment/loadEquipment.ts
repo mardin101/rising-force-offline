@@ -128,9 +128,32 @@ export function isEquipmentRaceCompatible(itemRace: string | undefined, playerRa
 }
 
 /**
+ * Parse weapon attack string (e.g., "13 - 15") to AttackRange
+ */
+function parseWeaponAttack(attackString: string): { min: number; max: number } | null {
+  if (!attackString || attackString === '-') {
+    return null;
+  }
+  
+  // Parse "MIN - MAX" format
+  const parts = attackString.split('-').map(part => part.trim());
+  if (parts.length === 2) {
+    const min = parseInt(parts[0], 10);
+    const max = parseInt(parts[1], 10);
+    if (!isNaN(min) && !isNaN(max)) {
+      return { min, max };
+    }
+  }
+  
+  return null;
+}
+
+/**
  * Convert raw weapon data from JSON to ItemData format
  */
 export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
+  const physicalAttack = parseWeaponAttack(rawWeapon.attack.physical);
+  
   return {
     id: rawWeapon.id,
     itemId: rawWeapon.weaponId,
@@ -142,6 +165,7 @@ export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
     localImagePath: rawWeapon.localImagePath,
     type: ITEM_TYPE.WEAPON,
     equipSlot: EQUIPMENT_SLOT.WEAPON,
+    attackRange: physicalAttack || undefined,
     race: rawWeapon.race,
     levelRequirement: rawWeapon.requiredLevel,
     image: rawWeapon.localImagePath,

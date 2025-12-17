@@ -9,6 +9,7 @@ import {
   type EquipmentSlotType,
   type EquippedItems,
   type MacroState,
+  type AttackRange,
   initialGameState,
   createCharacter,
   createStarterInventoryGrid,
@@ -20,6 +21,7 @@ import {
   INVENTORY_COLS,
   CLASS_BASE_STATS,
   calculateEquippedDefense,
+  calculateEquippedAttack,
   ITEM_TYPE,
   POTION_PRICES,
 } from './gameStateSlice';
@@ -110,13 +112,19 @@ function updateCharacterStatsFromEquipment(
 ): Character | null {
   if (!character) return null;
   
-  const baseDefPwr = CLASS_BASE_STATS[character.generalInfo.class].avgDefPwr;
+  const baseStats = CLASS_BASE_STATS[character.generalInfo.class];
+  const baseDefPwr = baseStats.avgDefPwr;
   const equippedDefense = calculateEquippedDefense(equippedItems);
+  
+  // Get attack range from equipped weapon, or use base attack if no weapon
+  const equippedAttack = calculateEquippedAttack(equippedItems);
+  const attackRange: AttackRange = equippedAttack || baseStats.genAttack;
   
   return {
     ...character,
     statusInfo: {
       ...character.statusInfo,
+      genAttack: attackRange,
       avgDefPwr: baseDefPwr + equippedDefense,
     },
   };
