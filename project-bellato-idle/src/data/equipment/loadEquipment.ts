@@ -2,7 +2,7 @@ import type { ItemData } from '../types';
 import weaponsJson from '../weapons/weapons.json';
 import armorJson from '../armor/armor.json';
 import shieldsJson from '../shields/shields.json';
-import { ITEM_TYPE, CHARACTER_RACES, EQUIPMENT_SLOT, type EquipmentSlotType } from '../constants';
+import { ITEM_TYPE, CHARACTER_RACES, EQUIPMENT_SLOT, type EquipmentSlotType, WEAPON_TYPE, type WeaponType } from '../constants';
 
 // Raw weapon data structure from JSON
 interface RawWeaponData {
@@ -128,6 +128,31 @@ export function isEquipmentRaceCompatible(itemRace: string | undefined, playerRa
 }
 
 /**
+ * Determine weapon type (melee or ranged) from the requiredSkill field
+ * 
+ * @param requiredSkill - The skill requirement string from weapon data
+ * @returns WeaponType.MELEE for close-range weapons, WeaponType.RANGED for ranged weapons, or undefined for force weapons
+ */
+function getWeaponTypeFromSkill(requiredSkill: string): WeaponType | undefined {
+  const normalizedSkill = requiredSkill.toLowerCase();
+  
+  // Close Range Skill = Melee weapons
+  if (normalizedSkill.includes('close range skill')) {
+    return WEAPON_TYPE.MELEE;
+  }
+  
+  // Ranged Skill, Launcher Skill, Bow = Ranged weapons
+  if (normalizedSkill.includes('ranged skill') || 
+      normalizedSkill.includes('launcher skill')) {
+    return WEAPON_TYPE.RANGED;
+  }
+  
+  // Force Skill = Magic/force weapons (not currently tracked for PT)
+  // Return undefined for force weapons as they don't grant melee or range PT
+  return undefined;
+}
+
+/**
  * Parse weapon attack string (e.g., "13 - 15") to AttackRange
  */
 function parseWeaponAttack(attackString: string): { min: number; max: number } | null {
@@ -153,6 +178,7 @@ function parseWeaponAttack(attackString: string): { min: number; max: number } |
  */
 export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
   const physicalAttack = parseWeaponAttack(rawWeapon.attack.physical);
+  const weaponType = getWeaponTypeFromSkill(rawWeapon.requiredSkill);
   
   return {
     id: rawWeapon.id,
@@ -165,6 +191,7 @@ export function transformWeaponToItem(rawWeapon: RawWeaponData): ItemData {
     localImagePath: rawWeapon.localImagePath,
     type: ITEM_TYPE.WEAPON,
     equipSlot: EQUIPMENT_SLOT.WEAPON,
+    weaponType: weaponType, // Set weapon type for PT experience system
     attackRange: physicalAttack || undefined,
     race: rawWeapon.race,
     levelRequirement: rawWeapon.requiredLevel,
