@@ -25,6 +25,7 @@ import {
 } from './gameStateSlice';
 import { isRaceCompatible } from '../data/potions/loadPotions';
 import { getEquipmentPrices } from '../data/equipment/loadEquipment';
+import { addItemWithQuantity } from '../utils/inventoryManager';
 
 export interface GameStateContextValue {
   gameState: GameState;
@@ -568,94 +569,34 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
       return { success: false, message: 'Not enough gold' };
     }
 
-    // Check for existing stack of the same potion or find empty slot
-    let targetRow = -1;
-    let targetCol = -1;
-    let existingQuantity = 0;
-
-    // First, look for existing stack
-    for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
-      for (let col = 0; col < INVENTORY_COLS; col++) {
-        const item = currentState.inventoryGrid[row][col];
-        if (item && item.itemId === potionId) {
-          targetRow = row;
-          targetCol = col;
-          existingQuantity = item.quantity ?? 1;
-          break;
-        }
+    // Try to add items to inventory with stacking support
+    const result = addItemWithQuantity(currentState.inventoryGrid, potionId, quantity);
+    
+    if (!result.success) {
+      if (result.added === 0) {
+        return { success: false, message: 'No inventory space available' };
+      } else {
+        return { 
+          success: false, 
+          message: `Only ${result.added} of ${quantity} items could fit. Inventory full.` 
+        };
       }
-    }
-
-    // If no existing stack, find empty slot
-    if (targetRow === -1) {
-      for (let row = 0; row < INVENTORY_ROWS && targetRow === -1; row++) {
-        for (let col = 0; col < INVENTORY_COLS; col++) {
-          if (!currentState.inventoryGrid[row][col]) {
-            targetRow = row;
-            targetCol = col;
-            break;
-          }
-        }
-      }
-    }
-
-    // If no slot available, fail
-    if (targetRow === -1) {
-      return { success: false, message: 'No inventory space available' };
     }
 
     // All validations passed - perform the purchase
-    // Update state (this is safe because validations passed)
     setGameState((prev) => {
       // Double-check in case of race condition
       if (!prev.character || prev.character.gold < totalCost) {
         return prev;
       }
 
-      // Update inventory
-      const newGrid = prev.inventoryGrid.map(row => [...row]);
+      // Add items to inventory using the stacking function
+      const inventoryResult = addItemWithQuantity(prev.inventoryGrid, potionId, quantity);
       
-      // Find target slot (prefer existing stack)
-      let actualTargetRow = targetRow;
-      let actualTargetCol = targetCol;
-      let actualExistingQuantity = existingQuantity;
-      
-      // Recheck for existing stack in case it changed
-      for (let row = 0; row < INVENTORY_ROWS; row++) {
-        for (let col = 0; col < INVENTORY_COLS; col++) {
-          const item = prev.inventoryGrid[row][col];
-          if (item && item.itemId === potionId) {
-            actualTargetRow = row;
-            actualTargetCol = col;
-            actualExistingQuantity = item.quantity ?? 1;
-            break;
-          }
-        }
+      if (!inventoryResult.success) {
+        // This shouldn't happen as we already checked, but handle it anyway
+        return prev;
       }
-      
-      // If original slot is occupied and we didn't find existing stack, find new empty slot
-      if (actualTargetRow === targetRow && prev.inventoryGrid[targetRow]?.[targetCol] && prev.inventoryGrid[targetRow][targetCol]?.itemId !== potionId) {
-        let foundEmpty = false;
-        for (let row = 0; row < INVENTORY_ROWS && !foundEmpty; row++) {
-          for (let col = 0; col < INVENTORY_COLS; col++) {
-            if (!prev.inventoryGrid[row][col]) {
-              actualTargetRow = row;
-              actualTargetCol = col;
-              actualExistingQuantity = 0;
-              foundEmpty = true;
-              break;
-            }
-          }
-        }
-        if (!foundEmpty) {
-          return prev;
-        }
-      }
-      
-      newGrid[actualTargetRow][actualTargetCol] = {
-        itemId: potionId,
-        quantity: actualExistingQuantity + quantity,
-      };
 
       // Deduct gold
       const newGold = prev.character.gold - totalCost;
@@ -666,7 +607,7 @@ export function GameStateProvider({ children }: GameStateProviderProps) {
           ...prev.character,
           gold: newGold,
         },
-        inventoryGrid: newGrid,
+        inventoryGrid: inventoryResult.grid,
       };
     });
 

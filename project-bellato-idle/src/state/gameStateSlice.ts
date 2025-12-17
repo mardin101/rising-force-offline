@@ -31,6 +31,7 @@ export {
   type PotionId,
   POTION_PRICES,
   SHOP_MAX_PURCHASE_QUANTITY,
+  MAX_STACK_SIZE,
   WEAPON_TYPE,
   type WeaponType,
   CHARACTER_CLASSES,

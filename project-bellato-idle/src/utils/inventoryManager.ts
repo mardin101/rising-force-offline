@@ -4,7 +4,20 @@
  */
 
 import type { InventoryGrid, InventoryItem } from '../state/gameStateSlice';
-import { INVENTORY_ROWS, INVENTORY_COLS } from '../state/gameStateSlice';
+import { INVENTORY_ROWS, INVENTORY_COLS, MAX_STACK_SIZE, getItemById } from '../state/gameStateSlice';
+
+/**
+ * Check if an item is stackable based on its type
+ * @param itemId The ID of the item to check
+ * @returns true if the item can be stacked
+ */
+export function isItemStackable(itemId: string): boolean {
+  const itemData = getItemById(itemId);
+  if (!itemData) return false;
+  
+  // Consumables and materials are stackable
+  return itemData.type === 'consumable' || itemData.type === 'material';
+}
 
 /**
  * Find the first empty slot in the inventory grid
@@ -43,6 +56,98 @@ export function addItemToInventory(grid: InventoryGrid, itemId: string): {
   newGrid[emptySlot.row][emptySlot.col] = { itemId };
   
   return { grid: newGrid, success: true, slot: emptySlot };
+}
+
+/**
+ * Add items to inventory with quantity and stack limit support
+ * Stackable items (consumables, materials) will be added to existing stacks first,
+ * respecting the MAX_STACK_SIZE limit. Overflow creates new stacks.
+ * 
+ * @param grid The current inventory grid
+ * @param itemId The ID of the item to add
+ * @param quantity The quantity to add (default: 1)
+ * @returns New grid with items added and success status
+ */
+export function addItemWithQuantity(
+  grid: InventoryGrid, 
+  itemId: string, 
+  quantity: number = 1
+): { 
+  grid: InventoryGrid; 
+  success: boolean; 
+  added: number; // Number of items actually added
+} {
+  if (quantity <= 0) {
+    return { grid, success: false, added: 0 };
+  }
+
+  const stackable = isItemStackable(itemId);
+  const newGrid = grid.map(row => [...row]);
+  let remainingQuantity = quantity;
+  let totalAdded = 0;
+
+  // For stackable items, try to add to existing stacks first
+  if (stackable) {
+    for (let row = 0; row < INVENTORY_ROWS && remainingQuantity > 0; row++) {
+      for (let col = 0; col < INVENTORY_COLS && remainingQuantity > 0; col++) {
+        const item = newGrid[row][col];
+        
+        // Found an existing stack of the same item
+        if (item && item.itemId === itemId) {
+          const currentQuantity = item.quantity ?? 1;
+          const availableSpace = MAX_STACK_SIZE - currentQuantity;
+          
+          if (availableSpace > 0) {
+            const toAdd = Math.min(remainingQuantity, availableSpace);
+            newGrid[row][col] = { 
+              itemId, 
+              quantity: currentQuantity + toAdd 
+            };
+            remainingQuantity -= toAdd;
+            totalAdded += toAdd;
+          }
+        }
+      }
+    }
+  }
+
+  // Add remaining items to empty slots
+  while (remainingQuantity > 0) {
+    // Find next empty slot
+    let emptyRow = -1;
+    let emptyCol = -1;
+    
+    for (let row = 0; row < INVENTORY_ROWS && emptyRow === -1; row++) {
+      for (let col = 0; col < INVENTORY_COLS; col++) {
+        if (newGrid[row][col] === null) {
+          emptyRow = row;
+          emptyCol = col;
+          break;
+        }
+      }
+    }
+
+    // No empty slots available
+    if (emptyRow === -1) {
+      break;
+    }
+
+    // Add item to empty slot
+    if (stackable) {
+      const toAdd = Math.min(remainingQuantity, MAX_STACK_SIZE);
+      newGrid[emptyRow][emptyCol] = { itemId, quantity: toAdd };
+      remainingQuantity -= toAdd;
+      totalAdded += toAdd;
+    } else {
+      // Non-stackable items (equipment, weapons) are added one at a time
+      newGrid[emptyRow][emptyCol] = { itemId, quantity: 1 };
+      remainingQuantity -= 1;
+      totalAdded += 1;
+    }
+  }
+
+  const success = totalAdded === quantity;
+  return { grid: newGrid, success, added: totalAdded };
 }
 
 /**

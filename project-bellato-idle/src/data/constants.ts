@@ -97,6 +97,9 @@ export const POTION_PRICES: Record<string, number> = getPotionPrices();
 // Shop constants
 export const SHOP_MAX_PURCHASE_QUANTITY = 99;
 
+// Inventory stacking constants
+export const MAX_STACK_SIZE = 99;
+
 // Weapon type constants - for PT system
 export const WEAPON_TYPE = {
   MELEE: 'melee',
