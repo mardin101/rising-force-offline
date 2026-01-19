@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "brainstorm": "echo '\n🧠 Feature Brainstorm Workflow\n\n1. Start: @feature-brainstorm I want to add [feature]\n2. Answer questions through 4 phases\n3. Review summary\n4. Create PR with context\n\nSee docs/FEATURE_WORKFLOW.md for details\n'"
   },
   "dependencies": {
     "react": "^19.2.0",
