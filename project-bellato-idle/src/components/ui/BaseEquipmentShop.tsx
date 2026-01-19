@@ -16,6 +16,7 @@ export interface BaseEquipmentShopProps {
   getShopItems: (race: string) => ItemData[];
   statLabel?: string;
   getStatValue?: (item: ItemData) => number | undefined;
+  renderStats?: (item: ItemData) => React.ReactNode;
 }
 
 /**
@@ -38,6 +39,7 @@ export default function BaseEquipmentShop({
   getShopItems,
   statLabel,
   getStatValue,
+  renderStats,
 }: BaseEquipmentShopProps) {
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,9 +94,11 @@ export default function BaseEquipmentShop({
               )}
               <div className="mb-3">
                 <h4 className="text-xl font-bold text-blue-400 mb-1">{itemData.name}</h4>
-                {statValue !== undefined && statLabel && (
+                {renderStats ? (
+                  renderStats(itemData)
+                ) : statValue !== undefined && statLabel ? (
                   <p className="text-sm text-gray-400">{statLabel}: {statValue}</p>
-                )}
+                ) : null}
               </div>
               <div className="space-y-1 text-sm">
                 <p className="text-yellow-400">
