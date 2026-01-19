@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { getShopArmor, getEquipmentPrices } from '../../data/equipment/loadEquipment';
 import { getAssetPath } from '../../utils/assets';
+import { validateLevelRequirement } from '../../utils/validation';
 import EquipmentShopModal from './EquipmentShopModal';
 import './Shop.css';
 
@@ -51,7 +52,7 @@ export default function ArmorShop({ playerGold, playerLevel, playerRace, onPurch
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {shopArmor.map((itemData) => {
           const price = equipmentPrices[itemData.id] ?? 1;
-          const meetsLevelRequirement = !itemData.levelRequirement || playerLevel >= itemData.levelRequirement;
+          const meetsLevelRequirement = validateLevelRequirement(playerLevel, itemData.levelRequirement);
 
           return (
             <button

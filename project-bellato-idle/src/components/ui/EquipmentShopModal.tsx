@@ -1,7 +1,9 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useState } from 'react';
 import { getItemById } from '../../state/gameStateSlice';
 import { getAssetPath } from '../../utils/assets';
 import type { ItemData } from '../../data/items';
+import { useModalEscape } from '../../hooks/useModalEscape';
+import { validateCanAfford, validateLevelRequirement } from '../../utils/validation';
 import './ShopModal.css';
 
 export interface EquipmentShopModalProps {
@@ -39,31 +41,12 @@ export default function EquipmentShopModal({
   const itemPrice = selectedItemId ? (equipmentPrices[selectedItemId] ?? 1) : 1;
   const quantity = 1; // Equipment is always purchased one at a time
   const totalCost = itemPrice * quantity;
-  const canAfford = playerGold >= totalCost;
-  const meetsLevelRequirement = !itemData?.levelRequirement || playerLevel >= itemData.levelRequirement;
+  const canAfford = validateCanAfford(playerGold, totalCost);
+  const meetsLevelRequirement = validateLevelRequirement(playerLevel, itemData?.levelRequirement);
   const canPurchase = canAfford && meetsLevelRequirement;
 
-  // Handle escape key to close modal
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    },
-    [onClose]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.body.style.overflow = '';
-      };
-    }
-  }, [isOpen, handleKeyDown]);
+  // Handle escape key to close modal and manage body overflow
+  useModalEscape(isOpen, onClose);
 
   // Handle backdrop click
   const handleBackdropClick = (e: React.MouseEvent) => {

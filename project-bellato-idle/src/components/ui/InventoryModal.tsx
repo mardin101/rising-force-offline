@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useState, useCallback } from 'react';
 import { 
   type InventoryGrid as InventoryGridType,
   type EquippedItems,
@@ -7,6 +7,7 @@ import {
 } from '../../state/gameStateSlice';
 import InventoryGrid from './InventoryGrid';
 import EquipmentSlots from './EquipmentSlots';
+import { useModalEscape } from '../../hooks/useModalEscape';
 import './InventoryModal.css';
 
 export interface InventoryModalProps {
@@ -43,25 +44,8 @@ export default function InventoryModal({
 }: InventoryModalProps) {
   const [selectedSlot, setSelectedSlot] = useState<{ row: number; col: number } | null>(null);
 
-  // Handle escape key to close modal
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  }, [onClose]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = 'hidden';
-    }
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
-  }, [isOpen, handleKeyDown]);
+  // Handle escape key to close modal and manage body overflow
+  useModalEscape(isOpen, onClose);
 
   // Handle backdrop click - also clears selection
   const handleBackdropClick = (e: React.MouseEvent) => {
