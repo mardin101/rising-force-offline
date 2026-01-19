@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import { getShopShields, getEquipmentPrices } from '../../data/equipment/loadEquipment';
-import { getAssetPath } from '../../utils/assets';
-import EquipmentShopModal from './EquipmentShopModal';
-import './Shop.css';
+import { getShopShields } from '../../data/equipment/loadEquipment';
+import BaseEquipmentShop from './BaseEquipmentShop';
 
 export interface ShieldShopProps {
   playerGold: number;
@@ -20,88 +17,15 @@ export interface ShieldShopProps {
  * - Click on a shield to open the purchase modal
  * - Shows level requirements for each shield
  */
-export default function ShieldShop({ playerGold, playerLevel, playerRace, onPurchase }: ShieldShopProps) {
-  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Get all shop shields for the player's race
-  const shopShields = getShopShields(playerRace);
-  const equipmentPrices = getEquipmentPrices();
-
-  const handleItemClick = (itemId: string) => {
-    setSelectedItemId(itemId);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedItemId(null);
-  };
-
+export default function ShieldShop(props: ShieldShopProps) {
   return (
-    <div className="shop-container">
-      <div className="shop-header">
-        <h2 className="shop-title">🛡️ Shield Shop</h2>
-        <div className="shop-gold">
-          <span className="shop-gold-label">Gold:</span>
-          <span className="shop-gold-value">{playerGold}</span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {shopShields.map((itemData) => {
-          const price = equipmentPrices[itemData.id] ?? 1;
-          const meetsLevelRequirement = !itemData.levelRequirement || playerLevel >= itemData.levelRequirement;
-
-          return (
-            <button
-              key={itemData.id}
-              className={`bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-blue-500 hover:bg-gray-700/50 transition-colors text-center ${
-                !meetsLevelRequirement ? 'opacity-60' : ''
-              }`}
-              onClick={() => handleItemClick(itemData.id)}
-              title={`${itemData.name}: ${itemData.description}`}
-            >
-              {itemData.image && (
-                <div className="flex justify-center mb-3">
-                  <img 
-                    src={getAssetPath(itemData.image)} 
-                    alt={itemData.name} 
-                    className="w-32 h-32 object-contain rounded border border-gray-600 bg-gray-900/50"
-                  />
-                </div>
-              )}
-              <div className="mb-3">
-                <h4 className="text-xl font-bold text-blue-400 mb-1">{itemData.name}</h4>
-                {itemData.defense && (
-                  <p className="text-sm text-gray-400">Def: {itemData.defense}</p>
-                )}
-              </div>
-              <div className="space-y-1 text-sm">
-                <p className="text-yellow-400">
-                  <span className="text-gray-500">Price:</span> {price} gold
-                </p>
-                {itemData.levelRequirement && (
-                  <p className={meetsLevelRequirement ? 'text-green-400' : 'text-red-400'}>
-                    <span className="text-gray-500">Level:</span> {itemData.levelRequirement}+
-                  </p>
-                )}
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      <EquipmentShopModal
-        key={selectedItemId ?? 'closed'}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        selectedItemId={selectedItemId}
-        playerGold={playerGold}
-        playerLevel={playerLevel}
-        equipmentPrices={equipmentPrices}
-        onPurchase={onPurchase}
-      />
-    </div>
+    <BaseEquipmentShop
+      {...props}
+      shopTitle="Shield Shop"
+      shopIcon="🛡️"
+      getShopItems={getShopShields}
+      statLabel="Def"
+      getStatValue={(item) => item.defense}
+    />
   );
 }

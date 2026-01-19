@@ -273,33 +273,36 @@ export function loadShields(): ItemData[] {
 }
 
 /**
+ * Generic helper to filter and sort equipment by race compatibility
+ * @param equipment - Array of equipment items
+ * @param race - Optional race filter
+ * @returns Filtered and sorted equipment array
+ */
+function filterAndSortEquipment(equipment: ItemData[], race?: string): ItemData[] {
+  return equipment
+    .filter(item => isEquipmentRaceCompatible(item.race, race))
+    .sort((a, b) => (a.levelRequirement || 0) - (b.levelRequirement || 0));
+}
+
+/**
  * Get all weapons sold at NPC, optionally filtered by race
  */
 export function getShopWeapons(race?: string): ItemData[] {
-  const allWeapons = loadWeapons();
-  return allWeapons
-    .filter(weapon => isEquipmentRaceCompatible(weapon.race, race))
-    .sort((a, b) => (a.levelRequirement || 0) - (b.levelRequirement || 0));
+  return filterAndSortEquipment(loadWeapons(), race);
 }
 
 /**
  * Get all armor sold at NPC, optionally filtered by race
  */
 export function getShopArmor(race?: string): ItemData[] {
-  const allArmor = loadArmor();
-  return allArmor
-    .filter(armor => isEquipmentRaceCompatible(armor.race, race))
-    .sort((a, b) => (a.levelRequirement || 0) - (b.levelRequirement || 0));
+  return filterAndSortEquipment(loadArmor(), race);
 }
 
 /**
  * Get all shields sold at NPC, optionally filtered by race
  */
 export function getShopShields(race?: string): ItemData[] {
-  const allShields = loadShields();
-  return allShields
-    .filter(shield => isEquipmentRaceCompatible(shield.race, race))
-    .sort((a, b) => (a.levelRequirement || 0) - (b.levelRequirement || 0));
+  return filterAndSortEquipment(loadShields(), race);
 }
 
 /**

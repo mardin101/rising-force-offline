@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useState } from 'react';
 import {
   getItemById,
   POTION_PRICES,
@@ -6,6 +6,8 @@ import {
 } from '../../state/gameStateSlice';
 import { getAssetPath } from '../../utils/assets';
 import type { ItemData } from '../../data/items';
+import { useModalEscape } from '../../hooks/useModalEscape';
+import { validateCanAfford, validateLevelRequirement } from '../../utils/validation';
 import './ShopModal.css';
 
 export interface ShopModalProps {
@@ -41,32 +43,13 @@ export default function ShopModal({
   const potionData: ItemData | undefined = selectedPotionId ? getItemById(selectedPotionId) : undefined;
   const potionPrice = selectedPotionId ? (POTION_PRICES[selectedPotionId] ?? 0) : 0;
   const totalCost = potionPrice * quantity;
-  const canAfford = playerGold >= totalCost && quantity > 0;
-  const meetsLevelRequirement = !potionData?.levelRequirement || playerLevel >= potionData.levelRequirement;
+  const canAfford = validateCanAfford(playerGold, totalCost) && quantity > 0;
+  const meetsLevelRequirement = validateLevelRequirement(playerLevel, potionData?.levelRequirement);
   const maxQuantity = potionData?.maxQuantity ?? SHOP_MAX_PURCHASE_QUANTITY;
   const canPurchase = canAfford && meetsLevelRequirement;
 
-  // Handle escape key to close modal
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    },
-    [onClose]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.body.style.overflow = '';
-      };
-    }
-  }, [isOpen, handleKeyDown]);
+  // Handle escape key to close modal and manage body overflow
+  useModalEscape(isOpen, onClose);
 
   // Handle backdrop click
   const handleBackdropClick = (e: React.MouseEvent) => {
