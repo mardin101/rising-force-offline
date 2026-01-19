@@ -14,9 +14,20 @@ export interface BaseEquipmentShopProps {
   shopTitle: string;
   shopIcon: string;
   getShopItems: (race: string) => ItemData[];
-  statLabel?: string;
-  getStatValue?: (item: ItemData) => number | undefined;
+  /**
+   * Custom renderer for item stats. If provided, this takes precedence over statLabel/getStatValue.
+   * Use this for complex stat display logic (e.g., showing different stats based on item type).
+   */
   renderStats?: (item: ItemData) => React.ReactNode;
+  /**
+   * Simple stat display for single-stat items. Only used if renderStats is not provided.
+   * Both statLabel and getStatValue must be provided together.
+   */
+  statLabel?: string;
+  /**
+   * Function to extract the stat value from an item. Only used if renderStats is not provided.
+   */
+  getStatValue?: (item: ItemData) => number | undefined;
 }
 
 /**
@@ -28,6 +39,14 @@ export interface BaseEquipmentShopProps {
  * - Click on an item to open the purchase modal
  * - Shows level requirements for each item
  * - Configurable title, icon, and stat display
+ * 
+ * @example
+ * // Simple stat display
+ * <BaseEquipmentShop statLabel="Atk" getStatValue={(item) => item.attack} ... />
+ * 
+ * @example
+ * // Complex stat display
+ * <BaseEquipmentShop renderStats={(item) => <CustomStatsComponent item={item} />} ... />
  */
 export default function BaseEquipmentShop({ 
   playerGold, 
@@ -58,6 +77,24 @@ export default function BaseEquipmentShop({
     setSelectedItemId(null);
   };
 
+  // Helper function to render item stats based on configuration
+  const renderItemStats = (itemData: ItemData): React.ReactNode => {
+    // Use custom renderer if provided (takes precedence)
+    if (renderStats) {
+      return renderStats(itemData);
+    }
+    
+    // Use simple stat display if both label and value getter are provided
+    if (statLabel && getStatValue) {
+      const statValue = getStatValue(itemData);
+      if (statValue !== undefined) {
+        return <p className="text-sm text-gray-400">{statLabel}: {statValue}</p>;
+      }
+    }
+    
+    return null;
+  };
+
   return (
     <div className="shop-container">
       <div className="shop-header">
@@ -72,7 +109,6 @@ export default function BaseEquipmentShop({
         {shopItems.map((itemData) => {
           const price = equipmentPrices[itemData.id] ?? 1;
           const meetsLevelRequirement = validateLevelRequirement(playerLevel, itemData.levelRequirement);
-          const statValue = getStatValue ? getStatValue(itemData) : undefined;
 
           return (
             <button
@@ -94,11 +130,7 @@ export default function BaseEquipmentShop({
               )}
               <div className="mb-3">
                 <h4 className="text-xl font-bold text-blue-400 mb-1">{itemData.name}</h4>
-                {renderStats ? (
-                  renderStats(itemData)
-                ) : statValue !== undefined && statLabel ? (
-                  <p className="text-sm text-gray-400">{statLabel}: {statValue}</p>
-                ) : null}
+                {renderItemStats(itemData)}
               </div>
               <div className="space-y-1 text-sm">
                 <p className="text-yellow-400">
