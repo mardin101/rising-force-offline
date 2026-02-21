@@ -13,7 +13,7 @@ export default function Town() {
   const [openShop, setOpenShop] = useState<'potion' | 'weapon' | 'armor' | 'shield' | null>(null);
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-red-900 min-h-screen">
       <h1 className="text-3xl font-bold text-amber-400 mb-4">Town Hub</h1>
       <p className="text-gray-300 mb-6">
         Welcome to the town! Here you can manage your inventory, visit merchants,
