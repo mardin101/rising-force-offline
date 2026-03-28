@@ -963,16 +963,16 @@ export default function Battle() {
       {/* Battle Modal */}
       {selectedMonster && gameState.character && (
         <div 
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-2 sm:p-4"
           onClick={handleBackdropClick}
           role="dialog"
           aria-modal="true"
           aria-label="Battle Arena"
         >
-          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg md:max-w-2xl lg:max-w-3xl h-[600px] md:h-[700px] lg:h-[800px] flex flex-col">
+          <div className="bg-gray-900 rounded-lg border border-red-600 w-full max-w-lg max-h-[90vh] flex flex-col">
             {/* Modal Header */}
-            <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-              <h2 className="text-xl font-bold text-red-400">Battle: {selectedMonster.name}</h2>
+            <div className="px-3 py-2 sm:p-4 border-b border-gray-700 flex justify-between items-center shrink-0">
+              <h2 className="text-lg sm:text-xl font-bold text-red-400">Battle: {selectedMonster.name}</h2>
               <button
                 onClick={closeBattleModal}
                 className="text-gray-400 hover:text-white transition-colors text-2xl"
@@ -982,51 +982,51 @@ export default function Battle() {
               </button>
             </div>
 
-            {/* Battle Stats */}
-            <div className="p-4 space-y-4 overflow-y-auto flex-1">
+            {/* Scrollable Battle Content */}
+            <div className="p-3 sm:p-4 space-y-3 overflow-y-auto flex-1 min-h-0">
               {/* Monster Image - Center of Attention */}
               {selectedMonster.localImagePath && (
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center">
                   <img
                     src={getAssetPath(selectedMonster.localImagePath)}
                     alt={selectedMonster.name}
-                    className="w-48 h-48 object-contain rounded-lg border-2 border-red-500 bg-gray-900/50 shadow-lg shadow-red-500/50"
+                    className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 object-contain rounded-lg border-2 border-red-500 bg-gray-900/50 shadow-lg shadow-red-500/50"
                   />
                 </div>
               )}
 
               {/* Monster Info */}
-              <div className="bg-gray-800 rounded-lg p-3 mb-2">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-red-400 font-bold text-lg">{selectedMonster.name}</span>
-                  <span className="text-sm text-gray-400">Lv.{selectedMonster.level}</span>
+              <div className="bg-gray-800 rounded-lg p-2 sm:p-3">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-red-400 font-bold text-sm sm:text-lg">{selectedMonster.name}</span>
+                  <span className="text-xs sm:text-sm text-gray-400">Lv.{selectedMonster.level}</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-4 mb-2">
+                <div className="w-full bg-gray-700 rounded-full h-3 sm:h-4 mb-1">
                   <div
-                    className="bg-red-500 h-4 rounded-full transition-all duration-300"
+                    className="bg-red-500 h-3 sm:h-4 rounded-full transition-all duration-300"
                     style={{
                       width: `${(battleState.monsterCurrentHp / selectedMonster.hp) * 100}%`,
                     }}
                   />
                 </div>
-                <div className="flex justify-between text-sm text-gray-400">
+                <div className="flex justify-between text-xs sm:text-sm text-gray-400">
                   <span>HP: {battleState.monsterCurrentHp} / {selectedMonster.hp}</span>
                   <span>ATK: {selectedMonster.attack} | DEF: {selectedMonster.defense}</span>
                 </div>
               </div>
 
               {/* VS Divider */}
-              <div className="text-center text-xl font-bold text-amber-400 my-2">VS</div>
+              <div className="text-center text-base sm:text-xl font-bold text-amber-400">VS</div>
 
               {/* Player Stats */}
-              <div className="bg-gray-800 rounded-lg p-3">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-blue-400 font-bold">{gameState.character.generalInfo.name}</span>
-                  <span className="text-sm text-gray-400">Lv.{gameState.character.level}</span>
+              <div className="bg-gray-800 rounded-lg p-2 sm:p-3">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-blue-400 font-bold text-sm sm:text-base">{gameState.character.generalInfo.name}</span>
+                  <span className="text-xs sm:text-sm text-gray-400">Lv.{gameState.character.level}</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-4 mb-1">
+                <div className="w-full bg-gray-700 rounded-full h-3 sm:h-4 mb-1">
                   <div
-                    className="bg-green-500 h-4 rounded-full transition-all duration-300"
+                    className="bg-green-500 h-3 sm:h-4 rounded-full transition-all duration-300"
                     style={{
                       width: `${(battleState.playerCurrentHp / gameState.character.statusInfo.maxHp) * 100}%`,
                     }}
@@ -1040,68 +1040,83 @@ export default function Battle() {
 
               {/* Battle Result */}
               {battleState.isVictory === true && !continuousCombat && (
-                <div className="bg-green-900/50 border border-green-500 rounded-lg p-3 text-center">
-                  <p className="text-green-400 font-bold">Victory!</p>
+                <div className="bg-green-900/50 border border-green-500 rounded-lg p-2 sm:p-3 text-center">
+                  <p className="text-green-400 font-bold text-sm sm:text-base">Victory!</p>
                   {battleState.pendingReward && (
-                    <p className="text-sm text-amber-400">
+                    <p className="text-xs sm:text-sm text-amber-400">
                       Gained {(battleState.pendingReward.expGain * 100).toFixed(1)}% EXP and {battleState.pendingReward.goldGain} Gold!
                     </p>
                   )}
-                  <p className="text-sm text-gray-300">Click "Fight Monster" to fight again!</p>
                 </div>
               )}
               {battleState.isVictory === false && (
-                <div className="bg-red-900/50 border border-red-500 rounded-lg p-3 text-center">
-                  <p className="text-red-400 font-bold">💀 You Died!</p>
+                <div className="bg-red-900/50 border border-red-500 rounded-lg p-2 sm:p-3 text-center">
+                  <p className="text-red-400 font-bold text-sm sm:text-base">💀 You Died!</p>
                   {battleState.pendingDeathPenalty && (
-                    <p className="text-sm text-amber-400">
+                    <p className="text-xs sm:text-sm text-amber-400">
                       Lost {(battleState.pendingDeathPenalty.expLost * 100).toFixed(1)}% experience as death penalty.
                     </p>
                   )}
-                  <p className="text-sm text-gray-300 mt-1">HP restored. Click "Fight Monster" to try again!</p>
+                  <p className="text-xs text-gray-300 mt-1">HP restored. Click "Fight Monster" to try again!</p>
                 </div>
               )}
 
               {/* Continuous Combat Stats */}
               {continuousCombat && battleState.monstersDefeated > 0 && (
-                <div className="bg-blue-900/30 border border-blue-500 rounded-lg p-3 text-center">
-                  <p className="text-blue-400 font-bold">⚔️ Auto-Battle Active</p>
-                  <p className="text-sm text-gray-300">
+                <div className="bg-blue-900/30 border border-blue-500 rounded-lg p-2 text-center">
+                  <p className="text-blue-400 font-bold text-sm">⚔️ Auto-Battle Active</p>
+                  <p className="text-xs text-gray-300">
                     Monsters Defeated: <span className="text-amber-400 font-bold">{battleState.monstersDefeated}</span>
                   </p>
                 </div>
               )}
+            </div>
 
-              {/* Continuous Combat Toggle */}
-              <div className="flex items-center justify-between bg-gray-800 rounded-lg p-3">
+            {/* Battle Log - Fixed height section to prevent layout shifts */}
+            <div ref={battleLogRef} className="h-28 sm:h-32 border-t border-gray-700 bg-gray-800 overflow-y-auto p-2 sm:p-3 shrink-0" aria-live="polite">
+              <h4 className="text-xs font-bold text-gray-400 mb-1">Battle Log</h4>
+              {battleState.battleLog.length > 0 ? (
+                <div className="space-y-0.5">
+                  {battleState.battleLog.map((log, index) => (
+                    <p key={`${log}-${index}`} className="text-xs text-gray-300">{log}</p>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
+              )}
+            </div>
+
+            {/* Fixed Bottom Controls - Always visible */}
+            <div className="p-2 sm:p-3 border-t border-gray-700 space-y-2 shrink-0">
+              {/* Auto-Battle Toggle */}
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-300">Auto-Battle</span>
-                  <span className="text-xs text-gray-500">(Fight continuously)</span>
+                  <span className="text-xs sm:text-sm font-medium text-gray-300">Auto-Battle</span>
                 </div>
                 <button
                   onClick={() => setContinuousCombat(!continuousCombat)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  className={`relative inline-flex h-5 w-10 sm:h-6 sm:w-11 items-center rounded-full transition-colors ${
                     continuousCombat ? 'bg-green-600' : 'bg-gray-600'
                   }`}
                   aria-label="Toggle continuous combat"
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                      continuousCombat ? 'translate-x-6' : 'translate-x-1'
+                    className={`inline-block h-3.5 w-3.5 sm:h-4 sm:w-4 transform rounded-full bg-white transition-transform ${
+                      continuousCombat ? 'translate-x-5 sm:translate-x-6' : 'translate-x-1'
                     }`}
                   />
                 </button>
               </div>
 
               {/* Battle Control Buttons */}
-              <div className="space-y-2">
+              <div className="flex gap-2">
                 {/* Main Fight/Start Button - shown when not in active battle */}
                 {!(battleState.isActive && battleState.isVictory === null) && (
                   <button
                     onClick={() => startBattle()}
-                    className="w-full py-3 rounded-lg font-bold text-lg transition-colors bg-red-600 hover:bg-red-500 text-white"
+                    className="flex-1 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-colors bg-red-600 hover:bg-red-500 text-white"
                   >
-                    {battleState.isVictory !== null ? 'Fight Monster Again' : 'Fight Monster'}
+                    Fight Monster
                   </button>
                 )}
 
@@ -1109,7 +1124,7 @@ export default function Battle() {
                 {battleState.isActive && battleState.isVictory === null && (
                   <button
                     onClick={fleeBattle}
-                    className="w-full py-3 rounded-lg font-bold text-lg transition-colors bg-yellow-600 hover:bg-yellow-500 text-white"
+                    className="flex-1 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-colors bg-yellow-600 hover:bg-yellow-500 text-white"
                   >
                     🏃 Flee Battle
                   </button>
@@ -1119,24 +1134,10 @@ export default function Battle() {
                 {continuousCombat && battleState.monstersDefeated > 0 && !(battleState.isActive && battleState.isVictory === null) && (
                   <button
                     onClick={endCombat}
-                    className="w-full py-2 rounded-lg font-medium text-sm transition-colors bg-gray-700 hover:bg-gray-600 text-white border border-gray-500"
+                    className="py-2 px-3 rounded-lg font-medium text-xs sm:text-sm transition-colors bg-gray-700 hover:bg-gray-600 text-white border border-gray-500"
                   >
-                    End Combat ({battleState.monstersDefeated} defeated)
+                    End Combat ({battleState.monstersDefeated})
                   </button>
-                )}
-              </div>
-
-              {/* Battle Log - Bottom Section */}
-              <div ref={battleLogRef} className="bg-gray-800 rounded-lg p-3 max-h-40 overflow-y-auto" aria-live="polite">
-                <h4 className="text-sm font-bold text-gray-400 mb-2">Battle Log</h4>
-                {battleState.battleLog.length > 0 ? (
-                  <div className="space-y-1">
-                    {battleState.battleLog.map((log, index) => (
-                      <p key={`${log}-${index}`} className="text-xs text-gray-300">{log}</p>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-xs text-gray-500">Click "Fight Monster" to begin combat!</p>
                 )}
               </div>
             </div>
