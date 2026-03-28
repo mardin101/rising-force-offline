@@ -937,5 +937,34 @@ export function migrateGameState(state: GameState): GameState {
     }
   }
   
+  // Migrate new-format characters with missing statusInfo fields
+  // This handles saves from before certain fields (e.g. avgDefPwr, genAttack) were added
+  if (migratedState.character && 'generalInfo' in migratedState.character) {
+    const char = migratedState.character;
+    const baseStats = CLASS_BASE_STATS[char.generalInfo.class];
+    const statusInfo = char.statusInfo as unknown as Record<string, unknown>;
+    
+    if (typeof statusInfo.avgDefPwr !== 'number' || typeof statusInfo.genAttack !== 'object') {
+      const existingGenAttack = statusInfo.genAttack as AttackRange | undefined;
+      migratedState = {
+        ...migratedState,
+        character: {
+          ...char,
+          statusInfo: {
+            ...char.statusInfo,
+            genAttack: existingGenAttack ?? baseStats.genAttack,
+            avgDefPwr: typeof statusInfo.avgDefPwr === 'number' ? statusInfo.avgDefPwr : baseStats.avgDefPwr,
+            avgDefRange: typeof statusInfo.avgDefRange === 'number' ? statusInfo.avgDefRange : baseStats.avgDefRange,
+            avgDefRate: typeof statusInfo.avgDefRate === 'number' ? statusInfo.avgDefRate : baseStats.avgDefRate,
+            forceAttack: typeof statusInfo.forceAttack === 'number' ? statusInfo.forceAttack : baseStats.forceAttack,
+            attackSpeed: typeof statusInfo.attackSpeed === 'number' ? statusInfo.attackSpeed : baseStats.attackSpeed,
+            accuracy: typeof statusInfo.accuracy === 'number' ? statusInfo.accuracy : baseStats.accuracy,
+            dodge: typeof statusInfo.dodge === 'number' ? statusInfo.dodge : baseStats.dodge,
+          },
+        },
+      };
+    }
+  }
+  
   return migratedState;
 }
