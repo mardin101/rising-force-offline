@@ -1116,7 +1116,7 @@ export default function Battle() {
                     onClick={() => startBattle()}
                     className="flex-1 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-colors bg-red-600 hover:bg-red-500 text-white"
                   >
-                    {battleState.isVictory !== null ? 'Fight Again' : 'Fight Monster'}
+                    Fight Monster
                   </button>
                 )}
 
@@ -1126,7 +1126,7 @@ export default function Battle() {
                     onClick={fleeBattle}
                     className="flex-1 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-colors bg-yellow-600 hover:bg-yellow-500 text-white"
                   >
-                    🏃 Flee
+                    🏃 Flee Battle
                   </button>
                 )}
 
@@ -1136,7 +1136,7 @@ export default function Battle() {
                     onClick={endCombat}
                     className="py-2 px-3 rounded-lg font-medium text-xs sm:text-sm transition-colors bg-gray-700 hover:bg-gray-600 text-white border border-gray-500"
                   >
-                    End ({battleState.monstersDefeated})
+                    End Combat ({battleState.monstersDefeated})
                   </button>
                 )}
               </div>
