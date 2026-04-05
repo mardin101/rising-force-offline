@@ -4,6 +4,7 @@ import {
 } from '../../state/gameStateSlice';
 import { getShopHPPotions } from '../../data/potions/loadPotions';
 import { getAssetPath } from '../../utils/assets';
+import { validateLevelRequirement } from '../../utils/validation';
 import ShopModal from './ShopModal';
 import './Shop.css';
 
@@ -53,7 +54,7 @@ export default function Shop({ playerGold, playerLevel, playerRace, onPurchase }
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {shopPotions.map((potionData) => {
           const price = POTION_PRICES[potionData.id] ?? 0;
-          const meetsLevelRequirement = !potionData.levelRequirement || playerLevel >= potionData.levelRequirement;
+          const meetsLevelRequirement = validateLevelRequirement(playerLevel, potionData.levelRequirement);
 
           return (
             <button

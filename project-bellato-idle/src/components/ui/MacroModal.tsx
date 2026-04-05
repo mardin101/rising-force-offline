@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState, type DragEvent } from 'react';
+import { useState, type DragEvent, useCallback } from 'react';
 import { 
   type InventoryGrid as InventoryGridType,
   type MacroState,
@@ -9,6 +9,7 @@ import {
 } from '../../state/gameStateSlice';
 import { isRaceCompatible } from '../../data/potions/loadPotions';
 import { getAssetPath } from '../../utils/assets';
+import { useModalEscape } from '../../hooks/useModalEscape';
 import './MacroModal.css';
 
 export interface MacroModalProps {
@@ -66,24 +67,8 @@ export default function MacroModal({
   const [isDragOver, setIsDragOver] = useState(false);
   const [draggingFrom, setDraggingFrom] = useState<{ row: number; col: number } | null>(null);
 
-  // Handle escape key to close modal
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  }, [onClose]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-      
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.body.style.overflow = '';
-      };
-    }
-  }, [isOpen, handleKeyDown]);
+  // Handle escape key to close modal and manage body overflow
+  useModalEscape(isOpen, onClose);
 
   // Get available potions from inventory
   const getAvailablePotions = useCallback((): AvailablePotion[] => {

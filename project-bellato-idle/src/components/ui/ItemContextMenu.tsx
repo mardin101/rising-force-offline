@@ -1,4 +1,5 @@
-import { useEffect, useCallback, useRef } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 import './ItemContextMenu.css';
 
 // Positioning constants for viewport boundary calculations
@@ -47,23 +48,17 @@ export default function ItemContextMenu({ x, y, actions, onClose }: ItemContextM
   }, [onClose]);
 
   // Handle escape key
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  }, [onClose]);
+  useEscapeKey(onClose);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('touchstart', handleTouchOutside);
-    document.addEventListener('keydown', handleKeyDown);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleTouchOutside);
-      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleClickOutside, handleTouchOutside, handleKeyDown]);
+  }, [handleClickOutside, handleTouchOutside]);
 
   // Adjust position to keep menu within viewport
   const adjustedPosition = {
